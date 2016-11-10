@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	 <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-83609754-1', 'mirrormedia.mg');
+	  ga('create', 'UA-83609754-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	  </script>
+</head>
+<body>
+	<div class="content">
+		<div class="point-content">
+			<img class="point-img" src="img/minigame_minesweeper_bomb.png" srcset="img/minigame_minesweeper_bomb2x.png 2x">
+			<img class="point-title-img" src="img/minigame_minesweeper_Trump_title.png" srcset="img/minigame_minesweeper_Trump_title2x.png 2x">
+			<div class="point-box">
+				<span class="point-text">得 分</span><span id="point-result" class="point-result"></span>
+			</div>
+		</div>
+		<div class="jiugongge">
+			<div id="jiugongge-content" class="jiugongge-content">
+				<div class="jiugongge-row">
+					<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box">
+						<img id="golden" alt="黃金" src="img/minigame_minesweeper_golden.png" srcset="img/minigame_minesweeper_golden2x.png 2x">
+			    	</div>
+			    	<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+			    		<img id="oil" alt="石油" src="img/minigame_minesweeper_oil.png" srcset="img/minigame_minesweeper_oil2x.png 2x">
+			    	</div>
+			    	<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+			    		<img id="bond" alt="債市" src="img/minigame_minesweeper_bond.png" srcset="img/minigame_minesweeper_bond2x.png 2x">
+			    	</div>
+				</div>
+				<div class="jiugongge-row">
+					<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+						<img id="market" alt="新興市場" src="img/minigame_minesweeper_market.png" srcset="img/minigame_minesweeper_market2x.png 2x">
+			    	</div>
+			    	<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+			    		<img id="dollar" alt="美元" src="img/minigame_minesweeper_dollar.png" srcset="img/minigame_minesweeper_dollar2x.png 2x">
+			    	</div>
+			    	<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+			    		<img id="yen" alt="日圓" src="img/minigame_minesweeper_yen.png" srcset="img/minigame_minesweeper_yen2x.png 2x">
+			    	</div>
+				</div>
+				<div class="jiugongge-row">
+					<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+						<img id="cnstock" alt="陸股" src="img/minigame_minesweeper_cnstock.png" srcset="img/minigame_minesweeper_cnstock2x.png 2x">
+			    	</div>
+			    	<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+			    		<img id="twstock" alt="台股" src="img/minigame_minesweeper_twstock.png" srcset="img/minigame_minesweeper_twstock2x.png 2x">
+			    	</div>
+			    	<div class="col-md-4 col-sm-4 col-xs-4 jiugongge-box ">
+			    		<img id="rmb" alt="人民幣" src="img/minigame_minesweeper_rmb.png" srcset="img/minigame_minesweeper_rmb2x.png 2x">
+			    	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="comment" class="comment">
+		<div class="comment-content">
+			<div class="comment-img">
+				<img id="comment-img">
+			</div>
+			<div id="comment-text" class="comment-text"></div>
+			<div id="comment-end" class="comment-end">
+				<p>遊戲結束</p>
+				<p>總得分：<span id="comment-point"></span></p>
+			</div>
+			<div id="comment-button" class="comment-button">
+				<img id="comment-button-img" src="img/minigame_minesweeper_close.png">
+				<span id="comment-button-text">關閉視窗</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="js/script.js"></script>
