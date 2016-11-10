@@ -43,6 +43,8 @@ $("#jiugongge-content img").click(function(){
 			   });
   		break;
   	case (resultOk.indexOf(choose) !== -1 ):
+  		point += 50;
+  		$("#point-result").text(point);
   		$(this).css("transform","rotateX(360deg)")
   			   .delay(500)
 			   .queue(function() {
@@ -57,7 +59,7 @@ $("#jiugongge-content img").click(function(){
 			   });
   		break;
   	case (resultBad.indexOf(choose) !== -1 ):
-  		gameStop = true;
+  		$("#point-result").text(point); 
   		$(this).css("transform","rotateX(360deg)")
   			   .delay(500)
 			   .queue(function() {
@@ -69,9 +71,12 @@ $("#jiugongge-content img").click(function(){
 			   		$("#comment").fadeIn('fast', function() {
 			   			$("#comment").show();
 			   			$("#comment-point").text(point);
-			   			$("#comment-button-text").text("重新開始");
-			   			$("#comment-button-img").attr("src","img/minigame_minesweeper_restart.png");
-			   			$("#comment-end").show();
+			   			if (point !== 350) {
+			   				gameStop = true;
+			   				$("#comment-button-text").text("重新開始");
+			   				$("#comment-button-img").attr("src","img/minigame_minesweeper_restart.png");
+			   				$("#comment-end").show();
+			   			} 
 			   		});
 			   });
   		break;
