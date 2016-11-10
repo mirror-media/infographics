@@ -2,6 +2,7 @@ var resultGood = ["golden", "bond", "yen"];
 var resultOk = ["oil"];
 var resultBad = ["market", "dollar", "cnstock", "twstock", "rmb"];
 var point = 0;
+var answerAllRight = false;
 var gameStop = false;
 var commentText = {
 	golden: "越動盪越高漲的避險資產，黃金一有回檔就買，考慮佔資產配置一到三成",
@@ -16,11 +17,13 @@ var commentText = {
 }
 
 $("#comment").hide();
+$("#comment-allRight").hide();
 $("#comment-end").hide();
 
 $("#jiugongge-content img").click(function(){
+  var self = this;
   var choose = $(this).attr('id');
-
+  $("#comment-allRight").hide();
   $("#comment-img").attr("src","img/minigame_minesweeper_" + choose + ".png")
   				   .attr("srcset","img/minigame_minesweeper_" + choose + "2x.png 2x");
   $("#comment-text").text(commentText[choose]);
@@ -28,35 +31,11 @@ $("#jiugongge-content img").click(function(){
   switch(true) {
   	case (resultGood.indexOf(choose) !== -1 ):
   		point += 100;
-  		$("#point-result").text(point); 
-  		$(this).css("transform","rotateX(360deg)")
-  			   .delay(500)
-			   .queue(function() {
-			        $(this).attr("src","img/minigame_minesweeper_good.png")
-			       		   .attr("srcset","img/minigame_minesweeper_good2x.png 2x").dequeue();
-			   })
-			   .delay(800)
-			   .queue(function() {
-			   		$("#comment").fadeIn('fast', function() {
-			   			$("#comment").show();
-			   		});
-			   });
+  		FlipCard(self, point, "good");
   		break;
   	case (resultOk.indexOf(choose) !== -1 ):
   		point += 50;
-  		$("#point-result").text(point);
-  		$(this).css("transform","rotateX(360deg)")
-  			   .delay(500)
-			   .queue(function() {
-			       $(this).attr("src","img/minigame_minesweeper_ok.png")
-			       		  .attr("srcset","img/minigame_minesweeper_ok2x.png 2x").dequeue();
-			   })
-			   .delay(800)
-			   .queue(function() {
-			   		$("#comment").fadeIn('fast', function() {
-			   			$("#comment").show();
-			   		});
-			   });
+  		FlipCard(self, point, "ok");
   		break;
   	case (resultBad.indexOf(choose) !== -1 ):
   		$("#point-result").text(point); 
@@ -89,3 +68,23 @@ $("#comment-button").click(function(){
 	}
 	$("#comment").hide();
 });
+
+function FlipCard(self, point, cardResult) {
+	$("#point-result").text(point);
+	if (point === 350 && !answerAllRight) {
+		answerAllRight = true;
+		$("#comment-allRight").show();
+	} 
+	$(self).css("transform","rotateX(360deg)")
+		   .delay(500)
+	   	   .queue(function() {
+	       	$(self).attr("src","img/minigame_minesweeper_" + cardResult + ".png")
+	       	.attr("srcset","img/minigame_minesweeper_" + cardResult + "2x.png 2x").dequeue();
+	       })
+	   	   .delay(800)
+	   	   .queue(function() {
+	   			$("#comment").fadeIn('fast', function() {
+	   				$("#comment").show();
+	   			});
+	   	   });
+}
