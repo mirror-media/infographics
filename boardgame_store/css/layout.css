@@ -312,11 +312,27 @@ section.info p {text-align:center;}
 
 #quiz section {max-width:768px; margin:0 auto 60px auto;}
 .quizwpr {margin:0 auto; max-width:768px; overflow:hidden;
-border-radius:8px;
-/*box-shadow:0 0 10px rgba(0,0,0,0.8);*/
+border-radius:8px; background-color:#d6d6d6; 
 }
 .quiz .quote {margin-bottom:25px;}
 
+/* --- Related Posts ---*/
+#quiz .relatedwpr {max-width:100%; margin-bottom:20px; }
+.relatedwpr .subtitle {width:100%; margin-bottom:10px; }
+.relatedwpr .centerwpr {max-width:788px;}
+.relatedwpr .centerwpr:after {content:""; display:table; clear:both;}
+
+.relatedwpr .slot {display:block; width:49%; padding:10px; box-sizing:border-box; float:left; cursor:pointer; margin-bottom:20px;}
+.relatedwpr .imgwpr {height:0; padding-bottom:66.67%; margin-bottom:15px; 
+background-size:cover; border-radius:3px; box-shadow:0 0 3px rgba(0,0,0,0.5);
+}
+.relatedwpr h1 {text-align:left; font-size:20px; color:#f6f4f3; margin-bottom:10px;}
+.relatedwpr p {font-size:16px; line-height:140%; margin-bottom:0;}
+
+.relatedwpr .divider {height:0; margin:0; clear:both; background-image:none;}
+
+
+/* --- Responsive ---*/
 @media screen and (max-width: 320px) {
   #questionnaire {
     height: 1055px !important;
