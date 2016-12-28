@@ -212,6 +212,7 @@ var GAListener  = (function() {
       window.open('http://line.naver.jp/R/msg/text/?' + encodeURIComponent(_thisTitle) + "%0D%0A" + encodeURIComponent('https://statics.mirrormedia.mg/projects/boardgame_store/index.html'));
     });
   }
+  /*
   var _setRelatedGaHandler = function() {
     var _relatedUl = document.querySelector('.related');
     _relatedUl.addEventListener('click', function(e) {
@@ -223,7 +224,7 @@ var GAListener  = (function() {
       ga('send', 'event', 'project', 'click', 'related article?' + target.getAttribute('href'));
     });
   }
-
+*/
   var _constructor = function() {
     var _navItem = document.querySelectorAll('#nav li');
     for(var i = 0; i < _navItem.length; i++) {
@@ -233,7 +234,7 @@ var GAListener  = (function() {
     _setShareFB();
     _setShareWeibo();
     _setShareLine();
-    _setRelatedGaHandler();
+    //_setRelatedGaHandler();
   }
 
   return {

@@ -49,6 +49,7 @@
 @media only screen and (max-width : 600px) {
 
     .header .subtitle {width:120%; margin-left:-10%;} /* subtitle */
+    .relatedwpr .subtitle {width:180%; margin-left:-40%;}
     
     /* nav */
     #navwpr {height:45px;}
@@ -69,7 +70,9 @@
     .chapter.odd:after {background-size:150% auto;}
     .chapter.even:before {background-size:150% auto;}
     .chapter.even:after {background-size:150% auto;}
-	
+    
+    .relatedwpr .slot {width:100%;}
+    .relatedwpr h1 {font-size:20px;}
 	
 }
 
@@ -91,6 +94,9 @@
     
     .quote {padding-right:0; border-right:none;}
     .quote p {font-size:19px; text-align:left; }
+    
+    .relatedwpr h1 {font-size:20px; line-height:110%;}
+    .relatedwpr .subtitle {width:200%; margin-left:-50%;}
 	
 }
 
@@ -104,6 +110,9 @@
     .chapter h3 {font-size:22px; line-height:120%; }
     .quote {padding-right:0; border-right:none;}
     .quote p {font-size:18px; text-align:left; }
+    
+    .relatedwpr h1 {font-size:20px; line-height:110%;}
+    .relatedwpr .subtitle {width:220%; margin-left:-60%;}
 	
 	
 }
