@@ -198,25 +198,28 @@ var GAListener  = (function() {
       }
     }
   }
-  var _setShareFB = function() {
-    var _btnFB = document.querySelector('.btn.facebook');
+  var _setShareFB = function(target, targePos) {
+    var _btnFB = document.querySelector(target);
     _btnFB.addEventListener('click', function() {
+      ga('send', 'event', 'project', 'click', 'fbShare: ' + targePos);
       window.open('https://www.facebook.com/share.php?u=https://statics.mirrormedia.mg/projects/boardgame_store/index.html');
     });
   }
-  var _setShareWeibo = function() {
-    var _btnWB = document.querySelector('.btn.weibo');
+  var _setShareWeibo = function(target, targePos) {
+    var _btnWB = document.querySelector(target);
     var _thisTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
     var _thisDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
     _btnWB.addEventListener('click', function() {
+      ga('send', 'event', 'project', 'click', 'weiboShare: ' + targePos);
       window.open('http://service.weibo.com/share/share.php?appkey=&title=' + encodeURIComponent(_thisTitle) + "%0D%0A" + _thisDesc + '&url=https://statics.mirrormedia.mg/projects/boardgame_store/index.html')
     });
   }
-  var _setShareLine = function() {
-    var _btnLine = document.querySelector('.btn.line');
+  var _setShareLine = function(target, targePos) {
+    var _btnLine = document.querySelector(target);
     var _thisTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
     var _thisDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
     _btnLine.addEventListener('click', function() {
+      ga('send', 'event', 'project', 'click', 'lineShare: ' + targePos);
       window.open('http://line.naver.jp/R/msg/text/?' + encodeURIComponent(_thisTitle) + "%0D%0A" + encodeURIComponent('https://statics.mirrormedia.mg/projects/boardgame_store/index.html'));
     });
   }
@@ -246,9 +249,12 @@ var GAListener  = (function() {
       _navItem[ i ].addEventListener('click', _navHandler);
     }
     window.addEventListener('scroll', _whichArticleVidible);
-    _setShareFB();
-    _setShareWeibo();
-    _setShareLine();
+    _setShareFB('#navwpr .btn.facebook', 'outsideShare');
+    _setShareWeibo('#navwpr .btn.weibo', 'outsideShare');
+    _setShareLine('#navwpr .btn.line', 'outsideShare');
+    _setShareFB('#sidebar .btn.facebook', 'insideShare');
+    _setShareWeibo('#sidebar .btn.weibo', 'insideShare');
+    _setShareLine('#sidebar .btn.line', 'insideShare');
     // _setRelatedGaHandler();
   }
 
