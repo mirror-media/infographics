@@ -1,0 +1,194 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('font/fontello.eot?67277035');
+  src: url('font/fontello.eot?67277035#iefix') format('embedded-opentype'),
+       url('font/fontello.woff?67277035') format('woff'),
+       url('font/fontello.ttf?67277035') format('truetype'),
+       url('font/fontello.svg?67277035#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: "fontello";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-left: .2em;
+  margin-right: .2em;
+  speak: none;
+  text-align: center;
+  text-transform: none;
+  width: 1em;
+}
+
+.share {
+    z-index: 90;
+    width: 36.3px;
+    height: 36.3px;
+    position: fixed;
+    top: 16px;
+    left: 70px;
+    overflow: visible;
+}
+
+#desktop .share {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+}
+
+.dish-content .share {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+}
+
+/* line 37, ../sass/style.scss */
+.menu-item, .menu-open-button {
+  border-radius: 100%;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  color: white;
+  text-align: center;
+  line-height: 33px;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+}
+
+/* line 50, ../sass/style.scss */
+.menu-open {
+  display: none;
+}
+
+/* line 58, ../sass/style.scss */
+.hamburger {
+  width: 15px;
+  height: 2px;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5px;
+  margin-top: -1px;
+  transition: transform 200ms;
+}
+
+/* line 73, ../sass/style.scss */
+.hamburger-1 {
+  transform: translate3d(0, -6px, 0);
+}
+
+/* line 77, ../sass/style.scss */
+.hamburger-2 {
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 81, ../sass/style.scss */
+.hamburger-3 {
+  transform: translate3d(0, 6px, 0);
+}
+
+/* line 86, ../sass/style.scss */
+.menu-open:checked + .menu-open-button .hamburger-1 {
+  transform: translate3d(0, 0, 0) rotate(45deg);
+}
+/* line 89, ../sass/style.scss */
+.menu-open:checked + .menu-open-button .hamburger-2 {
+  transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+/* line 92, ../sass/style.scss */
+.menu-open:checked + .menu-open-button .hamburger-3 {
+  transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+
+/* line 97, ../sass/style.scss */
+.menu {
+  margin-top: 3px;
+  margin-left: 3px;
+  overflow: visible;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 110, ../sass/style.scss */
+.menu-item:hover {
+  background: white;
+}
+/* line 115, ../sass/style.scss */
+.menu-item:nth-child(3) {
+  background-color: #495996;
+  transition-duration: 180ms;
+}
+/* line 115, ../sass/style.scss */
+.menu-item:nth-child(4) {
+  background-color: #6EC32E;
+  transition-duration: 180ms;
+}
+/* line 115, ../sass/style.scss */
+.menu-item:nth-child(5) {
+  background-color: #C71228;
+  transition-duration: 180ms;
+}
+
+/* line 122, ../sass/style.scss */
+.menu-open-button {
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  cursor: pointer;
+}
+
+/* line 131, ../sass/style.scss */
+.menu-open-button:hover {
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+}
+
+/* line 135, ../sass/style.scss */
+.menu-open:checked + .menu-open-button {
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+}
+
+/* line 141, ../sass/style.scss */
+.menu-open:checked ~ .menu-item {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* line 144, ../sass/style.scss */
+.menu-open:checked ~ .menu-item:nth-child(3) {
+  transition-duration: 190ms;
+  transform: translate3d(45px, 0, 0);
+}
+/* line 147, ../sass/style.scss */
+.menu-open:checked ~ .menu-item:nth-child(3):hover {
+  transform: translate3d(48px, 3px, 0);
+}
+/* line 144, ../sass/style.scss */
+.menu-open:checked ~ .menu-item:nth-child(4) {
+  transition-duration: 290ms;
+  transform: translate3d(90px, 0, 0);
+}
+/* line 147, ../sass/style.scss */
+.menu-open:checked ~ .menu-item:nth-child(4):hover {
+  transform: translate3d(93px, 3px, 0);
+}
+/* line 144, ../sass/style.scss */
+.menu-open:checked ~ .menu-item:nth-child(5) {
+  transition-duration: 390ms;
+  transform: translate3d(135px, 0, 0);
+}
+/* line 147, ../sass/style.scss */
+.menu-open:checked ~ .menu-item:nth-child(5):hover {
+  transform: translate3d(138px, 3px, 0);
+}
