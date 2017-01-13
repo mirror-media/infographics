@@ -152,7 +152,7 @@ $(document).ready(function(){
     });
     */
 
-    $.getJSON('https://www.mirrormedia.mg/api/posts?where={"tags":"58521996b854000d002d255f"}', function(data){
+    $.getJSON('//mirrormedia.mg/api/posts?where={"tags":"58521996b854000d002d255f"}', function(data){
       var related = data['_items'];
       for(var j in related) {
         var url = (related[j]['style'] == 'projects') ? '/projects/'+related[j]['slug']+'/' : '/story/'+related[j]['slug']+'/';
