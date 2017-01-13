@@ -419,23 +419,6 @@ p, a, h1, h2, h3, span, li {
   background-image: url(img/desktop-index-09.jpg);
 }
 
-/* iPhone 4/4S */
-@media 
-  only screen 
-  and (max-device-height : 480px) { 
-    .curtain-space {
-      height: 75vh;
-    }
-
-    .intro-block {
-      height: 75vh;
-    }
-
-    .curtain-block {
-      height: 75vh;
-    }
-}
-
 /* iPhone 5 */
 
 @media 
@@ -456,6 +439,23 @@ p, a, h1, h2, h3, span, li {
     .intro-title-block__brief p {
       font-size: 1rem !important;
       line-height: 1.4 !important;
+    }
+}
+
+/* iPhone 4/4S */
+@media 
+  only screen 
+  and (max-device-height : 480px) { 
+    .curtain-space {
+      height: 75vh;
+    }
+
+    .intro-block {
+      height: 75vh;
+    }
+
+    .curtain-block {
+      height: 75vh;
     }
 }
 
