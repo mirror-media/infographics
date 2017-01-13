@@ -419,6 +419,29 @@ p, a, h1, h2, h3, span, li {
   background-image: url(img/desktop-index-09.jpg);
 }
 
+/* iPhone 5 */
+
+@media 
+  only screen 
+  and (max-device-height : 568px) { 
+    .curtain-space {
+      height: 65vh;
+    }
+
+    .intro-block {
+      height: 65vh;
+    }
+
+    .curtain-block {
+      height: 65vh;
+    }
+
+    .intro-title-block__brief p {
+      font-size: 1rem !important;
+      line-height: 1.4 !important;
+    }
+}
+
 /* iPhone 4/4S */
 @media 
   only screen 
@@ -432,16 +455,7 @@ p, a, h1, h2, h3, span, li {
     }
 
     .curtain-block {
-      height:75vh;
-    }
-}
-
-@media 
-  only screen 
-  and (max-device-height : 568px) { 
-    .intro-title-block__brief p {
-      font-size: 1rem !important;
-      line-height: 1.4 !important;
+      height: 75vh;
     }
 }
 
