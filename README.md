@@ -12,3 +12,4 @@
 | allenlien | 【連加恩與非洲的故事】簡單不簡單　連加恩 |
 | burkinafaso | 【連加恩與非洲的故事】走進沒有地名的地方，看見非洲孤兒的故事 |
 | burkinafasogallery | 【連加恩與非洲的故事】圖片故事集 |
+| taiwan_diplomatic_relations | 雪崩式斷交即將發生？ |
