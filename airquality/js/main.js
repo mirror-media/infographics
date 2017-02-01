@@ -84,7 +84,7 @@ function showPosition(position) {
     if (window.location.host.indexOf("localhost") !== -1)
         path = 'json/'
     else
-        path = 'https://statics.mirrormedia.mg/story/json/air_jsons/'
+        path = '/story/json/air_jsons/'
 
     $.getJSON(path+'air_jsonlist.json', function(data) {
         if(position.coords.latitude >= data.north_bound) {
