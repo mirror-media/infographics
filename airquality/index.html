@@ -82,6 +82,24 @@
 					從知識走向行動
 				</li></a>
 			</ul>
+			<div class="menuBtn" onclick="toggleMenu();"></div>
+	    </div>
+
+	    <div class="menuCover">
+			<ul>
+				<a href="#p1" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">即時空汙指數</div>
+				</li></a>
+				<a href="#p2-1" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">數讀空汙</div>
+				</li></a>
+				<a href="#p3" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">空污求生術</div>
+				</li></a>
+				<a href="#p4" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">從知識走向行動</div>
+				</li></a>
+			</ul>
 	    </div>
 
 		<div id="fullpage" style="width: 100%; overflow-x: hidden;">
@@ -104,15 +122,15 @@
 						<img src="img/pm25.png" />
 					</div></a>
 					<a href="#" onclick="openWindow('#SOx');"><div class="icon-SOx">
-						<div class="label"><div class="line"></div>SOx</div>
+						<div class="label"><div class="line"></div>SO<sub>x</sub></div>
 						<img src="img/sox.png" />
 					</div></a>
 					<a href="#" onclick="openWindow('#NOx');"><div class="icon-NOx">
-						<div class="label"><div class="line"></div>NOx</div>
+						<div class="label"><div class="line"></div>NO<sub>x</sub></div>
 						<img src="img/nox.png" />
 					</div></a>
 					<a href="#" onclick="openWindow('#O3');"><div class="icon-O3">
-						<div class="label"><div class="line"></div>O3</div>
+						<div class="label"><div class="line"></div>O<sub>3</sub></div>
 						<img src="img/o3.png" />
 					</div></a>
 				</div>
@@ -173,10 +191,26 @@
 						<li><a href="#" onclick="openWindow('#O3');">O<sub>3</sub></a></li>
 						<li><a href="#" onclick="openWindow('#NOx');">NO<sub>x</sub></a></li>
 						<li><a href="#" onclick="openWindow('#SOx');">SO<sub>x</sub></a></li>
-						<li><a href="#" onclick="openWindow('#tempM');">溫度</a></li>
-						<li><a href="#" onclick="openWindow('#humiM');">濕度</a></li>
-						<li><a href="#" onclick="openWindow('#windM');">風速</a></li>
+						<!-- <li><a href="#" onclick="openWindow('#tempM');">溫度</a></li> -->
+						<!-- <li><a href="#" onclick="openWindow('#humiM');">濕度</a></li> -->
+						<!-- <li><a href="#" onclick="openWindow('#windM');">風速</a></li> -->
 					</ul>
+				</div>
+				<div class="infoWindow" id="AQI">
+					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
+						<svg viewbox="0 0 100 100">
+							<polygon fill="#FFFFFF" points="77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2   51.5,51.1 79.6,23 "/>
+						</svg>
+					</div>
+					<div class="AQI" style="border:none;">
+						<div class="AQI-Row">
+							<div class="AQI-Color-M"></div><div id="AQI-Number-M">--</div>
+						</div>
+					</div>
+					<div class="AQI-Label">AQI 是什麼？</div>
+					<div class="AQI-Explain">
+						空氣品質指標為依據監測資料將當日空氣中臭氧(O3)、細懸浮微粒(PM2.5)、懸浮微粒(PM10)、一氧化碳(CO)、二氧化硫(SO2)及二氧化氮(NO2)濃度等數值，以其對人體健康的影響程度，分別換算出不同污染物之副指標值，再以當日各副指標之最大值為該測站當日之空氣品質指標值(AQI)。
+					</div>
 				</div>
 				<div class="infoWindow" id="PM10">
 					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
@@ -267,7 +301,7 @@
 			</div>
 
 			<!-- 空污指數 -->
-			<div class="section" data-anchor="p2-1" style="background: #202020;">
+			<div class="section stats" data-anchor="p2-1" style="background: #202020;">
 				<h1 class="heroTitle"><img class="desktop" src="img/heroTitle.png"/><img class="mobile" src="img/heroTitleM.png"/></h1>
 				<p class="heroDesc">室外空氣污染每年約造成全球300萬人因相關疾病死亡，並且帶來至少數百億美元的經濟損失。<br/>在台灣，空氣污染不只帶走許多人寶貴的性命，也重創了許多人的健康。</p>
 				<p class="heroDesc">更重要的是，<span style="color:#efdf6f; font-size: 24px;">空氣污染並不是一項「公平」的公害，居住在中南部的人們，所承受的代價遠比北部都會區的人們要高上許多。</span></p>

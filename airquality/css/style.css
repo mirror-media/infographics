@@ -127,6 +127,51 @@ div.leftContainer::-webkit-scrollbar-corner {
   background: #4E4F4E;
 }
 
+.menuBtn {
+  display: none;
+  float: right;
+  background: url('../img/menuBtn.png') 50% 50% no-repeat;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+
+.menuCover {
+  display: none;  
+  position: fixed;
+  z-index: 199;
+  top: 60px;
+  height: calc(100vh - 60px);
+  width: 100%;
+  background-color: #767676;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.menuCover.active {
+  opacity: 1;
+  transition: visibility 0.5s linear, opacity 0.5s linear;
+  display: block;
+}
+
+.menuCover ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+
+.menuCover li {
+  display:table; 
+  color: #fff;
+  width: 100%;
+  font-size: 20px;
+  height: calc(25vh - 15px);
+  border-bottom: solid 1px #ccc;
+}
+
 .mainTitle {
   position: absolute;
   width: 500px;
@@ -241,34 +286,44 @@ div.leftContainer::-webkit-scrollbar-corner {
 
 #particle-icon {
   z-index: 60;
-
   top: 0;
+}
+
+@keyframes Floatingx{
+    from {transform: translate(0, 0px) scale(0.9);}
+    65% {transform: translate(0, 15px) scale(1.0);}
+    to {transform: translate(0, -0px) scale(0.9);}    
 }
 
 #particle-icon .icon-PM10 {
   position: absolute;
   top: 15vh;
   left: 15vw;
+  animation: Floatingx 5s infinite ease-in-out;
 }
 #particle-icon .icon-PM25 {
   position: absolute;
   top: 45vh;
   left: 25vw;
+  animation: Floatingx 3s infinite ease-in-out;
 }
 #particle-icon .icon-SOx {
   position: absolute;
   top: 25vh;
-  left: 50vw;
+  left: 40vw;
+  animation: Floatingx 3.5s infinite ease-in-out;
 }
 #particle-icon .icon-NOx {
   position: absolute;
   top: 60vh;
-  left: 55vw;
+  left: 45vw;
+  animation: Floatingx 3s infinite ease-in-out;
 }
 #particle-icon .icon-O3 {
   position: absolute;
   top: 45vh;
-  left: 65vw;
+  left: 55vw;
+  animation: Floatingx 5s infinite ease-in-out;
 }
 #particle-icon .label {
   position: absolute;
@@ -276,11 +331,10 @@ div.leftContainer::-webkit-scrollbar-corner {
   right: 0;
   color: #FFF;
   font-size: 10px;
-
 }
 #particle-icon .label .line {
   display: inline-block;
-  width: 25px;
+  width: 35px;
   height: 1px;
   background: #fff;
   margin-bottom: 5px;
@@ -320,6 +374,28 @@ div.leftContainer::-webkit-scrollbar-corner {
 }
 .AQI-Row {
   display: table-row;
+}
+
+.AQI-Color-M {
+  position: absolute;
+  background-color: #202020;
+  height: 50px;
+  width: 10px;
+  left: 0;
+}
+
+#AQI-Number-M {
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+#AQI-Status-M {
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 10px;
 }
 
 .infoBox .AQI {
@@ -494,6 +570,7 @@ div[class^="AQI-Status-"] {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
+  z-index: 51;
 }
 .infoWindow.active {
   opacity: 1;
@@ -672,15 +749,22 @@ svg path.county.data {
     display: none;
     overflow: hidden;
   }
+  .menuBtn {
+    display: inline-block;
+  }
   .mainTitle {
     width: 100%;
+  }
+
+  .section.article, .section.stats {
+    padding-top: 60px;
   }
 
   .infoBox {
     display: none;
   }
 
-  .infoMobile {
+  .infoMobile.loaded {
     display: block;
   }
 

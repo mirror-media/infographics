@@ -1,4 +1,5 @@
 var panorama;
+
 function initialize() {
     var berkeley = {lat: 37.869085, lng: -122.254775};
     var eightyFive = {lat: 22.6088617, lng: 120.29969};
@@ -48,6 +49,7 @@ function getLocation() {
     } else { 
         console.log("Geolocation is not supported by this browser.");
         $('.mainTitle').addClass('loaded');
+        $('.infoMobile').addClass('loaded');
     }
 }
 
@@ -130,52 +132,101 @@ function showPosition(position) {
         $.getJSON(path+site, function(siteData) {
             // console.log(siteData)
 
-            $('#temperature').html(siteData.feeds[siteData.data_number-1].s_t0);
-            $('#humidity').html(siteData.feeds[siteData.data_number-1].s_h0);
-            $('#wind').html(siteData.EPA_site.WindSpeed);
+            if(siteData.feeds[siteData.data_number-1].s_t0)
+                $('#temperature').html(siteData.feeds[siteData.data_number-1].s_t0);
+            else
+                $('#temperature').html('--');
 
-            $('#PM10-Number').html(siteData.feeds[siteData.data_number-1].s_d1);
-            $('#PM25-Number').html(siteData.feeds[siteData.data_number-1].s_d0);
-            $('#O3-Number').html(siteData.EPA_site.O3);
-            $('#NOx-Number').html(siteData.EPA_site.NOx);
-            $('#SO2-Number').html(siteData.EPA_site.SO2);
+            if(siteData.feeds[siteData.data_number-1].s_h0)
+                $('#humidity').html(siteData.feeds[siteData.data_number-1].s_h0);
+            else
+                $('#humidity').html('--');
 
-            $('#AQI-Number').html(siteData.EPA_site.AQI);
+            if(siteData.EPA_site.WindSpeed)
+                $('#wind').html(siteData.EPA_site.WindSpeed);
+            else
+                $('#wind').html('--');
+
+            if(siteData.feeds[siteData.data_number-1].s_d1)
+                $('#PM10-Number').html(siteData.feeds[siteData.data_number-1].s_d1);
+            else
+                $('#PM10-Number').html('--');
+
+            if(siteData.feeds[siteData.data_number-1].s_d0)
+                $('#PM25-Number').html(siteData.feeds[siteData.data_number-1].s_d0);
+            else
+                $('#PM25-Number').html('--');
+
+            if(siteData.EPA_site.O3)
+                $('#O3-Number').html(siteData.EPA_site.O3);
+            else
+                $('#O3-Number').html('--');
+
+            if(siteData.EPA_site.NOx)
+                $('#NOx-Number').html(siteData.EPA_site.NOx);
+            else
+                $('#NOx-Number').html('--');
+
+            if(siteData.EPA_site.SO2)
+                $('#SO2-Number').html(siteData.EPA_site.SO2);
+            else
+                $('#SO2-Number').html('--');
+
+            if(siteData.EPA_site.AQI){
+                $('#AQI-Number').html(siteData.EPA_site.AQI);
+            }else{
+                $('#AQI-Number').html('--');
+                $('#AQI-Number-M').html('--');
+            }
+
             if(siteData.EPA_site.AQI >= 301) {
                 $('.AQI-Explain-Hazardous').show();
                 $('.AQI-Status-Hazardous').show();
                 $('.AQI-Color').addClass('AQI-Color-Hazardous');
+                $('.AQI-Color-M').addClass('AQI-Color-Hazardous');
+                $('#AQI-Number-M').html(siteData.EPA_site.AQI+' 危險');
             }
             if(siteData.EPA_site.AQI >= 201 && siteData.EPA_site.AQI <= 300) { 
                 $('.AQI-Explain-VeryUnhealthy').show();
                 $('.AQI-Status-VeryUnhealthy').show();
                 $('.AQI-Color').addClass('AQI-Color-VeryUnhealthy');
+                $('.AQI-Color-M').addClass('AQI-Color-VeryUnhealthy');
+                $('#AQI-Number-M').html(siteData.EPA_site.AQI+' 非常不健康');
             }
             if(siteData.EPA_site.AQI >= 151 && siteData.EPA_site.AQI <= 200) { 
                 $('.AQI-Explain-Unhealthy').show();
                 $('.AQI-Status-Unhealthy').show();
                 $('.AQI-Color').addClass('AQI-Color-Unhealthy');
+                $('.AQI-Color-M').addClass('AQI-Color-Unhealthy');
+                $('#AQI-Number-M').html(siteData.EPA_site.AQI+' 不健康');
             }
             if(siteData.EPA_site.AQI >= 101 && siteData.EPA_site.AQI <= 150) { 
                 $('.AQI-Explain-UnhealthySensitive').show();
                 $('.AQI-Status-UnhealthySensitive').show();
                 $('.AQI-Color').addClass('AQI-Color-UnhealthySensitive');
+                $('.AQI-Color-M').addClass('AQI-Color-UnhealthySensitive');
+                $('#AQI-Number-M').html(siteData.EPA_site.AQI+' 不適於敏感人群');
             }
             if(siteData.EPA_site.AQI >=  51 && siteData.EPA_site.AQI <= 100) { 
                 $('.AQI-Explain-Moderate').show();
                 $('.AQI-Status-Moderate').show();
                 $('.AQI-Color').addClass('AQI-Color-Moderate');
+                $('.AQI-Color-M').addClass('AQI-Color-Moderate');
+                $('#AQI-Number-M').html(siteData.EPA_site.AQI+' 普通');
             }
-            if(siteData.EPA_site.AQI <=  50) {
+            if(siteData.EPA_site.AQI > 0 && siteData.EPA_site.AQI <= 50) {
                 $('.AQI-Explain-Good').show();
                 $('.AQI-Status-Good').show();
                 $('.AQI-Color').addClass('AQI-Color-Good');
+                $('.AQI-Color-M').addClass('AQI-Color-Good');
+                $('#AQI-Number-M').html(siteData.EPA_site.AQI+' 良好');
             }
         });
     });
 
     sv.getPanorama({location: {lat: position.coords.latitude, lng: position.coords.longitude}, radius: 250}, checkNearestStreetView);
     $('.mainTitle').addClass('loaded');
+    $('.infoMobile').addClass('loaded');
 }
 
 function openWindow(target) {
@@ -184,7 +235,21 @@ function openWindow(target) {
     $(target).addClass('active');
 }
 
+function toggleMenu() {
+    if($('.menuCover').hasClass('active'))
+        $('.menuCover').removeClass('active');
+    else
+        $('.menuCover').addClass('active');
+}
+
 $(document).ready(function() {
+
+    setTimeout(function(){
+        if(!$('.mainTitle').hasClass('loaded'))
+            $('.mainTitle').addClass('loaded');
+        if(!$('.infoMobile').hasClass('loaded'))
+            $('.infoMobile').addClass('loaded');
+    }, 10000);
 
     $('#fullpage').fullpage({
         verticalCentered: true,
