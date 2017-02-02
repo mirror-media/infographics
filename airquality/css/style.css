@@ -515,7 +515,7 @@ div[class^="AQI-Status-"] {
   bottom: 0;
   margin: auto;
   width: 60px;
-  height: 70vh;
+  height: 240px;
   background: rgba(0,0,0,0.6);
   color: #FFF;
   display: none;
