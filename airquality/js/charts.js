@@ -1038,7 +1038,7 @@ $(function () {
             min: 0,
             gridLineWidth: 0,
             title: {
-                text: '百萬人',
+                text: '萬人',
                 align: 'high',
                 style: {
                     color: '#FFF'
@@ -1055,7 +1055,8 @@ $(function () {
         plotOptions: {
             bar: {
                 dataLabels: {
-                    enabled: true
+                    enabled: true,
+                    color: '#FFF'
                 }
             }
         },

@@ -508,6 +508,15 @@ div[class^="AQI-Status-"] {
   line-height: 50px;
 }
 
+.infoBox .siteInfo {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  color: rgba(255,255,255,0.7);
+  font-size: 8px;
+
+}
+
 .infoMobile {
   position: absolute;
   right: 0;
@@ -726,6 +735,7 @@ ul.station li .unit {
 
 .leftContainer h2 {
   text-align: left;
+  color: #efdf6f;
 }
 
 .leftContainer a {

@@ -126,11 +126,18 @@ function showPosition(position) {
                 });
             }
 
-        // console.log(site);
+        console.log(site);
 
         // https://statics.mirrormedia.mg/story/json/air_jsons/
         $.getJSON(path+site, function(siteData) {
             // console.log(siteData)
+            
+            console.log(siteData.EPA_site.SiteName);
+
+            if(siteData.EPA_site.SiteName)
+                $('#site').html(siteData.EPA_site.SiteName);
+            else
+                $('#site').html('--');
 
             if(siteData.feeds[siteData.data_number-1].s_t0)
                 $('#temperature').html(siteData.feeds[siteData.data_number-1].s_t0);
@@ -249,7 +256,7 @@ $(document).ready(function() {
             $('.mainTitle').addClass('loaded');
         if(!$('.infoMobile').hasClass('loaded'))
             $('.infoMobile').addClass('loaded');
-    }, 10000);
+    }, 15000);
 
     $('#fullpage').fullpage({
         verticalCentered: true,
@@ -279,8 +286,12 @@ $(document).ready(function() {
                 $('#money').animateNumber({
                     number: 210000000000,
                     numberStep: comma_separator_number_step
-                },2000);
+                },3000);
             }
+        },
+        onLeave: function(index, nextIndex, direction){
+            console.log('scroll to ', nextIndex);
+            ga('send', 'event', 'projects', 'scroll', 'scroll to '+nextIndex);
         }
     });
 

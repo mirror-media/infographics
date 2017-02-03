@@ -5,16 +5,16 @@
 	    <meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Breath in the Air - 鏡傳媒 Mirror Media</title>
-	    <meta name="description" content="空汙專題描述">
+	    <meta name="description" content="室外空氣污染每年約造成全球300萬人因相關疾病死亡，並且帶來至少數百億美元的經濟損失。 在台灣，空氣污染並不是一項「公平」的公害，居住在中南部的人們，每日呼吸更濃的PM2.5和更毒的空氣，所承受的健康代價遠比北部都會區的人們高上許多。 面對空污，許多人心中都有疑問：我們真的有辦法自保嗎？解決空污，真的只需要環保部門的努力嗎？假如「非核無煤家園」是解決空汙的選項之一，我們真的辦得到嗎？ 請看鏡傳媒為您帶來的空汙專題報導">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta property="og:site_name" content="鏡傳媒 Mirror Media" />
 	    <meta property="og:locale" content="zh_TW" />
 	    <meta property="og:type" content="article" />
-	    <meta property="og:title" content="Breath in the Air" />
-	    <meta property="og:description" content="空汙專題描述" />
-	    <meta property="og:image" content="">
+	    <meta property="og:title" content="空汙專題 Breath in the Air" />
+	    <meta property="og:description" content="室外空氣污染每年約造成全球300萬人因相關疾病死亡，並且帶來至少數百億美元的經濟損失。 在台灣，空氣污染並不是一項「公平」的公害，居住在中南部的人們，每日呼吸更濃的PM2.5和更毒的空氣，所承受的健康代價遠比北部都會區的人們高上許多。 面對空污，許多人心中都有疑問：我們真的有辦法自保嗎？解決空污，真的只需要環保部門的努力嗎？假如「非核無煤家園」是解決空汙的選項之一，我們真的辦得到嗎？ 請看鏡傳媒為您帶來的空汙專題報導" />
+	    <meta property="og:image" content="https://statics.mirrormedia.mg/projects/airquality/img/preview.jpg">
 	    <meta property="og:image:width" content="1200" />
-	    <meta property="og:image:height" content="630" />
+	    <meta property="og:image:height" content="627" />
 
 	    <link rel="icon" sizes="192x192" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
 	    <link rel="apple-touch-icon" sizes="180x180" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
@@ -113,13 +113,13 @@
 				<div id="particles"></div>
 
 				<div id="particle-icon">
-					<a href="#" onclick="openWindow('#PM10');"><div class="icon-PM10">
-						<div class="label"><div class="line"></div>PM10</div>
-						<img src="img/pm10.png" />
-					</div></a>
 					<a href="#" onclick="openWindow('#PM25');"><div class="icon-PM25">
 						<div class="label"><div class="line"></div>PM2.5</div>
 						<img src="img/pm25.png" />
+					</div></a>
+					<a href="#" onclick="openWindow('#PM10');"><div class="icon-PM10">
+						<div class="label"><div class="line"></div>PM10</div>
+						<img src="img/pm10.png" />
 					</div></a>
 					<a href="#" onclick="openWindow('#SOx');"><div class="icon-SOx">
 						<div class="label"><div class="line"></div>SO<sub>x</sub></div>
@@ -182,6 +182,7 @@
 						<li style="text-align: left;"><div class="icon icon-humidity"></div> <span id="humidity">--</span>%</li>
 						<li style="text-align: left;"><div class="icon icon-wind"></div> <span id="wind">--</span> 公尺/秒</li>
 					</ul>
+					<div class="siteInfo">測站：<span id="site">--</span></div>
 				</div>
 				<div class="infoMobile">
 					<ul class="menu">
@@ -310,18 +311,18 @@
 			<div class="section" data-anchor="p2-2" style="background-image: url(img/pic1.jpg); background-size: cover;">
 				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
 					<div class="col-1-1">
-						<span class="title">室外空氣污染造成每年約300萬人死亡</span>
+						<span class="title">室外空氣污染造成每年約<strong style="color: #efdf6f;">300萬人</strong>死亡</span>
 					</div>
 				</div>
-				<div id="fig8" style="min-width: 310px; max-width: 800px; height: 300px; margin: 0 auto; margin-top: 40px;"></div>
 				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
 					<div class="col-1-1">
-						<p>根據世界銀行（World Bank）與健康標準評估研究所（Institute for Health Metrics and Evaluation）在2016年9月合作發表的報告指出，室外空氣污染在2013年約造成全球290萬人因相關疾病死亡。經濟合作暨發展組織（OECD）則在2016年6月發表的另一份報告指出，室外空氣污染在2010年時約造成全球3百萬人提早死亡，假如我們再不採取行動，至2060年時這個數字恐攀升至6百萬～9百萬人。</p>
+						<p>根據世界銀行（World Bank）與健康標準評估研究所（Institute for Health Metrics and Evaluation）在2016年9月合作發表的<a href="http://www.worldbank.org/en/news/infographic/2016/09/08/death-in-the-air-air-pollution-costs-money-and-lives" target="_blank" style="color: #efdf6f; text-decoration: underline;">報告</a>指出，室外空氣污染在2013年約造成全球290萬人因相關疾病死亡。經濟合作暨發展組織（OECD）則在2016年6月發表的另一份<a href="https://www.oecd.org/env/the-economic-consequences-of-outdoor-air-pollution-9789264257474-en.htm" target="_blank" style="color: #efdf6f; text-decoration: underline;">報告</a>指出，室外空氣污染在2010年時約造成全球3百萬人提早死亡，假如我們再不採取行動，至2060年時這個數字恐攀升至6百萬～9百萬人。</p>
 
 						<p>研究指出，空氣污染約在東亞造成220萬人、南亞180萬人、非洲撒哈拉以南60萬人，歐洲及中亞50萬人，美國10萬人死亡。</p>
 					</div>
 				</div>
-				
+				<div id="fig8" style="min-width: 310px; max-width: 800px; height: 300px; margin: 0 auto; margin-top: 40px;"></div>
+
 				<hr style="max-width: 760px;" />
 				
 				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
@@ -332,70 +333,12 @@
 						<p>世界銀行研究報告指出，空氣污染在2013年造成總值約2,250億美元的勞動所得損失，以及高達5兆美元的衛生福利支出。OECD估算，2015年全球與空氣污染相關的醫療保健支出約為210億美元，至於空氣污染關聯疾病所導致的工作日減少，則減少約120億美元的勞動產出。</p>
 					</div>
 					<div class="col-1-1">
-						<h2 style="font-size:250%;color:#efdf6f;"><span id="money">0</span> 美元</h2>
+						<small>每年空汙健保支出</small>
+						<h2 style="font-size:250%;color:#efdf6f;margin-top:0;"><span id="money">0</span> 美元</h2>
 					</div>
 				</div>
 			</div>
-			<div class="section" data-anchor="p2-3" style="background-image: url(img/pic2.jpg); background-size: cover;">
-				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
-					<div class="col-1-1">
-						<span class="title">老舊柴油車PM2.5總量≒5座火力發電廠</span>
-					</div>
-					<div class="col-1-1">
-						<p>環保署統計資料顯示，一、二期柴油車所排放的廢氣，是台灣是最主要的移動污染源，其累計排放的PM2.5約略等於5座台中火力發電廠，氮氧化物（NOx）部分也逼近4座台中火力發電廠，而揮發性有機物（VOCs）部分，更與3座六輕相當。</p>
-					</div>
-				</div>
-				<div id="fig1" style="min-width: 310px; max-width: 800px; height: 600px; margin: 0 auto"></div>
-			</div>
-			<div class="section" data-anchor="p2-4" style="background-image: url(img/pic3.jpg); background-size: cover;">
-				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
-					<div class="col-1-1">
-						<span class="title">要花20年才能淘汰全部老舊柴油車嗎？</span>
-					</div>
-					<div class="col-1-1">
-						<p>根據交通部2016年9月統計資料，目前台灣仍有36,641台一期柴油貨車、45,103台二期柴油貨車，但每年僅淘汰不到4,000台。</p>
-					</div>
-				</div>
-				<div id="fig2" style="min-width: 310px; max-width: 800px; height: 80vh; margin: 0 auto"></div>
-			</div>
-			<div class="section" data-anchor="p2-5" style="background-image: url(img/pic4.jpg); background-size: cover;">
-				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px;">
-					<div class="col-1-1">
-						<span class="title">各空品區空氣污染物來源</span>
-					</div>
-					<div class="col-1-1">
-						<p style="line-height: 1.8;">國內境外污染9成來自中國，中南部污染主要來自大型工廠、發電廠。</p>
-					</div>
-				</div>
-				<div class="grid grid-pad">
-				    <div class="col-1-2">
-				       <div class="content">
-				           <div id="fig3" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
-				       </div>
-				    </div>
-				    <div class="col-1-2">
-				       <div class="content">
-				           <div id="fig4" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
-				       </div>
-				    </div>
-				    <div class="col-1-2">
-				       <div class="content">
-				           <div id="fig5" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
-				       </div>
-				    </div>
-				    <div class="col-1-2">
-				       <div class="content">
-				           <div id="fig6" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
-				       </div>
-				    </div>
-				    <div class="col-1-2">
-				       <div class="content">
-				           <div id="fig6-1" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
-				       </div>
-				    </div>
-				</div>
-			</div>
-			<div class="section" data-anchor="p2-6" style="background-image: url(img/pic6.jpg); background-size: cover;">
+			<div class="section" data-anchor="p2-3" style="background-image: url(img/pic6.jpg); background-size: cover;">
 				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left;">
 					<div class="col-1-1">
 						<span class="title">2016年台灣各縣市(測站)PM 2.5濃度排行</span>
@@ -457,24 +400,117 @@
 					</div>
 				</div>
 			</div>
+			<div class="section" data-anchor="p2-4" style="background-image: url(img/pic4.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px;">
+					<div class="col-1-1">
+						<span class="title">台灣各空品區空氣污染物來源</span>
+					</div>
+					<div class="col-1-1">
+						<p style="line-height: 1.8;">國內境外污染9成來自中國，中南部污染主要來自大型工廠、發電廠。</p>
+					</div>
+				</div>
+				<div class="grid grid-pad">
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig6-1" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig3" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig4" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig5" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig6" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				</div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 20px;">
+					<div class="col-1-1">
+						<span class="credit">資料來源：環保署監資處</span>
+					</div>
+				</div>
+			</div>
+			<div class="section" data-anchor="p2-5" style="background-image: url(img/pic2.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
+					<div class="col-1-1">
+						<span class="title">老舊柴油車排放PM2.5總量≒<strong style="color: #efdf6f;">5座</strong>台中火力發電廠</span>
+					</div>
+					<div class="col-1-1">
+						<p>環保署統計資料顯示，一、二期柴油車所排放的廢氣，是台灣是最主要的移動污染源，其累計排放的PM2.5約略等於5座台中火力發電廠，氮氧化物（NOx）部分也逼近4座台中火力發電廠，而揮發性有機物（VOCs）部分，更與3座六輕相當。</p>
+					</div>
+				</div>
+				<div id="fig1" style="min-width: 310px; max-width: 800px; height: 600px; margin: 0 auto"></div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 20px;">
+					<div class="col-1-1">
+						<span class="credit">資料來源：環保署監資處</span>
+					</div>
+				</div>
+			</div>
+			<div class="section" data-anchor="p2-6" style="background-image: url(img/pic3.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
+					<div class="col-1-1">
+						<span class="title">淘汰全部老舊柴油貨車需要<strong style="color: #efdf6f;">20年</strong>！</span>
+					</div>
+					<div class="col-1-1">
+						<p>根據交通部2016年9月統計資料，目前台灣仍有36,641台一期柴油貨車、45,103台二期柴油貨車，但每年僅淘汰不到4,000台。</p>
+					</div>
+				</div>
+				<div id="fig2" style="min-width: 310px; max-width: 800px; height: 80vh; margin: 0 auto"></div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 20px;">
+					<div class="col-1-1">
+						<span class="credit">資料來源：環保署監資處</span>
+					</div>
+				</div>
+			</div>
+
 			<div class="section" data-anchor="p2-7" style="background-image: url(img/pic5.jpg); background-size: cover;">
 				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px;">
 					<div class="col-1-1">
-						<span class="title">PM2.5造成4種慢性病相對風險增加</span>
+						<span class="title">PM2.5造成<strong style="color: #efdf6f;">4種</strong>慢性病相對風險增加</span>
 					</div>
 				</div>
 				<div id="fig7" style="min-width: 310px; max-width: 800px; height: 80vh; margin: 0 auto"></div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
+					<div class="col-1-1">
+						<p>2014年台灣PM2.5年平均濃度為25 ug/m<sup>3</sup>，是世界衛生組織規範的2.5倍，導致肺癌、中風、缺血性心臟病、慢性肺病的相對風險上升。</p>
+						<p>台大公衛學院博士生羅偉成研究顯示，2014年台灣超過6,000名死亡人口是由於PM2.5暴露所造成；其中包括2,240名缺血性心臟病患者、2,140名中風患者、1,250名肺癌患者以及645名慢性阻塞性肺病患者。</p>
+					</div>
+					<div class="col-1-1">
+						<span class="credit">參考資料：華盛頓大學全球疾病負擔研究計畫 / 台大公衛學院博士生羅偉成、林先和副教授提供</span>
+					</div>
+				</div>
 			</div>
 			<div class="section" data-anchor="p2-8" style="background-image: url(img/pic7.jpg); background-size: cover;">
 				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
 					<div class="col-1-1">
-						<span class="title">慢性疾病相對風險題</span>
+						<span class="title">PM2.5在中南部殺死更多人</span>
 					</div>
 					<div class="col-1-1">
 						<p>空氣污染並不是一項「公平」的公害，居住在中南部的人們，所承受的代價遠比北部都會區的人們要高上許多。其中，雲林、南投與高雄所賠上的健康和性命最多。</p>
+						<h3>台灣各縣市4大慢性病死亡率與PM2.5濃度相關對照圖</h3>
 					</div>
-				</div>''
+				</div>
 				<iframe src="https://plotdb.io/v/chart/12652" style="max-width:620px;" width="100%" height="600px" allowfullscreen="true" frameborder="0"></iframe>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
+					<div class="col-1-1">
+						<p>空汙嚴重的雲林縣，每年有許多人死於肺癌、中風、缺血性心臟病和慢性肺病，而這些死亡人口中，估計有22%是PM2.5造成的；在花蓮縣，僅有9%的4大慢性病死亡與PM2.5有關。由於全國人口主要居住在空汙較嚴重的西半部，因此平均而言，全國有19%的4大慢性病死亡與PM2.5有關。</p>
+					</div>
+					<div class="col-1-1">
+						<span class="credit">資料來源：台大公衛學院博士生羅偉成、林先和副教授等</span>
+					</div>
+				</div>
 			</div>
 
 			<!-- 關鍵數字 -->
