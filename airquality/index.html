@@ -1,0 +1,639 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Breath in the Air - 鏡傳媒 Mirror Media</title>
+	    <meta name="description" content="室外空氣污染每年約造成全球300萬人因相關疾病死亡，並且帶來至少數百億美元的經濟損失。 在台灣，空氣污染並不是一項「公平」的公害，居住在中南部的人們，每日呼吸更濃的PM2.5和更毒的空氣，所承受的健康代價遠比北部都會區的人們高上許多。 面對空污，許多人心中都有疑問：我們真的有辦法自保嗎？解決空污，真的只需要環保部門的努力嗎？假如「非核無煤家園」是解決空汙的選項之一，我們真的辦得到嗎？ 請看鏡傳媒為您帶來的空汙專題報導">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta property="og:site_name" content="鏡傳媒 Mirror Media" />
+	    <meta property="og:locale" content="zh_TW" />
+	    <meta property="og:type" content="article" />
+	    <meta property="og:title" content="空汙專題 Breath in the Air" />
+	    <meta property="og:description" content="室外空氣污染每年約造成全球300萬人因相關疾病死亡，並且帶來至少數百億美元的經濟損失。 在台灣，空氣污染並不是一項「公平」的公害，居住在中南部的人們，每日呼吸更濃的PM2.5和更毒的空氣，所承受的健康代價遠比北部都會區的人們高上許多。 面對空污，許多人心中都有疑問：我們真的有辦法自保嗎？解決空污，真的只需要環保部門的努力嗎？假如「非核無煤家園」是解決空汙的選項之一，我們真的辦得到嗎？ 請看鏡傳媒為您帶來的空汙專題報導" />
+	    <meta property="og:image" content="https://statics.mirrormedia.mg/projects/airquality/img/preview.jpg">
+	    <meta property="og:image:width" content="1200" />
+	    <meta property="og:image:height" content="627" />
+
+	    <link rel="icon" sizes="192x192" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
+	    <link rel="apple-touch-icon" sizes="180x180" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
+	    <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/story/img/favicon-32x32.png" sizes="32x32">
+	    <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/story/img/favicon-16x16.png" sizes="16x16">
+	    <link rel="shortcut icon" href="https://www.mirrormedia.mg/story/img/favicon.ico">
+
+		<link href="css/jquery.fullPage.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/share.css" rel="stylesheet" type="text/css">
+		<link href="css/simplegrid.css" rel="stylesheet" type="text/css">
+		<!-- There is a bug on the API version ^3.26 (Can not Scroll) -->
+		<script src="http://maps.google.com/maps/api/js?v=3.28&libraries=places&key=AIzaSyA79qnEKZvz6g6a1teSOi2BSQYzu7ODlCQ" type="text/javascript"></script>
+	    <script>
+	        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'UA-83609754-1', 'mirrormedia.mg');
+	        ga('create', 'UA-83609754-1', 'auto');
+	        ga('require', 'linkid', 'linkid.js');
+	        ga('send', 'pageview');
+	    </script>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=175313259598308";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+	    <a href="https://www.mirrormedia.mg/"><div class="logo"></div></a>
+	    <div class="share">
+	        <nav class="menu">
+	            <input type="checkbox" class="menu-open" name="menu-open" id="menu-open"/>
+	            <label class="menu-open-button" for="menu-open">
+	              <img src="img/share.png" style="width:20px; height:20px; line-height: 35px; vertical-align: middle;"/>
+	            </label>
+
+	            <a href="javascript: void(window.open('https://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));" class="menu-item"> <i class="share-icon icon-facebook-1">&#xf09a;</i> </a>
+	            <a href="javascript: void(window.open('https://line.me/R/msg/text/?'+encodeURIComponent(document.title)+' '.concat(encodeURIComponent(location.href)) ));" class="menu-item"> <i class="share-icon icon-line">&#xe801;</i> </a>
+
+	            <a href="javascript: void(window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title)+'&url='.concat(encodeURIComponent(location.href)) ));" class="menu-item"> <i class="share-icon icon-sinaweibo">&#xe802;</i> </a>
+	        </nav>
+	    </div>
+	    <div class="nav">
+			<ul id="menu">
+				<li>
+					Breath in the Air
+				</li>
+				<a href="#p1"><li data-menuanchor="p1" class="active">
+					即時空汙指數
+				</li></a>
+				<a href="#p2-1"><li data-menuanchor="p2-1">
+					數讀空汙
+				</li></a>
+				<a href="#p3"><li data-menuanchor="p3">
+					空污求生術
+				</li></a>
+				<a href="#p4"><li data-menuanchor="p4">
+					從知識走向行動
+				</li></a>
+			</ul>
+			<div class="menuBtn" onclick="toggleMenu();"></div>
+	    </div>
+
+	    <div class="menuCover">
+			<ul>
+				<a href="#p1" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">即時空汙指數</div>
+				</li></a>
+				<a href="#p2-1" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">數讀空汙</div>
+				</li></a>
+				<a href="#p3" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">空污求生術</div>
+				</li></a>
+				<a href="#p4" onclick="toggleMenu();"><li>
+					<div style="display:table-cell; vertical-align:middle; text-align:center;">從知識走向行動</div>
+				</li></a>
+			</ul>
+	    </div>
+
+		<div id="fullpage" style="width: 100%; overflow-x: hidden;">
+			<!-- 主頁面 -->
+			<div class="section active" data-anchor="p1">
+				
+				<div class="siteInfoM">測站：<span id="siteM">--</span></div>
+
+				<div class="continue"></div>
+				<div class="action">往下看更多</div>
+
+				<div id="map"></div>
+				<div id="particles"></div>
+
+				<div id="particle-icon">
+					<a href="#" onclick="openWindow('#PM25');"><div class="icon-PM25">
+						<div class="label"><div class="line"></div>PM2.5</div>
+						<img src="img/pm25.png" />
+					</div></a>
+					<a href="#" onclick="openWindow('#PM10');"><div class="icon-PM10">
+						<div class="label"><div class="line"></div>PM10</div>
+						<img src="img/pm10.png" />
+					</div></a>
+					<a href="#" onclick="openWindow('#SOx');"><div class="icon-SOx">
+						<div class="label"><div class="line"></div>SO<sub>x</sub></div>
+						<img src="img/sox.png" />
+					</div></a>
+					<a href="#" onclick="openWindow('#NOx');"><div class="icon-NOx">
+						<div class="label"><div class="line"></div>NO<sub>x</sub></div>
+						<img src="img/nox.png" />
+					</div></a>
+					<a href="#" onclick="openWindow('#O3');"><div class="icon-O3">
+						<div class="label"><div class="line"></div>O<sub>3</sub></div>
+						<img src="img/o3.png" />
+					</div></a>
+				</div>
+
+			    <div class="mainTitle">
+			    	Breath in the Air
+			    </div>
+
+				<div class="infoBox">
+					<div class="AQI-Label">空氣品質 Air Quality Index</div>
+					<div class="AQI">
+						<div class="AQI-Row">
+							<div id="AQI-Number" class="AQI-Number">--</div>
+							<div class="AQI-Status">
+								<div class="AQI-Status-Good">良好</div>
+								<div class="AQI-Status-Moderate">普通</div>
+								<div class="AQI-Status-UnhealthySensitive">不適於<br/>敏感人群</div>
+								<div class="AQI-Status-Unhealthy">不健康</div>
+								<div class="AQI-Status-VeryUnhealthy">非常<br/>不健康</div>
+								<div class="AQI-Status-Hazardous">危險</div>
+							</div>
+						</div>
+						<div class="AQI-Row AQI-Color" style="border-top:1px solid #FFF;">
+							<div class="AQI-Color"></div>
+							<div class="AQI-Color"></div>
+						</div>
+					</div>
+					<div class="AQI-Explain AQI-Explain-Good">
+						空氣品質為良好，污染程度低或無污染。
+					</div>
+					<div class="AQI-Explain AQI-Explain-Moderate">
+						空氣品質普通；但對非常少數之極敏感族群產生輕微影響。	
+					</div>
+					<div class="AQI-Explain AQI-Explain-UnhealthySensitive">
+						空氣污染物可能會對敏感族群的健康造成影響，但是對一般大眾的影響不明顯。
+					</div>
+					<div class="AQI-Explain AQI-Explain-Unhealthy">
+						對所有人的健康開始產生影響，對於敏感族群可能產生較嚴重的健康影響。
+					</div>
+					<div class="AQI-Explain AQI-Explain-VeryUnhealthy">
+						健康警報：所有人都可能產生較嚴重的健康影響。
+					</div>
+					<div class="AQI-Explain AQI-Explain-Hazardous">
+						健康威脅達到緊急，所有人都可能受到影響。
+					</div>
+					<hr/>
+					<ul>
+						<li style="text-align: left;"><div class="icon icon-temperature"></div> <span id="temperature">--</span>℃</li>
+						<li style="text-align: left;"><div class="icon icon-humidity"></div> <span id="humidity">--</span>%</li>
+						<li style="text-align: left;"><div class="icon icon-wind"></div> <span id="wind">--</span> 公尺/秒</li>
+					</ul>
+					<div class="siteInfo">測站：<span id="site">--</span></div>
+				</div>
+				<div class="infoMobile">
+					<ul class="menu">
+						<li><a href="#" onclick="openWindow('#AQI');">AQI</a></li>
+						<li><a href="#" onclick="openWindow('#PM10');">PM 10</a></li>
+						<li><a href="#" onclick="openWindow('#PM25');">PM 2.5</a></li>
+						<li><a href="#" onclick="openWindow('#O3');">O<sub>3</sub></a></li>
+						<li><a href="#" onclick="openWindow('#NOx');">NO<sub>x</sub></a></li>
+						<li><a href="#" onclick="openWindow('#SOx');">SO<sub>x</sub></a></li>
+						<!-- <li><a href="#" onclick="openWindow('#tempM');">溫度</a></li> -->
+						<!-- <li><a href="#" onclick="openWindow('#humiM');">濕度</a></li> -->
+						<!-- <li><a href="#" onclick="openWindow('#windM');">風速</a></li> -->
+					</ul>
+				</div>
+				<div class="infoWindow" id="AQI">
+					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
+						<svg viewbox="0 0 100 100">
+							<polygon fill="#FFFFFF" points="77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2   51.5,51.1 79.6,23 "/>
+						</svg>
+					</div>
+					<div class="AQI" style="border:none;">
+						<div class="AQI-Row">
+							<div class="AQI-Color-M"></div><div id="AQI-Number-M">--</div>
+						</div>
+					</div>
+					<div class="AQI-Label">AQI 是什麼？</div>
+					<div class="AQI-Explain">
+						空氣品質指標為依據監測資料將當日空氣中臭氧(O3)、細懸浮微粒(PM2.5)、懸浮微粒(PM10)、一氧化碳(CO)、二氧化硫(SO2)及二氧化氮(NO2)濃度等數值，以其對人體健康的影響程度，分別換算出不同污染物之副指標值，再以當日各副指標之最大值為該測站當日之空氣品質指標值(AQI)。
+					</div>
+				</div>
+				<div class="infoWindow" id="PM10">
+					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
+						<svg viewbox="0 0 100 100">
+							<polygon fill="#FFFFFF" points="77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2   51.5,51.1 79.6,23 "/>
+						</svg>
+					</div>
+					<div class="AQI">
+						<div class="AQI-Row">
+							<div class="AQI-Type">PM 10 <small>細懸浮微粒</small></div>
+							<div class="AQI-Number"><span id="PM10-Number">--</span> <small>μg/m<sup>3</sup></small></div>
+						</div>
+					</div>
+					<div class="AQI-Label">PM10 是什麼？</div>
+					<div class="AQI-Explain">
+						PM10 是直徑在10微米以下之粒子，單位以 μg/m<sup>3</sup>（微克／立方公尺）表示，主要來源包括道路揚塵、車輛排放廢氣、露天燃燒、營建施工及農地耕作等，或由原生性空氣污染物轉化成之二次污染物。由於粒徑小於10微米以下，被人體吸入後通常會沈積在上呼吸道從而引發疾病。懸浮微粒的直徑越小，進入呼吸道的部位越深。
+					</div>
+				</div>
+				<div class="infoWindow" id="PM25">
+					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
+						<svg viewbox="0 0 100 100">
+							<polygon fill="#FFFFFF" points="77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2   51.5,51.1 79.6,23 "/>
+						</svg>
+					</div>
+					<div class="AQI">
+						<div class="AQI-Row">
+							<div class="AQI-Type">PM 2.5 <small>細懸浮微粒</small></div>
+							<div class="AQI-Number"><span id="PM25-Number">--</span> <small>μg/m<sup>3</sup></small></div>
+						</div>
+					</div>
+					<div class="AQI-Label">PM 2.5 是什麼？</div>
+					<div class="AQI-Explain">
+						PM2.5 是指直徑小於2.5微米的微粒，單位以μg/m3（微克／立方公尺）表示。由於PM2.5比PM10更能直接進入並粘附在人體上下呼吸道、肺葉、肺泡中，乃至進入血管隨血液循環至全身，所以對健康影響更大。若細微粒又附著其他污染物，將更加深呼吸系統之危害，並引起鼻炎、支氣管炎等呼吸系統病症，或是提高心血管系統發生的機率，長期處於這種環境甚至會誘發肺癌。
+					</div>
+				</div>
+				<div class="infoWindow" id="O3">
+					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
+						<svg viewbox="0 0 100 100">
+							<polygon fill="#FFFFFF" points="77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2   51.5,51.1 79.6,23 "/>
+						</svg>
+					</div>
+					<div class="AQI">
+						<div class="AQI-Row">
+							<div class="AQI-Type">O<sub>3</sub> <small>臭氧</small></div>
+							<div class="AQI-Number"><span id="O3-Number">--</span> <small>ppb</small></div>
+						</div>
+					</div>
+					<div class="AQI-Label">O<sub>3</sub> 是什麼？</div>
+					<div class="AQI-Explain">
+						臭氧是氮氧化物、反應性碳氫化合物經過日光照射後，所產生的二次汙染物，對呼吸系統具刺激性，能引起咳嗽、氣喘、頭痛、疲倦及肺部之傷害，特別是對小孩、老人、病人或戶外運動者有較大影響。此外，臭氧也對植物有不良影響，對於人造材料，諸如橡膠及油漆等，均能造成危害。低濃度的臭氧在動物實驗上會傷害小呼吸道，甚至產生肺纖維化等永久傷害。若一再暴 露於臭氧的環境下，可能會導致慢性肺病。
+					</div>
+				</div>
+				<div class="infoWindow" id="NOx">
+					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
+						<svg viewbox="0 0 100 100">
+							<polygon fill="#FFFFFF" points="77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2   51.5,51.1 79.6,23 "/>
+						</svg>
+					</div>
+					<div class="AQI">
+						<div class="AQI-Row">
+							<div class="AQI-Type">NO<sub>x</sub> <small>氮氧化物</small></div>
+							<div class="AQI-Number"><span id="NOx-Number">--</span> <small>ppb</small></div>
+						</div>
+					</div>
+					<div class="AQI-Label">NO<sub>x</sub> 是什麼？</div>
+					<div class="AQI-Explain">
+						氮氧化物主要包括一氧化氮（NO）及二氧化氮（NO2），主要來自燃燒過程中，空氣中氮或燃料中氮化物氧化而成。一氧化氮為無色無味氣體，稍溶於水，燃燒過程生成之氮氧化物以一氧化氮為主要成份，光化學反應中可反應成二氧化氮。
+						二氧化氮為具刺激味道之赤褐色氣體，易溶於水，與水反應為亞硝酸及硝酸；參與光化學反應，吸收陽光後分解成一氧化氮及氧，在空氣中可氧化成硝酸鹽，亦是造成雨水酸化原因之一。
+					</div>
+				</div>
+				<div class="infoWindow" id="SOx">
+					<div class="closeBtn" onclick="$(this.parentNode).removeClass('active');">
+						<svg viewbox="0 0 100 100">
+							<polygon fill="#FFFFFF" points="77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2   51.5,51.1 79.6,23 "/>
+						</svg>
+					</div>
+					<div class="AQI">
+						<div class="AQI-Row">
+							<div class="AQI-Type">SO<sub>2</sub> <small>二氧化硫</small></div>
+							<div class="AQI-Number"><span id="SO2-Number">--</span> <small>ppb</small></div>
+						</div>
+					</div>
+					<div class="AQI-Label">SO<sub>2</sub> 是什麼？</div>
+					<div class="AQI-Explain">
+						除自然界產生外，一般為燃料中硫份燃燒與空氣中之氧結合者，具刺激臭味且易溶於水，與水反應為亞硫酸；於空氣中可氧化成亞硫酸，為引起酸雨的主要物質之一。
+					</div>
+				</div>
+			</div>
+
+			<!-- 空污指數 -->
+			<div class="section stats" data-anchor="p2-1" style="background: #202020;">
+				<h1 class="heroTitle"><img class="desktop" src="img/heroTitle.png"/><img class="mobile" src="img/heroTitleM.png"/></h1>
+				<p class="heroDesc">室外空氣污染每年約造成全球300萬人因相關疾病死亡，並且帶來至少數百億美元的經濟損失。<br/>在台灣，空氣污染不只帶走許多人寶貴的性命，也重創了許多人的健康。</p>
+				<p class="heroDesc">更重要的是，<span style="color:#efdf6f; font-size: 24px;">空氣污染並不是一項「公平」的公害，居住在中南部的人們，所承受的代價遠比北部都會區的人們要高上許多。</span></p>
+				<p class="heroDesc">首先，就讓我們以下列這些關鍵數據，和大家一起了解空氣污染吧⋯⋯</p>
+			</div>
+			<div class="section" data-anchor="p2-2" style="background-image: url(img/pic1.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
+					<div class="col-1-1">
+						<span class="title">室外空氣污染造成每年約<strong style="color: #efdf6f;">300萬人</strong>死亡</span>
+					</div>
+				</div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
+					<div class="col-1-1">
+						<p>根據世界銀行（World Bank）與健康標準評估研究所（Institute for Health Metrics and Evaluation）在2016年9月合作發表的<a href="http://www.worldbank.org/en/news/infographic/2016/09/08/death-in-the-air-air-pollution-costs-money-and-lives" target="_blank" style="color: #efdf6f; text-decoration: underline;">報告</a>指出，室外空氣污染在2013年約造成全球290萬人因相關疾病死亡。經濟合作暨發展組織（OECD）則在2016年6月發表的另一份<a href="https://www.oecd.org/env/the-economic-consequences-of-outdoor-air-pollution-9789264257474-en.htm" target="_blank" style="color: #efdf6f; text-decoration: underline;">報告</a>指出，室外空氣污染在2010年時約造成全球3百萬人提早死亡，假如我們再不採取行動，至2060年時這個數字恐攀升至6百萬～9百萬人。</p>
+
+						<p>研究指出，空氣污染約在東亞造成220萬人、南亞180萬人、非洲撒哈拉以南60萬人，歐洲及中亞50萬人，美國10萬人死亡。</p>
+					</div>
+				</div>
+				<div id="fig8" style="min-width: 310px; max-width: 800px; height: 300px; margin: 0 auto; margin-top: 40px;"></div>
+
+				<hr style="max-width: 760px;" />
+				
+				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
+					<div class="col-1-1">
+						<span class="title">經濟損失</span>
+					</div>
+					<div class="col-1-1">
+						<p>世界銀行研究報告指出，空氣污染在2013年造成總值約2,250億美元的勞動所得損失，以及高達5兆美元的衛生福利支出。OECD估算，2015年全球與空氣污染相關的醫療保健支出約為210億美元，至於空氣污染關聯疾病所導致的工作日減少，則減少約120億美元的勞動產出。</p>
+					</div>
+					<div class="col-1-1">
+						<small>每年空汙健保支出</small>
+						<h2 style="font-size:250%;color:#efdf6f;margin-top:0;"><span id="money">0</span> 美元</h2>
+					</div>
+				</div>
+			</div>
+			<div class="section" data-anchor="p2-3" style="background-image: url(img/pic6.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left;">
+					<div class="col-1-1">
+						<span class="title">2016年台灣各縣市(測站)PM 2.5濃度排行</span>
+					</div>
+				</div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left;">
+				    <div class="col-1-2 col-A">
+				       <div class="content">
+							冬季（2015/10~2016/4）測站排行
+							<ul class="station">
+								<li>1.高雄市小港站 <span class="stat">38.4</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>2.高雄市左營站 <span class="stat">37.5</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>3.高雄市大寮站 <span class="stat">37.4</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>4.雲林縣崙背站 <span class="stat">36.4</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>5.高雄市復興站 <span class="stat">36.3</span> <span class="unit">μg/m<sup>3</sup></span></li>
+							</ul>
+				       </div>
+				    </div>
+				    <div class="col-1-2 col-B">
+				       <div class="content">
+							冬季（2015/10~2016/4）縣市排行
+							<ul class="station">
+								<li>1.嘉義市 <span class="stat">34.4</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>2.台南市 <span class="stat">34.2</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>3.高雄市 <span class="stat">34.2</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>4.雲林縣 <span class="stat">33.1</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>5.嘉義縣 <span class="stat">32.0</span> <span class="unit">μg/m<sup>3</sup></span></li>
+							</ul>
+				       </div>
+				    </div>
+				    <div class="col-1-2 col-C">
+				       <div class="content">
+							夏季（2016/5~2016/9）測站排行
+							<ul class="station">
+								<li>1.雲林縣崙背站 <span class="stat">20.7</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>2.南投縣南投站 <span class="stat">19.4</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>3.台中市豐原站 <span class="stat">19.0</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>4.屏東縣屏東站 <span class="stat">18.7</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>5.嘉義縣朴子站 <span class="stat">18.5</span> <span class="unit">μg/m<sup>3</sup></span></li>
+							</ul>
+				       </div>
+				    </div>
+				    <div class="col-1-2 col-D">
+				       <div class="content">
+							夏季（2016/5~2016/9）縣市排行
+							<ul class="station">
+								<li>1.雲林縣 <span class="stat">18.1</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>2.嘉義縣 <span class="stat">17.8</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>3.連江縣 <span class="stat">17.4</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>4.台中市 <span class="stat">17.3</span> <span class="unit">μg/m<sup>3</sup></span></li>
+								<li>5.南投縣 <span class="stat">17.2</span> <span class="unit">μg/m<sup>3</sup></span></li>
+							</ul>
+				       </div>
+				    </div>
+				</div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left;">
+					<div class="col-1-1">
+						<span class="credit">資料來源：環保署監資處</span>
+					</div>
+				</div>
+			</div>
+			<div class="section" data-anchor="p2-4" style="background-image: url(img/pic4.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px;">
+					<div class="col-1-1">
+						<span class="title">台灣各空品區空氣污染物來源</span>
+					</div>
+					<div class="col-1-1">
+						<p style="line-height: 1.8;">國內境外污染9成來自中國，中南部污染主要來自大型工廠、發電廠。</p>
+					</div>
+				</div>
+				<div class="grid grid-pad">
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig6-1" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig3" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig4" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig5" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				    <div class="col-1-2">
+				       <div class="content">
+				           <div id="fig6" style="width:100%; height: 350px; margin: 0 auto; float:left;"></div>
+				       </div>
+				    </div>
+				</div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 20px;">
+					<div class="col-1-1">
+						<span class="credit">資料來源：環保署監資處</span>
+					</div>
+				</div>
+			</div>
+			<div class="section" data-anchor="p2-5" style="background-image: url(img/pic2.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 800px; text-align: left; line-height: 1.8;">
+					<div class="col-1-1">
+						<span class="title">老舊柴油車排放PM2.5總量≒<strong style="color: #efdf6f;">5座</strong>台中火力發電廠</span>
+					</div>
+					<div class="col-1-1">
+						<p>環保署統計資料顯示，一、二期柴油車所排放的廢氣，是台灣是最主要的移動污染源，其累計排放的PM2.5約略等於5座台中火力發電廠，氮氧化物（NOx）部分也逼近4座台中火力發電廠，而揮發性有機物（VOCs）部分，更與3座六輕相當。</p>
+					</div>
+				</div>
+				<div id="fig1" style="min-width: 310px; max-width: 800px; height: 600px; margin: 0 auto"></div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 20px;">
+					<div class="col-1-1">
+						<span class="credit">資料來源：環保署監資處</span>
+					</div>
+				</div>
+			</div>
+			<div class="section" data-anchor="p2-6" style="background-image: url(img/pic3.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
+					<div class="col-1-1">
+						<span class="title">淘汰全部老舊柴油貨車需要<strong style="color: #efdf6f;">20年</strong>！</span>
+					</div>
+					<div class="col-1-1">
+						<p>根據交通部2016年9月統計資料，目前台灣仍有36,641台一期柴油貨車、45,103台二期柴油貨車，但每年僅淘汰不到4,000台。</p>
+					</div>
+				</div>
+				<div id="fig2" style="min-width: 310px; max-width: 800px; height: 80vh; margin: 0 auto"></div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 20px;">
+					<div class="col-1-1">
+						<span class="credit">資料來源：環保署監資處</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="section" data-anchor="p2-7" style="background-image: url(img/pic5.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px;">
+					<div class="col-1-1">
+						<span class="title">PM2.5造成<strong style="color: #efdf6f;">4種</strong>慢性病相對風險增加</span>
+					</div>
+				</div>
+				<div id="fig7" style="min-width: 310px; max-width: 800px; height: 80vh; margin: 0 auto"></div>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
+					<div class="col-1-1">
+						<p>2014年台灣PM2.5年平均濃度為25 ug/m<sup>3</sup>，是世界衛生組織規範的2.5倍，導致肺癌、中風、缺血性心臟病、慢性肺病的相對風險上升。</p>
+						<p>台大公衛學院博士生羅偉成研究顯示，2014年台灣超過6,000名死亡人口是由於PM2.5暴露所造成；其中包括2,240名缺血性心臟病患者、2,140名中風患者、1,250名肺癌患者以及645名慢性阻塞性肺病患者。</p>
+					</div>
+					<div class="col-1-1">
+						<span class="credit">參考資料：華盛頓大學全球疾病負擔研究計畫 / 台大公衛學院博士生羅偉成、林先和副教授提供</span>
+					</div>
+				</div>
+			</div>
+			<div class="section" data-anchor="p2-8" style="background-image: url(img/pic7.jpg); background-size: cover;">
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
+					<div class="col-1-1">
+						<span class="title">PM2.5在中南部殺死更多人</span>
+					</div>
+					<div class="col-1-1">
+						<p>空氣污染並不是一項「公平」的公害，居住在中南部的人們，所承受的代價遠比北部都會區的人們要高上許多。其中，雲林、南投與高雄所賠上的健康和性命最多。</p>
+						<h3>台灣各縣市4大慢性病死亡率與PM2.5濃度相關對照圖</h3>
+					</div>
+				</div>
+				<iframe src="https://plotdb.io/v/chart/12652" style="max-width:620px;" width="100%" height="600px" allowfullscreen="true" frameborder="0"></iframe>
+				<div class="grid grid-pad" style="color:#fff; max-width: 620px; text-align: left; margin-bottom: 10px; line-height: 1.8;">
+					<div class="col-1-1">
+						<p>空汙嚴重的雲林縣，每年有許多人死於肺癌、中風、缺血性心臟病和慢性肺病，而這些死亡人口中，估計有22%是PM2.5造成的；在花蓮縣，僅有9%的4大慢性病死亡與PM2.5有關。由於全國人口主要居住在空汙較嚴重的西半部，因此平均而言，全國有19%的4大慢性病死亡與PM2.5有關。</p>
+					</div>
+					<div class="col-1-1">
+						<span class="credit">資料來源：台大公衛學院博士生羅偉成、林先和副教授等</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- 關鍵數字 -->
+
+			<!-- 如何自保 -->
+			<div class="section fp-auto-height" data-anchor="p3" style="overflow: hidden;">
+				<div class="leftContainer">
+					<h2>面對空污，我們如何自保？</h2>
+					<p>相信在了解自己所處的污染背景值，還有諸多我們為空氣污染所付出的經濟、健康代價後，或許此刻的您正在思考：面對空污，我們應該如何獨善其身？又該如何解決問題？</p>
+
+					<p>在某種程度上，我們當然還是可以自保的。舉例來說，正確穿戴可以過濾95% PM2.5的N95濾材口罩，確實可以讓我們在戶外少吸很多髒空氣。至於居家生活，我們也能依照空間配置需求，選購美國能源局高效率網（HEPA）標準H13以上的空氣清淨機，如此也能確保家人所呼吸的室內空氣不至於有太大問題。</p>
+
+					<p>如果這樣還是讓您感到焦慮，凡事都有進階版可以選配。出門時，您可以考慮配戴中國熱銷的「隨身空氣淨化器」、「移動肺寶」之類的產品，把空氣淨化機帶著走。倘若空氣淨化機無法滿足您的需求，也擔心永遠緊閉的門窗會造成其他問題，或許在家裡打造新風系統，會是一勞永逸的選項。</p>
+
+					<p>當然了，終極的進階版本，是買張單程機票移民到隨時都有好空氣的地方，選我最佳解答。關鍵在於，擁有足夠雄厚實力選擇這個方案的，能有幾人？一走了之，又能解決什麼問題？</p>
+
+					<p>中興大學工學院副院長莊秉潔直言：「可以自保嗎？其實我認為沒有好的方式自保，因為室內外PM2.5濃度沒有差很多，當然如果你家全空調，全部用HEPA這種空調機，那的確可以濾掉（PM2.5），就像中國人民大會堂為了高官整個用空調，但那就很可憐，你就像飼料雞一樣活在籠子裡，你只要去外面就算戴口罩也不能自保。短期內你當然可以稍微自保，但最重要還是要去管制。」</p>
+
+					<p>台大公衛學院副院長詹長權則指出：「我常說空汙非常難以自保，唯一人民可以用就是戴口罩。但有效的口罩你戴不久，N95和N99你30分鐘就戴不住了，所以面對空污要自保很難，一定要透過公共政策的改變，因為我們無時無刻都要呼吸。」</p>
+
+					<h2>改善空污，靠環保署管得住嗎？</h2>
+
+					<p>隨著空汙成為日益高漲的民怨，環保署不但著手建立更多測站，讓一般民眾能更即時、便利地取得空氣監測資料外，也分別針對移動、固定污染源進行逐年加嚴管制，希望能有效減低台灣空污「自產自銷」的困境。</p>
+
+					<p>以北部都會區為例，撇開9成來自中國的境外污染，汽柴油車輛和餐飲、旅館的鍋爐排放，一直都是境內污染的主、次要來源。因此，想在北部都會區有效率地改善空汙，就得從提升大眾運輸效率，輔導一、二期柴油大貨車與大客車汰舊，或加裝濾網符合四、五期標準，以及勸導仍在燃燒重油鍋爐的旅館業者改燒天然氣做起，才容易事倍功半。</p>
+
+					<p>其中，協助一、二期老舊柴油大貨車汰舊，不但是未來環保署的重點工作，也會影響到全台各地的空汙排放。一個非常關鍵的數據是，全台每年超過8萬輛一、二期柴油大貨車所排放的PM2.5，將近是5座台中火力發電廠的總和。因此，如能有效減少、淘汰老舊柴油車的廢氣排放，不只北部都會區，全台的空污都可望減緩。</p>
+
+					<p>然而台灣承受最嚴重空污苦果的，非西岸中南部民眾莫屬。自竹苗以降，境內污染就已經超越境外影響，而固定源的工廠廢氣排放，也一路都是污染空氣的主要因素。特別是中部的台中火力發電廠、雲林的麥寮工業區，以及高雄的中鋼，這三個龐大而主要的污染源，影響的不只是當地區民，也會因氣候、盛行風向的緣故，跨區域影響其他空品區的民眾。環保署力求在2020年前，達成（從來沒實現過的）PM2.5年平均濃度15 ug/m<sup>3</sup>，當然得把重點放在這幾個焦點工業區上。</p>
+
+					<p>環保署副署長詹順貴透露，未來環保署對於上述三大工業區，將陸續祭出最能在短期收到效果的措施，加速減緩空汙對中南部的衝擊。高雄部分，環保署會加強中鋼園區的能源資源整合，避免在有可再利用蒸氣、熱能的時候，卻還用鍋爐燒重油，同時也會設法先將大鍋爐的燃煤排放標準，提高至和燃氣一樣的水平，未來兩者再持續加嚴，同時對空污進行總量管制。</p>
+
+					<p>至於台中火力發電廠的部分，環保署評估能資整合效果不會太好，所以會先從加嚴標準做起，同時也會在空汙嚴重的時候要求電廠歲修、降載。詹順貴表示，在PM2.5固定污染源部分，電廠排放量大概佔全國平均10%，然而只看中部的話，台中火力發電廠的排放量，就佔了中部總固定污染源的一半，高達53%，所以想解決中部空汙，勢必得從中火管起。</p>
+
+					<p>至於麥寮離島工業園區，詹順貴坦言，現在六輕的揮發性有機化合物（VOCs）、氮氧化物（NO<sub>x</sub>）、硫氧化物（SO<sub>x</sub>）核定許可量與實際排放量根本是一團亂帳，許多數據兜不起來，導致污染問題攪和在一起，難以解決。他透露，過去在環評會議時，曾出現台塑承諾的減少排放量，竟然高於原本核定量的荒謬情況。所以，針對麥寮工業園區，環保署打算花一年時間徹底盤點園區的實際排放量，把帳算清楚後，再進行指定削減，才能收到成效。</p>
+
+					<p>「空氣的問題是要靠全民努力改善的，光靠空氣清淨機不能解決問題，因為那還是要耗電呀！」談起空汙滿是無奈，詹順貴短短幾句話，不只表達空汙無法自保，還得全民共同承擔的意味，另外也透露了一個重要線索—空污和能源問題環環相扣。</p>
+
+					<p>在政府分工上，攸關能源政策制定與轉型的重責，也就是解決空污問題的重要關鍵，反倒落在經濟部能源局手上。經濟部主管產業發展、開發、能源政策等；環保署負責審查開發案的環境影響評估，卻經常像個「收爛攤」角色，由末端去解決、管制開發所帶來的污染問題。這是兩個三天兩頭就在吵架的單位。然而，想真正有效率地解決空污問題，我們得期待這兩個單位的共識合作，而且前提還得是環保署能堅持立場—而這件事，即便是對詹順貴來說，都不是件容易的事。</p>
+
+					<p>2017年1月初，台電為了解決限電危機，提出桃園大潭電廠燃氣單循環緊急發電計畫，希望藉此避免未來3年發生缺電問題。1月4日，該計劃在環保署進行環境差異分析專案小組審查會，會議主席詹順貴以空汙排放量增加等理由駁回此案，並要求重做環評。然而，僅僅14天後，擔任環評大會主席的詹順貴就演出「詹順貴打臉詹順貴」的戲碼，通過了此案的申請。</p>
+
+					<p>會後，詹順貴坦承這個決議非常「丟臉」，但這一切，都是因為蔡英文政府無法承擔缺電的狀況。</p>
+
+					<h2>不只非核，還要無煤家園，我們辦得到嗎？</h2>
+
+					<p>台灣真的缺電嗎？這個問題大概每隔一段時間就得吵一次，甭說各方說法莫衷一是，就連台電本身，在國民黨執政與民進黨執政時期，所提出的說法都會自相矛盾。</p>
+
+					<p>按照台電歷年來反覆的說法，台灣處於既缺電但也不缺電的狀態（為什麼台電不乾脆改名叫薛丁格電力公司）。所以，在此我們想先暫時跳過這個爭論；至少我們知道，根據<a href="http://www.taipower.com.tw/content/new_info/new_info-c37.aspx?LinkID=13" target="_blank">資料</a>，台電在2015年所供應的電力中，火力發電廠所佔的比重就高達7成，而這就是台灣非常關鍵的空污來源。</p>
+
+					<p>說到這裡，我們得再將問題談回空污與PM2.5。
+
+					<p>「為什麼PM2.5濃度高的地方，不見得是肺癌高的地方？」從過去監測資料發現，台灣中南部靠中央山脈區域，由於受地形與盛行風影響，加上容易有衍生性PM2.5產生，所以自台中大里、南投、雲林斗六、嘉義、高雄美濃，甚至到屏東潮州，都受PM2.5影響，成為呼吸道疾病盛行區域。然而，肺癌的好發區域和PM2.5的高濃度區域卻未必重疊，為什麼？</p>
+
+					<p>對此，莊秉潔強調：「PM2.5的成份比質量更重要。」他表示，經比對後，肺癌高發生率的地方，幾乎都鄰近燃煤電廠，而這些電廠所排放的原生性PM2.5中，本來就含有鉛、鎘、汞、砷等重金屬及戴奧辛，早在PM2.5被公告為一級致癌物前，就已經是確認的一、二級致癌物。多數燃煤電廠、燃煤汽電工廠都分佈在西部海線，所貢獻的空汙重金屬成份不容小覷，也和肺癌分佈有關聯性。因此，莊秉潔認為，「要解決中部、雲林、嘉義、肺癌增加問題，管制PM2.5很重要，但管制PM2.5中有害的一、二級致癌成分更重要。」</p>
+
+					<p>「電力不夠是一個很大的問題，我們要面對非核家園，看起來時程也被迫提前，因為核一二燃料池滿了，所以一下子要減得太快了。如果說要管制一、二級致癌物，其實就是煤，這部分他就怕斷電。」</p>
+
+					<p>莊秉潔感嘆台灣乾淨能源開發案腳步很慢，趕不上民眾對於非核減煤，甚至無煤的需求，但目前台灣已有3、4成火力發電是燃燒天然氣，如果可以持續讓這比例上升，空污排放量可以達到燃煤的1/100，而且現在天然氣價格持續走低，是政府能源轉型的最好時機，未來每人最多只需多付20%電費，就有機會達成「非核無煤」家園。</p>
+
+					<p>對此，詹長權也抱持同樣看法。他認為政府抓錯重點，台灣空氣污染中南部大於北部，火力發電廠跟工業區所在地管制要加嚴，才有辦法改善，倘若先改善交通汙染，會讓北部空氣變好，等於投資在比較不急迫的地方，會創造更大的環境與健康不公平。</p>
+
+					<p>詹長權認為，先管制燃煤火力發電廠跟工廠才是空汙整治的重點。「中南部燃煤火力發電廠的問題，是已經超過（管制）總量，怎麼管制、加嚴都不夠。燃煤電廠改燒天然氣，空汙的減量效果有99%，這樣才夠，其他污染防治設備都達不到這效果。台灣中南部脫離PM2.5危害的唯一一條路，就是非煤。」</p>
+
+				</div>
+				<div class="videoContainer">
+					<video id="myVideo" loop muted controls="false" data-autoplay>
+						<source src="smoke.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+
+			<!-- 結論 -->
+			<div class="section article" data-anchor="p4" style="background: #fff;">
+				<div style="padding:20px; text-align: left; max-width: 970px; margin: 0 auto;">
+					<h2>從知識走向行動</h2>
+
+					<p>在開始製作這個專題的時候，我們徵詢了一些朋友、記者的看法，想知道大家對於空汙、PM2.5這個題目，最想看到的會是怎樣的報導。太過冗長的論述、污染整治，有些人覺得太沉悶而興趣缺缺（結果這篇最後也弄得像Ｘ傳媒或Ｘ導者一樣長了啦怎樣）。太過冰冷或者太學術的數據，大家即便當下看了有感，但多半頁面關掉後就忘了。最後，大家最有興趣的，是「面對空污如何自保」，也成了這個題目的起點。</p>
+
+					<p>然而，在著手採訪的過程中，我們很清楚發現，面對日益嚴重的污染問題，自保的成本會越來越高，也越來越難實踐。進一步的問題就是，即便可以在相當程度上自保，但這不是解決問題的方式。專題製作的尾聲，我們的設計人員問了一個很重要的問題：「如果自保不能解決問題，那身為一般人，我們可以做些什麼才能幫助減少空污？」</p>
+
+					<p>這個問題的解答，其實會變得有點像道德呼籲，或被某些人視為環保魔人。而且事實是，答案大家早就知道了。少開車、多利用大眾運輸工具、愛護大自然，有辦法的話就多種樹，或至少在陽台多種些綠葉植栽、養成節電習慣、少吃點肉、任何形式的浪費都是不環保的，而不環保就會造成污染，勤於監督政府和企業，要求他們和你自己一樣環保。甚至，有興趣的話，大家也可以一起加入 <a href="https://www.facebook.com/groups/1607718702812067/?fref=ts" style="text-decoration: underline;">LASS</a> 的空氣監測計畫，一起為空品大數據提供貢獻。</p>
+
+					<p>這些答案不會有什麼新意，但對一般人而言，其實最重要的答案，就是那些我們早就知道，卻不容易做到的事情。</p>
+
+					<p>2017年1月11日，台中國立自然科學博物館舉辦「島嶼浮塵・PM2.5視界」特展，前中研院長李遠哲也出席了開幕儀式。李遠哲在致詞時說，面對空汙，我們該是覺醒的時候，「如果我們的知識不能轉化到行動的話，都是空談」。</p>
+
+					<!-- <div style="float:left; height:90px; width:970px; background: #C0B198;" >AD</div> -->
+					<div class="adunit" data-adunit="mm_pc_project_970x250_FT" data-dimensions="970x250" data-size-mapping="default"></div>
+					<div class="adunit" data-adunit="mm_mobile_project_300x250_FT" data-dimensions="300x250" data-size-mapping="mobile-only" style="margin:0 auto;"></div>
+
+				</div>
+			</div>
+			<div class="section ending" data-anchor="ending" style="background-image: url(img/ending.jpg); background-position: 50% 50%; background-size: cover;">
+				<div class="credit">
+					文字、攝影/鐘聖雄   影音/鐘聖雄、何懿原   資料統整/徐以樵   視覺設計/陳怡蒨   網頁製作/張肇文<br/>
+					特別感謝：黃旭、陳又維、郭凱迪、簡大詠、曾耀寰、陳伶志、蔡玉萱<br/>
+					鏡傳媒 MirrorMedia 2017
+				</div>
+			</div>
+			<div class="comment" style="background: #202020;">
+				<div class="fb-comments" data-colorscheme="dark" data-href="https://www.mirrormedia.mg/projects/airquality/" data-width="620" data-numposts="5" data-order-by="reverse_time"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/ImprovedNoise.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r46/Three.min.js"></script>
+		<script type="text/javascript" src="js/RequestAnimationFrame.js"></script>
+		<script type="text/javascript" src="js/Detector.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript" src="http://code.highcharts.com/highcharts-more.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script type="text/javascript" src="js/SnowBox.js"></script>
+		<script type="text/javascript" src="js/scrolloverflow.min.js"></script>
+		<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+		<script type="text/javascript" src="js/jquery.appear.min.js"></script>
+		<script type="text/javascript" src="js/charts.js"></script>
+		<script type="text/javascript" src="js/jquery.dfp.min.js"></script>
+		<script type="text/javascript" src="js/jquery.animateNumber.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
