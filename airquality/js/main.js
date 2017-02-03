@@ -36,10 +36,10 @@ function checkNearestStreetView(data, status) {
     if (status === google.maps.StreetViewStatus.OK) {
         panorama.setPano(data.location.pano);
         panorama.setVisible(true);
-        console.log(data.location.pano);
+        // console.log(data.location.pano);
         // return latLng;
     }else{
-        console.log('none');
+        // console.log('none');
     }
 }
 
@@ -89,7 +89,7 @@ function showPosition(position) {
     $.getJSON(path+'air_jsonlist.json', function(data) {
         if(position.coords.latitude >= data.north_bound) {
             //north
-            console.log('north');
+            // console.log('north');
             nearest = hvs2(position.coords.latitude, position.coords.longitude, data.north[0].latitude, data.north[0].longitude);
             site = data.north[0].path;
             data.north.forEach(function(o){
@@ -102,7 +102,7 @@ function showPosition(position) {
         }else
             if(position.coords.latitude < data.north_bound){
                 //south
-                console.log('south');
+                // console.log('south');
                 nearest = hvs2(position.coords.latitude, position.coords.longitude, data.south[0].latitude, data.south[0].longitude);
                 site = data.south[0].path;
                 data.south.forEach(function(o){
@@ -114,7 +114,7 @@ function showPosition(position) {
                 });
             }else{
                 //central
-                console.log('central');
+                // console.log('central');
                 nearest = hvs2(position.coords.latitude, position.coords.longitude, data.central[0].latitude, data.central[0].longitude);
                 site = data.central[0].path;
                 data.central.forEach(function(o){
@@ -126,18 +126,21 @@ function showPosition(position) {
                 });
             }
 
-        console.log(site);
+        // console.log(site);
 
         // https://statics.mirrormedia.mg/story/json/air_jsons/
         $.getJSON(path+site, function(siteData) {
             // console.log(siteData)
             
-            console.log(siteData.EPA_site.SiteName);
+            // console.log(siteData.EPA_site.SiteName);
 
-            if(siteData.EPA_site.SiteName)
+            if(siteData.EPA_site.SiteName){
                 $('#site').html(siteData.EPA_site.SiteName);
-            else
+                $('#siteM').html(siteData.EPA_site.SiteName);
+            }else{
                 $('#site').html('--');
+                $('#siteM').html('--');
+            }
 
             if(siteData.feeds[siteData.data_number-1].s_t0)
                 $('#temperature').html(siteData.feeds[siteData.data_number-1].s_t0);
@@ -290,7 +293,7 @@ $(document).ready(function() {
             }
         },
         onLeave: function(index, nextIndex, direction){
-            console.log('scroll to ', nextIndex);
+            // console.log('scroll to ', nextIndex);
             ga('send', 'event', 'projects', 'scroll', 'scroll to '+nextIndex);
         }
     });

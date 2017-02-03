@@ -514,7 +514,16 @@ div[class^="AQI-Status-"] {
   right: 3px;
   color: rgba(255,255,255,0.7);
   font-size: 8px;
+}
 
+.siteInfoM {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: rgba(255,255,255,0.7);
+  font-size: 8px;
+  z-index: 51;
+  display: none;
 }
 
 .infoMobile {
@@ -772,6 +781,10 @@ svg path.county.data {
 
   .infoBox {
     display: none;
+  }
+
+  .siteInfoM {
+    display: block;
   }
 
   .infoMobile.loaded {
