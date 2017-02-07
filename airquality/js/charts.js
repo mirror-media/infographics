@@ -1070,4 +1070,144 @@ $(function () {
         }],
         exporting: { enabled: false }
     });
+    Highcharts.chart('fig9', {
+        chart: {
+            type: 'pie',
+            backgroundColor: 'rgba(255, 255, 255, 0)'
+        },
+        title: {
+            text: '花東',
+            style: {
+                color: '#FFF'
+            }
+        },
+        plotOptions: {
+            pie: {
+                shadow: false,
+                center: ['50%', '50%']
+            }
+        },
+        legend: {
+            itemStyle: {
+                color: '#ffffff',
+            },
+            itemHoverStyle: {
+                color: '#CDCDCD'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        series: [{
+            name: '所佔污染源',
+            data: [{
+                    borderWidth: 0,
+                    color: "rgba(63, 134, 155,0.8)",
+                    name: "境外",
+                    y: 76
+                },
+                {
+                    borderWidth: 0,
+                    color: "rgba(239, 223, 111,0.8)",
+                    name: "境內固定污染源",
+                    y: 12
+                },
+                {
+                    borderWidth: 0,
+                    color: "rgba(237, 174, 112,0.8)",
+                    name: "境內移動污染源",
+                    y: 2
+                },
+                {
+                    borderWidth: 0,
+                    color: "rgba(237, 121, 112,0.8)",
+                    name: "境內其他（如建築工地、道路揚塵等）",
+                    y: 10
+                },
+            ],
+            size: '50%',
+            innerSize: '30%',
+            showInLegend: true,
+            borderWidth: 0,
+            dataLabels: {
+                useHTML: true,
+                color: '#ffffff',
+                formatter: function() {
+                    // display only if larger than 1
+                    if(this.point.name === "境內其他（如建築工地、道路揚塵等）")
+                        return this.y > 1 ? '<b>境內其他</b> ' + this.y + '%' : null;
+                    else
+                        return this.y > 1 ? '<b>' + this.point.name + ':</b> ' + this.y + '%' : null;
+                }
+            }
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    series: [{
+                        name: '所佔污染源',
+                        data: [{
+                                borderWidth: 0,
+                                color: "rgba(63, 134, 155,0.8)",
+                                name: "境外",
+                                y: 76
+                            },
+                            {
+                                borderWidth: 0,
+                                color: "rgba(239, 223, 111,0.8)",
+                                name: "境內固定污染源",
+                                y: 12
+                            },
+                            {
+                                borderWidth: 0,
+                                color: "rgba(237, 174, 112,0.8)",
+                                name: "境內移動污染源",
+                                y: 2
+                            },
+                            {
+                                borderWidth: 0,
+                                color: "rgba(237, 121, 112,0.8)",
+                                name: "境內其他（如建築工地、道路揚塵等）",
+                                y: 10
+                            }
+                        ],
+                        size: '50%',
+                        innerSize: '30%',
+                        showInLegend: true,
+                        borderWidth: 0,
+                        dataLabels: {
+                            useHTML: true,
+                            color: '#ffffff',
+                            formatter: function() {
+                                // display only if larger than 1
+                                return this.y > 1 ? '' + this.y + '%' : null;
+                            }
+                        }
+                    }],
+                }
+            }]
+        },
+        plotOptions: {
+            pie: {
+                showInLegend: true,
+                allowPointSelect: false,
+                point: {
+                    events: {
+                        legendItemClick: function(e) {
+                            e.preventDefault();
+                        }
+                    }
+                }
+            }
+        },
+        exporting: {
+            enabled: false
+        }
+    });
 });

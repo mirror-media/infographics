@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="zh-Hant"">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>凝視 侯俊明 - 鏡傳媒 Mirror Media</title>
+        <meta name="description" content="「其實我不是個很叛逆性的人，可在那時代的氛圍裡，我就站在那個浪頭上了。」創作是侯俊明對外的唯一窗口，藝術家身份就像無形的保護罩，給了他強烈安全感。侯俊明說，計劃性的創作很重要，就像是進到一種暫避現實的場域裡，「在創作裡面，能任由我在這框線裡，大膽的、不顧一切的極致發瘋。」">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="article:author" content="https://www.facebook.com/mirrormediamg/">
+        <meta property="article:publisher" content="https://www.facebook.com/mirrormediamg/">
+        <meta property="og:site_name" content="鏡傳媒 Mirror Media" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="凝視 侯俊明 - 鏡傳媒 Mirror Media" />
+        <meta property="og:description" content="「其實我不是個很叛逆性的人，可在那時代的氛圍裡，我就站在那個浪頭上了。」創作是侯俊明對外的唯一窗口，藝術家身份就像無形的保護罩，給了他強烈安全感。侯俊明說，計劃性的創作很重要，就像是進到一種暫避現實的場域裡，「在創作裡面，能任由我在這框線裡，大膽的、不顧一切的極致發瘋。」" />
+        <meta property="og:url" content="https://www.mirrormedia.mg/projects/legendhou-gallery/"/>
+        <meta property="og:image" content="https://statics.mirrormedia.mg/projects/legendhou-gallery/img/preview.jpg">
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="800" />
+        <link rel="icon" sizes="192x192" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/story/img/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/story/img/favicon-16x16.png" sizes="16x16">
+        <link rel="shortcut icon" href="https://www.mirrormedia.mg/story/img/favicon.ico">
+
+        <link rel="stylesheet" href="style/main.css" />
+        <link rel="stylesheet" href="style/share.css" />
+        <link rel="stylesheet" href="style/jquery.fullpage.min.css" />
+
+        <style>
+            progress {
+              position: fixed;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 20px;
+              -webkit-appearance: none;
+                 -moz-appearance: none;
+                      appearance: none;
+              border: none;
+              background-color: #FFF;
+              color: #30509E;
+              z-index: 999;
+            }
+            progress::-webkit-progress-bar {
+              background-color: #FFF;
+            }
+            progress::-webkit-progress-value {
+              background-color: #30509E;
+            }
+            progress::-moz-progress-bar {
+              background-color: #30509E;
+            }
+
+            body {
+              background: #545454;
+              font-family: 'Noto Sans TC','STHeitiTC-Light','微軟正黑體','Microsoft JhengHei',sans-serif;
+              color: white;
+            }
+
+            .logo {
+                /*border: 1px #FFF solid;*/
+                background: url('logo@3x.png') 50% 50% no-repeat;
+                background-size: cover;
+                height: 40px;
+                left: 20px;
+                position: fixed;
+                top: 25px;
+                width: 40px;
+                z-index: 90;
+            }
+
+            .logo:hover {
+                transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+                transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+                transition-duration: 400ms;
+            }
+
+            .share {
+                /*border: 1px #FFF solid;*/
+                height: 40px;
+                left: 70px;
+                overflow: visible;
+                position: fixed;
+                top: 25px;
+                width: 40px;
+                z-index: 90;
+            }
+
+            .footer-menu {
+                background-color: rgba(48,80,158, 0.8);
+                bottom: -100vh;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font-size: 24px;
+                height: auto;
+                position: absolute;
+                transform: translateY(0px);
+                transition: transform 800ms;
+                width: 100%;
+            }
+
+            .active .footer-menu {
+                transform: translateY(-100vh);
+            }
+
+            .footer-menu .col {
+                flex: 1;
+                width: 33%;
+                padding: 40px;
+                /*min-width: 320px;*/
+            }
+
+            .related {
+                background-color: #FFF;
+                box-shadow: 4.3px 2.5px 10px 0 rgba(0, 0, 0, 0.4);
+                flex: initial;
+                height: 40vh;
+                margin: 0;
+                max-height: 360px;
+                min-width: 300px;
+                width: 100%;
+            }
+
+            .related-image {
+                width: 100%;
+                height: 80%;
+            }
+
+            .related-title {
+                align-items: center;
+                color: #000000;
+                display: flex;
+                font-size: 20px;
+                font-stretch: normal;
+                font-style: normal;
+                font-weight: 500;
+                height: 20%;
+                justify-content: center;
+                padding: 0 20px;
+                text-align: left;
+                line-height: 1.3;
+            }
+
+            .credit {
+                color: #ffffff;
+                flex: initial;
+                font-size: 16px;
+                font-stretch: normal;
+                font-style: normal;
+                font-weight: 500;
+                height: auto;
+                line-height: 1.5;
+                min-width: 200px;
+                text-align: left;
+                text-shadow: 0.9px 0.5px 0 rgba(0, 0, 0, 0.8);
+                width: 300px;
+            }
+
+            .continue {
+                left: calc(50% - 35px);
+                cursor: pointer;
+                position: absolute;
+                bottom: 25px;
+                background: url('img/continue.png') 50% 50% no-repeat;
+                background-size: cover;
+                margin: 0 auto;
+                width: 40px;
+                height: 40px;
+                border: 0px;
+                border-radius: 50%;
+                background-color: rgba(255,255,255,0.2);
+            }
+
+            .continue:hover {
+                transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+                transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+                transition-duration: 500ms;
+            }
+
+            .action {
+                position: absolute;
+                bottom: 50px;
+                left:0;
+                text-align: center;
+                width: 100%;
+                height: 20px;
+                color: rgba(255,255,255,0.7);
+                display: none;
+            }
+
+            .panel.section {
+                background-position: 50% 50%; 
+                background-size: cover; 
+                background-repeat: no-repeat;
+            }
+
+            /* Mobile Only */
+            @media screen and (max-width:767px) {
+                progress {
+                    height: 10px;
+                }
+                .logo, .share {
+                    top: 15px;
+                }
+                .title {
+                    top: 0;
+                    height: 50vh;
+                    font-size: 26px;
+                    justify-content: center;
+                    padding: 0 10%;
+                    text-align: center;
+                }
+                .inner {
+                    height: 30vh;
+                }
+                .inner .brief {
+                    font-size: 14px;
+                }
+                .continue {
+                    bottom: 5px;
+                    width: 30px;
+                    height: 30px;
+                    left: initial;
+                    right: 15px;
+                }
+                .footer-menu .col {
+                    min-width: initial;
+                    padding: 10px;
+                }
+                .related {
+                    width: initial;
+                    min-width: initial;
+                }
+                .related-image {
+                    height: 70%;
+                }
+                .related-title {
+                    height: 30%;
+                    font-size: 14px;
+                }
+                .credit {
+                    font-size: 18px;
+                    width: initial;
+                }
+            }
+
+            /* Mobile Portrait */
+            @media only screen and (min-device-width : 300px) and (max-device-width : 667px) and (orientation: portrait) {
+                .panel:not(.first) {
+                    background-size: contain !important;
+                }
+                .title {
+                    top: 0;
+                    background-image: linear-gradient(360deg,transparent,rgba(0,0,0,0.1));
+                    text-shadow: 0.9px 0.9px 0.9px rgba(0, 0, 0, 0.8);
+                }
+                .inner {
+                    background-image: initial;
+                }
+                .inner .brief {
+                    height: 50vh;
+                }
+                .continue {
+                    width: 40px;
+                    height: 40px;
+                    left: calc(50% - 20px);
+                    right: initial;
+                }
+                .action {
+                    display: block;
+                    z-index: 9;
+                }
+                .footer-menu {
+                    flex-direction: column;
+                }
+                .footer-menu .col {
+                    width: initial;
+                }
+                .related {
+                    height: 120px;
+                }
+                .related-image {
+                    display: inline-block;
+                    height: 120px;
+                    width: 50%;
+                }
+                .related-title {
+                    height: 120px;
+                    width: 40%;
+                    float: right;
+                    padding: 0 5%;
+                }
+                .credit {
+                    font-size: 18px;
+                }
+                .panel.portrait {
+                    background-position-y: initial !important; background-size: cover !important;
+                }
+                .panel.portrait .inner {
+                    height: 50vh; 
+                    background-image: linear-gradient(180deg,transparent,rgba(0,0,0,0.4));
+                }
+            }
+
+            /* Tablet */
+            @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+                .title {
+                    align-items: center;
+                    background-image: linear-gradient(360deg,transparent,rgba(0,0,0,0.2));
+                    height: 30vh;
+                    justify-content: center;
+                    padding: 0;
+                    text-align: center;
+                    width: 100%;
+                }
+                .action {
+                    bottom: 65px;
+                }
+            }
+
+            /* Tablet Portrait */
+            @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+                .action {
+                    display: block;
+                }
+
+                #legendhou2 {
+                    background-position: 90% 50%;
+                }
+
+                #legendhou3 {
+                    background-position: 0% 50%;
+                }
+
+                #legendhou14 {
+                    background-position: 80% 50%;
+                }
+
+                #legendhou16 {
+                    background-position: 20% 50%;
+                }
+            }
+
+            /* Large Desktop */
+            @media screen and (max-width: 1600px) {
+                .title {
+                    height: 50vh;
+                    padding: initial;
+                    width: 100%;
+                    justify-content: center;
+                    background-image: linear-gradient(360deg,transparent,rgba(0,0,0,0.1));
+                }
+            }
+        </style>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-83609754-1', 'mirrormedia.mg');
+            ga('create', 'UA-83609754-1', 'auto');
+            ga('require', 'linkid', 'linkid.js');
+            ga('send', 'pageview');
+            ga('set', 'contentGroup1', '新聞/人物');
+        </script>
+    </head>
+<body>
+    <section id="over18-notice">
+        <div class="notice-container">
+          <h2>您即將進入之內容需滿十八歲方可瀏覽</h2>
+          <p>根據「電腦網路內容分級處理辦法」第六條第三款規定，本網站已於各限制級網頁依照台灣網站分級推廣基金會之規定標示。若您尚未年滿十八歲，請點選離開。若您已滿十八歲，亦不可將本區之內容派發、傳閱、出售、出租、交給或借予年齡未滿18歲的人士瀏覽，或將本網站內容向該人士出示、播放或放映。</p>
+          <div class="notice-button">
+            <button class="notice-button--over">是，我已年滿十八歲</button>
+            <button class="notice-button--less">離開</button>
+          </div>
+        </div>
+    </section>
+
+    <progress value="0"></progress>
+
+    <a href="https://www.mirrormedia.mg/"><div class="logo"></div></a>
+    <div class="share">
+        <nav class="menu">
+            <input type="checkbox" class="menu-open" name="menu-open" id="menu-open"/>
+            <label class="menu-open-button" for="menu-open">
+              <span class="hamburger hamburger-1"></span>
+              <span class="hamburger hamburger-2"></span>
+              <span class="hamburger hamburger-3"></span>
+            </label>
+
+            <a href="javascript: void(window.open('https://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));" class="menu-item"> <i class="share-icon icon-facebook-1">&#xf09a;</i> </a>
+            <a href="javascript: void(window.open('https://line.me/R/msg/text/?'+encodeURIComponent(document.title)+' '.concat(encodeURIComponent(location.href)) ));" class="menu-item"> <i class="share-icon icon-line">&#xe801;</i> </a>
+
+            <a href="javascript: void(window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title)+'&url='.concat(encodeURIComponent(location.href)) ));" class="menu-item"> <i class="share-icon icon-sinaweibo">&#xe802;</i> </a>
+        </nav>
+    </div>
+
+    <div id="fullpage">
+        <div class="section first" style="background-image: url('imgset/legendhou1.jpg'); background-position: 50% 50%; background-size: cover; background-repeat: no-repeat;">
+            <div class="title">凝視 侯俊明</div>
+            
+            <div class="continue"></div>
+            <div class="action">為達最佳瀏覽品質 建議橫放您的裝置</div>
+        </div>
+        <div id="legendhou2" class="section panel lazy" data-src="imgset/legendhou2.jpg" style="background-image: url('img/transparent.png');"> 
+            <div class="continue"></div>
+        </div>
+
+        <div id="legendhou3" class="panel section" data-src="imgset/legendhou3.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou4.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou5.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou6.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou7.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+<!-- 8 -->
+        <div class="panel section" data-src="imgset/legendhou8.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+<!-- 9 -->
+        <div class="panel section" data-src="imgset/legendhou9.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+<!-- 10 -->
+        <div class="panel section" data-src="imgset/legendhou10.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou11.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou12.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou13.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div id="legendhou14" class="panel section" data-src="imgset/legendhou14.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou15.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div id="legendhou16" class="panel section" data-src="imgset/legendhou16.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="panel section" data-src="imgset/legendhou17.jpg" style="background-image: url('img/transparent.png');">
+            <div class="continue"></div>
+        </div>
+
+        <div class="section footer fp-auto-height" id="footer" >
+            <p style="font-size:12px; line-height: 26px; text-align: center;">鏡傳媒 MirrorMedia 2017</p>
+            <div class="footer-menu">
+                <div class="col">
+                    <a href="/projects/legendhou/" onClick="ga('send', 'event', 'projects', 'click', 'related');">
+                        <div class="related">
+                            <div class="related-image" style="background-image: url('https://www.mirrormedia.mg/projects/legendhou/img/preview.jpg'); background-position: 50% 50%; background-size: cover; background-repeat: no-repeat;"></div>
+                            <div class="related-title">神棍 侯俊明</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/projects/legendhou-painting/" onClick="ga('send', 'event', 'projects', 'click', 'related');">
+                        <div class="related">
+                            <div class="related-image lazy" style="background-image: url('https://www.mirrormedia.mg/projects/legendhou-painting/image/og-image.jpg'); background-position: 50% 50%; background-size: cover; background-repeat: no-repeat;"></div>
+                            <div class="related-title">聆聽 侯俊明</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <div class="credit">
+                        攝影：楊子磊<br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script/jquery.fullpage.min.js"></script>
+    <script src="script/main.js"></script>
+</body>
+</html>
