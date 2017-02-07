@@ -274,6 +274,7 @@ $(document).ready(function() {
         afterLoad: function(anchor, index){
             if(index == 1) {
                 $('div.nav').hide();
+                $('#curtain').hide();
             }else{
                 $('div.nav').show();
             }
