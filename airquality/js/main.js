@@ -99,7 +99,7 @@ function showPosition(position) {
                     site = o.path;
                 }
             });
-        }else
+        } else {
             if(position.coords.latitude < data.north_bound){
                 //south
                 // console.log('south');
@@ -125,8 +125,9 @@ function showPosition(position) {
                     }
                 });
             }
+        }
 
-        // console.log(site);
+        // console.log('path+site', path+site);
 
         // https://statics.mirrormedia.mg/story/json/air_jsons/
         $.getJSON(path+site, function(siteData) {
@@ -157,11 +158,16 @@ function showPosition(position) {
             else
                 $('#wind').html('--');
 
-            if(siteData.feeds[siteData.data_number-1].s_d1)
+            if(siteData.feeds[siteData.data_number-1].s_d1 && siteData.feeds[siteData.data_number-1].s_d1 !== 0)
                 $('#PM10-Number').html(siteData.feeds[siteData.data_number-1].s_d1);
-            else
-                $('#PM10-Number').html('--');
+            else {
+                if(siteData.EPA_site.PM10)
+                    $('#PM10-Number').html(siteData.EPA_site.PM10)
+                else
+                    $('#PM10-Number').html('--');
+            }
 
+                
             if(siteData.feeds[siteData.data_number-1].s_d0)
                 $('#PM25-Number').html(siteData.feeds[siteData.data_number-1].s_d0);
             else
@@ -254,6 +260,10 @@ function toggleMenu() {
 
 $(document).ready(function() {
 
+    //
+    var myVid = document.getElementById("myVideo");
+    myVid.playbackRate=0.7;
+
     setTimeout(function(){
         if(!$('.mainTitle').hasClass('loaded'))
             $('.mainTitle').addClass('loaded');
@@ -295,6 +305,8 @@ $(document).ready(function() {
         },
         onLeave: function(index, nextIndex, direction){
             // console.log('scroll to ', nextIndex);
+            var random = Math.floor((Math.random() * 8) + 1);
+            document.getElementById("audio-"+ random).play();
             ga('send', 'event', 'projects', 'scroll', 'scroll to '+nextIndex);
         }
     });
