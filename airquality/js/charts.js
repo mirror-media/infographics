@@ -994,13 +994,13 @@ $(function () {
             }
         },
         series: [{
-            name: 'WHO (PM2.5 10μg/m<sub>3</sub>)',
+            name: 'WHO PM2.5標準造成的相對風險 (PM2.5 10μg/m<sub>3</sub>)',
             data: [3, 11, 4, 4],
             tooltip: {
                 valueSuffix: ' ％'
             }
         }, {
-            name: '台灣2014 (PM2.5 25μg/m<sub>3</sub>)',
+            name: '台灣2014年PM2.5造成的相對風險 (PM2.5 25μg/m<sub>3</sub>)',
             data: [12, 25, 33, 16],
             tooltip: {
                 valueSuffix: ' ％'
