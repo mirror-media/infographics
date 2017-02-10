@@ -197,6 +197,11 @@ div.leftContainer::-webkit-scrollbar-corner {
   text-align: center;
   color: #ffffff;
   z-index: 90;
+  overflow: hidden;
+}
+
+.mainTitle > img {
+  width: 100%;
 }
 
 .mainTitle.loaded {
@@ -205,9 +210,9 @@ div.leftContainer::-webkit-scrollbar-corner {
 }
 
 @keyframes blackblur {
-  from { text-shadow: 0; color: #FFF; }
-  50%  { text-shadow: 0 0 72px rgba(0,0,0,0.7);  color: transparent; }
-  to   { text-shadow: 0 0 72px transparent;  color: transparent; }
+  from { opacity: 1; }
+  50%  { opacity: 0.7; }
+  to   { opacity: 0; }
 }  
 
 .logo {
