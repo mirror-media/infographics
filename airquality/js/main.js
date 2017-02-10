@@ -44,6 +44,7 @@ function checkNearestStreetView(data, status) {
 }
 
 function getLocation() {
+    //console.log("Geolocation", navigator.geolocation)
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
@@ -75,8 +76,8 @@ function hvs2(latA, longA, latB, longB){
 function showPosition(position) {
     var sv = new google.maps.StreetViewService();
 
-    console.log('latitude', position.coords.latitude);
-    console.log('longitude', position.coords.longitude);
+    // console.log('latitude', position.coords.latitude);
+    // console.log('longitude', position.coords.longitude);
 
     var nearest, site;
 
