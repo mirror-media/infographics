@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('./font/fontello.eot?67277035');
+  src: url('./font/fontello.eot?67277035#iefix') format('embedded-opentype'),
+       url('./font/fontello.woff?67277035') format('woff'),
+       url('./font/fontello.ttf?67277035') format('truetype'),
+       url('./font/fontello.svg?67277035#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.share-icon {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: "fontello";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-left: .2em;
+  margin-right: .2em;
+  speak: none;
+  text-align: center;
+  text-transform: none;
+  width: 1em;
+}
