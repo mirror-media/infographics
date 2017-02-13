@@ -241,7 +241,7 @@ function showPosition(position) {
         });
     });
 
-    sv.getPanorama({location: {lat: position.coords.latitude, lng: position.coords.longitude}, radius: 250}, checkNearestStreetView);
+    sv.getPanorama({location: {lat: position.coords.latitude, lng: position.coords.longitude}, radius: 250, source: google.maps.StreetViewSource.OUTDOOR}, checkNearestStreetView);
     $('.mainTitle').addClass('loaded');
     $('.infoMobile').addClass('loaded');
 }
@@ -340,3 +340,68 @@ $(document).ready(function() {
     });
 
 });
+
+$("#resTaipower").click(function() {
+    if ($( ".taipower" ).css('display')=='none') {
+      $( ".taipower" ).show();
+    } else
+      $( ".taipower" ).hide();
+})
+
+$("#resFpg").click(function() {
+    if ($( ".fpg" ).css('display')=='none') {
+      $( ".fpg" ).show();
+    } else {
+      $( ".fpg" ).hide();
+    }
+})
+
+var vw = window.innerWidth;
+
+$( window ).resize(function() {
+  vw = window.innerWidth;
+
+  if (vw < 600) {
+    $("#emission-img").attr("src", "img/emission-pm25m.png")
+    } else {
+        $("#emission-img").attr("src", "img/emission-pm25.png")
+    }
+});
+
+if (vw < 600) {
+    $("#emission-img").attr("src", "img/emission-pm25m.png")
+} else {
+    $("#emission-img").attr("src", "img/emission-pm25.png")
+}
+
+$("#emission-pm25").click(function() {
+    if (vw < 600) {
+        $("#emission-img").attr("src", "img/emission-pm25m.png")
+    } else {
+        $("#emission-img").attr("src", "img/emission-pm25.png")
+    }
+})
+
+$("#emission-sox").click(function() {
+    if (vw < 600) {
+        $("#emission-img").attr("src", "img/emission-soxm.png")
+    } else {
+        $("#emission-img").attr("src", "img/emission-sox.png")
+    }
+})
+
+$("#emission-nox").click(function() {
+    if (vw < 600) {
+        $("#emission-img").attr("src", "img/emission-noxm.png")
+    } else {
+        $("#emission-img").attr("src", "img/emission-nox.png")
+    }
+})
+
+$("#emission-nmhc").click(function() {
+    if (vw < 600) {
+        $("#emission-img").attr("src", "img/emission-nmhcm.png")
+    } else {
+        $("#emission-img").attr("src", "img/emission-nmhc.png")
+    }
+})

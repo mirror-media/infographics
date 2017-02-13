@@ -111,7 +111,7 @@ div.leftContainer::-webkit-scrollbar-corner {
   position: fixed;
   top:0;
   height: 60px;
-  background: #979797;
+  background: rgba(151,151,151,.8);
   display: block;
   width: 100%;
   z-index: 100;
@@ -135,6 +135,16 @@ div.leftContainer::-webkit-scrollbar-corner {
 .nav ul li.active,
 .nav ul li.activeK {
   background: #4E4F4E;
+}
+
+.menu-headline {
+  height: 60px;
+}
+
+.menu-headline > img {
+  width: auto;
+  height: 40px;
+  padding-top: 10px;
 }
 
 .menuBtn {
@@ -728,7 +738,7 @@ ul.station li .unit {
 }
 
 .heroTitle img.desktop {
-  max-width: 800px;
+  max-width: 700px;
 }
 
 .heroTitle img.mobile {
@@ -740,6 +750,7 @@ ul.station li .unit {
   color:#FFF;
   max-width: 960px;
   margin: 0 auto;
+  padding: 0 10px;
   font-size: 22px;
   line-height: 2;
   text-align: left;
@@ -766,12 +777,70 @@ ul.station li .unit {
   text-decoration: underline;
 }
 
+.leftContainer p > a {
+  position: relative;
+  color: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .article p {
   line-height: 1.8;
 }
 
 svg path.county.data {
   opacity: 0.8;
+}
+
+#emission a {
+  color: #efdf6f;
+  padding: 5px 10px;
+  border: 1px solid #efdf6f;
+  cursor: pointer;
+}
+
+#emission img {
+  width: 100%;
+}
+
+#emission .col-1-4 {
+  text-align: center;
+}
+
+.resLink {
+  color: #efdf6f !important;
+}
+
+.response {
+  position: relative;
+  padding: 5px 20px;
+  background-color: rgba(255, 255, 255, 1);
+  color: #000;
+}
+
+.response:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.response:before {
+  border-color: rgba(255,255,255, 0);
+  border-bottom-color: rgba(255, 255, 255, 1);
+  border-width: 20px;
+  margin-left: -20px;
+}
+
+.taipower:before {
+  left: 15%;
+}
+
+.fpg:before {
+  left: 5%;
 }
 
 /* Mobile Only */
@@ -853,5 +922,18 @@ svg path.county.data {
   }
   #particle-icon {
     display: none;
+  }
+  .taipower:before {
+    left: 50%;
+  }
+
+  .fpg:before {
+    left: 50%;
+  }
+
+  #emission .col-1-4 {
+    display: inline-block;
+    width: 25% !important;
+    float: left;
   }
 }
