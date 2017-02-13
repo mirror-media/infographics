@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta property="og:site_name" content="鏡傳媒 Mirror Media" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.mirrormedia.mg/projects/valentines_day"/>
+  <meta property="og:title" content="專屬你的愛情神器是？ - 鏡傳媒 Mirror Media" />
+  <meta property="og:description" content="什麼是專屬你的愛情神器呢？" />
+  <meta property="og:image" content="https://www.mirrormedia.mg/projects/valentines_day/img/fbshare.jpg">
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>專屬你的愛情神器是？ - 鏡傳媒 Mirror Media</title>
+  <link rel="icon" sizes="192x192" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.mirrormedia.mg/story/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/story/img/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/story/img/favicon-16x16.png" sizes="16x16">
+  <link rel="shortcut icon" href="https://www.mirrormedia.mg/story/img/favicon.ico">
+  <link rel="stylesheet" async type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" >
+  <link href="./css/style.css" rel="stylesheet" type="text/css">
+  <style>
+    body{
+      display: none;
+    }
+    .share-result, .play-again {
+      cursor: pointer;
+    }
+  </style>
+  <script>
+  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	ga('create', 'UA-83609754-1', 'mirrormedia.mg');
+  	ga('create', 'UA-83609754-1', 'auto');
+  	ga('require', 'linkid', 'linkid.js');
+    ga('set', 'contentGroup1', '新聞');
+    ga('set', 'contentGroup2', '人物');
+  	ga('send', 'pageview');
+	</script>
+</head>
+<body>
+  <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId={{ .Site.Params.appId }}"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+  <header>
+    <div class="menu-bar">
+      <a href="https://mirrormedia.mg"><img src="./img/logo@3x.png"></a>
+      <div class="share">
+        <nav class="menu">
+            <input type="checkbox" class="menu-open" name="menu-open" id="menu-open"/>
+            <label class="menu-open-button" for="menu-open">
+              <img src="./img/share.png" style="width:20px; height:20px; line-height: 35px; vertical-align: middle;"/>
+            </label>
+            <a href="javascript: void(window.open('https://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));" class="menu-item" identity="fb"> <i class="share-icon icon-facebook-1">&#xf09a;</i> </a>
+            <a href="javascript: void(window.open('https://line.me/R/msg/text/?'+encodeURIComponent(document.title)+' '.concat(encodeURIComponent(location.href)) ));" class="menu-item" identity="line"> <i class="share-icon icon-line">&#xe801;</i> </a>
+            <a href="javascript: void(window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title)+'&url='.concat(encodeURIComponent(location.href)) ));" class="menu-item" identity="weibo"> <i class="share-icon icon-sinaweibo">&#xe802;</i> </a>
+        </nav>
+      </div>
+    </div>
+    <div class="menu-bar-right">
+      <div class="right-hamburger mobile-only">
+        <nav class="menu">
+            <input type="checkbox" class="menu-open" name="menu-open" id="menu-open"/>
+            <label class="menu-open-button open-sidebar">
+              <span class="hamburger hamburger-1"></span>
+              <span class="hamburger hamburger-2"></span>
+              <span class="hamburger hamburger-3"></span>
+            </label>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="page page-brief">
+      <div class="brief">來了解什麼是專屬你的<div class="title">愛情神器</div><div class="start">開始測驗<br><img src="./img/arrow.png" srcset="./img/arrow2.png 800w, ./img/arrow.png 1200w"/></div></div>
+      <div class="god-tools">
+        <img src="./img/app.png" height="80" class="app" />
+        <img src="./img/net.png" width="70" class="net" />
+        <img src="./img/paint.png" width="70" class="paint" />
+        <img src="./img/phone.png" height="80" class="phone" />
+        <img src="./img/letter.png" width="70" class="letter" />
+      </div>
+    </section>
+    <section class="page page-quiz" curr-index="0">
+      <div class="quiz-container"></div>
+      <div class="pass-answer"><div style="display:none;">看結果<br><img src="./img/arrow.png" srcset="./img/arrow2.png 800w, ./img/arrow.png 1200w" style=" max-width: 200px;position: relative;"/></div></div>
+    </section>
+    <section class="page page-painting">
+      <div class="page-content">
+        <div class="painting">
+          <img src="./img/paint.png" height="80"/><div class="caption">畫畫</div>
+        </div>
+        <div class="result">
+          <div class="content">
+            能與你戀愛的對象十分幸福，你有滿腔浪漫的熱血，傳統的內心卻不至於令你出軌劈腿。你懂得營造浪漫，很會照顧人，一旦交往就希望以結婚為前提，務實的態度使愛情容易修成正果。拿起畫筆將你的浪漫思緒渲染成一幅幅動人的畫，必定能打動對方。
+          </div>
+          <div class="btns">
+            <div class="play-again"><img src="./img/heart1.png"/>再玩一次</div>
+            <div class="share-result" target="paint"><img src="./img/heart2.png"/>分享結果</div>
+          </div>
+        </div>
+      </div>
+      <div class="keep-reading" target=".page.article.painting">閱讀愛情故事<div><img src="./img/continue.png"/></div></div>
+    </section>
+    <section class="page article painting">
+      <article>
+        <div class="photo">
+          <div class="img" style="background-image: url(./img/paint01.jpg)"></div>
+          <div class="caption">曾永鴻說以前的人情感比較內斂，拿紙筆寫字可以讓人心安定。</div>
+        </div>
+        <div class="title">畫裡藏愛才浪漫</div>
+        <div class="credit">文／許越如　攝影／宋岱融　插畫／欒昀茜<br>視覺設計／陳怡蒨　網頁製作／江鎧至</div>
+        <div class="content">
+          <p>36年前，每天早上，吳美麗一進辦公室，都會小心地打開抽屜，看今天收到的水墨畫是黃菊還是洋蘭，題在畫上的詩，又藏了多少情話：「與你共享我手植的第一株花影／禁不住 要偷偷地告訴你／雖然未具筆力 卻是一片心力... ...」</p>
+          <p>36年後，58歲的曾永鴻，捧著當年偷偷放在吳美麗抽屜裡的情詩，仍想大聲唸一回，60歲的吳美麗則在旁吐槽：「他寫的詩不是很縝密，因為寫得很快，」卻也說，「當時他算是很有才華的，很會畫、毛筆字也會寫，還能作詩。」回憶起來，語氣也甜了起來。</p>
+          <p>1981年，剛退伍的曾永鴻選擇分發國小時，唯一的條件是：「我喜歡畫畫，只要在海邊，有船可以畫的地方都可以。」依著這顆浪漫的心，曾永鴻才能在高雄旗津的中洲國小，與早她2年教書的屏東師專學姐吳美麗重逢。</p>
+          <p>曾永鴻家境清貧，雙親靠打零工維生，現實條件卻從沒阻擋他對畫畫的熱情。師專畢業後，他白天在中洲國小教書、晚上念補校進修，餘錢就拿去拜師學畫。教室前的花圃沒人使用，曾永鴻為了寫生，找來不同種子四處撒，花開了，吳美麗經過教室時可以聞香，打開抽屜，便是曾永鴻毛筆下的一片燦花與鳥。</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/paint02.jpg)"></div>
+            <div class="caption">他給吳美麗的愛情花語是永不凋零的紙上花，畫完水墨花後會即興題上一首詩。</div>
+          </div>
+          <p>曾永鴻說：「以前的人情感比較內斂，透過書寫就是在重整思緒，因為書寫就是一件正式的事：找紙、找毛筆，又想著要把字寫好，整個心便冷靜下來，過程中原本很糟的情緒，都可以比較理性地書寫。」看似浪漫的曾永鴻，每個舉動其實都是務實的打算：要溝通就要拿出毛筆宣紙沉澱心情寫字、要練寫生就順便畫花給心儀對象。</p>
+          <p>吳美麗也清楚，戀愛的浪漫只是夢幻泡影，腳踏實地的愛情比空虛的浪漫更可貴，她說自己以前跟交往對象情書裡寫的，盡是些小情小愛的抒情，因此真正擄獲她心的，也是曾永鴻的務實，「他以前常常忙學校行政，忙到自己夜間部都翹課，公而忘私，是很有責任心的人。跟他交往之後，漸漸覺得這個人值得託付終生，因為兩個人好像可以一起面對未來的各種狀況。」</p>
+          <p>吳美麗是旗津中洲人，父親靠一艘漁船捕魚養家，家境不差；但曾永鴻因為家庭貧困，就算有滾滾的愛情憧憬在他血液裡奔騰，外在環境卻一次次潑他冷水，前幾段戀情都因對方家長嫌他窮，極力反對而告終。吳美麗當然知道，也陪他走過低潮，卻無法阻擋家人也強烈反對的事實。吳美麗的父母的暗示很清楚，「沒房沒錢，結婚連想都別想。」向吳美麗告白後，曾永鴻便開始四處借錢；省略求婚，吳美麗也不介意，她知道這個男人未來不會讓自己受苦，而岳父母知道他不會讓女兒餓肚子，也放心歸還考驗準女婿的聘金。</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/paint03.jpg)"></div>
+            <div class="caption">吳美麗跟曾永鴻讀屏東師專時彼此並不相識，兩人都進中洲國小教書後才又相認，成為無話不談的好朋友與好情人。</div>
+          </div>
+          <p>兩人從無話不談的學姊弟，變成患難與共的情人，攜手度過36個年頭，如今生活不再窮苦，曾永鴻的務實派浪漫卻依舊，他獻給太太的愛情花語是一幅幅紙花：永不凋零而且可靠。他得意地拿起某一年的情人節卡片說：「有時候我很喜歡畫廊圖錄上的某張圖，就會把它剪下來拼貼在西卡紙上，變成一張創意賀卡。」每逢特別節日，他便邀請兒子、女兒一起加入他的老派浪漫，把家人當作永遠的情人，每人手寫一首情詩獻給彼此。</p>
+        </div>
+        <div class="story-choose mobile-only">
+          <div class="story" targetStory="article.painting">
+            <div class="story-choose-img" style="background-image: url(./img/pinkheart1.png);"></div>
+            <div class="label">畫畫</div>
+          </div>
+          <div class="story" targetStory="article.phone">
+            <div class="story-choose-img"></div>
+            <div class="label">電話</div>
+          </div>
+          <div class="story" targetStory="article.letter">
+            <div class="story-choose-img"></div>
+            <div class="label">書信</div>
+          </div>
+          <div class="story" targetStory="article.internet">
+            <div class="story-choose-img"></div>
+            <div class="label">網路</div>
+          </div>
+          <div class="story" targetStory="article.app">
+            <div class="story-choose-img"></div>
+            <div class="label">APP</div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="page page-phone">
+      <div class="page-content">
+        <div class="phone">
+          <img src="./img/phone.png" height="80"/><div class="caption">電話</div>
+        </div>
+        <div class="result">
+          <div class="content">
+            你的感情豐富又熱情，只要和你有互動的異性，都有可能對你動情，與你相處也常常有驚喜。不過你容易對一成不變的感情感到厭煩，因此愛情之路總是峰迴路轉，但終究仍會找到真愛。現在就拿起電話，用你的熱情融化對方吧。
+          </div>
+          <div class="btns">
+            <div class="play-again"><img src="./img/heart1.png"/>再玩一次</div>
+            <div class="share-result" target="phone"><img src="./img/heart2.png"/>分享結果</div>
+          </div>
+        </div>
+      </div>
+      <div class="keep-reading" target=".page.article.phone">閱讀愛情故事<div><img src="./img/continue.png"/></div></div>
+    </section>
+    <section class="page article phone">
+      <article>
+        <div class="photo">
+          <div class="img" style="background-image: url(./img/phone01.jpg)"></div>
+          <div class="caption">劉天富雖然肢體不方便，打電話談情卻難不倒他，他最高紀錄是與情人從晚上8點聊到早上8點。</div>
+        </div>
+        <div class="title">聲音是很棒的性器官</div>
+        <div class="credit">文／許越如　攝影／賴智揚　插畫／欒昀茜<br>視覺設計／陳怡蒨　網頁製作／江鎧至</div>
+        <div class="content">
+          <p>1980年電話卡還沒上市，台北電話只有六碼，劉天富就用他的聲音迷倒相伴他這生愛情之路的女孩與女人們，難怪朋友愛開玩笑虧他：「天富，你什麼都死了，就是一張嘴還活著。」</p>
+          <p>「我先跟對方講，千萬別被我的聲音迷惑。一開始就介紹我的手像雞爪，腳不方便，這些都先講清楚，對方就會更好奇，好幾次跟人家說我重度殘障，女生都會回『不要騙我』。」今年62歲的劉天富，講起自己談戀愛的利器——低沈魅惑又抑揚頓挫的電話聲音，仍藏不住臉上的驕傲。</p>
+          <p>劉天富小時候住眷村，當時家用電話尚未普及，全村只有一台公共電話。他20歲時雙腳還勉強能站，用側臉倚著牆壁夾住聽筒，凡是路過電話亭的小孩都會被他抓來幫忙投幣。他笑著說：「愛情真偉大，我站到腳酸就會坐回輪椅休息一下，重新排隊，當時公共電話多麼珍貴。」有次他到監獄演講，跟台下觀眾說他也曾經是個受刑人：「我是一個自戀的男人，心在飛揚，身體卻被困在一個小房間，渡過十幾年的青春，多麼孤單寂寞多麼苦，電話是很大的慰藉。」</p>
+          <p>用什麼方法認識女生？他說因為熱愛藝術文學又交友廣闊，每一場新象藝術辦的講座和文建會寫作班他都去報名、如果朋友要從台北下墾丁聯誼，也一定找他，只要能拓展交友圈，劉天富都會主動出擊：「當時比較少男生像我這樣喜歡感性浪漫的東西，如果又能表達出來，自然而然就容易吸引女孩子，那時代的戀愛是偏向心靈交流的」。他寄給想追的女生一本羅曼羅蘭的《約翰克利斯朵夫》，之後就有藉口打電話跟對方討論劇情。</p>
+          <p>但光靠聲音迷人、學識廣博還不夠，劉天富說：「打電話最關鍵的是氣氛，講俗氣一點，好聽的聲音有時反而是非常棒的性器官，表達方式不見得直接，但可以營造很多想像空間。」對他而言，如果時常見面、發展太快，「反而容易讓愛情燃燒殆盡。等待的過程裡，你越想得到愛情，就越能釀出美好，以前的戀愛真的是一點一滴『談』出來的。」懸空的綿綿情感，才是他的電話必殺技。</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/phone02.jpg)"></div>
+            <div class="caption">劉天富聊到豐富的感情經驗臉上充滿自信，他說：愛情要自我迷戀才能去追求別人。</div>
+          </div>
+          <p>劉天富說戀愛就像做人一樣要坦蕩蕩，他曾遇過見面就嫌他「倒彈」（台語：「厭惡」之意）的女生，或是聽到他是殘障就趕快掛斷電話，這些他都不介意，「世界上你還能去哪找像我這樣特別的人？對方如果真的要憑外表，就不用浪費時間交往。」以前他出門約會一定穿短袖短褲，要女友勾著他的殘肢，大方地走在街上。說起這些往事他表情毫無猶豫，向我解釋為何需要如此招搖，「愛情需要自我迷戀，才有追求別人的機會。」</p>
+          <p>年輕時他有作家夢，一位曾同居七年的女朋友，每天出外賺錢買書給他，常常在他耳邊說：「天富加油，你以後一定會當大作家！」剛交往時對方家長還非常反對，求他放過女兒，鬧過幾次家庭革命後才終於信任劉天富，這時他卻突然覺悟說：不結了。</p>
+          <p>「那時幾乎都是她出錢養我，因為太愛對方，就會心疼她們為你付出這麼多，所以一定要等到自己功成名就才能娶人家。」好強的他嘆了一口氣。電話的世界雖然將他撥接到好幾段刻骨銘心的愛情，然而時間一拖，也就與她們擦身而過。歷經前一段婚姻與喪子，現在他的愛情是甜蜜的責任，現任妻子來自廣西，是透過親戚介紹認識的，正式見面前，第一次講電話對方就說：「哎唷天富，你的聲音怎會這樣迷人，真要命。」他在電話上談情的魅力，一點也不隨年齡遞減。</p>
+          <p>此刻他正撥出一通電話，宛若21歲少年那樣，躺在床上用臉頰夾住聽筒，只是現在電話不拿來談情，談的是全心投入的公益事業。雖然妻子至今仍偶爾稱讚他的聲音有磁性，但當年畢竟還是隔著一層距離，才有電話上的溫柔與體貼，兩人天天生活一起後，劉天富便鮮少把情和愛的浪漫字眼掛在嘴邊。問他印象深刻的愛戀有幾段？從一開始的4段，多想幾分鐘後又回答5，數字一直往上加……劉天富轉過來微微笑說，「當然我沒有在回憶啦，所有的愛情要說，也都只在回憶裡。」</p>
+        </div>
+        <div class="story-choose mobile-only">
+          <div class="story" targetStory="article.painting">
+            <div class="story-choose-img"></div>
+            <div class="label">畫畫</div>
+          </div>
+          <div class="story" targetStory="article.phone">
+            <div class="story-choose-img" style="background-image: url(./img/pinkheart1.png);"></div>
+            <div class="label">電話</div>
+          </div>
+          <div class="story" targetStory="article.letter">
+            <div class="story-choose-img"></div>
+            <div class="label">書信</div>
+          </div>
+          <div class="story" targetStory="article.internet">
+            <div class="story-choose-img"></div>
+            <div class="label">網路</div>
+          </div>
+          <div class="story" targetStory="article.app">
+            <div class="story-choose-img"></div>
+            <div class="label">APP</div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="page page-letter">
+      <div class="page-content">
+        <div class="letter">
+          <img src="./img/letter.png" height="80"/><div class="caption">書信</div>
+        </div>
+        <div class="result">
+          <div class="content">
+            你是一個專情的人，只要認定了對方，就會用心經營戀情。你總是在對方沒察覺的地方默默付出，一旦對方無意間發現會大為感動。內向又不擅言詞的你，有一顆敏感又柔軟的心，如果與對方發生爭執，默不作聲的你雖然會生悶氣，卻也更擔心對方受傷，使得最後低頭道歉的總是你。雖然你口才不好，但一筆一劃把你的柔情寫下來，對方閱讀了你的心，一定會深受感動。
+          </div>
+          <div class="btns">
+            <div class="play-again"><img src="./img/heart1.png"/>再玩一次</div>
+            <div class="share-result" target="letter"><img src="./img/heart2.png"/>分享結果</div>
+          </div>
+        </div>
+      </div>
+      <div class="keep-reading" target=".page.article.letter">閱讀愛情故事<div><img src="./img/continue.png"/></div></div>
+    </section>
+    <section class="page article letter">
+      <article>
+        <div class="photo">
+          <div class="img" style="background-image: url(./img/letter01.jpg)"></div>
+          <div class="caption">徐江屏和太太在一九九一年因筆友相識，他至今仍維持寫信給太太的習慣。</div>
+        </div>
+        <div class="title">只有紙筆知我心</div>
+        <div class="credit">文／鄭進耀　攝影／宋岱融　插畫／欒昀茜<br>視覺設計／陳怡蒨　網頁製作／江鎧至</div>
+        <div class="content">
+          <p>一九九二年，徐江屏在《愛情青紅燈》登了這則徵友啟示：「後現代愛情理論家，世紀末嘻遊者，有誠意佳，無誠意可。」這本雜誌是當年阿兵哥們的休閒讀物，裡面有各種「性知識」和清涼圖片，著名的交友專欄是歷久不衰的當紅單元，別人的徵友文寫：興趣是看海與思考，徐江屏的徵友文在裡頭顯得很異類。</p>
+          <p>出類不見得拔萃，「結果我只收到三封回信。」還好其中一位回信者何小姐跟他相談甚歡，信件往返一年。他們的交友方式十分古典，二人只談生活瑣事不說愛，沒有交換照片，一年後相約在火車站見面，男方帶著玫瑰花，女方帶著一份報紙相認，古樸到像是電視短劇的搞笑情節。</p>
+          <p>五十歲的徐江屏成長於屏東，從小念的學校都是男女分班，「我很羡慕別人交女友，可是很害怕跟異性聊天，每次聊天會想很多，想愈多就愈結巴。」高中在補習班遇到心儀的女生，想讓對方留下印象：「我就突然在她面前很快跑過去，我一直跑了二個街口，才回神過來，我在幹嘛？」</p>
+          <p>上了大學，狀況也沒好轉，他蓄長髮，讀艱澀的社會學理論書，別人不敢跟他親近，「其實是在掩飾自己不懂怎麼跟人互動，我怕別人跟我多說幾句，我就結巴，不如裝酷跟大家保持距離。」</p>
+          <p>還好有「青紅燈」，徐江屏帶著玫瑰花與何小姐見面，何小姐愛笑，善談，第一次見面就帶他做了一個心理測驗，害怕跟異性說話的徐江屏一下子覺得自在了。「我讀小說、聽古典樂，以前覺得另一半需要懂這些才可以，認識她之後，我發現婚姻是一種互補，如果生活還是一直聊小說、書本和藝術，那也太無聊了。」</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/letter03.jpg)"></div>
+            <div class="caption">徐江屏的太太把他們相戀以來寫的信按日期編號收納整齊。</div>
+          </div>
+          <p>徐江屏攤開過去二十年寫的信，何小姐的字張揚大器，他的字反而顯得娟秀，兩人交往後，徐江屏又面對另一個問題，何家經營貨運行，每個人都長得人高馬大，連養的挪威納犬都快比他高壯，當時他只有五十公斤，何爸爸看了一眼，只對女兒說：「怎麼交了一個國中生回來？」何媽媽看了他寫給女兒的信，覺得此人文筆跟外表不搭，判斷此人：「花言巧語，不可信賴。」</p>
+          <p>沒有文字做媒介，徐江屏的人際推展顯得困難重重。「我每次到她們家就很緊張，最後只敢跟狗玩。」挪威納不是很凶猛嗎？「才不會，人更可怕喔。」最後收服一家人竟然也還是狗，何家人愛狗，而徐江屏只敢跟狗互動、又熱心幫狗洗澡，何家人對他多了信賴，最後答應了他們的婚事。</p>
+          <p>「我很習慣在文字裡表達自己…。」至今他仍常寫信給太太，有時用email寄出，仍堅持用附夾word檔：「這樣才有開信的感覺。」太太也寫信，但只有生氣時才寫：「吵架見面就會忍不住發脾氣，還不如好好寫信讓自己冷靜把話講清楚。」</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/letter02.jpg)"></div>
+            <div class="caption">徐江屏習慣用文字表達自己，常傳長篇文字的簡訊給家人和公司下屬。</div>
+          </div>
+          <p>徐江屏不只寫信給老婆，也會發長篇簡訊給兒子和公司下屬，但他們只會回：「喔，知道了。」今年尾牙，感性的徐江屏發了八百字的短訊傳給下屬感謝他們一年的辛勞：「結果，有人回：字太多了，看不完。」徐江屏慶幸自己生對了年代、遇到對的人，要是生在現在這個世代：「我一定交不到女朋友，也不可能結婚。」</p>
+        </div>
+        <div class="story-choose mobile-only">
+          <div class="story" targetStory="article.painting">
+            <div class="story-choose-img"></div>
+            <div class="label">畫畫</div>
+          </div>
+          <div class="story" targetStory="article.phone">
+            <div class="story-choose-img"></div>
+            <div class="label">電話</div>
+          </div>
+          <div class="story" targetStory="article.letter">
+            <div class="story-choose-img" style="background-image: url(./img/pinkheart1.png);"></div>
+            <div class="label">書信</div>
+          </div>
+          <div class="story" targetStory="article.internet">
+            <div class="story-choose-img"></div>
+            <div class="label">網路</div>
+          </div>
+          <div class="story" targetStory="article.app">
+            <div class="story-choose-img"></div>
+            <div class="label">APP</div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="page page-internet">
+      <div class="page-content">
+        <div class="internet">
+          <img src="./img/net.png" height="80"/><div class="caption">網路</div>
+        </div>
+        <div class="result">
+          <div class="content">
+            自信的你，很清楚自己要什麼條件的對象，一旦遇到心儀的對象，一定會把握機會。雖然你條件不差，感情生活卻不見得豐富，旁人都說你的眼光太高，但那只是你對愛情素質的不妥協。理性的你認為，網路是一個大資料庫，能為你篩選出合適的對象。
+          </div>
+          <div class="btns">
+            <div class="play-again"><img src="./img/heart1.png"/>再玩一次</div>
+            <div class="share-result" target="internet"><img src="./img/heart2.png"/>分享結果</div>
+          </div>
+        </div>
+      </div>
+      <div class="keep-reading" target=".page.article.internet">閱讀愛情故事<div><img src="./img/continue.png"/></div></div>
+
+    </section>
+    <section class="page article internet">
+      <article>
+        <div class="photo">
+          <div class="img" style="background-image: url(./img/net01.jpg)"></div>
+          <div class="caption">程如晞不出生在網路世代，但不管走到哪，電腦跟網路都是她的必需品。</div>
+        </div>
+        <div class="title">誰在伺服器另一端等我</div>
+        <div class="credit">文／許越如　攝影／王漢順　插畫／欒昀茜<br>視覺設計／陳怡蒨　網頁製作／江鎧至</div>
+        <div class="content">
+          <p>58歲的程如晞在1996年網路尚未蓬勃時，就開始嘗試網路交友，第一次把自己上傳到網路時她37歲，已經是一間書店的總經理。她翻到一本介紹網際網路的書，好奇地輸入其中一個網址：www.lovematch.com，按了enter，順手就登錄第一筆個人資料。剛開始她不敢放照片，擔心自己的年紀會乏人問津，一陣子後奇蹟也沒有發生，「我後來就把年紀設成32歲，果然有比較多人回，也陸續見過幾位網友，卻好像在欺騙別人。」她說她的個性喜歡公開透明，所以「一旦決定要交往，就一定把我的年紀、婚姻狀態通通向對方坦白。」</p>
+          <p>雖然說的是十幾年前往事，她的語氣仍不免激動，不滿一般人對離婚女性或是年過35還單身的歧見。她外表亮麗，以前留一頭烏長亮髮，舊照片裡的她在鏡頭前收放自如，簡直像專業模特兒，「我也是有姿態的，別人看你獨立又事業成功，都告訴你單身有什麼不好？所以就會更不想讓人感覺其實我渴望愛情、渴望婚姻。」</p>
+          <p>程如晞有二個姐姐與一個弟弟，說自己排到老三是「爹不疼娘不愛」的順位，「所以從以前到現在，我都在渴求被愛的感覺，希望得到別人的認同和肯定。」23歲大學畢業就跟在教會認識的學長結婚，生下一個女兒。對方去當兵時她天天趕下午五點半投郵，二千多封手寫信都是她誓言不兵變的證據。程如晞的前半生，是個活在別人心中的乖巧溫順女性。31歲劇情急轉，她離婚、畢生積蓄跟房子保單都抵押借給朋友，卻要不回來、事業正逢低潮、丈夫又心肌梗塞驟逝，十年間事業家庭起起伏伏。41歲人生下半場，她決定什麼角色都不演，拉著一只皮箱，出走到美國，開啟新生活。</p>
+          <p>那一年，也是台灣網路正要起步的2000年，她人在好萊塢，一心想藉網路打造一番事業，加上自己找伴的需求，開始嘗試美國的交友網站，勇敢放出照片後，沒想到幾天就收到上千封信，在現實生活中得不到的關注，她都從網路上嚐到甜頭。網路交友創造一種快、狠、準的游擊模式，「我會先看標題，點進去看照片比較帥的，再讀內容吸不吸引人，一個月內見24個人，最高紀錄一天三個，中餐下午茶晚餐都排滿。」後來還與其中一位美國導演穩定交往、同居，最後因文化差異沒論及再婚。</p>
+          <p>她形容自己是網路重度使用者，當時天天靠連線維生，醒著的時間幾乎都掛在電腦前。「因為我別無選擇，生活中更難遇到單身或適婚對象；眼界也隨著年齡增長，只有網路龐大的資料庫，才可能找到適合我條件的人。」愛情本來就是種自我投射，在網路上找伴更是，「你對對方的期待，可能是來自你本身的價值，我們都從自己在乎的角度，去理解網路上閱讀到的片面訊息。」</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/net02.jpg)"></div>
+            <div class="caption">以前只要碰到挫折，她就寫進日記，她說日記打開來頁頁都是淚跡。2006年開始寫部落格後，就把心情都分享到網路上了。</div>
+          </div>
+          <p>體驗過網際網路的廣博浩瀚，她回台灣自己創業，打造專門媒合西方男性與亞洲女性的101網路交友平台。這個事業讓她開始覺得網路是許願池，替她找對象也找工作。但有次她以管理者身份登入後台，看到曾向她示好過的男網友，付註冊費後就像撒漁網一般，寄信給一堆女生，一點也不是她印象中的專情獨一，「我才發現網路上大家都在騎驢找馬，它因為太便利也就變得太不可靠，就算兩人穩定交往中，只要有點不順心，回去把profile打開，就能找個人替代。所以2009年，我就對網路交友徹底灰心了。」她的輕鬆語氣，是從好幾段對方不告而別的情傷後淬煉出來的。後來網站經營麻煩，便收攤。程如晞把對人生的失望，都寄託在部落格的文字裡，一忙也就忘了替自己找對象。</p>
+          <p>只是你永遠不曉得人生下一顆巧克力滋味如何，即使她曾因對人性灰心，抗拒在網路上找對象。2009年底，她因寫部落格教學文章認識前男友。程如晞從對方部落格文章看出他剛結束一段感情，而她把心情物語寫在部落格上多年，字裡行間早透露出單身狀態。這次她不再篩選條件，「以前勾選二十幾條限制，結果我找了十多年，才發現是這種『非要不可的心境』讓我鬱鬱寡歡。」兩個人一起生活7年，去年因退休生涯規劃不同而分開，她又受了一次傷。</p>
+          <p>網際網路在千禧年時對程如晞吐絲，編織她後青春期的愛情舞台，轉眼17年過去，那位在戀愛中尋找倒影的小女孩，至今還住她身體裡。她的人生經驗老練，但是談起對愛情的期望，又異常生澀。「我不想再被傷害，所以現在我並不想要再透過網路認識人，但... ...」她猶豫了，「也不排除網路是我最後一個機會。」</p>
+        </div>
+        <div class="story-choose mobile-only">
+          <div class="story" targetStory="article.painting">
+            <div class="story-choose-img"></div>
+            <div class="label">畫畫</div>
+          </div>
+          <div class="story" targetStory="article.phone">
+            <div class="story-choose-img"></div>
+            <div class="label">電話</div>
+          </div>
+          <div class="story" targetStory="article.letter">
+            <div class="story-choose-img"></div>
+            <div class="label">書信</div>
+          </div>
+          <div class="story" targetStory="article.internet">
+            <div class="story-choose-img" style="background-image: url(./img/pinkheart1.png);"></div>
+            <div class="label">網路</div>
+          </div>
+          <div class="story" targetStory="article.app">
+            <div class="story-choose-img"></div>
+            <div class="label">APP</div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="page page-app">
+      <div class="page-content">
+        <div class="app">
+          <img src="./img/app.png" height="80"/><div class="caption">ＡＰＰ</div>
+        </div>
+        <div class="result">
+          <div class="content">
+            個性急躁的你，對於看不順眼的人事物總會壓抑不住直接發難，雖然你看似義無反顧、天不怕地不怕，其實亟需要別人的關愛，只要稍稍感受到對方的體貼，就很容易觸動了你某根脆弱的神經而付出一切。你不願等待愛情，你要主動出擊，交友軟體是適合你的選擇。
+          </div>
+          <div class="btns">
+            <div class="play-again"><img src="./img/heart1.png"/>再玩一次</div>
+            <div class="share-result" target="app"><img src="./img/heart2.png"/>分享結果</div>
+          </div>
+        </div>
+      </div>
+      <div class="keep-reading" target=".page.article.app">閱讀愛情故事<div><img src="./img/continue.png"/></div></div>
+
+    </section>
+    <section class="page article app">
+      <article>
+        <div class="photo">
+          <div class="img" style="background-image: url(./img/app01.jpg)"></div>
+          <div class="caption">Emma用手機App認識現任的男友，兩人第一次見面就約在中壢火車站。</div>
+        </div>
+        <div class="title">速食愛情慢慢嘗</div>
+        <div class="credit">文／許越如　攝影／王漢順　插畫／欒昀茜<br>視覺設計／陳怡蒨　網頁製作／江鎧至</div>
+        <div class="content">
+          <p>七歲以後，Emma對家庭的記憶是父母離異的過程，她後來沒有因此而畏懼婚姻，「我反而想更快組成自己的家庭，得到幸福。」她規劃30歲前結婚生子，「可是你看我一直拖到現在都還沒有。」31歲的Emma，語氣聽起來像自我調侃，但也透露她真的急了，與其在家裡靜靜等待對象來敲門，她一登入手機交友軟體，就能把全台灣符合她理想條件的男子都叫到眼前。畫面跑出一張張照片跟自我介紹，感興趣的她就往右滑、沒興趣的拇指向左，配對成功先聊個幾句，確定真心想交往才約出來見面。</p>
+          <p>用手機軟體找對象快速又能客制化，談戀愛前先談條件，彼此都不浪費時間。剩下的只要長相順眼又聊得來，她便傳給對方幾個問題：抽不抽菸？想結婚嗎？重視家庭嗎？在交友軟體裡，兩人從零開始認識，幾乎有問必答。</p>
+          <p>Emma是輪班制的作業員，一天有兩次休息時間。零碎時間就是她的螢光片刻，手機亮光映在她臉上，打開GPS定位，上傳幾張好看的正面照、具有視覺吸引力的腿照也附上一張，自我介紹寫下幾個關鍵字：她身高175公分，所以對象也要175公分以上、以結婚為前提交往、以後其中一個小孩要跟母姓。</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/app03.jpg)"></div>
+            <div class="caption">想趕快組成家庭的Emma習慣從網路尋找理想對象，也映照出自己的性格。</div>
+          </div>
+          <p>Emma的媽媽婚前原本也與丈夫約定好，有一個小孩要跟她姓張，最後卻沒實現，Emma小時候常聽大人為此事爭吵，加上爸爸的工作是鋼琴酒吧的鋼琴師，媽媽常因爸爸女人緣太好，吃醋的苦都壓抑在心，酒後才能傾訴，長年吵架將婚姻的幸福跟信任都消磨成針，刺破美好家庭的想像。這些Emma都看在眼裡，雖然她自認不是對男人沒安全感，但事實上，每段戀情發生之前，她都希望能非常瞭解對方後再交往。「我在愛情裡應該是比較強勢的一方，可是我一直很想當個小女人就好，」每次談戀愛，Emma還是常常忍不住要主導，替對方做出認為是對他們好的決定。因為對她而言，只要能心安，感情就順遂一半。</p>
+          <p>使用app交友之前，Emma的男友都是工作場合中認識的， 然而曾經她以為很有責任感的，最後卻選擇對工作而不是愛情負責；曾經都與對方家人同住三年的，最後卻無法明確回應她對婚姻與家庭的期待。「他們讓我感覺無法確定未來，其實我只是想要對方給一個肯定的答案。」與其浪費多年還無法與對方達成共識，不如使用軟體交友，先得到答案再交往。</p>
+          <p>話雖這麼說，Emma也不是一開始就相信網路交友。2013年她剛申請交友軟體時，用「搖一搖」尋找鄰近的人功能，沒搖到真愛，反被對方當搖錢樹，見面約會好幾次後，這位「男朋友」借走一萬元就已讀不回，她只好安慰自己是繳學費。她說自己不是不顧網路交友的風險，只是認清「用軟體交友只是起頭，重要的還是兩人回到現實生活中的相處，交友軟體畢竟只是個工具，不能替我談戀愛。」</p>
+          <div class="photo">
+            <div class="img" style="background-image: url(./img/app02.jpg)"></div>
+            <div class="caption">手機交友軟體越來越多種，還可以用衛星定位看到周遭有多少對象。</div>
+          </div>
+          <p>她立下原則，「聊天願意聊超過三天才是真正關心你的、知道對方家庭背景還不夠，還要看他怎麼跟家人朋友互動、初次見面約在餐廳，從對方舉動就知道他在乎你的程度。」幾次網路戀愛的實戰經驗，讓她把這些戀愛原則集結成冊，Emma明白，看似講求速度的app交友，反而需要更有耐心，一點一滴從日常相處中醞釀愛情。</p>
+        </div>
+        <div class="story-choose mobile-only">
+          <div class="story" targetStory="article.painting">
+            <div class="story-choose-img"></div>
+            <div class="label">畫畫</div>
+          </div>
+          <div class="story" targetStory="article.phone">
+            <div class="story-choose-img"></div>
+            <div class="label">電話</div>
+          </div>
+          <div class="story" targetStory="article.letter">
+            <div class="story-choose-img"></div>
+            <div class="label">書信</div>
+          </div>
+          <div class="story" targetStory="article.internet">
+            <div class="story-choose-img"></div>
+            <div class="label">網路</div>
+          </div>
+          <div class="story" targetStory="article.app">
+            <div class="story-choose-img" style="background-image: url(./img/pinkheart1.png);"></div>
+            <div class="label">APP</div>
+          </div>
+        </div>
+        <br>
+        <div style="margin: 1.5em 0;">
+          <div class="fb-comments" data-href="https://www.mirrormedia.mg/projects/valentines_day" data-numposts="5" data-width="100%" data-order-by="reverse_time"></div>
+        </div>
+
+      </article>
+    </section>
+  </main>
+  <aside>
+    <section class="sidebar">
+      <div class="left">
+        <div class="story" targetStory="article.painting">書畫：畫裡藏愛才浪漫</div>
+        <div class="story" targetStory="article.letter">寫信：只有紙筆知我心</div>
+        <div class="story" targetStory="article.app">App：速食愛情慢慢嘗</div>
+      </div>
+      <div class="right">
+        <div class="story" targetStory="article.phone">電話：聲音是很棒的性器官</div>
+        <div class="story" targetStory="article.internet">網路：誰在伺服器另一端等我</div>
+      </div>
+    </section>
+  </aside>
+  <div class="nav mobile-hide" style="display: none!important;">
+    <div><div class="item nav-paint" story=".page.article.painting" style=""></div><div class="label">畫畫</div></div>
+    <div><div class="item nav-phone" story=".page.article.phone" style=""></div><div class="label">電話</div></div>
+    <div><div class="item nav-letter" story=".page.article.letter" style=""></div><div class="label">書信</div></div>
+    <div><div class="item nav-net" story=".page.article.internet" style=""></div><div class="label">網路</div></div>
+    <div><div class="item nav-app" story=".page.article.app" style=""></div><div class="label">APP</div></div>
+  </div>
+</body>
+</html>
