@@ -299,7 +299,7 @@ $(document).ready(function() {
                 var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',');
 
                 $('#money').animateNumber({
-                    number: 210000000000,
+                    number: 21000000000,
                     numberStep: comma_separator_number_step
                 },3000);
             }

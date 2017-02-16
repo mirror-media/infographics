@@ -215,7 +215,7 @@ div.leftContainer::-webkit-scrollbar-corner {
 }
 
 .mainTitle.loaded {
-  animation: blackblur 5s normal forwards ease-in-out;
+  animation: blackblur 3s normal forwards ease-in-out;
   pointer-events: none;
 }
 
@@ -269,13 +269,12 @@ div.leftContainer::-webkit-scrollbar-corner {
 }
 
 .continue {
+    position: relative;
     left: calc(50% - 20px);
+    bottom: calc(-50% + 23px);
     cursor: pointer;
-    position: absolute;
-    bottom: 3px;
     background: url(../img/continue.png) 50% 50% no-repeat;
     background-size: cover;
-    margin: 0 auto;
     width: 40px;
     height: 40px;
     border: 0px;
@@ -873,6 +872,7 @@ svg path.county.data {
 
   .infoMobile.loaded {
     display: block;
+    top: calc(-50% + 120px);
   }
 
   .infoWindow {
@@ -891,14 +891,27 @@ svg path.county.data {
     width: 240px;
   }
 
-
-
   .heroDesc {
     max-width: initial;
     margin: 10px 15px;
     font-size: 16px;
     line-height: 1.5;
     text-align: left;
+  }
+
+  .continue {
+    width: 100%;
+    height: 70px;
+    left: 0;
+    bottom: -25%;
+    background-size: contain;
+    background-color: transparent;
+    border-radius:0;
+  }
+
+  .action {
+    color: #fff;
+    bottom: calc(25% + 10px );
   }
 
   .col-A, .col-C {
