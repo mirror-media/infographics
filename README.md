@@ -19,3 +19,6 @@
 | airquality | [空襲警報](https://mirrormedia.mg/projects/airquality/) |
 | subsidy_ways | [【查詢】台北市各類社會補助資格與申請管道查詢](https://mirrormedia.mg/projects/subsidy_ways/) |
 | valentines_day | [什麼是專屬你的愛情神器呢](https://mirrormedia.mg/projects/valentines_day/) |
+| transport-industry | [玩命運輸](https://mirrormedia.mg/projects/transport-industry/) |
+| transport-industry-mrt | [玩命運輸ONLINE外傳 - 台北捷運司機](https://mirrormedia.mg/projects/transport-industry-mrt/) |
+| kmt-chairman2017 | [KMT 黨主席爭霸戰](https://mirrormedia.mg/projects/kmt-chairman2017/) |
