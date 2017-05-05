@@ -1,0 +1,26 @@
+{
+  "name" : "cities",
+  "children" : [
+    { "name" : "台北市", "size" : 8 , "accumulated" : "5,317,995,524" },
+    { "name" : "新北市", "size" : 9 , "accumulated" : "4,217,943,312" },
+    { "name" : "高雄市", "size" : 9 , "accumulated" : "6,568,767,267" },
+    { "name" : "台中市", "size" : 12 , "accumulated" : "11,504,699,297" },
+    { "name" : "桃園市", "size" : 5 , "accumulated" : "4,958,194,048" },
+    { "name" : "台南市", "size" : 3 , "accumulated" : "1,610,803,818" },
+    { "name" : "屏東縣", "size" : 2, "accumulated" : "1,796,784,813" },
+    { "name" : "雲林縣", "size" : 2 , "accumulated" : "1,446,327,035" },
+    { "name" : "新竹市", "size" : 2 , "accumulated" : "661,129,241" },
+    { "name" : "花蓮縣", "size" : 1 , "accumulated" : "605,440,410" },
+    { "name" : "南投縣", "size" : 2 , "accumulated" : "1,090,865,961"},
+    { "name" : "彰化縣", "size" : 1 , "accumulated" : "1,501,786,502"},
+    { "name" : "嘉義市", "size" : 0 , "accumulated" : "0"},
+    { "name" : "苗栗縣", "size" : 1 , "accumulated" : "303,521,354"},
+    { "name" : "新竹縣", "size" : 0 , "accumulated" : "0"},
+    { "name" : "嘉義縣", "size" : 0 , "accumulated" : "0"},
+    { "name" : "台東縣", "size" : 1 , "accumulated" : "1,124,617,013"},
+    { "name" : "宜蘭縣", "size" : 1 , "accumulated" : "1,056,219,005"},
+    { "name" : "基隆市", "size" : 0 , "accumulated" : "0"},
+    { "name" : "金門縣", "size" : 0 , "accumulated" : "0"},
+    { "name" : "澎湖縣", "size" : 0 , "accumulated" : "0" }
+  ]
+}
