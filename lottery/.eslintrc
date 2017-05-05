@@ -1,0 +1,31 @@
+{
+  'extends': 'airbnb-base',
+  'plugins': [
+        'import'
+  ],
+  'rules': { 
+    'semi': [2, 'never'],
+    'array-bracket-spacing': [ 2, 'always' ],
+    'no-underscore-dangle': [0],
+    'class-methods-use-this': [2, { 
+      'exceptMethods': [
+        '_doDetect',
+        '_domatch',
+        '_createCanvas',
+        '_getMousePointer',
+        '_setUpHichart',
+      ],
+    }],
+    'import/extensions': [0, 'always', {
+      js: 'always'
+    }],
+  },
+  "globals": {
+    "document": true,
+    "foo": true,
+    "Image": true,
+    "window": true,
+    "FileReader": true,
+    "XMLHttpRequest": true
+  }
+}
