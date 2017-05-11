@@ -1,0 +1,352 @@
+html
+  ::-webkit-scrollbar
+    display none
+    width 0px
+  ::-webkit-scrollbar-track-piece
+    background-color transparent
+    -webkit-border-radius 6px
+
+body
+  margin 0
+  font-size 16px
+  font-family "Noto Sans TC",Microsoft JhengHei,sans-serif
+  line-height 1.6rem
+
+  ::-webkit-scrollbar
+    display none
+    width 0px
+  ::-webkit-scrollbar-track-piece
+    background-color transparent
+    -webkit-border-radius 6px
+
+  div
+    ::-webkit-scrollbar
+      display none
+      width 0px
+    ::-webkit-scrollbar-track-piece
+      background-color transparent
+      -webkit-border-radius 6px
+
+
+.chart-import-vs-export
+  _width = 600px
+  width _width
+  // height _width
+  margin 0 auto
+
+  > .chart
+    background-image url('../images/vdata/c01-1.png')
+    background-repeat no-repeat
+    background-size contain
+    background-position center 0
+    width _width
+    height _width * (11 / 15)
+    position relative
+
+    > div
+      position absolute
+      top 0
+      left 0
+      width 0
+      height _width * (11 / 15)
+      overflow hidden
+      
+      background-repeat no-repeat
+      background-size _width
+      background-position 0 0
+      
+      &.active
+        width 100%
+        animation cover-out 0.35s linear
+
+  > .conclusion
+    width _width
+    height (_width * (11 / 15) / 2)
+    position relative
+    top -35px
+    display flex
+    flex-direction row-reverse
+    overflow hidden
+
+    > .hole
+      width (_width * (11 / 15) / 2)
+      height (_width * (11 / 15) / 2)
+      border-radius 50%
+      background-color #271f19
+      position absolute
+      top 0
+      right 0
+      display none
+
+      &.active 
+        display block
+        animation fade-out 0.15s linear
+
+    > .boat, .point
+      position relative
+      display flex
+      justify-content flex-start
+      align-items center
+
+      > img
+        width 90%
+        position relative
+
+        &.active
+          display block
+
+    > .boat
+      width (_width * 3 / 5)
+      height (_width * (11 / 15) / 2)
+      z-index 1
+      
+      > img
+        left -300%
+        transition left 2s
+        &.active
+          left 0
+        
+    > .point
+      width (_width * 2 / 5)
+      height (_width * (11 / 15) / 2)
+      overflow hidden
+      z-index 0
+
+      > img
+        right -100%
+        transition right 1s
+        &.active
+          right 0
+
+.mining_spots
+  .taiwan_map
+    _width = 247px
+    _height = 464px
+
+    background-image url(../images/vdata/c-taiwan.png)
+    background-position center center
+    background-size contain
+    background-repeat no-repeat
+    width _width
+    height _height
+    margin 100px auto 0
+    position relative
+    // overflow hidden
+
+    > .miaoli, .yilan, .hualian, .taitung
+      width 100%
+      height 100%
+      opacity 0
+      // transition opacity 1s
+      background-position center center
+      background-size contain
+      background-repeat no-repeat
+      position absolute
+      top 0
+      left 0
+
+      > .token
+        width 34px
+        height 34px
+        position absolute
+        display flex
+        align-items flex-end
+
+        > i
+          background-position center bottom
+          background-size contain
+          background-repeat no-repeat
+          width 100%
+          height 0
+          transition height 0.25s
+          display block
+
+        
+        &.active
+          > i
+            height 53px
+            animation jump-align-bottom 0.3s ease-out
+
+      &.active
+        opacity 1
+        animation fade-out 1s
+
+    > .miaoli
+      background-image url(../images/vdata/c-miaoli.png)
+
+      > .token
+        top 60px
+        left 90px
+        > i
+          background-image url(../images/vdata/c-mapin-03.png)
+      
+    > .yilan
+      background-image url(../images/vdata/c-yilan.png)
+
+      > .token
+        top 50px
+        right 25px
+
+        > i
+          background-image url(../images/vdata/c-mapin-02.png)
+      
+    > .hualian
+      background-image url(../images/vdata/c-hualien.png)
+
+      > .token
+        top 165px
+        right 55px
+
+        > i
+          background-image url(../images/vdata/c-mapin-01.png)
+      
+    > .taitung
+      background-image url(../images/vdata/c-taitung.png)
+
+      > .token
+        bottom 120px
+        right 105px
+
+        > i
+          background-image url(../images/vdata/c-mapin-04.png)
+
+    > .bigtruck, .excavator
+      background-position center bottom
+      background-size contain
+      background-repeat no-repeat
+      position absolute
+      opacity 0
+
+      &.active
+        animation vehicle-vibration 0.1s linear 25, fade-out 1s ease
+        opacity 1
+    
+    > .bigtruck
+      background-image url(../images/vdata/c-bigtruck-flip.png)
+      width 85px
+      height calc(75px * 85 / 126)
+      left -100px
+      bottom 215px
+      transition left 2.5s
+
+      &.active
+        left 35px
+
+    > .excavator
+      background-image url(../images/vdata/c-excavator.png)    
+      width 90px
+      height calc(82px * 90 / 128)
+      right -100px
+      bottom 20px
+      transition right 2.5s
+      
+
+      &.active
+        right 10px
+        
+
+    > .msg-yilan, .msg-miaoli, .msg-hualian, .msg-taitung
+      background-position center bottom
+      background-size contain
+      background-repeat no-repeat
+      position absolute
+
+      opacity 0
+
+      &.active
+        opacity 1
+        animation fade-out 1s ease
+
+     > .msg-miaoli
+      background-image url(../images/vdata/c04-b3.png)
+      width 178px
+      height 209px      
+      left -120px
+      top -40px
+
+    > .msg-yilan
+      background-image url(../images/vdata/c04-b2.png)
+      width 198px
+      height 231px
+      right -198px
+      top -100px
+
+    > .msg-hualian
+      background-image url(../images/vdata/c04-b1.png)
+      width 220px
+      height 256px
+      right -210px
+      bottom 60px
+
+    > .msg-taitung
+      background-image url(../images/vdata/c04-b4.png)
+      width 178px
+      height 200px
+      left -100px
+      bottom -5px
+
+.tiny-royalty
+  _width = 600px
+  width _width
+  
+  > .imgwpr
+    > .compare-demo
+      .royalty
+        .pile-paper-money
+          width 98px
+          height 29px
+          background-position center center
+          background-size contain
+          background-repeat no-repeat
+          background-image url(../images/vdata/c-money.png)
+
+  
+
+
+@keyframes cover-out
+  0%
+    width 0
+
+  100%
+    width 100%
+
+@keyframes fade-out
+  0%
+    opacity 0
+
+  100%
+    opacity 1
+
+@keyframes large-out
+  0%
+    width 0
+
+  100%
+    width 100%
+
+@keyframes rotate
+  0%
+    transform rotateZ(0deg)
+  
+  100%
+    transform rotateZ(360deg)
+
+@keyframes jump-align-bottom
+  0%
+    margin-bottom 0
+
+  50%
+    margin-bottom 20px
+  
+  100%
+    margin-bottom 0
+
+@keyframes vehicle-vibration
+  0%
+    margin-bottom 0
+  
+  50%
+    margin-bottom 3px
+
+  100%
+    margin-bottom 0px

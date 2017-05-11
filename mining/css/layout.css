@@ -1,0 +1,180 @@
+@charset "utf-8";
+/*--- reset ---*/
+body,dl,dt,dd,ul,ol,li,th,td,form,input,textarea,p {margin:0; padding:0;}
+img {display:block; border:0;}
+li {list-style:none}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+article,aside,canvas,figure,figure img,figcaption,footer,header,hgroup,menu,nav,section,audio,video {display:block; margin:0; padding:0;}
+
+/*--- global ---*/
+html {overflow-y:scroll; background-color:#2e251c;}
+body {text-align:center; font-size:17px; line-height:27px; font-family:"微軟正黑體", "Microsoft JhengHei", sans-serif; color:#b6a499;}
+h1,h2,h3,h4,h5,h6 {margin:0; line-height:23px;}
+p {text-align:justify; text-justify:distribute; margin-bottom:26px;}
+table {border-collapse:collapse; border-spacing:0; table-layout:fixed; border:1px solid #000;}
+th {border:1px solid #000;}
+td {border:1px solid #000;}
+a {outline:none; text-decoration:none;}
+.clear {clear:both;}
+input {vertical-align:middle;}
+
+
+/*--- common ---*/
+.centerwpr {position:relative; margin:0 auto; max-width:1024px;}
+.fullwidth {max-width:none;}
+
+/*--- opening ---*/
+.opening {position:relative; overflow:hidden; margin-bottom:20px;}
+.opening__heroimg {width:120%; margin:0 auto; margin-left:-10%;}
+
+.opening__logo {display:block; width:144px; height:60px; position:absolute; top:15px; left:20px; cursor:pointer;
+background-image:url("../images/logo.png"); background-repeat:no-repeat; background-size:144px auto; background-position:left top;
+}
+
+/*--- top intro ---*/
+.topintro {width:740px; margin-bottom:120px;}
+
+/* --- section ---*/
+.section {position:relative; margin:0 auto;}
+
+.vdata {padding-bottom:160px;}
+.vdata:first-child {padding-top:40px;}
+/*.vdata.odd {margin-bottom:40px;}*/
+.vdata.even {
+background-color:#271f19;
+}
+.vdata h3 {top:-40px; margin-bottom:10px;}
+/*.vdata.odd h3 {top:-40px; margin-bottom:-10px;}*/
+
+/* --- title ---*/
+h3 {margin:0 auto; height:60px; margin-bottom:30px; overflow:hidden; position:relative;}
+.h3__bgcolor {padding:0 20px; height:100%; display:inline-block; position:relative;
+line-height:60px; font-size:26px; color:#fff; white-space:nowrap;
+background-color:#6e3d39;
+}
+.h3__tri--left,.h3__tri--right {width:10px; height:100%; position:absolute; top:0;}
+.h3__tri--left {left:-8px; border-right:2px solid #6e3d39;}
+.h3__tri--right {right:-8px; border-left:2px solid #6e3d39;}
+
+.h3__tri--left:before,.h3__tri--left:after,.h3__tri--right:before,.h3__tri--right:after {content:""; display:block; width:0; height:0; position:absolute;
+border-style:solid;
+}
+
+.h3__tri--left:before,.h3__tri--left:after {left:0;}
+.h3__tri--left:before {top:0;
+border-width:60px 0 0 12px; border-color:#6e3d39 transparent transparent transparent;
+}
+.h3__tri--left:after {bottom:0;
+border-width:0 0 60px 12px; border-color:transparent transparent #6e3d39 transparent;
+}
+
+.h3__tri--right:before,.h3__tri--right:after {right:0;}
+.h3__tri--right:before {top:0;
+border-width:60px 12px 0 0; border-color:#6e3d39 transparent transparent transparent;
+}
+.h3__tri--right:after {bottom:0;
+border-width:0 12px 60px 0; border-color:transparent transparent #6e3d39 transparent;
+}
+
+/*h4 {font-size:22px; margin-bottom:50px;}
+h4:before,h4:after {font-size:30px;}
+h4:before {content:"["; margin-right:10px;}
+h4:after {content:"]"; margin-left:10px;}*/
+
+.vsub {margin:0 auto; margin-bottom:30px; overflow:hidden;}
+.vsub__inner {display:inline-block;
+color:#ba8a77; font-size:22px; font-weight:bold;
+}
+.vsub__inner:before,.vsub__inner:after {content:""; display:block; width:30px; height:2px;
+position:absolute; top:50%;
+background-color:#ab7b6b; border-radius:2px;
+}
+.vsub__inner:before {left:-42px;}
+.vsub__inner:after {right:-42px;}
+
+
+
+/* --- visual data ---*/
+.imgwpr {position:relative; margin:0 auto;}
+.imgwpr img {margin:0 auto; max-width:100%;}
+
+.c01-1 {width:600px;}
+.c01-2 {width:600px; height:167px;}
+.c01-2__cargo {width:317px; height:167px; position:absolute; left:253px; top:0;
+background-image:url("../images/vdata/c-cargo.png"); background-repeat:no-repeat; background-size:317px auto;
+}
+.c01-2__circle {width:240px; height:240px; position:absolute; right:0; top:-34px;
+background-color:#271f19; border-radius:100%;
+}
+
+.c02 {width:720px; height:560px;
+background-color:#362822; border-radius:20px;
+}
+.c02__cheap {width:251px; height:169px; position:absolute; right:-52px; top:-52px;
+background-image:url("../images/vdata/c-cheap.png"); background-repeat:no-repeat; background-size:251px auto;
+}
+
+.c05 {width:600px;}
+.c05__intro {margin-left:32px; margin-bottom:0;
+font-size:18px; color:#b8b6b4; line-height:30px;
+}
+.c05__intro strong {color:#fff; font-size:23px; font-weight:bold;}
+.c05__footer {font-size:21px; color:#fff; line-height:36px;}
+.c05__footer-period {display:inline-block; width:140px; height:36px; margin:0 46px;
+text-align:center; font-weight:bold;
+border-radius:36px; background-color:#207a7d;
+}
+
+
+.c06 {width:800px;}
+.c06__intro {width:560px; margin:0 auto; color:#d8d7d6;}
+
+
+/* --- table ---*/
+.tablewpr {width:600px; margin:0 auto; 
+border-radius:6px; overflow:hidden; position:relative;
+}
+.table {display:table; table-layout:fixed; width:100%;
+border-collapse:collapse; border-spacing:0;
+background-color:#c5c3c1;
+}
+.table__body {display:table-row-group;}
+.table__row {display:table-row;}
+.table__head,.table__cell {display:table-cell; padding:15px 0;
+color:#362822; font-size:15px;
+border-bottom:1px solid #b3afac;
+}
+.table__head {border-bottom:1px solid #472821;}
+
+.table__row.heading {background-color:#56302b;}
+.table__row.heading .table__head {color:#ddd6d5; font-weight:bold;}
+
+.table__row:nth-child(odd) .table__cell {background-color:#bebab7; }
+.table__row:last-child .table__cell {border-bottom:none;}
+
+.table__source {width:600px; margin:0 auto; padding-top:4px; padding-right:6px;
+font-size:16px; text-align:right; color:#9c9c9c;
+}
+.table__source a {color:#c9c4c4; cursor:pointer;}
+.table__source a:hover {color:#fff; border-bottom:1px dotted #c9c4c4;}
+.table__source .star {position:relative; top:6px; margin-right:4px;
+color:#cb4720; font-size:26px; line-height:100%; font-weight:bold;
+}
+
+
+
+/* --- size detection ---*/
+.detecion {position:fixed; right:5px; bottom:0; pointer-events:none; z-index:10000; opacity:0.4;
+font-family:Tahoma; font-size:13px; line-height:15px; text-align:left; color:#fff;
+}
+.zc {position:fixed; left:0; top:0; pointer-events:none;}
+#zw {width:100%; height:0;}
+#zh {width:0; height:100%;}
+
+
+
+
+
+
+
