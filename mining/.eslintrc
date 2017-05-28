@@ -8,15 +8,9 @@
     'array-bracket-spacing': [ 2, 'always' ],
     'no-underscore-dangle': [0],
     'class-methods-use-this': [2, { 
-      'exceptMethods': [
-        '_doDetect',
-        '_domatch',
-        '_createCanvas',
-        '_getMousePointer',
-        '_setUpHichart',
-      ],
+      'exceptMethods': [],
     }],
-    'import/extensions': [0, 'always', {
+    'import/extensions': [0, 'never', {
       js: 'always'
     }],
   },

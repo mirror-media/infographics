@@ -23,7 +23,7 @@ module.exports = {
     },
     output: {
         path: `${__dirname}/mining`,
-        publicPath: '/dev_keith/infographics/mining/mining/',//`/projects/mining/`,
+        // publicPath: '/dev_keith/infographics/mining/mining/',//`/projects/mining/`,
         // filename: '[name].js', // '[name].[hash].js', //
         filename: '[name].[hash].js',//'[name].js',//
     },
@@ -51,6 +51,16 @@ module.exports = {
             },
         ],
         rules: [
+            {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  presets: ['es2015', 'stage-0']
+                }
+              }
+            },          
             {
               test: /\.styl$/,
               exclude: /node_modules/,
@@ -100,11 +110,11 @@ module.exports = {
     },
     plugins: [
         HTMLWebpackPluginConfig,
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: true
-        //     }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: true
+            }
+        }),
         new CleanWebpackPlugin(pathsToClean, cleanOptions),
         new webpack.LoaderOptionsPlugin({
           options: {
