@@ -365,7 +365,12 @@ export function hideArticles() {
 export function setUpChoiceBehavior() {
   return new Promise((resolve) => {
     const _choiceDiv = doc.querySelector('.choice')
-    const _hands = [ _choiceDiv.querySelector('.choice__box > .choice__hand.left'), _choiceDiv.querySelector('.choice__box > .choice__hand.right') ]
+    const _hands = [
+      _choiceDiv.querySelector('.choice__box > .choice__hand.left'),
+      _choiceDiv.querySelector('.choice__box > .choice__hand.right'),
+      _choiceDiv.querySelector('.choice__box > .choice__pilltext.blue'),
+      _choiceDiv.querySelector('.choice__box > .choice__pilltext.red')
+    ]
 
     setTimeout(() => {
       const _oClass = _hands[0].getAttribute('class')
@@ -381,11 +386,11 @@ export function setUpChoiceBehavior() {
         }, 1000)
       }, 1000)
     }, 500)
-    for (let i = 0; i < 2; i += 1) {
+    for (let i = 0; i < _hands.length; i += 1) {
       _hands[i].addEventListener('click', () => {
         const _handClass = _hands[i].getAttribute('class')
         let _parts = []
-        if (_handClass.indexOf('left') > -1) {
+        if (_handClass.indexOf('left') > -1 || _handClass.indexOf('blue') > -1) {
           const _chooseAgain = doc.querySelector('.choose-again')
           _parts = [
             doc.querySelector('.choice-result'),
@@ -417,7 +422,7 @@ export function setUpChoiceBehavior() {
           const _infobox = doc.querySelectorAll('.article-container.part2 .infobox')
           const _infoboxLeng = _infobox.length
           for (let j = 0; j < _infoboxLeng; j += 1) {
-            _infobox[i].onclick = () => {
+            _infobox[j].onclick = () => {
               const _targ = _infobox[j].getAttribute('data-targ')
               const _targDom = doc.querySelector(`.lightbox > .lightbox__content section[data-targ="${_targ}"]`)
               _lightBox.scrollTop = _targDom.offsetTop - 40

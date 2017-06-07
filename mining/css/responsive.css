@@ -23,7 +23,7 @@
     .credit {bottom:19%;}
     .credit p {font-size:16px; line-height:22px;}
 
-    .choice__box {padding-bottom:180px; margin-bottom:0;}
+    .choice__box {padding-bottom:160px; margin-bottom:0;}
     .choice__box:before {margin-top:-290px;}
     .choice__box:after {margin-top:-260px;}
 
@@ -260,6 +260,8 @@
     .choice__title span {padding-left:80px; padding-right:4px;
     font-size:26px; white-space:nowrap;
     }
+
+    .choice__hint {width:260px;}
 
     .opiniondiff__bubble {border-radius:10px;}
 

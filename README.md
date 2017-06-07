@@ -23,3 +23,4 @@
 | transport-industry-mrt | [玩命運輸ONLINE外傳 - 台北捷運司機](https://mirrormedia.mg/projects/transport-industry-mrt/) |
 | kmt-chairman2017 | [KMT 黨主席爭霸戰](https://mirrormedia.mg/projects/kmt-chairman2017/) |
 | lottery | [出來吧！樂透億萬富翁](https://www.mirrormedia.mg/projects/lottery/) |
+| mining | [天下沒有白挖的水泥](https://www.mirrormedia.mg/projects/mining/) |

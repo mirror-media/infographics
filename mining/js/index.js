@@ -148,8 +148,10 @@ class Mining {
       const _hands = [
         doc.querySelector('.choice > .choice__box > .choice__hand.left'),
         doc.querySelector('.choice > .choice__box > .choice__hand.right'),
+        doc.querySelector('.choice > .choice__box > .choice__pilltext.blue'),
+        doc.querySelector('.choice > .choice__box > .choice__pilltext.red')        
       ]
-      for (let i = 0; i < 2; i += 1) {
+      for (let i = 0; i < _hands.length; i += 1) {
         _hands[i].addEventListener('click', () => {
           const _choice = _hands[i].getAttribute('class').indexOf('left') > -1 ? 'blue' : 'red'
           ga('send', 'event', 'projects', 'click', _choice)
