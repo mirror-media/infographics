@@ -11,6 +11,8 @@ body
   font-size 16px
   font-family "Noto Sans TC",Microsoft JhengHei,sans-serif
   line-height 1.6rem
+  > .outerWpr
+    overflow hidden
 
   // ::-webkit-scrollbar
   //   display none
@@ -953,7 +955,6 @@ body
   > .imgwpr
     width _width
     margin 0 auto 100px
-    overflow hidden
     > .label-desc
       margin-top 40px
       display flex
@@ -1235,6 +1236,13 @@ footer
   > .facebook-comment
     width 60%
     margin 0 auto
+  > .mm-projects
+    width 755px
+    margin 0 auto 40px
+    //background-color #fff
+    padding 40px 0 20px
+    iframe
+      height 331px
           
 
 
@@ -1392,6 +1400,10 @@ footer
     > .facebook-comment
       width 90%
       margin 0 auto  
+    > .mm-projects
+      width 300px
+      iframe
+        height 343px
   .mining_spots
     .taiwan_map
       _width = 200px
@@ -1652,4 +1664,18 @@ footer
       > .msg-taitung
         left -95px
         bottom -5px
-        
+@media screen and (min-width: 420px) and (max-width: 639px)        
+  footer
+    > .mm-projects
+      width 400px
+      iframe
+        height 385px
+
+@media screen and (min-width: 640px) and (max-width: 768px)        
+  footer
+    > .mm-projects
+      width 600px
+      iframe
+        height 320px
+
+
