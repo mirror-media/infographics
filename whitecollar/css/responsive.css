@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+@media only screen and (max-width: 1190px) {
+
+        .glaint--portrait {width:260px;}
+        .glaint {padding-left:290px;
+            font-size:20px; line-height:28px;
+        }
+        .glaint h1 {margin-bottom:10px; font-size:28px; line-height:46px;}
+        .glaint .circle {width:46px; height:46px;
+            font-size:26px; line-height:46px;
+        }
+        .glaint ul {margin-bottom:20px;}
+        .glaint li {font-size:19px; line-height:25px; margin-bottom:3px;}
+        .glaint--quote {width:calc(100% - 220px);}
+        .glaint--btn {width:200px; margin-top:-100px;}
+
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .cardwpr {padding:15px;}
+    .conclusion .cardwpr {padding:25px 30px;}
+
+    .desc--content {padding:15px 40px 10px 40px;}
+    .desc--scrollwpr {margin-bottom:0;}
+    .desc p {font-size:15px; line-height:24px;}
+
+    .pager {transform:scale(0.8);}
+
+    .interview--brief {width:320px;}
+    .interview--border {width:calc(100% - 320px); margin-bottom:12px;}
+
+    /* --- 個別卡片設定 ---*/
+    .interview .pager {padding-bottom:12px;} 
+    .fullwidth .pager {padding-bottom:12px;} 
+
+    /* --- 個別卡片設定 ---*/
+    .opening--btngroup p {font-size:20px; line-height:22px;}
+    .opening--btn {font-size:23px;}
+
+} 
+
+@media only screen and (max-width: 950px) {
+    
+    /* 採訪改為單欄顯示 */
+    .interview--brief {display:none;}
+    .interview--border {width:100%; padding-left:45px;}
+    .en .interview--border {width:100%;}
+    .cloneBrief {display:flex; width:100%;}
+    .en .cloneBrief {width:100%; padding:0;}
+    .interview--content {font-size:17px; line-height:29px;}
+} 
+
+/* 高 > 寬，顯示 compact mode  */
+
+/* nav */
+.compactMode .nav {position:relative;
+background-color:transparent;
+}
+.compactMode .nav--btn {position:fixed; left:auto; right:9px;
+background-image:url("../images/navbtn-compact.png");
+}
+.nav--btn.share {top:58px;}
+.compactMode .nav--title {display:none;}
+
+
+/* card */
+.compactMode .cardBoard {padding-left:0;}
+
+.compactMode .cardwpr {padding:10px 5px;
+height:auto !important; 
+}  
+.compactMode .opening .cardwpr {padding-bottom:0;}
+
+.compactMode .full__size {display:none;}
+.compactMode .compact__size {display:block;} 
+
+.compactMode .desc--content {padding-left:20px; padding-right:20px;}
+
+/* conclusion */
+.compactMode .conclusion .cardwpr {padding:10px 20px;}
+.compactMode .conclusion--content {padding-left:20px; padding-right:20px; margin-bottom:20px;
+font-size:17px; line-height:29px;
+}
+.compactMode .conclusion--badge {right:auto; top:auto; float:none; margin:0 auto;}
+.compactMode .credit {margin-left:0; margin-top:0;}
+.compactMode .credit h1 {padding:20px 0 12px 80px; float:none;
+background-size:80px auto; background-position:0 14px;    
+}
+.en.compactMode .credit h1 {padding-left:90px; font-size:20px; font-weight:bold;}
+
+/* interview */
+.compactMode .interview--border {padding:20px 20px 0 30px;}
+.compactMode .interview--border h1 {margin-bottom:4px;
+text-align:center; font-size:24px;
+}
+.compactMode .interview--content {
+font-size:17px; line-height:29px;    
+}
+.compactMode .interview--content p {margin-bottom:20px;}
+
+.compactMode .cloneBrief {display:block;}
+.compactMode .interview--portrait {margin:0 auto 20px auto;}
+
+.compactMode .cloneBrief .interview--quote:after {width:40px; height:35px;
+left:50px; top:-35px; margin-top:0;    
+background-image:url("../images/card/quote-prot.png");    
+}
+.compactMode .foreign .cloneBrief .interview--quote:after {
+background-image:url("../images/card/quote-prot2.png");   
+}
+
+/* hide page arrow */
+.compactMode .pager--btn {display:none;}
+
+/* glance interview */
+.compactMode .glaint {padding:0 20px;}
+.compactMode .glaint--portrait {position:relative; height:auto; margin:0 auto;}
+.compactMode .glaint--portrait img {margin:0 auto;}
+
+.compactMode .glaint h1 {text-align:center;}
+.compactMode .glaint--quote {width:100%; margin-bottom:10px;}
+.compactMode .glaint--quote:after {display:none;}
+.compactMode .glaint--btn {position:relative; top:auto; margin:0 auto;}
+
+/* opening */
+.compactMode .opening--btngroup {display:block; margin:0 auto;
+max-width:none; width:80%;
+}
+.compactMode .opening--btngroup.cht {margin-right:auto; margin-bottom:10px;}
+.compactMode .opening--btngroup p span {text-align:left; min-width:160px; display:inline-block;}
+
+@media only screen and (max-width: 500px) {
+    .compactMode .opening--btngroup.cht {margin-bottom:5px;}
+    .compactMode .opening--btngroup p span {font-size:18px;}
+    .compactMode .opening--btn {font-size:20px; line-height:38px; font-weight:500;}
+    .en.compactMode .opening--btn {font-size:18px; font-weight:bold;}
+    .compactMode .opening--btngroup p:before {background-size:50px auto; top:4px;}
+    
+} 
+
+
+@media only screen and (max-width: 375px) {
+
+    .glaint {padding:0 10px; font-size:18px; line-height:26px;}
+    .glaint li {font-size:17px; line-height:23px;}
+
+} 
+
+@media only screen and (max-height: 700px) {
+    
+    .nav--title {display:none;}
+    
+    } 

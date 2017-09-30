@@ -1,0 +1,1044 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: Noto Sans TC, Avenir, Helvetica, Arial, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: Noto Sans TC, Avenir, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+body .leading {
+  height: 0;
+  padding: 0;
+}
+body .leading footer {
+  display: none;
+}
+body > .hamburg {
+  display: none;
+}
+body header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 50px;
+  width: 100vw;
+  background-color: #323337;
+  transition: all 0.5s ease;
+}
+body header .nav {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+body header .nav > .athletes {
+  border-top: 1px solid rgba(255,255,255,0.5);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 170px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  transition: all 0.5s ease;
+  will-change: transition;
+}
+body header .nav > .athletes > .credit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: absolute;
+  height: calc(161px - 15px - 1px);
+  width: 336px;
+  top: -161px;
+  left: 50%;
+  margin-left: -168px;
+  background-image: url(8cf295def335977def2856667757f709.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+body header .nav > .athletes > .credit > span {
+  display: block;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+}
+body header .nav > .athletes > a {
+  margin: 0 20px;
+  position: relative;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 10px;
+}
+body header .nav > .athletes > a::before {
+  content: '';
+  height: 100px;
+  width: 100px;
+  background-position: center left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  padding: 0 20px 0 0;
+}
+body header .nav > .athletes > a:not(:first-child)::before {
+  background-position: center center;
+  padding: 0 20px;
+  left: -20px;
+}
+body header .nav > .athletes > a.chen-shi-jie:before {
+  background-image: url(284e50d817bbe9d3c861cd0400add993.jpg);
+}
+body header .nav > .athletes > a.chen-jie:before {
+  background-image: url(210b0254cf291249f77c66995538b0e9.jpg);
+}
+body header .nav > .athletes > a.gong-yun:before {
+  background-image: url(65a72e777e2cfeca600e10b1b622427d.jpg);
+}
+body header .nav > .athletes > a.chen-wan-ting:before {
+  background-image: url(132cd5a7ebc5da5e54b1f2f585fc9991.jpg);
+}
+body header .nav > .athletes > a.chen-yan-yu:before {
+  background-image: url(2e150668a63238d7a1caea43a3590c00.jpg);
+}
+body header .nav > .athletes > a.huang-shi-feng:before {
+  background-image: url(ca2e72ce66fd45d689b008a60f9144f0.jpg);
+}
+body header .nav > .athletes > a.cheng-yi-jing:before {
+  background-image: url(c3e11ecc0719f3b54f81c69ec67ef9f8.jpg);
+}
+body > .introduction {
+  width: 100%;
+  height: 80vh;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-bottom: -60px;
+  margin-top: 50px;
+}
+body > .introduction > .title {
+  height: 80%;
+  width: 400px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 20px;
+}
+body > .introduction::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10vh 50vw 10vh 50vw;
+  border-color: #fff transparent transparent #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 1;
+}
+body > .introduction::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10vh 50vw 10vh 50vw;
+  border-color: transparent transparent #fff #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  z-index: 1;
+}
+body main {
+  width: 70%;
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+body main > .basic-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body main > .basic-info > .thumbtail {
+  width: 300px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 2rem;
+}
+body main > .basic-info > .thumbtail > img {
+  width: 100%;
+}
+body main > .basic-info > .thumbtail > span {
+  position: relative;
+  font-size: 1rem;
+  padding-top: 1rem;
+  padding-left: 1.2rem;
+  padding-bottom: 1rem;
+  margin: 0 auto;
+}
+body main > .basic-info > .thumbtail > span:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.5rem 1rem 0.5rem;
+  border-color: transparent transparent #000 transparent;
+  position: absolute;
+  top: 1.2rem;
+  left: 0;
+  display: block;
+  z-index: 1;
+}
+body main > .basic-info > .content {
+  display: inline-block;
+}
+body main > .basic-info > .content > .title {
+  margin-bottom: 5px;
+}
+body main > .basic-info > .content > .title > span {
+  background-color: #33448e;
+  height: 30px;
+  width: 30px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  color: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 22px;
+  border-radius: 50%;
+}
+body main > .basic-info > .content > .info {
+  padding: 5px 0;
+}
+body main > .basic-info > .content > .info:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+body main > .basic-info > .content > .info > .content {
+  color: rgba(0,0,0,0.4);
+  padding-left: 10px;
+}
+body main > .brief > h1 {
+  font-size: 2.5rem;
+}
+body main > section {
+  margin-top: 2rem;
+}
+body main > section > h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #e74c42;
+}
+body main p {
+  margin: 2rem 0;
+}
+body .facebook-comment {
+  width: 70vw;
+  max-width: 850px;
+  margin: 30px auto 0;
+  background-color: #fff;
+  padding: 20px;
+}
+body .facebook-comment > .talk > h2 {
+  font-size: 1.5rem;
+  color: #000;
+}
+body footer {
+  min-height: 10vh;
+  background-color: #323337;
+  padding-top: 10vh;
+  padding-bottom: 20px;
+  position: relative;
+}
+body footer > .credit {
+  width: calc(100% - 20px - 20px);
+  padding: 20px;
+  color: rgba(255,255,255,0.5);
+}
+body footer > .credit::before {
+  content: '';
+  position: relative;
+  width: 400px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  margin: 0 auto 20px;
+  display: block;
+}
+body footer > .credit > span {
+  display: block;
+  font-size: 0.8rem;
+  margin: 4px auto;
+  width: 400px;
+  text-align: center;
+}
+body footer > .athletes {
+  width: 70%;
+  max-width: 850px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+body footer > .athletes > a {
+  display: block;
+  width: 130px;
+  text-align: center;
+  padding-top: 100px;
+  position: relative;
+}
+body footer > .athletes > a:before {
+  content: '';
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -45px;
+}
+body footer > .athletes > a.gong-yun:before {
+  background-image: url(3d6252eef5e81132c1f35841b22342e8.png);
+}
+body footer > .athletes > a.cheng-yi-jing:before {
+  background-image: url(bd1ce8c94e85e6ec5201b36990cff85f.png);
+}
+body footer > .athletes > a.huang-shi-feng:before {
+  background-image: url(4e9775c8529a653d48baebac6d38a521.png);
+}
+body footer > .athletes > a.chen-wan-ting:before {
+  background-image: url(3f35633ff62635c485d0d0e4e2aa3ef6.png);
+}
+body footer > .athletes > a.chen-jie:before {
+  background-image: url(78a1c0bc1312c03e5c9b16206839e5b7.png);
+}
+body footer > .athletes > a.chen-yan-yu:before {
+  background-image: url(0ca7a4e8c69dd14eb10771c88b4af1a2.png);
+}
+body footer > .athletes > a.chen-shi-jie:before {
+  background-image: url(1374db733f0019ef570e12eb32650273.png);
+}
+body footer:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5vh 50vw 5vh 50vw;
+  border-color: #fff #fff transparent transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 1;
+  margin-top: -1px;
+}
+body aside {
+  display: none;
+}
+body.homepage > .leading {
+  height: calc(100vh - 300px);
+  padding-bottom: 300px;
+  background-image: url(394c0fe1b08de244c7f493866407f6dd.png);
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #323337;
+}
+body.homepage > .leading > .title {
+  display: none;
+}
+body.homepage > .leading > .content {
+  right: 0;
+  padding: 80px 50px 0 calc(100vw - 80px - 700px);
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+  width: 700px;
+  position: absolute;
+  color: rgba(255,255,255,0.82);
+  font-weight: normal;
+  line-height: 2rem;
+  height: 500px;
+  overflow: hidden;
+}
+body.homepage > .leading > .content > .introduction {
+  position: relative;
+}
+body.homepage > .leading > .content > .introduction > .share {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  height: 45px;
+}
+body.homepage > .leading > .content > .credit {
+  display: none;
+}
+body.homepage header {
+  top: auto;
+  bottom: -50px;
+}
+body.homepage header > .nav > .athletes > a:hover::after {
+  content: '';
+  height: 100px;
+  width: 100px;
+  background-color: rgba(0,0,0,0.7);
+  background-size: contain;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body.homepage header > .nav > .athletes > a:hover.chen-shi-jie::after {
+  content: '\9673\58EB\6770';
+}
+body.homepage header > .nav > .athletes > a:hover.chen-jie::after {
+  content: '\9673\5091';
+}
+body.homepage header > .nav > .athletes > a:hover.gong-yun::after {
+  content: '\9F94\82B8';
+}
+body.homepage header > .nav > .athletes > a:hover.chen-yan-yu::after {
+  content: '\9673\664F\5B87';
+}
+body.homepage header > .nav > .credit > .athletes {
+  display: none;
+}
+body.chen-wan-ting > .introduction {
+  background-image: url(94cd5706a5a9dbe9f62d9eada3095070.jpg);
+}
+body.chen-wan-ting > .introduction > .title {
+  background-image: url(624214fdfde46947f4f52bbd8ccea918.png);
+}
+body.chen-shi-jie > .introduction {
+  background-image: url(002ce7f4d7e6702d43fbdd62e4b2c956.jpg);
+}
+body.chen-shi-jie > .introduction > .title {
+  background-image: url(e50d22e51f35153338b4ef22f47cc2ec.png);
+}
+body.chen-shi-jie > .introduction:before {
+  content: none;
+}
+body.chen-shi-jie main > section > h2,
+body.chen-shi-jie main > section h3 {
+  color: #33448e;
+}
+body.chen-jie > .introduction {
+  background-image: url(0e331d2709c466ee1203ddff3b6c9537.jpg);
+}
+body.chen-jie > .introduction > .title {
+  background-image: url(a42a943e8a91ef8805d9b9b207bab0e2.png);
+}
+body.chen-jie > .introduction:before {
+  content: none;
+}
+body.chen-jie main > section > h2,
+body.chen-jie main > section h3 {
+  color: #ce3674;
+}
+body.chen-yan-yu > .introduction {
+  background-image: url(46eb9dd65532d284a076a3e8a319dd8d.jpg);
+}
+body.chen-yan-yu > .introduction > .title {
+  background-image: url(a0d558dc378e6a07933f353b09b8a2dc.png);
+}
+body.chen-yan-yu > .introduction:before {
+  content: none;
+}
+body.chen-yan-yu main > section > h2,
+body.chen-yan-yu main > section h3 {
+  color: #0568ff;
+}
+body.gong-yun > .introduction {
+  background-image: url(777f74aac43d418ef19c54ea6f5ee9d4.jpg);
+}
+body.gong-yun > .introduction > .title {
+  background-image: url(8a093bc0b543580f99fe50ce027a2461.png);
+  left: auto;
+  right: 10%;
+  top: 0;
+}
+body.gong-yun > .introduction:before {
+  content: none;
+}
+body.gong-yun main > section > h2,
+body.gong-yun main > section h3 {
+  color: #e02d4b;
+}
+a {
+  text-decoration: none;
+}
+a,
+a:hover,
+a:link,
+a:visited {
+  color: #fff;
+}
+.mirrormedia {
+  background-image: url(aa39cdb97e04ff7ad90c015c3f08baaa.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: absolute;
+  left: 9px;
+  bottom: 9px;
+  height: 35px;
+  width: 35px;
+  z-index: 10;
+}
+.nav--btnset {
+  position: absolute;
+  bottom: 9px;
+  left: 44px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+}
+.nav--btnset div {
+  position: absolute;
+  border-radius: 50%;
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35px;
+  height: 35px;
+  left: 9px;
+  top: 0;
+}
+.nav--btnset div > a {
+  background-repeat: no-repeat;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.nav--btnset div.share {
+  top: 0;
+  z-index: 20;
+  background-image: url(a6468215c2ac3ae6b147ffd471154217.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.nav--btnset div.facebook {
+  background-color: #2068b2;
+  transition-delay: 20ms;
+  z-index: 19;
+}
+.nav--btnset div.facebook > a {
+  background-image: url(27843806a4118e3a366f87259cc39907.png);
+  background-size: 40% auto;
+  background-position: center center;
+}
+.nav--btnset div.line {
+  background-color: #20b22c;
+  transition-delay: 40ms;
+  z-index: 18;
+}
+.nav--btnset div.line > a {
+  background-image: url(601c07e8debe5d38ff95166169a2bcb4.png);
+  background-size: 75% auto;
+  background-position: center center;
+}
+.nav--btnset div.g-plus {
+  background-color: #c00;
+  transition-delay: 40ms;
+  z-index: 17;
+}
+.nav--btnset div.g-plus > a {
+  background-image: url(23d11fb2f8f4efa393a70c4dbc28cbde.png);
+  background-size: 60% auto;
+  background-position: center center;
+}
+.nav--btnset div:active:not(:first-child),
+.nav--btnset div:focus:not(:first-child),
+.nav--btnset div:hover:not(:first-child) {
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.7);
+}
+.nav--btnset div:not(:first-child) {
+  position: absolute;
+  opacity: 0;
+}
+.nav--btnset:hover {
+  width: 167px;
+}
+.nav--btnset:hover > div:not(:first-child) {
+  position: absolute;
+  opacity: 1;
+  margin-left: 9px;
+}
+.nav--btnset:hover > div:not(:first-child).facebook {
+  left: 44px;
+}
+.nav--btnset:hover > div:not(:first-child).line {
+  left: 88px;
+}
+.nav--btnset:hover > div:not(:first-child).g-plus {
+  left: 132px;
+}
+@media screen and (min-width: 0) and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  body > .hamburg {
+    display: block;
+    background-image: url(565ba627d0f602f5fba7e39244aa4fdd.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 35px;
+    width: 35px;
+    position: fixed;
+    right: 9px;
+    top: 8px;
+    z-index: 9999;
+    transition: all 0.5s ease;
+  }
+  body > .hamburg.active {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  body header {
+    z-index: 9997;
+  }
+  body header > .nav > .athletes {
+    display: none;
+  }
+  body > .introduction {
+    background-position: 40% 0;
+    background-size: cover;
+    height: 50vh;
+    margin-bottom: 0;
+  }
+  body > .introduction::after {
+    bottom: -1px;
+  }
+  body > .introduction > .title {
+    width: 220px;
+    height: 100%;
+    left: 10px;
+    top: 50%;
+    margin-top: -30%;
+  }
+  body main {
+    margin-top: 40px;
+    width: 85%;
+  }
+  body main > .basic-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  body main > .basic-info > .content > .info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body main > .basic-info > .content > .info span.name {
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+  }
+  body main > .basic-info > .content > .info span.content {
+    -webkit-box-flex: 5;
+        -ms-flex: 5;
+            flex: 5;
+  }
+  body main > .basic-info > .thumbtail {
+    margin-right: 0;
+    width: 100vw;
+    margin-top: 20px;
+  }
+  body main > .basic-info > .thumbtail::before {
+    content: '';
+    position: relative;
+    width: 100vw;
+    height: 240px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  body main > .basic-info > .thumbtail > img {
+    display: none;
+  }
+  body main > .brief > h1 {
+    line-height: 2.8rem;
+  }
+  body footer {
+    overflow: hidden;
+  }
+  body footer > .credit > span {
+    width: 100%;
+  }
+  body footer > .credit::before {
+    width: 100%;
+  }
+  body footer > .athletes {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    margin-top: -165px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding-top: 115px;
+  }
+  body footer > .athletes > a {
+    padding-top: 165px;
+    font-size: 1.2rem;
+    width: 50%;
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    margin-top: 50px;
+  }
+  body footer > .athletes > a::before {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+  }
+  body footer > .athletes > a:nth-child(even) {
+    top: 115px;
+  }
+  body footer > .athletes > a:last-child:not(:nth-child(odd)) {
+    padding-bottom: 115px;
+  }
+  body aside {
+    position: fixed;
+    width: 100%;
+    left: 100vw;
+    top: 0;
+    height: 100vh;
+    overflow: scroll;
+    transition: all 0.5s ease;
+    z-index: 9998;
+    display: block;
+    background-color: #000;
+    will-change: left, height;
+  }
+  body aside > .athletes > a {
+    display: block;
+    width: calc(100vw - 20px - 20px);
+    height: calc(25vh - 20px - 20px);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding: 20px;
+  }
+  body aside > .athletes > a.chen-shi-jie {
+    background-image: url(284e50d817bbe9d3c861cd0400add993.jpg);
+  }
+  body aside > .athletes > a.chen-jie {
+    background-image: url(210b0254cf291249f77c66995538b0e9.jpg);
+  }
+  body aside > .athletes > a.chen-wan-ting {
+    background-image: url(132cd5a7ebc5da5e54b1f2f585fc9991.jpg);
+  }
+  body aside > .athletes > a.chen-yan-yu {
+    background-image: url(2e150668a63238d7a1caea43a3590c00.jpg);
+  }
+  body aside > .athletes > a.cheng-yi-jing {
+    background-image: url(c3e11ecc0719f3b54f81c69ec67ef9f8.jpg);
+  }
+  body aside > .athletes > a.huang-shi-feng {
+    background-image: url(ca2e72ce66fd45d689b008a60f9144f0.jpg);
+  }
+  body aside > .athletes > a.gong-yun {
+    background-image: url(65a72e777e2cfeca600e10b1b622427d.jpg);
+  }
+  body aside > .athletes > a:nth-child(even) {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  body.homepage header {
+    top: 0;
+    bottom: auto;
+    background-color: transparent;
+  }
+  body.homepage > .leading {
+    background-image: none;
+    background-color: #fff;
+    height: auto;
+    padding-bottom: 0;
+  }
+  body.homepage > .leading > .title {
+    background-image: url(1ebf72e78bf892be207ece666310f6c4.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    content: '';
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: block;
+  }
+  body.homepage > .leading > .title::before {
+    content: '';
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(793d70154ef82a6ebb03f96febd89918.png);
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 90%;
+    height: 80%;
+  }
+  body.homepage > .leading > .title::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5vh 50vw 5vh 50vw;
+    border-color: transparent #fff #fff transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    z-index: 1;
+    margin-bottom: -1px;
+  }
+  body.homepage > .leading > .content {
+    color: #000;
+    text-shadow: none;
+    position: relative;
+    width: 80vw;
+    margin: 20px auto;
+    line-height: 2rem;
+    height: auto;
+    overflow: initial;
+    padding: 0;
+    font-size: 1.2rem;
+  }
+  body.homepage > .leading > .content > .credit {
+    display: block;
+    font-size: 0.9rem;
+  }
+  body.homepage > .leading > .content > .credit > span {
+    display: block;
+    line-height: 1.2rem;
+  }
+  body.homepage > .leading > footer {
+    display: block;
+    overflow: hidden;
+  }
+  body.chen-shi-jie main > .basic-info > .thumbtail::before {
+    background-image: url(8228b770111c650472e128a00cb8d02c.jpg);
+  }
+  body.chen-shi-jie main > section > h2 {
+    color: #33448e;
+  }
+  .chen-jie main > .basic-info > .thumbtail::before {
+    background-image: url(664864a9e685ebbb6ad08f6925695146.jpg);
+  }
+  .chen-jie main > section > h2 {
+    color: #33448e;
+  }
+  .chen-yan-yu main > .basic-info > .thumbtail::before {
+    background-image: url(f622a8af8b2033c310122842f2c76fca.jpg);
+  }
+  .chen-yan-yu main > section > h2 {
+    color: #33448e;
+  }
+  .gong-yun > .introduction > .title {
+    top: 25% !important;
+  }
+  .gong-yun main {
+    margin-top: -50px;
+  }
+  .gong-yun main > .basic-info > .thumbtail::before {
+    background-image: url(ce27a70ce2c11b32c24cd2efef2dc9c7.jpg);
+  }
+  .gong-yun main > section > h2 {
+    color: #33448e;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 768px) {
+  body main {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 460px) and (max-width: 768px) {
+  body > .introduction > .title {
+    margin-top: -25%;
+  }
+  body main > .basic-info > .thumbtail::before {
+    height: 300px;
+  }
+  body footer > .athletes {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 550px) and (max-width: 768px) {
+  body > .introduction > .title {
+    margin-top: -20%;
+  }
+  body main > .basic-info > .thumbtail::before {
+    height: 390px;
+  }
+}
+@media screen and (min-width: 650px) and (max-width: 768px) {
+  body > .introduction {
+    height: 60vh;
+  }
+  body > .introduction > .title {
+    left: 10%;
+    width: 280px;
+  }
+  body main > .basic-info > .thumbtail::before {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  body footer > .athletes {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1120px) {
+  body > .leading > .content {
+    width: 400px;
+    line-height: 1.5rem;
+    font-size: 0.9rem;
+  }
+  body header > .nav > .athletes {
+    height: 130px;
+  }
+  body header > .nav > .athletes > a {
+    width: 65px;
+    font-size: 0.65rem;
+    margin: 0 10px;
+  }
+  body header > .nav > .athletes > a:hover::after {
+    width: 65px;
+    height: 65px;
+    top: -65px;
+  }
+  body header > .nav > .athletes > a:before {
+    height: 60px;
+    width: 60px;
+    top: -60px;
+    padding: 0 15px 0 0;
+  }
+  body header > .nav > .athletes > a:not(:first-child)::before {
+    padding: 0 13px;
+    left: -10px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 900px) {
+  body footer > .athletes {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1120px) {
+  body header > .nav > .athletes {
+    height: 155px;
+  }
+  body header > .nav > .athletes > a {
+    width: 80px;
+    font-size: 0.8rem;
+  }
+  body header > .nav > .athletes > a:hover::after {
+    width: 80px;
+    height: 80px;
+    top: -80px;
+  }
+  body header > .nav > .athletes > a:before {
+    height: 80px;
+    width: 70px;
+    top: -80px;
+    padding: 0 20px 0 0;
+  }
+  body header > .nav > .athletes > a:not(:first-child)::before {
+    padding: 0 15px;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 1300px) {
+  body.homepage > .leading > .content {
+    padding: 80px 50px 0 calc(100vw - 80px - 50vw);
+    width: 50vw;
+  }
+}
