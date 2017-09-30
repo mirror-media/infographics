@@ -1,0 +1,258 @@
+html, body
+  margin 0
+  padding 0
+body
+  height 100vh
+  width 100vw
+  background-color #000
+  display flex
+
+.rush-rent
+  width 100%
+  height 100%
+  margin auto
+  display flex
+  align-items center
+  justify-content center
+
+.loading
+  width 200px
+  height 300px
+  position fixed
+  top 50%
+  left 50%
+  margin-top -150px
+  margin-left -100px
+  display none
+  z-index 100
+
+  > div
+    margin 0 auto
+
+    &.process
+      color #fff
+      text-align center
+
+.basic-requirments
+  width 100vw
+  height 100vh
+  position fixed
+  top 0
+  left 0
+  z-index 101
+  display flex
+  justify-content center
+  align-items center
+  color #fff
+  background-position center center
+  background-repeat no-repeat
+  background-size contain
+  background-image url(../assets/containers/rent-map.png)
+
+  > .wrapper
+    background-color #fff
+    width 280px
+    padding 20px
+    border-radius 20px
+    box-shadow 0 0 15px #4a4a4a
+
+    > .form
+      border-radius 10px
+      margin 0 auto
+      background-color grey
+      padding 20px
+
+      > .title
+        font-size 40px
+        font-weight bolder
+        text-align center
+        margin 30px
+
+      > .question
+        margin 10px auto
+        width 80%
+        font-size 20px
+        display flex
+        justify-content center
+        align-items flex-start
+        > div
+          display inline-block
+
+          &.title
+            width 25%
+          &.requirement
+            width 60%
+            > input
+              outline none
+            > input[type="text"]
+              border-radius 10px
+              padding 0 5px
+              height 20px
+              font-size 20px
+              width 100%
+              color #656565
+              &::-webkit-input-placeholder
+                font-size 12px
+                text-align center
+
+              &:-moz-input-placeholder
+                font-size 12px  
+                text-align center              
+
+              &::-moz-input-placeholder
+                font-size 12px     
+                text-align center           
+
+              &:-ms-input-placeholder
+                font-size 12px     
+                text-align center  
+
+        &.warn
+          > div
+            &.requirement
+              position relative
+              &::before
+                content: '!';
+                display: block;
+                height: 20px;
+                width: 20px;
+                background-color: #f00;
+                color: #fff;
+                position: absolute;
+                right: -35px;
+                top: 4px;
+                border-radius: 50%;
+                font-size: 15px;
+                text-align: center;
+                
+              > input[type="text"]
+                border 1px solid red
+                &::-webkit-input-placeholder
+                  color red
+
+                &:-moz-input-placeholder  
+                  color red
+
+                &::-moz-input-placeholder     
+                  color red
+
+                &:-ms-input-placeholder     
+                  color red
+              &.ratio-issue
+                &.salary
+                  &::after
+                    content '＊薪水不能少於薪水的三倍'
+                    position relative
+                    display block
+                    color #fff
+                    font-size 14px
+                    text-align justify
+                    margin-top 5px
+                &.budget
+                  &::after
+                    content '＊預算不能超過薪水的三分之一'
+                    position relative
+                    display block
+                    color #fff
+                    font-size 14px
+                    text-align justify
+                    margin-top 5px
+
+      
+      > .play
+        margin 30px auto
+        width 100px
+        text-align center
+        background-color #d80b0b
+        padding 10px
+        font-size 20px
+        font-weight bolder
+        border-radius 20px
+        cursor pointer
+        &:hover
+          background-color #ff6464
+
+.requires-top
+  position fixed
+  top 0
+  left 0
+  height 32px
+  z-index 101
+  background-color #fff
+  border-radius 20px
+  > .wrapper
+    background-color grey
+    border-radius 15px
+    color #fff
+    > div
+      font-size 16px
+      display inline-block
+      padding 5px 20px
+
+      &.title
+        background-color #ffffff
+        border-radius 15px
+        color #808080
+        font-weight bolder
+
+        
+.gameset
+  position fixed
+  top 0
+  left 0
+  width 100vw
+  height 100vh
+  z-index 101
+  display flex
+  justify-content center
+  align-items center
+  background-position center center
+  background-repeat no-repeat
+  background-size contain
+  background-image url(../assets/containers/rent-map.png)  
+  > .wrapper
+    width 70vw
+    height 100%
+    background-position center center
+    background-size contain
+    background-repeat no-repeat
+    position relative
+
+    > .inner
+      background-position center center
+      background-size contain
+      background-repeat no-repeat
+      padding-bottom calc(70% * (1868 / 2401))
+
+      position relative
+      height 0
+      top 50%
+      margin-top calc(-70% * (1868 / 2401) / 2)
+
+      &.best
+        background-image url(../assets/3cards-bg-08.png)
+      &.medium
+        background-image url(../assets/3cards-bg-09.png)
+      &.loser
+        background-image url(../assets/3cards-bg-10.png)
+      > .result
+        position absolute
+        top 20%
+        right 0
+        width 50%
+
+        > .title
+          font-size 4vw
+          color #fff
+          font-weight bolder
+        > .desc
+          color #fff
+          font-size 3vw
+          margin-top 50px
+          line-height 5vw
+          padding-right 90px    
+
+
+@media screen and (min-width: 0px) and (max-width: 767px)
+  html, body
+    height calc(100vh + 1px)
