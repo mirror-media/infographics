@@ -1,6 +1,9 @@
 import * as PIXI from 'pixi.js'
 import { sprite_eye, sprite_eye_closed } from '../assets'
 import { config } from '../config'
+import { default_info } from '../constants'
+import { getViewport } from '../comm'
+import { RENT_GO, RENT_UNRENTIBLE, RENT_RENTED, RENT_CANCEL, STATUS_PLAYING } from '../constants'
 
 export class HouseInfo extends PIXI.Container {
   constructor ({ rushRent }, ...args) {
@@ -17,16 +20,15 @@ export class HouseInfo extends PIXI.Container {
     this.btnCancelClickHandler = this.btnCancelClickHandler.bind(this)
     this.setSituations = this.setSituations.bind(this)
 
+    this.viewport = getViewport()
+
     this.rushRent = rushRent
     this.rushRent.hideRentSlip = this.hideRentSlip
     this.visible = false
     Promise.all([
       this.setUpSlip(),
       this.resizeBehavior()
-    ]).then(() => {
-      // this.setTitleText('北歐風格全新裝潢 大空間 超高樓中樓 II').then(() => this.setHLine())
-    })
-    // console.log('create house info')
+    ]).then(() => {})
   }
   setUpSlip () {
     return new Promise((resolve) => {
@@ -47,21 +49,10 @@ export class HouseInfo extends PIXI.Container {
         this.addChild(this.sits)
         this.rushRent.hideRentSlip = this.hideRentSlip
         this.rushRent.showRentSlip = this.showRentSlip
-        this.rushRent.emitter.on('OPEN_RENTSLIP', (house, info = {
-          title: '北歐風格全新裝潢 大空間',
-          requirements: [
-            { title: '租　　金', content: '6000 ' },
-            { title: '最短租期', content: '1 年' },
-            { title: '養寵物　', content: '可' },
-            { title: '坪　　數', content: '8 坪  ' },
-            { title: '身分要求', content: '無  ' },
-          ],
-          situations: []
-        }) => {
+        this.rushRent.emitter.on('OPEN_RENTSLIP', (house, info = default_info) => {
           this.houseGroup = house
           this.houseInfo = info
           this.setTitleText(this.houseInfo.title).then(() => this.setHLine().then(() => this.setInfo(this.houseInfo.requirements).then((isRentible) => {
-            console.log('isRentible top', isRentible)
             return this.setBtns(isRentible).then(() => {
               return this.setSituations(this.houseInfo.situations).then(() => {
                 this.showRentSlip()
@@ -75,14 +66,40 @@ export class HouseInfo extends PIXI.Container {
     })
   }
   showRentSlip () {
-    // console.log('show slip')
+    this.rushRent.stage.setChildIndex(this, this.rushRent.stage.children.length - 1)
+    let timeoutRest = config.levelScoreStone[ this.rushRent.level - 1 ].rentSlipTimeout
+    this.btnRentTimeoutRestInterval = setInterval(() => {
+      if (timeoutRest === 0 || this.btnRent.children[ 1 ].text === RENT_UNRENTIBLE) {
+        window.clearInterval(this.btnRentTimeoutRestInterval)
+        if (timeoutRest === 0) {
+          this.btnRent.children[ 1 ].text = RENT_RENTED
+          this.btnRent.children[ 1 ].style = Object.assign(this.textStyle, { fill: '#000000' })
+          this.btnRent.children[ 1 ].x = (this.rentBgBase.rentBgPosX * 2 + this.rentBgBase.btnWidth - this.btnRent.children[ 1 ].width) / 2 
+          this.btnRent.cursor = 'not-allowed'
+          this.btnRent.off('pointerdown', this.btnRentClickHandler)
+          this.rushRent.emitter.trigger(`RENT_${this.houseGroup}`)
+          this.drawBar({
+            graphic: this.btnRent.children[ 0 ],
+            x: this.rentBgBase.rentBgPosX,
+            y: this.rentBgBase.rentBgPosY,
+            width: this.rentBgBase.btnWidth,
+            height: this.rentBgBase.btnHeight,
+            color: [ 147 / 255, 57 / 255, 12 / 255 ],
+            radius: this.rentBgBase.radius,
+          })
+          this.rushRent.clearRelease(this.houseGroup)
+        }
+        return
+      } 
+      timeoutRest -= 1000
+      this.btnRent.children[ 1 ].text = `${RENT_GO}(${timeoutRest / 1000})`
+    }, 1000)
     this.visible = true
   }
   hideRentSlip () {
-    // return new Promise(() => {
-      this.visible = false
-      this.rushRent.emitter.trigger('START_HOUSES_ABILITY')
-    // })
+    this.visible = false
+    this.rushRent.emitter.trigger('START_HOUSES_ABILITY')
+    window.clearInterval(this.btnRentTimeoutRestInterval)
   }
   setUpRentSlip () {
     return new Promise((resolve) => {
@@ -116,8 +133,8 @@ export class HouseInfo extends PIXI.Container {
       this.modal.alpha = 0.5
       this.modal.visible = true
 
-      const slipBgWidth = this.rushRent.renderer.width * 0.8
-      const slipBgHeight = this.rushRent.renderer.height * 0.8
+      const slipBgWidth = this.viewport[ 0 ] > 768 ? this.rushRent.renderer.width * 0.8 : this.rushRent.renderer.width * 0.9
+      const slipBgHeight = this.viewport[ 0 ] > 768 ? this.rushRent.renderer.height * 0.8 : this.rushRent.renderer.height * 0.9
       this.drawBar({
         graphic: this.slipBg,
         x: (this.rushRent.renderer.width - slipBgWidth) / 2,
@@ -128,8 +145,8 @@ export class HouseInfo extends PIXI.Container {
         radius: 20,
       })
   
-      const slipBgFrontWidth = slipBgWidth - 50
-      const slipBgFrontHeight = slipBgHeight - 50
+      const slipBgFrontWidth = this.viewport[ 0 ] > 768 ? slipBgWidth - 50 : slipBgWidth - 20
+      const slipBgFrontHeight = this.viewport[ 0 ] > 768 ? slipBgHeight - 50 : slipBgHeight - 20
       this.drawBar({
         graphic: this.slipBgFront,
         x: (this.rushRent.renderer.width - slipBgFrontWidth) / 2,
@@ -141,17 +158,13 @@ export class HouseInfo extends PIXI.Container {
       })
       
       const houseInfoTitle = this.houseInfo ? this.houseInfo.title : '-'
-      const houseRequirements = this.houseInfo ? this.houseInfo.requirements : [
-        { title: '租金', content: '-' },
-        { title: '最短租期', content: '-' },
-        { title: '養寵物', content: '-' },
-        { title: '坪數', content: '-' },
-        { title: '身分要求', content: '-' },
-      ]
+      const houseRequirements = this.houseInfo ? this.houseInfo.requirements : default_info.requirements
       const situations = this.houseInfo ? this.houseInfo.situations : []
       this.setTitleText(houseInfoTitle).then(() => this.setHLine().then(() => this.setInfo(houseRequirements).then((isRentible) => {
         return this.setBtns(isRentible).then(() => {
-          return this.setSituations(situations).then(() => resolve())
+          return this.setSituations(situations).then(() => {
+            resolve()
+          })
         }) 
       })))
     })
@@ -159,7 +172,7 @@ export class HouseInfo extends PIXI.Container {
   setTitleText (text) {
     return new Promise((resolve) => {
       const titleStyle = {
-        fontSize: `${150 * this.rushRent.scale}px`,
+        fontSize: this.viewport[ 0 ] > 768 ? `${150 * this.rushRent.scale}px` : `16px`,
         fontFamily: 'Futura',
         fill: '#fff',
         wordWrapWidth: this.slipBgFront.width,
@@ -170,7 +183,6 @@ export class HouseInfo extends PIXI.Container {
       this.title = this.title || new PIXI.Text()  
       this.title.text = text
       this.title.style = titleStyle
-      // this.title.scale.set(this.rushRent.scale, this.rushRent.scale)
       const titlePosX = (this.rushRent.renderer.width - this.title.width) / 2
       const titlePosY = (this.rushRent.renderer.height - this.slipBgFront.height) / 2 + (100 * this.rushRent.scale)
       this.title.x = titlePosX
@@ -200,17 +212,17 @@ export class HouseInfo extends PIXI.Container {
         houseRequires: info,
         requires: this.rushRent.requires
       })
-      console.log('rentibleCheckRs.inrentibleiems', rentibleCheckRs.items)
+      console.log('rentibleCheckRs', rentibleCheckRs)
 
       const infoStyle = {
-        fontSize: `${60 * this.rushRent.scale}px`,
+        fontSize: this.viewport[ 0 ] > 768 ? `${60 * this.rushRent.scale}px` : '12px',
         fontFamily: 'Futura',
         fill: '#fff',
         wordWrapWidth: this.slipBgFront.width * 0.85,
         wordWrap: true,
         breakWords: true,
         align: 'left',
-        letterSpacing: 6,
+        letterSpacing: this.viewport[ 0 ] > 768 ? 6 : 2,
         lineHeight: 100 * this.rushRent.scale,
       }
       let padding = Math.round(40 * this.rushRent.scale)
@@ -221,14 +233,15 @@ export class HouseInfo extends PIXI.Container {
 
       info.map((item, index) => {
         const requirement = new PIXI.Text()
-        // requirement.text = (index % 3 !== 2)
-        //                     ? `${item.title}：${item.content}`.padEnd(padding, '　')
-        //                     : `${item.title}：${item.content}`
-        requirement.text = `${item.title}：${item.content}`.padEnd(padding, '　')
-        requirement.style = infoStyle
-        rentibleCheckRs.items[ item.key ] && (requirement.alpha = 0.5)        
-        // requirement.style = (rentibleCheckRs.items[ item.key ]) ? Object.assign(infoStyle, { fill: '#ff0000' }) : infoStyle
-        // const infoPosX = (this.rushRent.renderer.width - requirement.width) / 2
+
+        requirement.text = `${item.title}　${item.content}`.padEnd(padding, '　')
+        console.log([
+          item.key,
+          rentibleCheckRs.items[ item.key ]
+        ])
+        requirement.style = !rentibleCheckRs.items[ item.key ] ? infoStyle : Object.assign({}, infoStyle, { fill: '#93390c' })
+        // rentibleCheckRs.items[ item.key ] && (requirement.alpha = 0.5)        
+
         const infoPosX = (this.rushRent.renderer.width - (infoStyle.wordWrapWidth + 100 * this.rushRent.scale)) / 2 + ((infoStyle.wordWrapWidth / 3 + 100 * this.rushRent.scale) * (index % 3)) + 80 * this.rushRent.scale
         const infoPosY = this.title.y + this.title.height + (200 * this.rushRent.scale) + this.hline.height + infoStyle.lineHeight * (Math.floor(index / 3))
         requirement.x = infoPosX
@@ -236,18 +249,6 @@ export class HouseInfo extends PIXI.Container {
         this.info.addChild(requirement)
       })
 
-      // this.info = this.info || new PIXI.Text()
-      // this.info.text = info.map((item, index) => {
-      //   return (index % 3 !== 0 || index === 0) ? (index % 3 !== 2)
-      //                                           ? `${item.title}：${item.content}`.padEnd(padding, '　')
-      //                                           : `${item.title}：${item.content}`
-      //                                           : `\n${item.title}：${item.content}`.padEnd(padding, '　')
-      // }).join('')
-      // this.info.style = infoStyle
-      // const infoPosX = (this.rushRent.renderer.width - this.info.width) / 2
-      // const infoPosY = this.title.y + this.title.height + (200 * this.rushRent.scale) + this.hline.height
-      // this.info.x = infoPosX
-      // this.info.y = infoPosY
       resolve(rentibleCheckRs.isRentible)
     })
   }
@@ -255,15 +256,16 @@ export class HouseInfo extends PIXI.Container {
     this.situations = situations
     this.situationsWithNoSkill = []
     return new Promise((resolve) => {
-      const sitWidth = 480 * this.rushRent.scale
-      const sitHeight = 100 * this.rushRent.scale
+      const scaleByOS = (this.OS !== 'Android' && this.OS !== 'iOS') ? 1 : 1.25
+      const sitWidth = this.viewport[ 0 ] > 768 ? 480 * (this.rushRent.scale / scaleByOS) : 580 * (this.rushRent.scale / scaleByOS)
+      const sitHeight = this.viewport[ 0 ] > 768 ? 100 * (this.rushRent.scale / scaleByOS) : 200 * (this.rushRent.scale / scaleByOS)
 
       const sitsPosY = this.title.y + this.title.height + (200 * this.rushRent.scale) + this.hline.height
       this.sits = this.sits || new PIXI.Container()
       this.sits.removeChildren()
 
       const sitTextStyle = {
-        fontSize: `${50 * this.rushRent.scale}px`,
+        fontSize: this.viewport[ 0 ] > 768 ? `${50 * this.rushRent.scale}px` : '11px',
         fontFamily: 'Futura',
         fill: '#1b1464',
         wordWrapWidth: sitWidth,
@@ -277,18 +279,13 @@ export class HouseInfo extends PIXI.Container {
         const sit = new PIXI.Container
         const sitBg = new PIXI.Graphics()
         const sitPosX = i % 4 === 0
-                      ? this.rushRent.renderer.width / 2 - sitWidth * 2 - 30
+                      ? this.rushRent.renderer.width / 2 - sitWidth * 2 - (this.viewport[ 0 ] > 768 ? 30 : -15)
                       : i % 4 === 1
-                      ? this.rushRent.renderer.width / 2 - sitWidth - 10
+                      ? this.rushRent.renderer.width / 2 - sitWidth - (this.viewport[ 0 ] > 768 ? 10 : -25)
                       : i % 4 === 2
-                      ? this.rushRent.renderer.width / 2 + 10
-                      : this.rushRent.renderer.width / 2 + sitWidth + 30
+                      ? this.rushRent.renderer.width / 2 + (this.viewport[ 0 ] > 768 ? 10 : 35)
+                      : this.rushRent.renderer.width / 2 + sitWidth + (this.viewport[ 0 ] > 768 ? 30 : 45)
 
-        // const sitPosY = i > 3
-        //               ? i > 7
-        //               ? this.info.y + 540 * this.rushRent.scale
-        //               : this.info.y + 400 * this.rushRent.scale
-        //               : this.info.y + 260 * this.rushRent.scale
         const sitPosY = i > 3
                       ? i > 7
                       ? sitsPosY + this.info.height + 400 * this.rushRent.scale
@@ -308,16 +305,17 @@ export class HouseInfo extends PIXI.Container {
         const eye = new PIXI.Sprite(
           !isSkillGiven ? PIXI.loader.resources[sprite_eye_closed.url].texture : PIXI.loader.resources[sprite_eye.url].texture
         )
-        eye.scale.set(sprite_eye.scale * this.rushRent.scale, sprite_eye.scale * this.rushRent.scale)
+        const scale = this.viewport[ 0 ] > 768 ? sprite_eye.scale * this.rushRent.scale : sprite_eye.scale * this.rushRent.scale * 1.5
+        eye.scale.set(scale, scale)
         eye.position.set(
-          sitPosX + 20 * this.rushRent.scale,
+          this.viewport[ 0 ] > 768 ? sitPosX + 20 * this.rushRent.scale : sitPosX + 30 * this.rushRent.scale,
           sitPosY + (sitHeight - eye.height) / 2
         )
 
         const sitText = new PIXI.Text()
         sitText.text = !isSkillGiven ? '？？？？' : s.title
         sitText.style = sitTextStyle
-        const textPosX = sitPosX + 140 * this.rushRent.scale
+        const textPosX = this.viewport[ 0 ] > 768 ? sitPosX + 140 * this.rushRent.scale : sitPosX + 180 * this.rushRent.scale
         const textPosY = sitPosY + (sitHeight - sitText.height) / 2
         sitText.x = textPosX
         sitText.y = textPosY     
@@ -329,27 +327,24 @@ export class HouseInfo extends PIXI.Container {
         !isSkillGiven && this.situationsWithNoSkill.push(s)
         return sit
       })
-      // console.log(this.sits)
+
       this.rushRent.emitter.trigger('CONSTRUCT_SITS', [ this.situationsWithNoSkill ])
       resolve()
     })
   }
   setBtns (rentible) {
     return new Promise((resolve) => {
-      // console.log(this.rushRent.requires)
-      // console.log(houseRequirements)
-      
       this.btnCancel = this.btnCancel || new PIXI.Container()
       this.btnRent = this.btnRent || new PIXI.Container()
       
       const btnWidth = this.slipBgFront.width * 0.4
-      const btnHeight = 150 * this.rushRent.scale
+      const btnHeight = this.viewport[ 0 ] > 768 ? 150 * this.rushRent.scale : 30
       const isRentible = rentible
-      // console.log('isRentible', isRentible)
 
       const cancelBg = new PIXI.Graphics()
       const cancelBgPosX = (this.rushRent.renderer.width / 2 - btnWidth - 15)
-      const cancelBgPosY = (this.rushRent.renderer.height + this.slipBgFront.height) / 2 - btnHeight - 40
+      const cancelBgPosY = this.viewport[ 0 ] > 768 ? (this.rushRent.renderer.height + this.slipBgFront.height) / 2 - btnHeight - 40
+                                               : (this.rushRent.renderer.height + this.slipBgFront.height) / 2 - btnHeight - 20
       this.drawBar({
         graphic: cancelBg,
         x: cancelBgPosX,
@@ -357,24 +352,29 @@ export class HouseInfo extends PIXI.Container {
         width: btnWidth,
         height: btnHeight,
         color: [ 204 / 255, 204 / 255, 204 / 255 ],
-        radius: 8,
+        radius: this.viewport[ 0 ] > 768 ? 8 : btnHeight / 2,
       })      
 
       const rentBg = new PIXI.Graphics()
-      const rentBgPosX = (this.rushRent.renderer.width / 2 + 15)
-      const rentBgPosY = (this.rushRent.renderer.height + this.slipBgFront.height) / 2 - btnHeight - 40
+      this.rentBgBase = {
+        rentBgPosX: (this.rushRent.renderer.width / 2 + 15),
+        rentBgPosY: cancelBgPosY,
+        btnWidth,
+        btnHeight,
+        radius: this.viewport[ 0 ] > 768 ? 8 : btnHeight / 2
+      }
       this.drawBar({
         graphic: rentBg,
-        x: rentBgPosX,
-        y: rentBgPosY,
+        x: this.rentBgBase.rentBgPosX,
+        y: this.rentBgBase.rentBgPosY,
         width: btnWidth,
         height: btnHeight,
         color: isRentible ? [ 27 / 255, 20 / 255, 100 / 255 ] : [ 147 / 255, 57 / 255, 12 / 255 ],
-        radius: 8,
+        radius: this.viewport[ 0 ] > 768 ? 8 : btnHeight / 2,
       })
 
-      const textStyle = {
-        fontSize: `${80 * this.rushRent.scale}px`,
+      this.textStyle = {
+        fontSize: this.viewport[ 0 ] > 768 ? `${80 * this.rushRent.scale}px` : '16px',
         fontFamily: 'Futura',
         fill: '#fff',
         wordWrapWidth: btnWidth,
@@ -385,18 +385,18 @@ export class HouseInfo extends PIXI.Container {
       }
 
       const cancelText = new PIXI.Text()
-      cancelText.text = '看別間'
-      cancelText.style = Object.assign(textStyle, { fill: '#4d4d4d' })
+      cancelText.text = RENT_CANCEL
+      cancelText.style = Object.assign(this.textStyle, { fill: '#4d4d4d' })
       const cancelTextPosX = (cancelBgPosX * 2 + btnWidth - cancelText.width) / 2 
       const cancelTextPosY = (cancelBgPosY * 2 + btnHeight - cancelText.height) / 2
       cancelText.x = cancelTextPosX
       cancelText.y = cancelTextPosY
       
       const rentText = new PIXI.Text()
-      rentText.text = isRentible ? '我要租' : '不能租'
-      rentText.style = Object.assign(textStyle, { fill: isRentible ? '#ffffff' : '#000000' })
-      const rentTextPosX = (rentBgPosX * 2 + btnWidth - rentText.width) / 2 
-      const rentTextPosY = (rentBgPosY * 2 + btnHeight - rentText.height) / 2
+      rentText.text = isRentible ? `${RENT_GO}(${config.levelScoreStone[ this.rushRent.level - 1 ].rentSlipTimeout / 1000})` : RENT_UNRENTIBLE
+      rentText.style = Object.assign(this.textStyle, { fill: isRentible ? '#ffffff' : '#000000' })
+      const rentTextPosX = (this.rentBgBase.rentBgPosX * 2 + btnWidth - rentText.width) / 2 
+      const rentTextPosY = (this.rentBgBase.rentBgPosY * 2 + btnHeight - rentText.height) / 2
       rentText.x = rentTextPosX
       rentText.y = rentTextPosY   
 
@@ -436,16 +436,10 @@ export class HouseInfo extends PIXI.Container {
     let isRentible = true
     let items = {}
 
-    console.log([
-      houseRequires,
-      requires
-    ])
-
     /**
      * check if the budget is enough
      */
     if (Number(requires.budget) < houseRequires[ 0 ].value) {
-      // console.log('budget is less than the rent', [ requires.budget, houseRequires[ 0 ].value ])
       isRentible = false
       items[ houseRequires[ 0 ].key ] = houseRequires[ 0 ].value
     }
@@ -454,10 +448,6 @@ export class HouseInfo extends PIXI.Container {
      * check if it is ok if you have pet
      */
     if (requires.pet === 'yes' && houseRequires[ 2 ].value !== '可') {
-      // console.log('no pets can live in this house', [
-      //   requires.pet,
-      //   houseRequires[ 2 ].value
-      // ])
       isRentible = false
       items[ houseRequires[ 2 ].key ] = houseRequires[ 2 ].value    
     } 
@@ -467,10 +457,6 @@ export class HouseInfo extends PIXI.Container {
      */
     if (houseRequires[ 4 ].value !== '無') {
       if ((requires.gender === 'male' && houseRequires[ 4 ].value !== '男') || (requires.gender === 'female' && houseRequires[ 4 ].value !== '女')) {
-        // console.log('you got gender problem', [
-        //   houseRequires[ 4 ].value,
-        //   requires.gender
-        // ])
         isRentible = false
         items[ houseRequires[ 4 ].key ] = houseRequires[ 4 ].value
         
@@ -481,6 +467,8 @@ export class HouseInfo extends PIXI.Container {
   resizeBehavior () {
     return new Promise((resolve) => {
       window.addEventListener('resize', () => {
+        if (this.rushRent.gameStatus !== STATUS_PLAYING) { return }
+        this.viewport = getViewport()
         Promise.all([
           this.composeSlip()
         ])

@@ -21,18 +21,15 @@ export class Situations extends PIXI.Container {
       this.removeChildren()
       
       if (situationsWithNoSkill.length === 0) {
-      return resolve()
+        return resolve()
       }
 
-      if (!this.modal) {
-        this.modal = new PIXI.Graphics()
-        this.modal.beginFill(PIXI.utils.rgb2hex([ 0, 0, 0 ]))
-        this.modal.drawRoundedRect(0, 0, this.rushRent.renderer.width, this.rushRent.renderer.height, 0)
-        this.modal.endFill()      
-        this.modal.alpha = 0.5
-      } else {
-        this.modal.alpha = 0.5
-      }
+      this.modal = this.modal || new PIXI.Graphics()
+      this.modal.clear()
+      this.modal.beginFill(PIXI.utils.rgb2hex([ 0, 0, 0 ]))
+      this.modal.drawRoundedRect(0, 0, this.rushRent.renderer.width, this.rushRent.renderer.height, 0)
+      this.modal.endFill()      
+      this.modal.alpha = 0.5
 
       const situations = new PIXI.Container()
       situationsWithNoSkill.map((sit, i) => {    
@@ -48,7 +45,8 @@ export class Situations extends PIXI.Container {
             (this.rushRent.renderer.height - card.height) / 2
           )
         } else {
-          card.width = ((this.rushRent.renderer.height * 0.8) / situationsWithNoSkill.length) - 30
+          card.width = ((this.rushRent.renderer.width) / situationsWithNoSkill.length) - 30
+          // card.width = ((this.rushRent.renderer.height * 0.8) / situationsWithNoSkill.length) - 30
           card.height = card.width * (4539 / 3901)
           card.position.set(
             (this.rushRent.renderer.width - ((card.width + 30) * situationsWithNoSkill.length - 30) ) / 2 + ((card.width + 30) * i),
@@ -66,6 +64,7 @@ export class Situations extends PIXI.Container {
   showUpSits () {
     return new Promise((resolve) => {
       if (this.situationsWithNoSkill.length > 0) {
+        this.rushRent.stage.setChildIndex(this, this.rushRent.stage.children.length - 1)
         this.visible = true
         this.alpha = 0
         const showupInterval = setInterval(() => {
@@ -97,4 +96,5 @@ export class Situations extends PIXI.Container {
       resolve()
     })
   }
+
 }

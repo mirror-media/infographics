@@ -15,8 +15,11 @@ import {
   setUpGoDetailBtn,
   setUpGoPageBtnHandler
 } from './demoRender.js'
+import '../css/layout.css'
+import '../css/responsive.css'
 import './index.styl'
 import verge from 'verge'
+import LazyLoad from 'vanilla-lazyload'
 
 const DOC = document
 const initProjEvent = new Event('goInitProj')
@@ -285,6 +288,10 @@ window.addEventListener('load', () => {
   if (isjQueryDone && !isInited) {
     window.dispatchEvent(initProjEvent)
   }
+  const lazyLoad = new LazyLoad({
+    threshold: 1000,
+    data_src: 'original'
+  })
 })
 window.addEventListener('resize', () => {
   if (getClientOS() !== 'iOS') {

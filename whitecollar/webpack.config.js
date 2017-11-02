@@ -6,27 +6,56 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     template: `${__dirname}/index.html`,
     filename: 'index.html',
     inject: 'body',
+    minify: {
+      conservativeCollapse: true,
+      minifyJS: true,
+      collapseWhitespace: true,
+      removeComments: true,
+      collapseInlineTagWhitespace: true
+    }
 });
 const HTMLWebpackPluginConfigEn = new HtmlWebpackPlugin({
     template: `${__dirname}/index_en.html`,
     filename: 'index_en.html',
     inject: 'body',
+    minify: {
+      conservativeCollapse: true,
+      minifyJS: true,
+      collapseWhitespace: true,
+      removeComments: true,
+      collapseInlineTagWhitespace: true
+    }
 });
 const HTMLWebpackPluginConfigGlance = new HtmlWebpackPlugin({
     template: `${__dirname}/glance.html`,
     filename: 'glance.html',
     inject: 'body',
+    minify: {
+      conservativeCollapse: true,
+      minifyJS: true,
+      collapseWhitespace: true,
+      removeComments: true,
+      collapseInlineTagWhitespace: true
+    }
 });
 const HTMLWebpackPluginConfigGlanceEn = new HtmlWebpackPlugin({
     template: `${__dirname}/glance_en.html`,
     filename: 'glance_en.html',
     inject: 'body',
+    minify: {
+      conservativeCollapse: true,
+      minifyJS: true,
+      collapseWhitespace: true,
+      removeComments: true,
+      collapseInlineTagWhitespace: true
+    }
 });
 const webpack = require('webpack');
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 const Path = require('path');
 const poststylus = require('poststylus');
 const autoprefixer = require('autoprefixer');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 let pathsToClean = [
   'whitecollar'
@@ -102,15 +131,18 @@ module.exports = {
         HTMLWebpackPluginConfigGlance,
         HTMLWebpackPluginConfigGlanceEn,
         new webpack.optimize.UglifyJsPlugin({
+          uglifyOptions : {
             compress: {
-                warnings: true
-            }
+                warnings: true,
+            },
+            mangle: false,
+          }
         }),
         new ExtractTextPlugin({
           filename: '[name]-[chunkhash].css',
         }),
         new CopyWebpackPlugin([
-          { from:'css', to:'css' },
+          // { from:'css', to:'css' },
           { from:'js', to:'js' }, 
           { from:'images', to:'images' } 
         ]),
@@ -121,7 +153,8 @@ module.exports = {
               use: [poststylus([ 'autoprefixer', 'rucksack-css' ])]
             }
           }
-        })
+        }),
+        new OptimizeCssAssetsPlugin()
     ],
     resolve: {
         alias: {

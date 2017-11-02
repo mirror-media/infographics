@@ -1,9 +1,10 @@
 import * as PIXI from 'pixi.js'
 // import * as screenfull from 'screenfull'
 import { containers, sprites, spritesheets } from './assets'
-import { getClientOS, addClass } from './comm'
+import { getClientOS, addClass, getViewport } from './comm'
 import { levels } from './constants'
 import { config } from './config'
+import { Cloud } from './core/Cloud'
 import { Container } from './core/Container'
 import { HouseInfo } from './core/HouseInfo'
 import { HouseRelease } from './core/HouseRelease'
@@ -12,6 +13,7 @@ import { Skills } from './core/Skills'
 import { Sprite } from './core/Sprite'
 import { Situations } from './core/Situations'
 import { Timer } from './core/Timer'
+import {  STATUS_PLAYING, STATUS_END } from './constants'
 import verge from 'verge'
 import EventEmitter from './EventEmitter-4.0.3.min.js'
 import Tap from 'tap.js'
@@ -23,10 +25,11 @@ const isMobile = THIS_OS === 'Android' || THIS_OS === 'iOS'
 let assetsLoadingFlag = false
 let windowFullscreenFlag = false
 
-export const VIEWPORT = [
-  RUSH_RENT_DOM.clientWidth,
-  RUSH_RENT_DOM.clientHeight
-]
+// let const VIEWPORT = [
+//   RUSH_RENT_DOM.clientWidth,
+//   RUSH_RENT_DOM.clientHeight
+// ]
+// export const VIEWPORT = getViewport()
 export class RushRent {
   constructor (requires) {
     this.init = this.init.bind(this)
@@ -53,21 +56,22 @@ export class RushRent {
     this.rootContainer = {}
     this.currLv = 0
     this.requires = requires
+
   }
   init () {
-
-    if (VIEWPORT[0] * this.rendererSizeRate > VIEWPORT[1]) {
-      this.renderer = PIXI.autoDetectRenderer(VIEWPORT[1] / this.rendererSizeRate, VIEWPORT[1], { antialias: false, transparent: false, resolution: 1 })
+    let viewport = [
+      RUSH_RENT_DOM.clientWidth,
+      RUSH_RENT_DOM.clientHeight
+    ]
+    if (viewport[0] * this.rendererSizeRate > viewport[1]) {
+      this.renderer = PIXI.autoDetectRenderer(viewport[1] / this.rendererSizeRate, viewport[1], { antialias: false, transparent: false, resolution: 1 })
     } else {
-      this.renderer = PIXI.autoDetectRenderer(VIEWPORT[0], VIEWPORT[0] * this.rendererSizeRate, { antialias: false, transparent: false, resolution: 1 })
+      this.renderer = PIXI.autoDetectRenderer(viewport[0], viewport[0] * this.rendererSizeRate, { antialias: false, transparent: false, resolution: 1 })
     }
 
     this.stage = new PIXI.Container()
     this.renderer.autoResize = true
 
-    // this.globalTapEvent = new Tap(DOC)
-    // window.addEventListener('tap', () => {})
-    
     this.stage.width = 444
     this.stage.height = this.renderer.height
     this.stage.autoResize = true
@@ -80,20 +84,28 @@ export class RushRent {
       }
     })
     Promise.all([
-      this.assetLoading().then(() => this.composeAssets().then(() => this.initializeSkills().then(() => {
-        return Promise.all([
-          this.initializeHouseInfo(),
-          this.initializeSituations()
-        ])
-      })))
-    ]).then(() => {
-      console.log('ready...')
+      this.assetLoading().then(() => this.composeAssets().then(() => {
+        
+        this.timer = new Timer({ rushRent: this })
+        this.stage.addChild(this.timer)
+        this.score = new Score({ rushRent: this })
+        this.stage.addChild(this.score)
 
-      this.timer = new Timer({ rushRent: this })
-      this.stage.addChild(this.timer)
-      this.score = new Score({ rushRent: this })
-      this.stage.addChild(this.score)
+        return this.initializeSkills()
+      })),
+    ]).then(() => {
       this.houseRelease = new HouseRelease({ rushRent: this, houses: containers })
+      this.clouds = new Cloud({ rushRent: this })
+
+      Promise.all([
+        this.initializeHouseInfo(),
+        this.initializeSituations()
+      ])
+
+      /**
+       * start to game
+       */
+      this.gameStatus = STATUS_PLAYING
       this.gameLoop()
     })
   }
@@ -221,6 +233,8 @@ export class RushRent {
     console.log('#############')
     console.log('#############')
     console.log('end point', this.points, this.level, levels[ this.level - 1 ])
+    this.gameStatus = STATUS_END
+
     const level = this.level < 3 ? 0 : this.level - 2
     addClass(DOC.querySelector('.gameset > .wrapper > .inner'), levels[ level ].id)
     RUSH_RENT_DOM.setAttribute('style', 'display: none;')
@@ -231,7 +245,11 @@ export class RushRent {
   }
 
   gameLoop () {
-    requestAnimationFrame(this.gameLoop)
-    this.renderer.render(this.stage)
+    if (this.gameStatus === STATUS_PLAYING) {
+      requestAnimationFrame(this.gameLoop)
+      this.renderer.render(this.stage)
+    } else {
+      console.log('gameset')
+    }
   }
 }

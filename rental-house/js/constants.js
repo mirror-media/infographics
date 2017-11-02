@@ -22,22 +22,6 @@ export const houseSituations = [
   { title: '水壓不夠', url: 'assets/sprites/situations/rent-card-20.png' }
 ]
 
-export const houseInfoCareers = [
-  // { title: '上班族' },
-  // { title: '學生' },
-  // { title: '工程師' },
-  { title: '男' },
-  { title: '女' },
-  { title: '無' },
-]
-
-export const houseInfoRentShortest = [ 1, 2, 3, 10 ]
-
-export const houseInfoPettible = [
-  { title: '可' },
-  { title: '不可' }
-]
-
 export const skills = [
   { url: 'assets/sprites/skills/rent-card-01.png', title: '房東剋星', target: '遇到惡房東' },
   { url: 'assets/sprites/skills/rent-card-02.png', title: '獲得除濕機', target: '房間太潮溼' },
@@ -56,3 +40,23 @@ export const levels = [
   { id: 'medium', title: '鍵盤租屋王', desc: '雖然有一定能力，但遇到惡房東就慘了。' },
   { id: 'best', title: '租屋達人', desc: '不怕惡房東，朋友都要找你幫忙！' },
 ]
+
+export const STATUS_PLAYING = 'STATUS_PLAYING'
+export const STATUS_END = 'STATUS_END'
+
+export const default_info = {
+  title: '-',
+  requirements: [
+    { title: '租　　金', content: '-' },
+    { title: '最短租期', content: '-' },
+    { title: '養寵物　', content: '-' },
+    { title: '坪　　數', content: '-' },
+    { title: '身分要求', content: '-' },
+  ],
+  situations: []
+}
+
+export const RENT_GO = '我要租'
+export const RENT_UNRENTIBLE = '不能租'
+export const RENT_RENTED = '已出租'
+export const RENT_CANCEL = '看別間'

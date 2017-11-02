@@ -1,169 +1,222 @@
-import { currentYPosition, elmYPosition } from 'kc-scroll'
+import 'babel-polyfill'
+import { currentYPosition, elmYPosition, smoothScrollTo } from 'kc-scroll'
 import _ from 'lodash'
 import validator from 'validator'
 import {
   RushRent,
 } from './demoRender.js'
-import { addClass, removeClass } from './comm'
+import { addClass, removeClass, hasClass, getClientOS, getViewport, getScreen, sendGa, isChrome, displaySelect, isFB } from './comm'
 import { config } from './config'
-// import EventEmitter from './EventEmitter-4.0.3.min.js'
 import './index.styl'
-console.log('loading')
+
+const CURR_OS = getClientOS()
+const SCREEN_SIZE = getScreen()
 
 let isProjectInited = false
-
-// const SET_UP_LINE_CHART = 'SET_UP_LINE_CHART'
-// const SET_UP_MINING_SPOTS = 'SET_UP_MINING_SPOTS'
-// const SET_UP_TINY_ROYALTY = 'SET_UP_TINY_ROYALTY'
-// const SET_UP_USELESS_LIMITATION = 'SET_UP_USELESS_LIMITATION'
-// const SET_UP_SPOTS_DECREASING = 'SET_UP_SPOTS_DECREASING'
-// const SET_UP_PRICE_EXP_VS_IMP = 'SET_UP_PRICE_EXP_VS_IMP'
-// const SET_UP_CHOICE_BEHAVIOR = 'SET_UP_CHOICE_BEHAVIOR'
-// const SET_UP_CHOICE_RESULT = 'SET_UP_CHOICE_RESULT'
-// const SET_UP_ARTICLE_PART_2 = 'SET_UP_ARTICLE_PART_2'
-// const SET_UP_ARTICLE_PART_22 = 'SET_UP_ARTICLE_PART_22'
-// const SET_UP_ARTICLE_PART_3 = 'SET_UP_ARTICLE_PART_3'
-// const ACTION_TARGET = {
-//   '.vdata.chart-import-vs-export': { event: SET_UP_LINE_CHART, flag: false, index: 4 },
-//   '.vdata.mining_spots': { event: SET_UP_MINING_SPOTS, flag: false, index: 2 },
-//   '.vdata.tiny-royalty': { event: SET_UP_TINY_ROYALTY, flag: false, index: 6 },
-//   '.vdata.useless-limitation': { event: SET_UP_USELESS_LIMITATION, flag: false, index: 7 },
-//   '.vdata.spots-decreasing': { event: SET_UP_SPOTS_DECREASING, flag: false, index: 3 },
-//   '.vdata.price-im-vs-ex': { event: SET_UP_PRICE_EXP_VS_IMP, flag: false, index: 5 },
-//   '.choice': { event: SET_UP_CHOICE_BEHAVIOR, flag: false, index: 8 },
-//   '.choice-result': { event: SET_UP_CHOICE_RESULT, flag: false, index: 9 },
-//   '.article-container.part2': { event: SET_UP_ARTICLE_PART_2, flag: false, index: 10 },
-//   '.article-container.part2-2': { event: SET_UP_ARTICLE_PART_22, flag: false, index: 11 },
-//   '.article-container.part3': { event: SET_UP_ARTICLE_PART_3, flag: false, index: 12 },
-// }
-
-// const doc = document
+let isConfigShown = false
+let isFbBROWS = isFB()
 
 class Project {
   constructor () {}
-//   _setUpDispatcher() {
-//   return new Promise((resolve) => {
-//     _.map(ACTION_TARGET, (_targ) => {
-//       switch (_targ.event) {
-//         case SET_UP_LINE_CHART:
-//           this._emitter.on(SET_UP_LINE_CHART, this._setUpLineChart)
-//           break
-//         case SET_UP_MINING_SPOTS:
-//           this._emitter.on(SET_UP_MINING_SPOTS, this._setUpTaiwanMiningSpots)
-//           break
-//         case SET_UP_TINY_ROYALTY:
-//           this._emitter.on(SET_UP_TINY_ROYALTY, this._setUpTinyRoyalty)
-//           break
-//         case SET_UP_USELESS_LIMITATION:
-//           this._emitter.on(SET_UP_USELESS_LIMITATION, this._setUpUselessLimitation)
-//           break
-//         case SET_UP_SPOTS_DECREASING:
-//           this._emitter.on(SET_UP_SPOTS_DECREASING, this._setUpSpotsAreaDecreasing)
-//           break
-//         case SET_UP_PRICE_EXP_VS_IMP:
-//           this._emitter.on(SET_UP_PRICE_EXP_VS_IMP, this._setUpPriceExpVsImp)
-//           break
-//         case SET_UP_CHOICE_BEHAVIOR:
-//           this._emitter.on(SET_UP_CHOICE_BEHAVIOR, this._setUpChoice)
-//           break
-//         case SET_UP_CHOICE_RESULT:
-//           this._emitter.on(SET_UP_CHOICE_RESULT, () => {
-//             this._setUpActionTargetPos()
-//           })
-//           break
-//         case SET_UP_ARTICLE_PART_2:
-//           this._emitter.on(SET_UP_ARTICLE_PART_2, () => {})
-//           break
-//         case SET_UP_ARTICLE_PART_22:
-//           this._emitter.on(SET_UP_ARTICLE_PART_22, () => {})
-//           break
-//         case SET_UP_ARTICLE_PART_3:
-//           this._emitter.on(SET_UP_ARTICLE_PART_3, () => {})
-//           break
-//         default:
-//           break
-//       }
-//     })
-//     resolve()
-//   })
-// }
-// _setUpTimeline() {
-//   return new Promise((resolve) => {
-//     const _deviceHeight = doc.documentElement.clientHeight || doc.body.clientHeight
-//     this._setUpActionTargetPos().then(() => {
-//       window.addEventListener('scroll', () => {
-//         const _currTopY = currentYPosition()
-//         _.map(ACTION_TARGET, (_targ, key) => {
-//           if (_targ.eleTop !== undefined && !_targ.flag
-//                             && _currTopY + (_deviceHeight / 4) >= _targ.eleTop) {
-//             this._emitter.trigger(_targ.event)
-//             const _elem = doc.querySelector(key)
-//             const _ifTargVisible = _elem.currentStyle ?
-//               _elem.currentStyle.display : window.getComputedStyle(_elem, null).display
-//             if (_targ.flag !== true && _ifTargVisible !== 'none') {
-//               ACTION_TARGET[key].flag = true
-//               ga('send', 'event', 'projects', 'scroll', `scroll to ${_targ.index}`)
-//             }
-//           }
-//         })
-//       })
-//       resolve()
-//     })
-//   })
-// }
-// _setUpActionTargetPos() {
-//   return new Promise((resolve) => {
-//     _.map(ACTION_TARGET, (_targ, key) => {
-//       const _eleTopY = elmYPosition(key)
-//       ACTION_TARGET[key].eleTop = _eleTopY
-//     })
-//     resolve()
-//   })
-// }
-// _setUpBtnGA() {
-//   return new Promise((resolve) => {
-//     const _btns = [
-//       doc.querySelector('.opening > .opening__btngroup > .opening__logo'),
-//       doc.querySelector('.opening > .opening__btngroup > .share-icon > .facebook > a'),
-//       doc.querySelector('.opening > .opening__btngroup > .share-icon > .line > a'),
-//       doc.querySelector('.opening > .opening__btngroup > .share-icon > .g-plus > a'),
-//     ]
-//     for (let i = 0; i < _btns.length; i += 1) {
-//       _btns[i].addEventListener('click', () => {
-//         switch (i) {
-//           case 0:
-//             ga('send', 'event', 'projects', 'click', 'back to home')
-//             break
-//           case 1:
-//             ga('send', 'event', 'projects', 'click', 'share to fb')
-//             break
-//           case 2:
-//             ga('send', 'event', 'projects', 'click', 'share to line')
-//             break
-//           case 3:
-//             ga('send', 'event', 'projects', 'click', 'share to gplus')
-//             break
-//           default:
-//             break
-//         }
-//       })
-//     }
-//     resolve()
-//   })
-// }
   initialize(requires) {
+    document.querySelector('.loading').setAttribute('style', 'display: block;')
     const rushRent = new RushRent(requires)
     rushRent.init()
   }
 }
-// window.addEventListener('DOMContentLoaded', () => {})
+
 window.addEventListener('load', () => {
+
+  const askChangeBroswer = document.querySelector('.please-change-browser')
+  if (CURR_OS === 'iOS' && isFbBROWS) {
+    addClass(askChangeBroswer, 'active')
+    return
+  }
+
   const project = new Project()
   const btnPlay = document.querySelector('.basic-requirments .play')
   const form = document.querySelector('.basic-requirments')
+  const intro = document.querySelector('.introduction')
+  const portraitWarning = document.querySelector('.mobile-portrait-warning')
+  const scrollUpWarning = document.querySelector('.mobile-scroll-up-request')
+  const audio = document.querySelector('audio')
+  const guide = document.querySelector('.guide')
+  let viewport = getViewport()
 
-  const salaryInput = document.querySelector('.basic-requirments input[name="salary"][type="text"]')
-  const budgetInput = document.querySelector('.basic-requirments input[name="budget"][type="text"]')
+  audio.playbackRate = 1.5
+  // audio.play()
+
+  window.scrollTo(0, 0)
+
+  const goPlayBtnClickHandler = () => {
+    let isPass = true
+    const inputs = [ salaryInput, budgetInput ]
+    inputs.map((input) => {
+      isPass = numValidator.bind(input)()
+    })
+
+    const radios = [
+      { selector: '.basic-requirments input[name="gender"][type="radio"]:checked', looseSelector: '.basic-requirments input[name="gender"][type="radio"]' },
+      { selector: '.basic-requirments input[name="pet"][type="radio"]:checked', looseSelector: '.basic-requirments input[name="pet"][type="radio"]' }      
+    ]
+    radios.map((radio) => {
+      if (!document.querySelector(radio.selector) || !document.querySelector(radio.selector).value) {
+        addClass(document.querySelector(radio.looseSelector).parentNode.parentNode, 'warn')
+        isPass = false
+      }      
+    })
+
+    if (isPass && !isProjectInited) {
+      addClass(guide, 'active')
+      form.setAttribute('style', 'display: none;')
+    }
+
+    const btnReady = guide.querySelector('.btn.ready')
+    displaySelect(btnReady)
+    btnReady.addEventListener('click', () => {
+      const gender = document.querySelector(radios[ 0 ].selector).value
+      const pet = document.querySelector(radios[ 1 ].selector).value
+      const salary = salaryInput.value
+      const budget = budgetInput.value
+
+      const initProj = () => {
+        isProjectInited = true
+        project.initialize({
+          gender, pet, salary, budget
+        })
+        document.querySelector('.requires-top > .wrapper > .gender').innerHTML = `性別 ${gender === 'male' ? '男' : '女'}`
+        document.querySelector('.requires-top > .wrapper > .salary').innerHTML = `薪水 ${salary}`
+        document.querySelector('.requires-top > .wrapper > .budget').innerHTML = `預算 ${budget}`
+        document.querySelector('.requires-top > .wrapper > .pet').innerHTML = `寵物 ${pet === 'yes' ? '有' : '無'}`
+        document.querySelector('.requires-top').removeAttribute('style')
+        removeClass(guide, 'active')
+      }
+
+      if (CURR_OS === 'iOS' || CURR_OS === 'Android') {
+        window.scrollTo(0, 0)
+
+        const scrollUpWarning = document.querySelector('.mobile-scroll-up-request')
+        let viewport = getViewport()
+        
+        if (
+          (!isChrome && viewport[ 1 ] !== window.innerHeight) 
+          || (CURR_OS !== 'Android' && isChrome && viewport[ 1 ] !== (SCREEN_SIZE[ 0 ] / 2 - 20))
+          || (CURR_OS === 'Android' && isChrome && Number(document.body.clientHeight) - Number(viewport[ 1 ]) > 1)
+          || (CURR_OS === 'iOS' && isFbBROWS && (viewport[ 1 ] * 0.9 > window.innerHeight))
+        ) {
+          addClass(scrollUpWarning, 'active')
+        } else {
+          initProj()
+          removeClass(scrollUpWarning, 'active')
+        }
+
+        window.addEventListener('resize', () => {
+          viewport = getViewport()
+          if (
+            (!isChrome && !isFbBROWS && viewport[ 1 ] !== window.innerHeight) 
+            || (CURR_OS !== 'Android' && isChrome && viewport[ 1 ] !== (SCREEN_SIZE[ 0 ] / 2 - 20))
+            || (CURR_OS === 'Android' && (isChrome || isFbBROWS) && Number(document.body.clientHeight) - Number(viewport[ 1 ]) > 1)
+            || (CURR_OS === 'iOS' && isFbBROWS && (viewport[ 1 ] * 0.9 > window.innerHeight))
+          ) {
+            addClass(scrollUpWarning, 'active')
+            // window.scrollTo(0, 0)
+          } else {
+            removeClass(scrollUpWarning, 'active')
+            if (!isProjectInited) {
+              initProj()
+            }
+          }
+        })
+      } else {
+        initProj()
+      }
+    })
+
+    document.querySelector('.btns > .play-again').addEventListener('click', () => {
+      sendGa ({
+        category: 'projects',
+        action: 'click',
+        label: 'play again',
+        noninteraction: false
+      })
+      location.reload()
+    })
+    document.querySelector('.btns > .read').addEventListener('click', () => {
+      sendGa ({
+        category: 'projects',
+        action: 'click',
+        label: 'article',
+        noninteraction: false
+      })
+      window.open('https://www.mirrormedia.mg/projects/rent-house/')
+    })
+    document.querySelector('.btns > .share').addEventListener('click', () => {
+      sendGa ({
+        category: 'projects',
+        action: 'click',
+        label: 'share',
+        noninteraction: false
+      })
+      window.open('https://www.facebook.com/share.php?u=https://www.mirrormedia.mg/projects/rent-king/')
+    })
+  }
+
+  const showConfig = () => {
+    if (!isConfigShown) {
+      setTimeout(() => {
+        addClass(intro, 'fade-in')
+        setTimeout(() => {
+          intro.setAttribute('style', 'display: none;')
+        }, 1000)
+        form.removeAttribute('style')
+        isConfigShown = true
+        btnPlay.addEventListener('click', goPlayBtnClickHandler)
+        displaySelect(btnPlay)
+      }, 2000) 
+    }
+  }
+
+  // const playAudio = () => {
+  //   const promiseAudioPlay = audio.play()
+  //   promiseAudioPlay.then((value, v) => {}).catch((err) => {
+  //     console.log('err', err)
+  //   })
+  // }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      audio.pause()
+    } else if (document.visibilityState === 'visible') {
+      audio.play()
+    }
+  })
+
+  if (CURR_OS === 'Android' || CURR_OS === 'iOS') {
+    addClass(portraitWarning, 'mobile')
+    addClass(scrollUpWarning, 'mobile')
+    window.addEventListener('click', () => {
+      // playAudio()
+      audio.play()
+    })
+    if (viewport[ 0 ] > viewport[ 1 ]) {
+      showConfig()
+    }
+
+    window.addEventListener('resize', () => {
+      viewport = getViewport()
+      if (viewport[ 0 ] > viewport[ 1 ]) {
+        showConfig()
+      }
+    })
+  } else {
+    // playAudio()
+    audio.play()
+    showConfig()
+  }
+
+
+  const salaryInput = document.querySelector('.basic-requirments input[name="salary"]')
+  const budgetInput = document.querySelector('.basic-requirments input[name="budget"]')
   const genderOpts = [ ...document.querySelectorAll('.basic-requirments input[name="gender"][type="radio"]') ]
   const petOpts = [ ...document.querySelectorAll('.basic-requirments input[name="pet"][type="radio"]') ]
   
@@ -219,42 +272,21 @@ window.addEventListener('load', () => {
     return isPass
   }
 
+  const inputOnfocusHandler = () => {
+    if (CURR_OS !== 'iOS' && CURR_OS !== 'Android') { return }
+    form.setAttribute('style', 'position: static;')
+  }
+  const inputOnFocusOutHandler = () => {
+    if (CURR_OS !== 'iOS' && CURR_OS !== 'Android') { return }
+    form.removeAttribute('style')
+  }
+
   salaryInput.addEventListener('keyup', numValidator.bind(salaryInput))
   budgetInput.addEventListener('keyup', numValidator.bind(budgetInput))
+  salaryInput.addEventListener('focusin', inputOnfocusHandler)
+  budgetInput.addEventListener('focusin', inputOnfocusHandler)
+  salaryInput.addEventListener('focusout', inputOnFocusOutHandler)
+  budgetInput.addEventListener('focusout', inputOnFocusOutHandler)
   
-  btnPlay.addEventListener('click', () => {
-    let isPass = true
-    const inputs = [ salaryInput, budgetInput ]
-    inputs.map((input) => {
-      isPass = numValidator.bind(input)()
-    })
 
-    const radios = [
-      { selector: '.basic-requirments input[name="gender"][type="radio"]:checked', looseSelector: '.basic-requirments input[name="gender"][type="radio"]' },
-      { selector: '.basic-requirments input[name="pet"][type="radio"]:checked', looseSelector: '.basic-requirments input[name="pet"][type="radio"]' }      
-    ]
-    radios.map((radio) => {
-      if (!document.querySelector(radio.selector) || !document.querySelector(radio.selector).value) {
-        addClass(document.querySelector(radio.looseSelector).parentNode.parentNode, 'warn')
-        isPass = false
-      }      
-    })
-
-    if (isPass && !isProjectInited) {
-      isProjectInited = true
-      form.setAttribute('style', 'display: none;')
-      const gender = document.querySelector(radios[ 0 ].selector).value
-      const pet = document.querySelector(radios[ 1 ].selector).value
-      const salary = salaryInput.value
-      const budget = budgetInput.value
-      project.initialize({
-        gender, pet, salary, budget
-      })
-      document.querySelector('.requires-top > .wrapper > .gender').innerHTML = `性別 ${gender === '男' ? '男' : '女'}`
-      document.querySelector('.requires-top > .wrapper > .salary').innerHTML = `薪水 ${salary}`
-      document.querySelector('.requires-top > .wrapper > .budget').innerHTML = `預算 ${budget}`
-      document.querySelector('.requires-top > .wrapper > .pet').innerHTML = `寵物 ${pet === 'yes' ? '有' : '否'}`
-      document.querySelector('.requires-top').removeAttribute('style')
-    }
-  })
 })
