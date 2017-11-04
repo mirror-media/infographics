@@ -1,5 +1,7 @@
 import * as PIXI from 'pixi.js'
 import { config } from '../config'
+import { drawRectWithRound, getViewport } from '../comm'
+import { STATUS_PLAYING } from '../constants'
 
 export class Timer extends PIXI.Container {
   constructor ({ timeup, rushRent }, ...args) {
@@ -11,9 +13,11 @@ export class Timer extends PIXI.Container {
     this.pauseTimer = this.pauseTimer.bind(this)
     this.timeCountdownHandler = this.timeCountdownHandler.bind(this)
     this.setUpBar = this.setUpBar.bind(this)
-    this.drawBar = this.drawBar.bind(this)
     this.setUpRefreshRestTimeWidth = this.setUpRefreshRestTimeWidth.bind(this)
     this.setEventHandler = this.setEventHandler.bind(this)
+
+    this.viewport = getViewport()
+
     Promise.all([
       this.setUpBar().then(() => {
         return Promise.all([
@@ -69,34 +73,80 @@ export class Timer extends PIXI.Container {
       }
       if (currWidth > this.targetWidth) {
         const timerBarWidth = currWidth - 1
-        const timerBarHeight = this.rushRent.renderer.height * 0.025
-        this.drawBar(this.timerBarRest, timerBarWidth, timerBarHeight, [ 255 / 255, 0 / 255, 0 / 255 ], 8)
+        const timerBarHeight = this.barBase.barHeight
+        drawRectWithRound ({ 
+          graphic: this.timerBarRest,
+          x: this.rushRent.renderer.width - timerBarWidth - 150 * this.rushRent.scale,
+          y: this.barBase.barY,
+          width: timerBarWidth,
+          height: timerBarHeight,
+          color: [ 255 / 255, 0 / 255, 0 / 255 ],
+          radius: this.barBase.barRadius
+        })
       }
     }, 1000 / (this.rushRent.renderer.width * 0.35 * (1 / this.timeUp)))
   }
 
   setUpBar () {
+    
     return new Promise((resolve) => {
       this.timerBarBg = this.timerBarBg || new PIXI.Graphics()
       this.timerBarRest = this.timerBarRest || new PIXI.Graphics()
-      this.timerBarRestText = this.timerBarRestText || new PIXI.Text('TIME', { fontSize: '30px', fontFamily: 'Futura', fill: '#615f5f' })
-      this.timerRestText = this.timerRestText || new PIXI.Text(this.timeUp, { fontSize: '30px', fontFamily: 'Futura', fill: '#615f5f' })
-      
-      const timerBarWidth = this.rushRent.renderer.width * 0.35
-      const timerBarHeight = this.rushRent.renderer.height * 0.025
-      
-      this.drawBar(this.timerBarBg, timerBarWidth, timerBarHeight, [ 203 / 255, 203 / 255, 203 / 255 ], 8)
-      this.drawBar(this.timerBarRest, timerBarWidth, timerBarHeight, [ 255 / 255, 0 / 255, 0 / 255 ], 8)
-      
-      const timerBarRestTextPosX = this.rushRent.renderer.width - 130
-      const timerBarRestTextPosY = this.rushRent.renderer.height - timerBarHeight - 80
 
+      const textStyle = { fontSize: `${80 * this.rushRent.scale}px`, fontFamily: 'Futura', fill: '#615f5f' }
+
+      this.timerBarRestText = this.timerBarRestText || new PIXI.Text()
+      this.timerBarRestText.text = 'TIME'
+      this.timerBarRestText.style = textStyle
+
+      this.timerRestText = this.timerRestText || new PIXI.Text()
+      this.timerRestText.text = this.timeUp
+      this.timerRestText.style = textStyle
+      
+      const baseWidth = this.viewport[0] > 768 ? this.rushRent.renderer.width * 0.8 * this.rushRent.scale : this.rushRent.renderer.width * 1.8 * this.rushRent.scale
+      const baseHeight = this.viewport[0] > 768 ? this.rushRent.renderer.height * 0.08 * this.rushRent.scale : this.rushRent.renderer.height * 0.25 * this.rushRent.scale
+
+      this.barBase = {
+        barWidth: baseWidth,
+        barHeight: baseHeight,
+        barRadius: this.viewport[ 0 ] > 768 ? 23* this.rushRent.scale : baseHeight / 3,
+        barX: this.rushRent.renderer.width - baseWidth - 150 * this.rushRent.scale,
+        barY: this.rushRent.renderer.height - baseHeight - (100 * this.rushRent.scale)        
+      }
+      
+      const timerBarWidth = this.barBase.barWidth
+      const timerBarHeight = this.barBase.barHeight
+      
+      drawRectWithRound ({ 
+        graphic: this.timerBarBg,
+        x: this.barBase.barX,
+        y: this.barBase.barY,
+        width: timerBarWidth,
+        height: timerBarHeight,
+        color: [ 203 / 255, 203 / 255, 203 / 255 ],
+        radius: this.barBase.barRadius
+      })
+
+      drawRectWithRound ({ 
+        graphic: this.timerBarRest,
+        x: this.barBase.barX,
+        y: this.barBase.barY,
+        width: timerBarWidth,
+        height: timerBarHeight,
+        color: [ 255 / 255, 0 / 255, 0 / 255 ],
+        radius: this.barBase.barRadius
+      })
+
+
+      const timerBarRestTextPosX = this.barBase.barX + timerBarWidth - this.timerBarRestText.width
+      const timerBarRestTextPosY = this.barBase.barY - 120 * this.rushRent.scale
+      
       this.timerBarRestText.x = timerBarRestTextPosX
       this.timerBarRestText.y = timerBarRestTextPosY
       this.timerBarRestText.visible = true
 
-      const timerRestTextPosX = this.rushRent.renderer.width - 130 - timerBarWidth + this.timerRestText.width
-      const timerRestTextPosY = this.rushRent.renderer.height - timerBarHeight - 80
+      const timerRestTextPosX = this.barBase.barX
+      const timerRestTextPosY = this.barBase.barY - 120 * this.rushRent.scale
 
       this.timerRestText.x = timerRestTextPosX
       this.timerRestText.y = timerRestTextPosY
@@ -109,18 +159,6 @@ export class Timer extends PIXI.Container {
       
       resolve()
     })
-  }
-
-  drawBar (bar, width, height, color, radius = 8) {
-    // console.log('width', width)
-    bar.clear()
-
-    const barPosX = this.rushRent.renderer.width - width - 50
-    const barPosY = this.rushRent.renderer.height - height - 40
-
-    bar.beginFill(PIXI.utils.rgb2hex(color))
-    bar.drawRoundedRect(barPosX, barPosY, width, height, radius)
-    bar.endFill()
   }
 
   setEventHandler () {
@@ -141,6 +179,8 @@ export class Timer extends PIXI.Container {
   resizeBehavior () {
     return new Promise((resolve) => {
       window.addEventListener('resize', () => {
+        if (this.rushRent.gameStatus !== STATUS_PLAYING) { return }
+        this.viewport = getViewport()  
         Promise.all([
           this.setUpBar()
         ])

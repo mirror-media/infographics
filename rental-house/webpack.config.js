@@ -12,19 +12,21 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const Path = require('path');
 const poststylus = require('poststylus');
 const autoprefixer = require('autoprefixer');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 let pathsToClean = [
-  'rental-house'
+  'rent-king'
 ];
 
 let cleanOptions = {}
 
 module.exports = {
+    // devtool: 'source-map',
     entry: {
         app: './js/index.js',
     },
     output: {
-        path: `${__dirname}/rental-house`,
+        path: `${__dirname}/rent-king`,
         // publicPath: '/dev_keith/infographics/mining/mining/',//`/projects/mining/`,
         // filename: '[name].js', // '[name].[hash].js', //
         filename: '[name].[hash].js',//'[name].js',//
@@ -57,7 +59,8 @@ module.exports = {
               // ]
               use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: [ 'css-loader', 'stylus-loader' ]
+                use: [ 'css-loader', 'stylus-loader' ],
+                // minimize: true
               })
             },
             {
@@ -97,11 +100,15 @@ module.exports = {
           filename: '[name]-[chunkhash].css',
         }),
         HTMLWebpackPluginConfig,
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: true
-        //     }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+          sourceMap: false,
+          uglifyOptions : {
+            compress: {
+                warnings: true,
+            },
+            mangle: true,
+          }
+        }),
         new CleanWebpackPlugin(pathsToClean, cleanOptions),
         new webpack.LoaderOptionsPlugin({
           options: {
@@ -113,7 +120,8 @@ module.exports = {
         new CopyWebpackPlugin([
           { from:'assets', to:'assets' },
           { from:'js', to:'js' }
-        ])
+        ]),
+        new OptimizeCssAssetsPlugin()
     ],
     resolve: {
         alias: {

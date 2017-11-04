@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js'
 import { Sprite } from './Sprite'
 import { config } from '../config'
+import { STATUS_PLAYING } from '../constants'
+import { getClientOS } from '../comm'
  
 export class Container extends PIXI.Container {
   constructor ({ child, rushRent }, ...args) {
@@ -21,6 +23,8 @@ export class Container extends PIXI.Container {
     this.showRentSlip = this.showRentSlip.bind(this)
     this.mouseoutHandlerWrapper = this.mouseoutHandlerWrapper.bind(this)
     this.mouseoverHandlerWrapper = this.mouseoverHandlerWrapper.bind(this)
+
+    this.OS = getClientOS()
     
     if (child.url) {
       this.sprite = new PIXI.Sprite(
@@ -40,12 +44,13 @@ export class Container extends PIXI.Container {
   }
   setUpSize () {
     return new Promise((resolve) => {
+      const scaleByOS = (this.OS !== 'Android' && this.OS !== 'iOS') ? 1 : 1.25
       if (this.rushRent.renderer.width * this.info.sizeRate > this.rushRent.renderer.height) {
-        this.sprite.width = this.rushRent.renderer.height / this.info.sizeRate
-        this.sprite.height = this.rushRent.renderer.height
+        this.sprite.width = scaleByOS * this.rushRent.renderer.height / this.info.sizeRate
+        this.sprite.height = scaleByOS * this.rushRent.renderer.height
       } else {
-        this.sprite.width = this.rushRent.renderer.width
-        this.sprite.height = this.rushRent.renderer.width * this.info.sizeRate
+        this.sprite.width = scaleByOS * this.rushRent.renderer.width
+        this.sprite.height = scaleByOS * this.rushRent.renderer.width * this.info.sizeRate
       }
       this.rushRent.scale = this.sprite.width / this.rushRent.rendererWidthBase
       resolve()
@@ -53,16 +58,20 @@ export class Container extends PIXI.Container {
   }
   setUpPosition () {
     return new Promise((resolve) => {
+      this.rushRent.rootDiffX = (this.rushRent.renderer.width - this.sprite.width) / 2
+      this.rushRent.rootDiffY = (this.rushRent.renderer.height - this.sprite.height) / 2
       this.sprite.position.set(
         (this.rushRent.renderer.width - this.sprite.width) / 2,
         (this.rushRent.renderer.height - this.sprite.height) / 2,
       )
+
       resolve()
     })
   }
   setUpResizeBehavior () {
     return new Promise((resolve) => {
       window.addEventListener('resize', () => {
+        if (this.rushRent.gameStatus !== STATUS_PLAYING) { return }
         Promise.all([
           this.setUpSize(),
           this.setUpPosition()
@@ -121,6 +130,7 @@ export class Container extends PIXI.Container {
   }
   showRentSlip () {
     // this.rushRent.showRentSlip()
+    this.mouseoutHandlerWrapper()
     this.rushRent.emitter.trigger('OPEN_RENTSLIP', [ this.info.group, this.rentSlipInfo ])
     this.rushRent.emitter.trigger('PAUSE_HOUSES_ABILITY')
   }

@@ -25,3 +25,4 @@
 | lottery | [出來吧！樂透億萬富翁](https://www.mirrormedia.mg/projects/lottery/) |
 | mining | [天下沒有白挖的水泥](https://www.mirrormedia.mg/projects/mining/) |
 | lin-tzu-wei-2017 | [【互動小遊戲】來跟林子偉比賽跑](https://www.mirrormedia.mg/story/20170713md001/) |
+| rental-house | [我是租屋王-租屋遊戲等你來挑戰！](https://www.mirrormedia.mg/projects/rent-king/) |

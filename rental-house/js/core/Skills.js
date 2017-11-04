@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js'
 import { DropShadowFilter } from '@pixi/filter-drop-shadow';
 import { config } from '../config'
+import { drawRectWithRound, getViewport } from '../comm'
+import { STATUS_PLAYING } from '../constants'
 // import { sprite_skills } from '../assets'
 // import { skills } from '../constants'
 
@@ -12,13 +14,16 @@ export class Skills extends PIXI.Container {
     this.setUpSkillThmbnails = this.setUpSkillThmbnails.bind(this)
     this.setUpEventsHandler = this.setUpEventsHandler.bind(this)
     this.runSoloSkill = this.runSoloSkill.bind(this)
+    this.resizeBehavior = this.resizeBehavior.bind(this)
 
     this.rushRent.unlockSlill = []
     this.shadow = new DropShadowFilter(45, 5, 7.9, 0x0, 0.5)
+    this.viewport = getViewport()
 
     Promise.all([
       this.setUpSkillThmbnails(),
-      this.setUpEventsHandler()
+      this.setUpEventsHandler(),
+      this.resizeBehavior()
     ])
   }
   setUpSkillThmbnails () {
@@ -33,9 +38,11 @@ export class Skills extends PIXI.Container {
       const cardHieght = this.rushRent.renderer.height * 0.1
       const cardWidth = cardHieght * (3901 / 4538)
 
-      const cardPosY = this.rushRent.renderer.height * 0.975 - cardHieght - 40 - 60
-      const cardPosX = 50
+      const cardPosY = this.viewport[ 0 ] > 768 ? this.rushRent.renderer.height * 0.975 - cardHieght - (100 + 120 + 20) * this.rushRent.scale
+                                           : this.rushRent.renderer.height * 0.975 - cardHieght - (100 + 120 + 50) * this.rushRent.scale 
+      const cardPosX = 150 * this.rushRent.scale
       const maxSkillsNum =  config.levelScoreStone.length || 3
+
       for (let i = 0; i < maxSkillsNum - 1; i += 1) {
         let skill
         if (this.rushRent.unlockSlill[ i ]) {
@@ -45,10 +52,11 @@ export class Skills extends PIXI.Container {
           skill.height = cardHieght
           skill.width = cardWidth
           skill.position.set(
-            i != 0 ? cardPosX + (120 + cardWidth) * this.rushRent.scale * i : cardPosX,
+            i != 0 ? cardPosX + (50 * this.rushRent.scale + cardWidth) * i : cardPosX,
             cardPosY
           )
-          skill.on('mouseover', (e) => {
+
+          const lightBox = (e) => {
             cardLightBox.removeChildren()
             const bigCard = new PIXI.Sprite(
               PIXI.loader.resources[this.rushRent.unlockSlill[ i ].url].texture
@@ -61,15 +69,23 @@ export class Skills extends PIXI.Container {
             )
             cardLightBox.addChild(bigCard)
             cardLightBox.visible = true
+          }
+
+          skill.on('mouseover', lightBox)
+          skill.on('pointerdown', (e) => {
+            lightBox(e)
+            setTimeout(() => {
+              cardLightBox.visible = false
+            }, 3000);
           })
           skill.on('mouseout', () => {
             cardLightBox.visible = false
           })
         } else {
           skill = new PIXI.Graphics()
-          this.drawRectWithRound({
+          drawRectWithRound({
             graphic: skill,
-            x: i != 0 ? cardPosX + (120 + cardWidth) * this.rushRent.scale * i : cardPosX,
+            x: i != 0 ? cardPosX + (50 * this.rushRent.scale + cardWidth) * i : cardPosX,
             y: cardPosY,
             width: cardWidth,
             height: cardHieght,
@@ -94,6 +110,7 @@ export class Skills extends PIXI.Container {
   }
   runSoloSkill (skillObj) {
     // return new Promise((resolve) => {
+      this.rushRent.stage.setChildIndex(this, this.rushRent.stage.children.length - 1)
       this.soloSkill.removeChildren()
       
       const skill = new PIXI.Sprite(
@@ -139,27 +156,24 @@ export class Skills extends PIXI.Container {
     //   resolve()
     // })
   }
-  drawRectWithRound ({ graphic, x, y, width, height, color, radius = 8, opacity = 1 }) {
-    graphic.clear()
-    graphic.beginFill(PIXI.utils.rgb2hex(color), 1)
-    graphic.moveTo(x + radius, y)
-    graphic.lineTo(x + width - radius, y)
-    graphic.arc(x + width - radius, y + radius, radius, -Math.PI / 2, 0)
-    graphic.lineTo(x + width, y + height - radius)
-    graphic.arc(x + width - radius, y + height - radius, radius, 0, Math.PI / 2)
-    graphic.lineTo(x + radius, y + height)
-    graphic.arc(x + radius, y + height - radius, radius, Math.PI / 2, Math.PI)
-    graphic.lineTo(x, y + radius)
-    graphic.arc(x + radius, y + radius, radius, Math.PI , Math.PI * 3 / 2)
-    graphic.endFill()
-    graphic.alpha = opacity
-  }
   setUpEventsHandler () {
     return new Promise((resolve) => {
       this.rushRent.emitter.on('SKILL_RELEASE', (skill) => {
         this.runSoloSkill(skill)
         this.rushRent.unlockSlill.push(skill)
         this.setUpSkillThmbnails()
+      })
+      resolve()
+    })
+  }
+  resizeBehavior () {
+    return new Promise((resolve) => {
+      window.addEventListener('resize', () => {
+        if (this.rushRent.gameStatus !== STATUS_PLAYING) { return }
+        this.viewport = getViewport()        
+        Promise.all([
+          this.setUpSkillThmbnails()
+        ])
       })
       resolve()
     })

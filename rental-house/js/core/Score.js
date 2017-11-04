@@ -2,6 +2,8 @@ import * as PIXI from 'pixi.js'
 import _ from 'lodash'
 import { config } from '../config'
 import { houseSituations, skills } from '../constants'
+import { drawRectWithRound, getViewport } from '../comm'
+import { STATUS_PLAYING } from '../constants'
 
 export class Score extends PIXI.Container {
   constructor ({ rushRent }, ...args) {
@@ -22,6 +24,8 @@ export class Score extends PIXI.Container {
     this.levels = config.levelScoreStone.map((s) => ({ score: s.score }))
     this.situationCounter = houseSituations.map((sit) => ({ title: sit.title, count: 0, isUnlocked: false }))
 
+    this.viewport = getViewport()
+
     Promise.all([
       this.setUpBar(),
       this.resizeBehavior(),
@@ -38,24 +42,60 @@ export class Score extends PIXI.Container {
       this.scoreBar = this.scoreBar || new PIXI.Container()
       this.scoreBarBg = this.scoreBarBg || new PIXI.Graphics()
       this.scoreBarAccumulation = this.scoreBarAccumulation || new PIXI.Graphics()
-      this.scoreBarAccumulationText = this.scoreBarAccumulationText || new PIXI.Text(`LV${this.rushRent.level}`, { fontSize: '30px', fontFamily: 'Futura', fill: '#615f5f' })
-      this.scoreText = this.scoreText || new PIXI.Text('0', { fontSize: '30px', fontFamily: 'Futura', fill: '#615f5f' })
+
+      const textStyle = { fontSize: `${80 * this.rushRent.scale}px`, fontFamily: 'Futura', fill: '#615f5f' }
+
+      this.scoreBarAccumulationText = this.scoreBarAccumulationText || new PIXI.Text()
+      this.scoreBarAccumulationText.text = `LV${this.rushRent.level}`
+      this.scoreBarAccumulationText.style = textStyle
       
-      const scoreBarWidth = this.rushRent.renderer.width * 0.35
-      const scoreBarHeight = this.rushRent.renderer.height * 0.025
+      this.scoreText = this.scoreText || new PIXI.Text()
+      this.scoreText.text = '0'
+      this.scoreText.style = textStyle
+
+      const baseWidth = this.viewport[ 0 ] > 768 ? this.rushRent.renderer.width * 0.8 * this.rushRent.scale : this.rushRent.renderer.width * 1.8 * this.rushRent.scale
+      const baseHeight = this.viewport[ 0 ] > 768 ? this.rushRent.renderer.height * 0.08 * this.rushRent.scale : this.rushRent.renderer.height * 0.25 * this.rushRent.scale
+
+      this.barBase = {
+        barWidth: baseWidth,
+        barHeight: baseHeight,
+        barRadius: this.viewport[ 0 ] > 768 ? 23 * this.rushRent.scale : baseHeight / 3,
+        barX: 150 * this.rushRent.scale,
+        barY: this.rushRent.renderer.height - baseHeight - (100 * this.rushRent.scale)
+      }
+
+      const scoreBarWidth = this.barBase.barWidth
+      const scoreBarHeight = this.barBase.barHeight
       
-      this.drawBar(this.scoreBarBg, scoreBarWidth, scoreBarHeight, [ 203 / 255, 203 / 255, 203 / 255 ], 8)
-      this.drawBar(this.scoreBarAccumulation, 14, scoreBarHeight, [ 246 / 255, 255 / 255, 21 / 255 ], 8)
+      drawRectWithRound ({ 
+        graphic: this.scoreBarBg,
+        x: this.barBase.barX,
+        y: this.barBase.barY,
+        width: scoreBarWidth,
+        height: scoreBarHeight,
+        color: [ 203 / 255, 203 / 255, 203 / 255 ],
+        radius: this.barBase.barRadius
+      })
+
+      drawRectWithRound ({ 
+        graphic: this.scoreBarAccumulation,
+        x: this.barBase.barX,
+        y: this.barBase.barY,
+        width: 14,
+        height: scoreBarHeight,
+        color: [ 246 / 255, 255 / 255, 21 / 255 ],
+        radius: this.barBase.barRadius
+      })
       
-      const scoreBarAccumulationTextPosX = 50
-      const scoreBarAccumulationTextPosY = this.rushRent.renderer.height - scoreBarHeight - 80
+      const scoreBarAccumulationTextPosX = this.barBase.barX
+      const scoreBarAccumulationTextPosY = this.barBase.barY - (120 * this.rushRent.scale)
 
       this.scoreBarAccumulationText.x = scoreBarAccumulationTextPosX
       this.scoreBarAccumulationText.y = scoreBarAccumulationTextPosY
       this.scoreBarAccumulationText.visible = true
 
-      const scoreTextPosX = 50 + this.scoreBarBg.width - this.scoreText.width
-      const scoreTextPosY = this.rushRent.renderer.height - scoreBarHeight - 80
+      const scoreTextPosX = this.barBase.barX + this.scoreBarBg.width - this.scoreText.width
+      const scoreTextPosY = this.barBase.barY - (120 * this.rushRent.scale)
 
       this.scoreText.x = scoreTextPosX
       this.scoreText.y = scoreTextPosY
@@ -70,23 +110,13 @@ export class Score extends PIXI.Container {
     })
   }
 
-  drawBar (bar, width, height, color, radius = 8) {
-    bar.clear()
-    const barPosX = 50
-    const barPosY = this.rushRent.renderer.height - height - 40
-    bar.beginFill(PIXI.utils.rgb2hex(color))
-    bar.drawRoundedRect(barPosX, barPosY, width, height, radius)
-    bar.endFill()
-  }
-
   plusScore ( situations, situationsWithNoSkill = []) {
     // return new Promise((resolve) => {
-      console.log('this.rushrent.score', this.rushRent.points)
       this.scoreCurr = this.rushRent.points
-      this.rushRent.points += config.scorePerRent || 500
-      this.rushRent.points -= situationsWithNoSkill.length * (config.scoreDeductionPerSituation || 250)
+      this.rushRent.points += config.levelScoreStone[ this.rushRent.level - 1 ].scorePerRent || 500
+      this.rushRent.points -= situationsWithNoSkill.length * (config.levelScoreStone[ this.rushRent.level - 1 ].scoreDeductionPerSituation || 250)
       this.targetWidth = this.scoreBarBg.width * (this.rushRent.points / this.maxScore)
-      this.targetDiff = config.scorePerRent - situationsWithNoSkill.length * (config.scoreDeductionPerSituation || 250)
+      this.targetDiff = config.levelScoreStone[ this.rushRent.level - 1 ].scorePerRent - situationsWithNoSkill.length * (config.levelScoreStone[ this.rushRent.level - 1 ].scoreDeductionPerSituation || 250)
     
       let isLevelUp = false
       Promise.all([
@@ -109,7 +139,6 @@ export class Score extends PIXI.Container {
           this.rushRent.emitter.trigger('TIME_RUN')
           this.setRereshScoreBar()              
         }
-        console.log('score', this.rushRent.points, this.levels)
         // resolve()
       })
     // })
@@ -120,7 +149,6 @@ export class Score extends PIXI.Container {
       sits.map((sit) => {
         this.situationCounter.filter((s) => (s.title === sit.title))[ 0 ].count += 1
       })
-      console.log('count sits done,', Date.now() - this.rushRent.dtStamp, 'ms')
       resolve()
     })
   }
@@ -130,11 +158,9 @@ export class Score extends PIXI.Container {
       this.levels.map((scoreStone, index) => {
         if (this.rushRent.points >= scoreStone.score && !scoreStone.isReleased && index !== this.levels.length - 1) {
           scoreStone.isReleased = true
-          console.log('check levelup done,', Date.now() - this.rushRent.dtStamp, 'ms')
           resolve(true)
         }
       })
-      console.log('check levelup done,', Date.now() - this.rushRent.dtStamp, 'ms')
       resolve(false)
     })
   }
@@ -149,10 +175,7 @@ export class Score extends PIXI.Container {
   }
 
   setRereshScoreBar () {
-    // console.log(this.scoreBarBg.width)
     let interval = 1000 / (this.scoreBarBg.width)
-    // if (interval < 10) { interval = 10 }
-    // console.log('interval', interval)
     return new Promise((resolve) => {
       this.refreshScoreTextInterval = setInterval(() => {
         const currWidth = this.scoreBarAccumulation.width
@@ -160,9 +183,8 @@ export class Score extends PIXI.Container {
           if (this.scoreCurr < this.rushRent.points) {
             this.scoreCurr += 1
             this.scoreText.text = this.scoreCurr
-            this.scoreText.x = 50 + this.scoreBarBg.width - this.scoreText.width
+            this.scoreText.x = 150 * this.rushRent.scale + this.scoreBarBg.width - this.scoreText.width
           } else {
-            console.log('refreshScoreTextInterval done,', Date.now() - this.rushRent.dtStamp, 'ms')
             window.clearInterval(this.refreshScoreTextInterval)
             if (this.rushRent.points >= this.maxScore) {
               this.rushRent.gameSet()
@@ -172,15 +194,22 @@ export class Score extends PIXI.Container {
           if (currWidth <= this.targetWidth && currWidth <= this.scoreBarBg.width) {
             const barWidth = currWidth + (this.targetWidth - currWidth) / this.targetDiff
             const barHeight = this.scoreBarAccumulation.height
-            this.drawBar(this.scoreBarAccumulation, barWidth, barHeight, [ 246 / 255, 255 / 255, 21 / 255 ], 8)     
+            drawRectWithRound ({ 
+              graphic: this.scoreBarAccumulation,
+              x: this.barBase.barX,
+              y: this.barBase.barY,
+              width: barWidth,
+              height: barHeight,
+              color: [ 246 / 255, 255 / 255, 21 / 255 ],
+              radius: this.barBase.barRadius
+            })
           }
         } else {
           if (this.scoreCurr > this.rushRent.points) {
             this.scoreCurr -= 1
             this.scoreText.text = this.scoreCurr
-            this.scoreText.x = 50 + this.scoreBarBg.width - this.scoreText.width
+            this.scoreText.x = 150 * this.rushRent.scale + this.scoreBarBg.width - this.scoreText.width
           } else {
-            console.log('refreshScoreTextInterval done,', Date.now() - this.rushRent.dtStamp, 'ms')
             window.clearInterval(this.refreshScoreTextInterval)
             if (this.rushRent.points >= this.maxScore) {
               this.rushRent.gameSet()
@@ -190,7 +219,15 @@ export class Score extends PIXI.Container {
           if (currWidth > this.targetWidth && currWidth >= 14) {
             const barWidth = currWidth - (this.targetWidth - currWidth) / this.targetDiff
             const barHeight = this.scoreBarAccumulation.height
-            this.drawBar(this.scoreBarAccumulation, barWidth, barHeight, [ 246 / 255, 255 / 255, 21 / 255 ], 8)     
+            drawRectWithRound ({ 
+              graphic: this.scoreBarAccumulation,
+              x: this.barBase.barX,
+              y: this.barBase.barY,
+              width: barWidth,
+              height: barHeight,
+              color: [ 246 / 255, 255 / 255, 21 / 255 ],
+              radius: this.barBase.barRadius
+            })   
           }
         }
       }, interval)
@@ -210,6 +247,8 @@ export class Score extends PIXI.Container {
   resizeBehavior () {
     return new Promise((resolve) => {
       window.addEventListener('resize', () => {
+        if (this.rushRent.gameStatus !== STATUS_PLAYING) { return }
+        this.viewport = getViewport()        
         Promise.all([
           this.setUpBar()
         ])

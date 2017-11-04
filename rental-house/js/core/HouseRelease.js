@@ -2,9 +2,11 @@ import { config } from '../config'
 import {
   houseInfoTitles,
   houseSituations,
-  houseInfoCareers,
-  houseInfoRentShortest,
-  houseInfoPettible, } from '../constants'
+  // houseInfoCareers,
+  // houseInfoRentShortest,
+  // houseInfoPettible, 
+} from '../constants'
+import { RandomDistribution } from '../comm'
 
 export class HouseRelease {
   constructor ({ rushRent, houses }) {
@@ -13,6 +15,8 @@ export class HouseRelease {
     this.setUpReleaser = this.setUpReleaser.bind(this)
     this.clearRelease = this.clearRelease.bind(this)
     this.setUpEventHandler = this.setUpEventHandler.bind(this)
+    this.genRequirements = this.genRequirements.bind(this)
+
     Promise.all([
       this.setUpReleaser(),
       this.setUpEventHandler()
@@ -25,7 +29,7 @@ export class HouseRelease {
       const houseNumber = this.houses.filter((c) => c.isSpriteContainer).length
       const max = houseNumber
       const min = 1
-
+      console.log('this.level', this.rushRent.level)
       this.releaseInterval = setInterval(() => {
         let houseChosen = (Math.floor(Math.random() * (max - min)) + min) % houseNumber
         if (this.houses[ houseChosen ].isReleased) {
@@ -54,7 +58,7 @@ export class HouseRelease {
             }
           ])          
         })
-      }, config.houseReleaseFrequency)
+      }, config.levelScoreStone[ this.rushRent.level - 1 ].houseReleaseFrequency)
       resolve()
     })
   }
@@ -89,25 +93,48 @@ export class HouseRelease {
   }
   genRequirements () {
     return new Promise((resolve) => {
-      const careersLen = houseInfoCareers.length
-      const rentShortestRentLen = houseInfoRentShortest.length
-      const pettibleLen = houseInfoPettible.length
+      this.infoRentRoom = this.infoRentRoom || new RandomDistribution({ distribution: config.rentRoomDistribution })
+      this.infoGender = this.infoGender || new RandomDistribution({ distribution: config.genderRequiredDistribution })
+      this.infoPettible = this.infoPettible || new RandomDistribution({ distribution: config.pettibleRequiredDistribution })
+      this.infohortestRent = this.infohortestRent || new RandomDistribution({ distribution: config.shortestRentIntervalDistribution })
+      
+      // const careersLen = houseInfoCareers.length
+      // const rentShortestRentLen = houseInfoRentShortest.length
+      // const pettibleLen = houseInfoPettible.length
 
       const requirements = {}
       const min = 1
 
-      requirements.careerChosen = houseInfoCareers[ (Math.floor(Math.random() * 10000000) + min) % careersLen ].title
+      Promise.all([
+        this.infoRentRoom.getRamdom().then((valueChosen) => {
+          const maxRent = valueChosen[ 'to' ] 
+          const minRent = valueChosen[ 'from' ]
+          const maxRoomSize = valueChosen[ 'room' ] + 3
+          const minRoomSize = valueChosen[ 'room' ] < 3 ? 1 : valueChosen[ 'room' ] - 3
 
-      requirements.rent = (Math.floor(Math.random() * (config.maxRent - config.minRent)) + config.minRent)
-      requirements.rent = Math.round(requirements.rent / 100) * 100
-      requirements.shortestRent = houseInfoRentShortest[ (Math.floor(Math.random() * 10000000) + min) % rentShortestRentLen ]
-      requirements.pettible = houseInfoPettible[ (Math.floor(Math.random() * 10000000) + min) % pettibleLen ].title
-      requirements.roomSize = (Math.floor(Math.random() * (config.maxRoomSize - config.minRoomSize)) + config.minRoomSize)
+          requirements.rent = (Math.floor(Math.random() * (maxRent - minRent)) + minRent)
+          requirements.rent = Math.round(requirements.rent / 100) * 100
+          requirements.roomSize = (Math.floor(Math.random() * (maxRoomSize - minRoomSize)) + minRoomSize)
+          requirements.roomSize = Math.round(requirements.roomSize * 10) / 10
+        }),
+        this.infoGender.getRamdom().then((valueChosen) => {
+          requirements.careerChosen = valueChosen[ 'title' ]
+        }),
+        this.infoPettible.getRamdom().then((valueChosen) => {
+          requirements.pettible = valueChosen[ 'title' ]
+        }),
+        this.infohortestRent.getRamdom().then((valueChosen) => {
+          requirements.shortestRent = valueChosen[ 'interval' ]
+        })
+      ]).then(() => {
+        console.log(requirements)
+        resolve(config.requirements.map((r) => {
+          return { title: r.title, content: `${requirements[ r.key ]}${r.endWord}`, key: r.key, value: requirements[ r.key ] }
+        }))
+      })
 
 
-      resolve(config.requirements.map((r) => {
-        return { title: r.title, content: `${requirements[ r.key ]}${r.endWord}`, key: r.key, value: requirements[ r.key ] }
-      }))
+
     })
   }
   clearRelease (house) {
@@ -123,9 +150,11 @@ export class HouseRelease {
         window.clearInterval(this.releaseInterval)
       })
       this.rushRent.emitter.on('TIME_PAUSE', () => {
+        console.log('RELEASE PUASE')
         window.clearInterval(this.releaseInterval)
       })
-      this.rushRent.emitter.on('TIME_PAUSE', () => {
+      this.rushRent.emitter.on('TIME_RUN', () => {
+        console.log('RELEASE START')
         this.setUpReleaser()
       })
       resolve()
