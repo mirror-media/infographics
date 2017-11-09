@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "no-mixed-operators": [ 2, { "allowSamePrecedence": true } ],
+    "array-bracket-spacing": [ 2, "always" ],
+    "comma-dangle": [ 2, "never" ],
+    "indent": [ "error", 2 ],
+    "no-use-before-define": [ 2,{ "functions": false } ],
+    "semi": [ 2, "never"],
+    "space-before-function-paren": [ 2, "always" ]
+  },
+  "globals": {
+    "document": true,
+    "fetch": true,
+    "ga": true,
+    "google": true,
+    "window": true
+  }
+}
