@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>台北不是我的家！？—租屋黑市大揭露</title>
+    <meta name="description" content="你租過房子嗎？你知道台灣的租屋市場是世界上少有的「黑市經濟」嗎？我們從 50 多萬筆資料中嘗試拼湊這個地下市場的樣貌，以 2016 年的台北市與新北市為例，地上市場與實際市場的數據量相差超過 10 倍！內政部政務次長花敬群就曾估算，這些地下經濟的規模，每年高達千億⋯⋯。">
+    <meta property="article:author" content="https://www.facebook.com/mirrormediamg/">
+    <meta property="article:publisher" content="https://www.facebook.com/mirrormediamg/">
+    <meta property="fb:app_id" content="175313259598308">
+    <meta property="fb:pages" content="1855418728011324">
+    <meta property="og:site_name" content="鏡週刊 Mirror Media" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="台北不是我的家！？—租屋黑市大揭露" />
+    <meta property="og:description" content="你租過房子嗎？你知道台灣的租屋市場是世界上少有的「黑市經濟」嗎？我們從 50 多萬筆資料中嘗試拼湊這個地下市場的樣貌，以 2016 年的台北市與新北市為例，地上市場與實際市場的數據量相差超過 10 倍！內政部政務次長花敬群就曾估算，這些地下經濟的規模，每年高達千億⋯⋯。" />
+    <meta property="og:url" content="https://www.mirrormedia.mg/projects/rent-house/"/>
+    <meta property="og:image" content="https://www.mirrormedia.mg/projects/ogImage/rent-house.jpg">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/public/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.mirrormedia.mg/public/favicon-16x16.png" sizes="16x16">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  </head>
+  <body>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-83609754-1', 'mirrormedia.mg');
+        ga('create', 'UA-83609754-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('set', 'contentGroup1', 'news');
+        ga('set', 'contentGroup2', 'life');
+        ga('send', 'pageview');
+      </script>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+    <nav class="nav bg--square">
+      <a class="nav__logo" href="https://www.mirrormedia.mg/" target="_blank"></a>
+      <a id="js-share" class="nav__share"></a>
+      <a id="js-share-gplus" class="nav__gplus" href="javascript: void(window.open('https://plus.google.com/share?url='.concat(encodeURIComponent(location.href)) ));"></a>
+      <a id="js-share-facebook" class="nav__facebook" href="javascript: void(window.open('https://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));"></a>
+      <a id="js-share-line" class="nav__line" href="javascript: void(window.open('https://line.me/R/msg/text/?'+encodeURIComponent(document.title)+' '.concat(encodeURIComponent(location.href)) ));"></a>
+      <a class="nav__game" href="https://www.mirrormedia.mg/projects/rent-king/" target="_blank">
+        <img src="app/images/controller.png" alt="">
+        <div class="nav__game--text">我是租屋王</div>
+      </a>
+    </nav>
+    <main>
+
+      <section class="taipeiGeo">
+        <div>
+          <svg id="js-taipeiGeo"></svg>
+          <div class="taipeiGeo__info">單位：間數 資料區間： 2016 年<br>資料來源：<span id="js-geoText">住宅租賃實價登錄</span></div>
+        </div>
+      </section>
+
+      <section id="heading" class="heading">
+        <img src="app/images/title.png" alt="">
+      </section>
+
+      <section id="infographic" class="infographic">
+        <div class="infographic__brief">
+          <h2>雙北租屋面面觀</h2>
+          <p>你租過房子嗎？你知道台灣的租屋市場是世界上少有的「黑市經濟」嗎？我們從 50 多萬筆資料中嘗試拼湊這個地下市場的樣貌，以 2016 年的台北市與新北市為例，地上市場與實際市場的數據量相差超過 10 倍！內政部政務次長花敬群就曾估算，這些地下經濟的規模，每年高達千億。</p>
+          <p>超過九成的房東都沒繳稅，久而久之，台灣人好像也習以為常了。但這可不只是政府稅收短少而已，房屋屋況不佳、房客享受不到租金補助、租賃糾紛無法可管、甚至市場不斷向購屋炒房那端傾倒⋯⋯，全都跟它有關！</p>
+          <p>在高房價的當代，租屋應該成為一種健康的選擇。接下來，我們將從數據資料、實際故事、解決方案三個面向，與你一起探討這個議題。首先，就來揭開這個黑市的神秘面紗吧！</p>
+        </div>
+        <div class="infographic__chart">
+          <div class="infographic__chartBlock">
+              <div id="chart-hotArea"></div>
+              <div class="infographic__chartBlock--info">資料區間：2016年<br>資料來源： 591 租金行情（去除商業使用、倉庫）</div>
+          </div>
+          <p>為了提升不動產買賣、租賃的透明度，台灣在 2012 年實施了實價登錄制度，不管是自售或是委託仲介業，都必須登錄。但這道陽光卻沒有照進租屋市場，因為房東「自租」並不在實價登錄的範圍內。從資料看來， 2016 的住宅租賃實價登錄雙北市只有 3742 件，多是高單價物件。對比民間最大的住宅租賃平台 591 租屋網的資料，2016 年雙北共有 51096 件，數量相差了近 14倍。</p>
+          <h2>台北租房的 C／P 值高嗎？</h2>
+          <h3>你租房的預算是多少呢？</h3>
+          <input id="js-calc" type="range" min="4000" max="29999" value="10000">
+          <div class="infographic__chart--bar">
+            <p style="text-align:left;">4000元</p>
+            <p style="text-align:right;">29999元</p>
+          </div>
+          <div class="infographic__chart--barInfo">
+            <h3>預算 <span id="js-calc-input">10000</span> 元</h3>
+            <h3>台北市 <span id="js-calc-taipei">7.76</span> 坪</h3>
+            <h3>新北市 <span id="js-calc-newTaipei">14.02</span> 坪</h3>
+          </div>
+          <p>以同樣的租金水準，在台北市與新北市能租到的坪數有極大的落差。依《住宅法》規範，台灣「每人平均居住面積」為 3.96 坪，以亞洲國家來說雖然遠遠輸給日本（ 7.56 坪），但跟韓國（ 4.24 坪）沒有差太多。崔媽媽基金會執行長呂秉怡提到，台灣住宅市場的租金其實並不算高，房客之所以「感受不好」，是因為不同於其他國家有基本設施（廚房、廁所等以及相對應的面積）或嚴格的安全規範，台灣除了規範面積，就沒有其他規範了，導致市場充滿著良莠不齊的物件，甚至連違建都可以拿來出租。</p>
+          <div class="infographic__chartBlock">
+            <div id="chart-easyRent"></div>
+            <div class="infographic__chartBlock--info">資料區間：2016年<br>資料來源： 591 租金行情</div>
+          </div>
+          <p>以 2016 年的資料來看，雙北租出最多的是 5000 元至 9999 元的房子。其實以台灣異於常態的高房價來看，這樣的租金完全偏離正常水準（租金通常與房屋的價值相關連）。專做租屋市場的永勝資產科技集團執行長徐銘達指出，台灣的所得十幾年沒有改變，就算想漲房租，付租金的人也付不出來，而房價繼續漲，房租漲不上去，讓台灣的租金投報率幾乎是世界最低。</p>
+          <p>近十年來，租屋市場又有什麼樣的變化呢？以獨立套房的租金來看，台北市在這 9 年平均漲了 11%，新北市則漲了 13%。這是多還少，相信不同收入級距的人都有不同的感受。以一間 8 坪的獨立套房為例，板橋區 2016 年平均租金 9672 元，漲了1256元；若是位在大安區，租金為 13912 元，漲了 1296 元。</p>
+          <p>（圖表數值採平均數，任一年度資料量小於 10 筆、單一月份租金大於百萬者不採計；另中山區雅房在 2012 年 11 月有一筆「 2 坪 20 萬」的資料。）</p>
+          <div class="infographic__chartBlock">
+            <p>雙北的租金漲幅</p>
+            <div class="infographic__chartBlock--category">
+              <div id="Home" class="selected">整層住家</div>
+              <div id="SeparateSuite">獨立套房</div>
+              <div id="ShareSuite">分租套房</div>
+              <div id="room">雅房</div>
+            </div>
+            <div id="chart-increase"></div>
+            <div class="infographic__chartBlock--info">單位：坪／元<br>資料區間：2008年至2016年<br>資料來源： 591 租金行情</div>
+          </div>
+          <p>我們更進一步抓取了 591 租屋網裡台北市一個月（ 2017 年 9月 12 日至 10月11日）超過 2 萬筆租屋物件資料，來看看平常找房時遇到的那些惱人限制比例為何？我們也將這份資料設計成<a href="https://www.mirrormedia.mg/projects/rent-king/" target="_blank">《我是租屋王》遊戲</a>，還沒玩過的話趕快去體驗吧！</p>
+          <div class="infographic__chartBlock">
+            <div id="chart-gender"></div>
+            <div class="infographic__chartBlock--info">資料區間：2017 年 9 月 12 日至 10 月 11 日<br>資料來源： 591 租屋網</div>
+          </div>
+          <div class="infographic__chartBlock">
+            <div id="chart-pet"></div>
+            <div class="infographic__chartBlock--info">資料區間：2017 年 9 月 12 日至 10 月 11 日<br>資料來源： 591 租屋網</div>
+          </div>
+          <div class="infographic__chartBlock">
+            <div id="chart-cook"></div>
+            <div class="infographic__chartBlock--info">資料區間：2017 年 9 月 12 日至 10 月 11 日<br>資料來源： 591 租屋網</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="intro" class="intro">
+        <div class="intro__title">
+          <div class="intro__title--text">租屋人生</div>
+          <div class="intro__title--curtain"></div>
+        </div>
+        <div class="intro__content">
+          <div class="intro__content--title">租屋<br>人生</div>
+          <p class="bold">「我再也受不了這麼窄的地方，連在房間走都要不斷側身，睡醒不看時間不知道是白天還是晚上⋯⋯。撐了半年，牙一咬覺得好吧押金送你（房東），只想趕快逃走。」</p>
+          <p class="bold">「有一次看房發現本來是陽台的地方被隔了一間房間，很明顯，因為房裡有陽台的屍體。明明是好好的格局，為什麼要把它搞得這麼奇怪？」</p>
+          <p class="bold">「不過，這裡月租才 6000 元，已經很好了啦。如果不是頂樓加蓋，可能要住進像牢房一樣的地方吧。」</p>
+          <p>今年 7 月，一則將陽台隔成雅房出租的新聞引起議論，雖然案例比較極端，卻彰顯了在都市租房生存的不易。記者訪談了數十位在台北租屋的年輕人，每個人對生活的耐受度與想像都不同，有人在乎軟體、有人在乎硬體、有人喜歡小空間，但台灣的租屋市場仍有一些共同的問題。</p>
+          <p>崔媽媽基金會執行長呂秉怡就提到，「由於租賃市場長期地下化，從法令規範到經營管理，皆缺乏完善體制，無法支持市場正常發展。長久下來，專業經營投資不足，租賃雙方權利義務不明，導致居住品質落後，租賃糾紛頻傳」。高房價的狀況下民眾無法輕易買房作為替代，也不認為租房是能穩定居住的狀態，如此惡性循環，居住明明是基本人權，卻變得「很難」。</p>
+          <p>我們捨棄了極端的個案，瞄準租屋常見的幾個狀況：頂樓加蓋、違建、空間狹小、居住品質差、分租合租，從三個故事來看看在台北租屋的人過著什麼樣的生活。他們的居室外表看起來或許不那麼「嚇人」，但對居住都有自己的一套主張。或許正在台北租屋的你，也能找到一些共鳴。</p>
+        </div>
+      </section>
+      <!-- Story Start -->
+      <section class="album yang">
+        <div class="album__col album__col--1">
+          <div class="album__line"></div>
+          <div class="album__dot"></div>
+        </div>
+        <div class="album__col album__col--2">
+          <figure class="album__mainPhoto">
+            <img class="yang-photo" src="app/images/yang-01.jpg">
+            <figcaption>1</figcaption>
+          </figure>
+          <div>
+            <div class="album__wave"></div>
+            <figure class="album__photo2">
+              <img class="yang-photo" src="app/images/yang-02.jpg">
+              <figcaption>2</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="album__col album__col--3">
+          <figure class="album__photo3">
+            <img class="yang-photo" src="app/images/yang-03.jpg">
+            <figcaption>3</figcaption>
+          </figure>
+          <figure class="album__photo4">
+            <img class="yang-photo" src="app/images/yang-04.jpg">
+            <figcaption>4</figcaption>
+          </figure>
+          <div class="album__descr">
+            <ul>
+              <li>因為屋齡老舊，房屋結構已經開始脫落。</li>
+              <li>楊大慶的租屋處位在公館水源路國宅區頂樓，小小的坪數裡住了兩個人。</li>
+              <li>他也不知道為什麼能在這裡住八年，「有時候睡一覺起來，又覺得不是什麼大問題。」</li>
+              <li>雖然屋況差，但一房一廳的結構在台北市低價租房市場仍是珍稀物件。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="story">
+        <div class="story__title">
+          <div class="story__title--text">
+            <h2>楊大慶</h2>
+            <h2 class="notBold">在這住八年，我大概是有病吧</h2>
+          </div>
+          <div class="story__title--curtain"></div>
+        </div>
+        <div class="story__content">
+          <figure>
+            <img src="app/images/yang-01.jpg" alt="">
+            <figcaption>因為屋齡老舊，房屋結構已經開始脫落。</figcaption>
+          </figure>
+          <p>採訪楊大慶的那天颱風剛過，多日溽熱的台北難得迎來涼涼的陰天，對這個位在頂樓的老舊房屋來說是難得的好日子。2009 年來台北唸大學到現在，楊大慶一直住在水源路的國宅區，「夏天非常熱，冬天非常冷」，一言蔽之。但一連住了 8 年，他也沒有想過搬離。</p>
+          <p>現在是自由接案攝影師的他，剛與哥哥楊大正結束滅火器樂團在日本的巡演、又接著在高雄完成廣告的拍攝工作，正處在「休息」期間，等著月底下一檔工作。楊大慶一個月實際的工作天數大概是十至十五天，雖然依照接案的狀況，收入會有大小月的差別，但平均可以到 5 萬元左右。對照這間與女友共同分擔租金 6500 元的房子，楊大慶並沒有付出太多成本在居住上。</p>
+          <p>「我其實沒有真正找過房子耶。」他說，「第一次租屋就是接朋友的房子，他要離開台北，我看了覺得不錯，有客廳、房間、浴室、獨立陽台，才 5000 元。」住了四年，大學畢業，楊大慶離開台北當兵，回來時原居處的對面又有朋友要搬離，他再度回到熟悉的地方。</p>
+          <p>「這裡屋齡至少有 50 年了，但我不太確定這些極端的狀況是因為老舊，還是本來就這樣⋯⋯。」楊大慶指的是天花板與剝落的牆壁，「房屋結構會掉下來，我住的上一戶，甚至還看得到鋼筋。」</p>
+          <figure>
+            <img src="app/images/yang-02.jpg" alt="">
+            <figcaption>楊大慶的租屋處位在公館水源路國宅區頂樓，小小的坪數裡住了兩個人。</figcaption>
+          </figure>
+          <h3>一覺醒來，好像也不是什麼大問題</h3>
+          <p>「這間房子像海綿。夏天在家，即使開門窗還是非常熱，甚至比戶外更熱，不開冷氣的話不太能待在室內，所以我常跑到咖啡廳工作。冬天呢，在家裡還可以呼出白氣。」楊大慶說，「從今年開始，只要下雨超過三到五天，就會開始漏水，外頭下雨，屋內也在下小雨，冬天也一定要開除濕機。」</p>
+          <p>倘若租屋處只剩睡覺的功能，為了租金忍耐這些不方便聽起來合理許多。但楊大慶又說自己是個很宅的人，一個月大概有一半時間都在家，對比他所描述的居住狀況，為什麼還能在這裡住八年？他只默默地調侃自己，「對啊，我大概是有病吧。」</p>
+          <p>「每次身體狀況比較累，像是收工、喝醉酒回到家，爬五樓的樓梯，在樓梯間遇到一堆蟑螂，一打開家門熱氣迎面而來⋯⋯，心情確實沒那麼好。」楊大慶說，「不過嘛，睡一覺起來，又覺得不是什麼大問題。」</p>
+          <figure>
+            <img src="app/images/yang-03.jpg" alt="">
+            <figcaption>他也不知道為什麼能在這裡住八年，「有時候睡一覺起來，又覺得不是什麼大問題。」</figcaption>
+          </figure>
+          <h3>變成一個失語的人</h3>
+          <p>明明收入還算高，居住狀況不佳，楊大慶卻不會想把錢投資在居住上。有多餘的錢，他寧願出國去玩，就算想買房子，目前也完全沒有計畫，只覺得在高房價的社會裡，這是很遙遠的事。</p>
+          <p>這種得過且過、即時行樂的狀態，記者在訪談過程也有多位受訪者談到類似感受。從事社會運動工作的Ａ下了一個較精準的註解：「雖然（不存錢）會被大人罵，但薪水這麼低、工時又長、房子也不像他們那個年代那麼好買，社會上狗屁倒灶的事又那麼多。很多事情，不是努力就可以翻轉的。這樣一想，就很難提起勁去規劃遠一點的事。」包括楊大慶在內，這些人對待自己的工作都非常認真，但現實的無力感，讓他們對未來不抱太大希望。</p>
+          <p>從居住的現況到對未來的規劃，楊大慶都是相當逆來順受的人，「但以前比較憤怒耶。」大學唸電影的楊大慶，會想著要翻轉話語權，也關心社會不公不義的事，「現在，憤怒還是在，但有一種說了也沒用的無力感，變得愈來愈沈默。」</p>
+          <p>他提到這個轉變是從三一八運動開始。當時他在當兵，「南部大多數的人，一看到報紙就罵這群人又在鬧什麼，這種聲音還是來自跟我同輩的人，這是很難接受的。尤其是跟你處在同一個世代、同一個階級的人，明明都被壓迫，不僅沒有意識到，還幫壓迫者講話，無力感真的太重了。」</p>
+          <figure>
+            <img src="app/images/yang-04.jpg" alt="">
+            <figcaption>雖然屋況差，但一房一廳的結構在台北市低價租房市場仍是珍稀物件。</figcaption>
+          </figure>
+          <h3>就住到不能住為止吧</h3>
+          <p>「就算有想過要換房，但這裡的租金太便宜，我的東西又很多，台北市套房最低要八千以上，而且都很小一間。可能我過去八年都住單獨一戶，很難想像把自己塞進那麼小的空間。」楊大慶說，「不過說到底，就是習慣了吧。就真的住到真的不能住再說吧。」</p>
+          <p>「這附近的房子，都在等都更吧。」楊大慶說，常常會見到公佈欄會有自辦都更的公告，但推了十幾年都推不太動，「這邊八成的人，多半都是住一輩子的老人家，我相信有能力搬走的人都搬走了。」</p>
+          <p>而這個老舊、租金又低的社區，就成為在高房價的台北一個另類的選擇。「住在這裡的人啊，都是一些『奇怪』的人。」楊大慶笑說。這個形容詞形容的也包括他自己，「音樂、電影相關產業，或是從事社運工作的人。就是沒什麼錢吧。」</p>
+          <p>如果不考慮現實的狀況，理想中在台北的租房，會是什麼樣子？楊大慶說，「至少交通方便，生活機能高。有自己的客廳、就算分租每個人也有獨立的房間、或許有個乾濕分離的浴室、能有個正常大小的廚房可以開伙就更好了⋯⋯」他愈講愈卑微，對居住的「正常」想像，可能要把預算提到很高才住得起。</p>
+        </div>
+      </section>
+      <!-- Story 2 -->
+      <section class="album chu">
+        <div class="album__col album__col--1">
+          <div class="album__line"></div>
+          <div class="album__dot"></div>
+        </div>
+        <div class="album__col album__col--2">
+          <figure class="album__mainPhoto">
+            <img class="chu-photo" src="app/images/chu-01.jpg">
+            <figcaption>1</figcaption>
+          </figure>
+          <div>
+            <div class="album__wave"></div>
+            <figure class="album__photo2">
+              <img class="chu-photo" src="app/images/chu-02.jpg">
+              <figcaption>2</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="album__col album__col--3">
+          <figure class="album__photo3">
+            <img class="chu-photo" src="app/images/chu-03.jpg">
+            <figcaption>3</figcaption>
+          </figure>
+          <figure class="album__photo4">
+            <img class="chu-photo" src="app/images/chu-04.jpg">
+            <figcaption>4</figcaption>
+          </figure>
+          <div class="album__descr">
+            <ul>
+              <li>朱冠蓁與朋友一起將工作室頂樓的空間隔成三個房間。</li>
+              <li>朱冠蓁說，特別在要買傢俱的時候，會有一種「真的要定居了嗎」的疑惑。</li>
+              <li>她的工作室跟臥房只隔了一個樓梯。</li>
+              <li>對朱冠蓁來說，真正能安心定居的條件倒不是硬體，而是要有能安心相處的人在身邊。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="story">
+        <div class="story__title">
+          <div class="story__title--text">
+            <h2>朱冠蓁</h2>
+            <h2 class="notBold">總有一天要離開台北</h2>
+          </div>
+          <div class="story__title--curtain"></div>
+        </div>
+        <div class="story__content">
+          <figure>
+            <img src="app/images/chu-01.jpg" alt="">
+            <figcaption>朱冠蓁與朋友一起將工作室頂樓的空間隔成三個房間。</figcaption>
+          </figure>
+          <p>這是從事無家者工作的朱冠蓁來台北居住的第 5 間房子，就在萬華工作室的樓上。她是遊民社會企業「人生百味」的創辦人之一，現在與兩個同事一起將空蕩的頂樓隔成三間房間，頂樓的租金一人分擔 3500 元，加裝潢的費用一個月大約是 7500 元。雖然已是九月，但我們 3 人站在她的房間不過 5 分鐘，脖子上已可見汗珠流下。</p>
+          <p>從過往的租屋經驗，朱冠蓁曾經厭惡小空間、隔音不好的雅房，強調自己很「宅」的她也很在意空間的舒適感，但她卻說這個地方是至今最滿意的租屋處，「跟一群信任的人相處，我覺得很有安全感。在很有安全感的狀況下，就算是輕隔板的隔間也不那麼令人厭惡了。」</p>
+          <p>來台北的第一間房子，她選了離公司搭捷運只要一站的地方，不過是個「頂頂加」，是頂樓加蓋上面再加一層。整棟公寓裡，都是隔成小間小間的租屋套房。</p>
+          <p>「第一次租房子，會很在意一些生活的細節，例如採光夠不夠啊、浴室的水流大不大，而且我會租這間房子，是因為它有個窗台，超浪漫的耶！但明明窗戶打開是個防火巷。」她苦笑，「住進來才發現，連生存都很難，更遑論生活。」</p>
+          <figure>
+            <img src="app/images/chu-02.jpg" alt="">
+            <figcaption>朱冠蓁說，特別在要買傢俱的時候，會有一種「真的要定居了嗎」的疑惑。</figcaption>
+          </figure>
+          <h3>在城市的狹縫苟且偷生</h3>
+          <p>獨自生活的浪漫想像很快被打破。</p>
+          <p>「我第一次知道什麼叫做輕隔版。」當時她的左右兩間住著就讀同一間學校的大學生，很愛打電動，甚至可以隔著朱冠蓁的房間互相對話。「同理，你知道自己的一舉一動也會被聽見，所以講話都要很小聲、動作都要很輕。」</p>
+          <p>租屋處沒有飲水機，朱冠蓁買了很大的水壺，每天去公司裝水，還得算準時間進出茶水間，免去被發現的尷尬；而台北市的付費垃圾袋，就算是容積最小的，以她當時一人的套房生活，要塞滿拿去倒，也需要一、兩個禮拜，早就臭氣沖天，她就每天把垃圾塞在買早餐的小小袋子裡，上班路途中丟到路上的公用垃圾桶。</p>
+          <p>「那時候就覺得我好像小偷喔，在這個城市苟且偷生，偷竊某些資源生存的感覺。」朱冠蓁苦笑。</p>
+          <p>當時的她很難適應「北漂」的生活，嘗試搪塞了一些目標給自己。看身邊很多同學唸研究所，她便將出國進修當作下一階段的目標，開了日幣的戶頭，開始存錢。生活過得很省，幾乎都自己煮飯，在狹小的套房裡面，蹲在床邊，把廚具放在書桌上開伙，「禮拜五是唯一比較開心的日子，下班可以去買自助餐。」</p>
+          <p>「有一次禮拜五，我坐在床上吃東西的時候，眼睛飄到沒開的電視。它是老式的真空管電視，我在凸面的螢幕看見整個房間的縮影，跟自己縮在床上吃飯的樣子，我就崩潰了。」過不久，朱冠蓁便搬離那裡。</p>
+          <figure>
+            <img src="app/images/chu-03.jpg" alt="">
+            <figcaption>她的工作室跟臥房只隔了一個樓梯。</figcaption>
+          </figure>
+          <h3>要很小心不要說出「回」台北</h3>
+          <p>後來朱冠蓁因為三一八運動的啟蒙，開始了「人生百味」的創業，以社會設計改善街頭流浪者的生活，如捐贈剩食再共同煮食的「石頭湯」計畫、或將文創商品交給街賣者，試圖翻轉形象的「人生柑仔店」計畫。有了生死至交的夥伴們，加上認識愈來愈多有故事的人，「漸漸的，好像就被釘在這裡了。」</p>
+          <p>朱冠蓁房間東西不算多，即使空間只有三坪也不覺擁擠，但她立刻笑著說，「東西不多嗎？我最近已經開始在亂買書了！」她提到，來台北的前幾年，都還維持著幾個紙箱就能迅速搬走的狀態，也不敢買太多東西。</p>
+          <p>「我第一個買的傢俱是書架，當時真的想著『糟糕，要定下來了嗎』。後來搬到一間沒有附傢俱的空屋，搬進去的時候也會猶豫，傢俱要買塑膠的，丟了就算了；還是要買堅固、需要組裝的？在生活的選擇過程中，不由自主地就被釘在這裡了。」</p>
+          <p>相較於剛來台北的時候，她幾乎是一、兩個禮拜就回高雄，「現在媽媽都很難連絡到我，我也很少回家，這感覺還蠻特別的，一路上東西一直變多，尤其這一陣子回家的時候，媽媽會問我要不要帶什麼去台北，我說『沒關係，這個家裡有』的時候，彼此都會沈默一陣。」朱冠蓁苦笑，「我也會很小心，不要哪天脫口而出說要『回』台北。」</p>
+          <figure>
+            <img src="app/images/chu-04.jpg" alt="">
+            <figcaption>對朱冠蓁來說，真正能安心定居的條件倒不是硬體，而是要有能安心相處的人在身邊。</figcaption>
+          </figure>
+          <h3>總有一天要離開台北</h3>
+          <p>現在的她只要下樓就能到工作室，開啟一天的工作。她形容工作室像個「有機體」，除了固定工作的夥伴，隨時隨地都可能有不同的人來拜訪，留得太晚，也會在沙發上留宿。而現在的居住空間同時讓她得以隨時與喜歡的人相處、又能保有自己的空間，只要爬上樓、下樓，就能自由選擇。</p>
+          <p>「但就算我已經租過很多地方，漸漸好像可以在台北活得很好，我還是沒有一個對租房的『標準』，因為我一直覺得，我的下一步就是要離開這裡。」她篤定地說。</p>
+        </div>
+      </section>
+      <!-- Story 3 -->
+      <section class="album tsai">
+        <div class="album__col album__col--1">
+          <div class="album__line"></div>
+          <div class="album__dot"></div>
+        </div>
+        <div class="album__col album__col--2">
+          <figure class="album__mainPhoto">
+            <img class="tsai-photo" src="app/images/tsai-01.jpg">
+            <figcaption>1</figcaption>
+          </figure>
+          <div>
+            <div class="album__wave"></div>
+            <figure class="album__photo2">
+              <img class="tsai-photo" src="app/images/tsai-02.jpg">
+              <figcaption>2</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="album__col album__col--3">
+          <figure class="album__photo3">
+            <img class="tsai-photo" src="app/images/tsai-03.jpg">
+            <figcaption>3</figcaption>
+          </figure>
+          <figure class="album__photo4">
+            <img class="tsai-photo" src="app/images/tsai-04.jpg">
+            <figcaption>4</figcaption>
+          </figure>
+          <div class="album__descr">
+            <ul>
+              <li>蔡昀儒與室友的租屋處一共養了五隻貓咪。</li>
+              <li>由於薪水不高，又搬進一間空房，她的傢俱全部是朋友不要的。</li>
+              <li>每天光餵食貓咪就是一件大事。</li>
+              <li>屋頂的景致雖然很遼闊，卻也是屋裡容易漏水的元兇。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="story">
+        <div class="story__title">
+          <div class="story__title--text">
+            <h2>蔡昀儒</h2>
+            <h2 class="notBold">與貓同居的生活</h2>
+          </div>
+          <div class="story__title--curtain"></div>
+        </div>
+        <div class="story__content">
+          <figure>
+            <img src="app/images/tsai-01.jpg" alt="">
+            <figcaption>蔡昀儒與室友的租屋處一共養了五隻貓咪。</figcaption>
+          </figure>
+          <p>「貓吉！點顛！島灰！⋯⋯」剛進門，就看到蔡昀儒喚著家裡五隻貓咪來吃飯，她才拿起罐頭把貓咪的食碗一一排好，幾隻貪吃的貓就一湧而上。兩隻怕生的貓咪不知道躲去哪裡，她邊去找貓，回頭卻見貪吃的貓兒把別人的份都給吃光，光餵食就是一個大工程。</p>
+          <p>「不過牠們真的好可愛啊。」她看著趴在家裡四處的貓這麼說。其實蔡昀儒會與室友住進這間三房一廳的頂樓加蓋，有一半原因是因為貓。</p>
+          <p>蔡昀儒是台北人，現職是獨立雜誌《秋刀魚》的攝影師，會想搬出來，純粹只是需要自己的空間，「我跟妹妹住在同個房間，睡同一張雙人床。她是大學生，作息跟我很不一樣。有時候我在熬夜工作，她卻要睡了；我比較早下班可以睡覺，她還在跟朋友講電話」。</p>
+          <figure>
+            <img src="app/images/tsai-02.jpg" alt="">
+            <figcaption>由於薪水不高，又搬進一間空房，她的傢俱全部是朋友不要的。</figcaption>
+          </figure>
+          <h3>只有床跟椅子是自己買的</h3>
+          <p>「第一次搬出來住，還是有些想像，想要木頭地板、有好看的窗戶可以透光進來啊，不過後來完全不是這麼一回事。」蔡昀儒哈哈大笑。</p>
+          <p>當時她在國外出差，找房完全交給室友 Della 包辦。從台東結束打工換宿要回台北的 Della 共有 5 隻貓咪，需要大空間，再綜合蔡昀儒獨立空間與租金的條件，兩人最後搬進了這間在 591 租屋網寫著「可安神明，可養寵物」的頂樓加蓋，樓下五層幾乎全都是基督教教會所有。</p>
+          <p>「我不是需要大空間的人，搬出來的原因就是希望好好睡覺，跟能有自己獨立的工作空間。」雖然房租一人只要 6000 元，但住進一間完全沒有傢俱的房子，對當時月薪只有 2 萬出頭的她是個很大的負擔，「我狠下心來分期買了很貴的床，其他都是問朋友有沒有不要的傢俱。」</p>
+          <p>「這間房子裡，只有床跟椅子是我自己買的。」蔡昀儒說。從房間內的書桌、地毯、床頭櫃，到家裡的冰箱、洗衣機，全部都是朋友不要的。兩人就這樣靠著朋友的幫助，利用下班的時間打掃搬家到半夜，還經過貓咪剛搬來不適應四處大小便的陣痛期，開始了新生活。</p>
+          <figure>
+            <img src="app/images/tsai-03.jpg" alt="">
+            <figcaption>每天光餵食貓咪就是一件大事。</figcaption>
+          </figure>
+          <h3>被馬桶「欉康」</h3>
+          <p>兩人五貓共享三房一廳一廚房的空間，相當充分，但居住的不容易藏在生活的細節。原本設定，兩人各自擁有一間房間，另一間和室當作工作室。但 Della 的房間壁癌嚴重到無法住人，目前空著當儲藏室，變成貓咪玩耍的地方。</p>
+          <p>「我的房間沒有冷氣，夏天就是沙漠。」如果太熱，晚上睡覺時，蔡昀儒會到有對外窗的和室跟 Della 一起睡，「我們一開始會開冷氣，後來收到電費單，比原本多了 600 多元，我們尷尬地互相微笑，之後就再也沒人開冷氣了。」蔡昀儒說。</p>
+          <p>現在看似相安無事的生活，其實花了兩人很大的心力應付。屋內潮濕、漏水、蟑螂亂竄；樓下的教會持有安全門的鑰匙時不時可以闖入；甚至某次下大雨時，鞋子全部漂在水上，才發現頂樓的排水有問題⋯⋯</p>
+          <p>「剛搬進來沒多久，有次大完便，馬桶就不通了！試了通樂之後沒有用，我就去小北百貨買長長的管子，通下去，就有一堆排泄物跟著跑出來，掉到地板上，我整個傻眼⋯⋯」蔡昀儒苦笑，「我就哭了，一路哭去小北百貨再繼續想辦法。」</p>
+          <p>「打給房東，房東劈頭就說『怎麼可能！交給你們的時候就好好的，一定是你們亂丟垃圾！』講了很久，她才願意來看。但房東一來，我已經泡通樂泡了兩天，一沖水，就順利地沖下去了，我根本就被馬桶『欉康』（台語，意即被設計）了！」</p>
+          <p>Della 也在一旁補充，「老實說，常常很沒有安全感，出門都會擔心會不會又有人闖進來，貓咪會嚇到；或是哪裡防水防漏沒做好，回家又淹水之類的。雖然可以去換更好的門，或想辦法找人來處理，但我們住在這就是沒錢啊，哪有錢去換啊⋯⋯。」</p>
+          <figure>
+            <img src="app/images/tsai-04.jpg" alt="">
+            <figcaption>屋頂的景致雖然很遼闊，卻也是屋裡容易漏水的元兇。</figcaption>
+          </figure>
+          <h3>好像住在貧民區</h3>
+          <p>「買房？根本買不起啊，不會去想這種事。」蔡昀儒回答得非常直接。雖然現在月薪比之前提高了一些，但因為還要付床與攝影器材（生財工具）的分期，完全沒辦法存到錢，是標準的月光族。</p>
+          <p>「不過我覺得這裡已經很好了啦，才 6000 元就能住到這樣的地方。沒有什麼壓迫感，在台北別的地方，應該連獨立套房都很難吧。」蔡昀儒說。</p>
+          <p>蔡昀儒使勁推開通往頂樓的大鐵板，到頂樓抽菸。四周的高級住宅一棟比一棟高，愈靠近她們的地方卻長滿了低矮的鐵皮建築，「哈哈哈，好像住在貧民區！」她隨口開起玩笑。</p>
+          <p>不過，生活的「危機」還沒完，我們邊走下樓，經過陽台的洗衣機時，蔡昀儒掀開蓋子，裡頭有一半的水，但機器卻動也不動，「吼！它壞掉兩天了，當時還請搬家公司使勁從一樓把它搬上來，結果卻壞了！怎麼辦啦！」</p>
+        </div>
+      </section>
+      <!-- Story End -->
+      <section id="solution" class="solution">
+        <div class="solution__container">
+          <div class="solution__title">
+            <div class="solution__title--text">
+              <h2>租屋怎麼辦？</h2>
+            </div>
+            <div class="solution__title--curtain bg--wave"></div>
+          </div>
+          <div class="solution__content">
+            <p>全球少見的「租屋黑市」究竟是如何造成的？又要怎麼讓它正常化呢？其實要改變這個市場的樣態，不管你是房東、房客，都可以盡一份力喔！</p>
+            <h3>你知道嗎？台灣擁有畸形的住宅市場</h3>
+            <p>相信台灣人大都聽過「有土斯有財」，租屋也常常被視為一種過渡的選擇，而房屋買賣市場的高利潤，更讓台灣的租屋市場小得可憐，即使每年全國都至少有 10% 的空屋，租屋市場上仍然沒有品質更好的選擇。</p>
+            <p>崔媽媽基金會執行長呂秉怡說，跟先進國家比起來，台灣的住宅發展結構過度著重在買賣市場。雖然蔡英文政府努力發展社會住宅，但租屋市場卻連 10% 都不到。</p>
+            <div class="solution__chartBlock">
+              <div id="chart-develop"></div>
+              <div class="infographic__chartBlock--info">資料來源：崔媽媽基金會</div>
+            </div>
+            <p>或許有人認為住宅租賃是自由市場，政府何須介入？但《住宅法》第五十三條就明訂「居住為基本人權」，政府應該要負責提供讓市場健全運作的環境。</p>
+            <div class="solution__chartBlock">
+              <div id="chart-selfRate"></div>
+              <div class="infographic__chartBlock--info">資料來源：內政部 2008 年統計</div>
+            </div>
+            <p>住宅市場過度側重在買賣的後果，讓台灣人以購屋為終極目標，租賃市場幾乎不存在「為提供更好品質物件」的競爭。許多人覺得租屋只是過渡期，那房子的品質不好、房客的權益保障不足，忍一下就過了，大不了住一年就換到別間，但是單親家庭、高齡者、低收入戶等弱勢房客就沒有那麼多選擇，被迫承租租金便宜、屋況窳陋、安全有疑慮的房子。</p>
+            <p>根據 2016 年下半年內政部的「住宅需求動向調查」中，雙北的租屋人口認為租屋環境待改善的比例都超過五成。</p>
+            <div class="solution__chartBlock">
+              <div class="solution__chartBlock--env">
+                <h3>租屋環境待改善</h3>
+                <div class="solutionBlock">
+                  <div class="solutionBlock__title">
+                    <h3>台北市</h3>
+                    <h3>新北市</h3>
+                  </div>
+                  <div class="solutionBlock__ratio">
+                    <div class="solutionBlock--title">認為租屋環境待改善比率</div>
+                    <div class="solutionBlock__ratio--value">
+                      <h2>54.7%</h2>
+                      <h2>66.2%</h2>
+                    </div>
+                  </div>
+                  <div class="solutionBlock__rank">
+                    <div class="solutionBlock--title">改善項目前三名</div>
+                    <div class="solutionBlock__rank--value">
+                      <div>
+                        <div>
+                          <p>室內牆壁<br>（如壁癌）</p>
+                          <span>33.9%</span>
+                        </div>
+                        <div>
+                          <p>室內牆壁<br>（如壁癌）</p>
+                          <span>47.5%</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <p>排水系統<br>（如漏水）</p>
+                          <span>25.8%</span>
+                        </div>
+                        <div>
+                          <p>廚房設備</p>
+                          <span>20.7%</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <p>房屋隔音</p>
+                          <span>19.3%</span>
+                        </div>
+                        <div>
+                          <p>排水系統<br>（如漏水）</p>
+                          <span>20.8%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="infographic__chartBlock--info">資料來源： 2016 年內政部住宅需求動向調查下半年</div>
+            </div>
+            <p>但在租金投報率偏低的狀況下，房東不願意投入足夠的修繕資源，形成惡性循環。也因為租金投報率低的關係，房東選擇了很多方式來壓低成本，每一項，都讓租屋市場更為惡劣。像是自搭違建（常見的頂樓加蓋、陽台外推）造成安全疑慮；選擇自行維護管理，讓市場遲遲無法邁向專業化，造成糾紛頻傳；最重要的，還有逃漏稅。</p>
+            <div class="solution__chartBlock">
+              <div id="chart-ror"></div>
+              <div class="infographic__chartBlock--info">資料來源：2016 Global property Guide</div>
+            </div>
+            <p>「要讓租屋市場健全，最重要的就是稅。」永勝資產科技集團執行長徐銘達提到，稅的問題沒解決，不僅產業無法發展，連政府的政策都無法施展。</p>
+            <p>2014 年，營建署花了一千多萬，成立了 16 個租屋服務平台，希望刺激房東將房屋交給專業者媒合出租，避免弱勢被歧視，結果一年下來全國只成交了 13 戶，「房東又不是笨蛋，我加入政府的租屋平台，反而被掌握到我有出租的事實，要繳稅，誰會願意？」徐銘達說。</p>
+            <p>房東不繳稅，讓政府的種種政策，都像一種「懲罰」。弱勢房客申請租金補貼、或是申報租金扣抵所得稅，造成房東要報稅，隔年不願意續約，房客被趕走。而 2012 年雖然實施了實價登錄，卻說「自租」不需登錄，「那對我們真的是重傷，瞬間再也沒有人要把房子交給我租了。因為給我租要繳稅、自己租不用繳稅啊。我從那天開始才知道政府的政策對我影響有多大，不敢再不關心。」徐銘達感嘆。</p>
+            <p>「不過，這一屆的政府已經很努力了。」徐銘達在接受採訪時不斷強調，新政府上任後對租屋市場的重視跟過去比起來是天壤之別。隨著《住宅法》通過，被稱作「租賃專法」的《租賃住宅市場發展條例》也通過朝野協商，即將進入二、三讀程序。這些讓民間團體讚好的法律跟一般人到底有什麼關係？新政府又要如何解決稅的問題呢？</p>
+            <h3>你知道嗎？房東不得再禁止房客報稅！</h3>
+            <p>2017 年 1 月 1 日起，租房子跟房東簽約的時候，無論你是要遷戶籍、報稅，房東都不得拒絕，假設房東撂下一句：「要報稅的話，多的錢就加在租金裡」， 也是不行的喔！這是因為 2016 年內政部頒布了新的「租賃定型化契約書」，將租賃中有關消費行為的部份適用《消保法》的應記載不應記載事項，為房客增添更多保障。</p>
+            <p>由於《消保法》適用消費行為，企業經營者自然受到規範，但「自租」的個體戶適不適用又引發一番討論。雖然行政院消保處有特別針對適用對象作出解釋，宣稱只要是定期有出租的房東都適用，而在即將通過的「租賃專法」中，則更進一步以「應約定不應約定事項」為個體房東的適用性建立了法源。</p>
+            <p>不過，新政府會採用這樣的方式解套，其實已經轉了個彎。呂秉怡提到，原先的租賃專法，是希望能為常見的房東房客糾紛樹立法源，但最後因為擔心與《民法》扞格，沒有完整地納入專法。呂秉怡指出，《民法》中的租賃行為涵蓋面向多元，像汽車、甚至農業社會租一頭牛，都屬於租賃行為。但房屋租賃實務上會遇到的問題太多太廣。</p>
+            <p>呂秉怡也提醒，雖然行政院消保處有針對適用對象作出解釋、未來也將有法源確保自租的房東應受到規範，但實務的權責還是要回到地方政府，「目前地方的消保官都不太買單，因為業務量會爆炸，他們通常只針對企業經營者下手。到目前為止，還沒有地方的判例出現。」</p>
+            <p>這會不會又成為下一個「上有政策下有對策」的雙軌制？還有待觀察。</p>
+            <h3>你知道嗎？參加政府專案，可以獲得減稅優惠！</h3>
+            <p>關於稅的部分，政府也轉了個彎，先送出胡蘿蔔，以稅優鼓勵房東誠實報稅，用「包租代管」的政策同時解決租屋無法專業化、弱勢被歧視以及房東逃稅的問題。</p>
+            <p>房東如果乖乖繳稅，會增加多少成本呢？主要的差別在於，租金收入要納入綜合所得稅、以及「自用」變成「營業用」。</p>
+            <p>呂秉怡提供一間溫州街租金 22000 元的出租房子為例，比較大的影響是地價稅，從原來自用的千分之二稅率，提升到千分之十，等於漲了四倍，一年要繳 28736 元。房屋稅相較之下比較穩定，但自住與非自住的稅率仍差了 2 倍，從 1.2% 至 2.4% （依個案不同，區間是 1.5%~3.6%），一年要繳 4744元。</p>
+            <p>另外還要加上一年的租金收入 264000 元，扣除成本 43%，增加了15萬多的報稅額，再乘上累進稅率，以一個家庭月收入 8 萬元來說，稅率 11%，就增加 17033 元稅額，「如果剛好在跳級的臨界點，等於加了這 15 萬就跳到下一個累進稅率，那負擔就比較大。」呂秉怡解釋。</p>
+            <p>看似成本增加，「但有收入就該繳稅啊，我們每個人也都是這樣，為什麼有人可以例外？」徐銘達說。</p>
+            <p>而現在，只要房東願意參加政府的專案，將房子交給專業經營者出租（代租代管）、或是將房子轉租給政府，讓政府委託專業經營者租給弱勢住戶（包租代管），除了稅率採自用住宅計算，每戶的租金所得還可以減免 6000 元。</p>
+            <h3>你知道嗎？接下來，就是房客的事了！</h3>
+            <p>這樣的方式真的能讓房東乖乖繳稅嗎？雖然現在有稅的優惠，但過去他們可是一毛都不用繳。</p>
+            <p>徐銘達認為稅很關鍵，也曾提出三種方式：一，提高第二戶以上的持有稅，現在台灣過度著重在交易稅，但那只會痛一次，持有稅要增加，才會有空屋釋出；二，租賃所得稅分離課稅，否則原本收入高的人，稅率太高，當然是能少一筆是一筆；三就是政府機關要加強查稅，甚至可以獎勵房客檢舉，讓檢舉成功的房客抽成。</p>
+            <p>「如果對症下藥，那市場很快就起來；用現在的方式，可能會拖個二、三十年。不過以實務界的看法，我覺得可以接受啦，畢竟已經前進很大一步了。」徐銘達說。</p>
+            <p>德霖技術學院不動產經營系兼任副教授林旺根也認為，要從黑市走向陽光，過程要有很多的配套。現在政府既然已經提供了租稅的誘因，「棍子」應該也會很快出現，「太早去做這件事也不好，反彈會很大。但太晚也沒有效果，我猜想政府會選在適當的時機去做。」</p>
+            <p>徐銘達也提醒，現在房客的對於租屋的知識愈來愈豐富，加上政府也以定型化契約規定不能禁止房客報稅，房東的風險會愈來愈大，「假設房客去檢舉，逃漏稅一追可以追五年，你（房東）是要賭這個風險？還是以後碰到糾紛都要退讓？」</p>
+            <p>呂秉怡曾經形容，台灣的租賃市場是一個「沒有教科書」的改革，長期黑市的結果，沒有任何國家的經驗可以直接套用。居住當是人的基本需求，現在改革終於要起步，實際的改變會不會發生，還仰賴人們的參與。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer__block footer--game">
+        <a href="https://www.mirrormedia.mg/projects/rent-king/">
+          <img src="app/images/controller.png" alt="">
+          <div>
+            <h4>我是租屋王</h4>
+          </div>
+        </a>
+      </div>
+      <div class="footer__block footer--github">
+          <a href="https://github.com/mirror-media/mm-data/tree/master/rent-house">
+            <img src="app/images/gitHub.png" alt="">
+            <div>
+              <h4>數據資料</h4>
+            </div>
+          </a>
+        </div>
+      <div class="footer__credit">
+        <p>文字：李又如</p>
+        <p>攝影：楊子磊、林俊耀</p>
+        <p>視覺設計：陳怡蒨<br>網頁製作：譚學勇</p>
+        <p>遊戲設計：許玲瑋、v_k<br>遊戲製作：KC-Thailand</p>
+        <p>資料整理：簡信昌、譚學勇、李又如</p>
+        <p>音樂：葉立峰</p>
+        <p>鏡傳媒 MirrorMedia 2017/10/26 </p>
+      </div>
+      <div class="footer__projects">
+        <iframe src="https://www.mirrormedia.mg/project-list/dark?excluding=rent-house"  width="100%" frameborder="0" scrolling="no" style="width: 1px; min-width: 100%; *width: 100%;"></iframe>
+      </div>
+      <div class="footer__comment">
+          <div class="fb-comments" data-href="https://www.mirrormedia.mg/projects/rent-house/" data-colorscheme="light" data-numposts="5" data-order-by="reverse_time" data-width="100%"></div>
+      </div>
+    </footer>
+  </body>
+</html>
