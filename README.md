@@ -25,6 +25,6 @@
 | lottery | [出來吧！樂透億萬富翁](https://www.mirrormedia.mg/projects/lottery/) |
 | mining | [天下沒有白挖的水泥](https://www.mirrormedia.mg/projects/mining/) |
 | lin-tzu-wei-2017 | [【互動小遊戲】來跟林子偉比賽跑](https://www.mirrormedia.mg/story/20170713md001/) |
-| hot-sugar | [蜘蛛也是演奏家  葛萊美獎入圍聯想音樂發明人Hot Sugar](https://www.mirrormedia.mg/story/hot-sugar/) |
+| hot-sugar | [蜘蛛也是演奏家  葛萊美獎入圍聯想音樂發明人Hot Sugar](https://www.mirrormedia.mg/projects/hot-sugar/) |
 | rental-house | [我是租屋王-租屋遊戲等你來挑戰！](https://www.mirrormedia.mg/projects/rent-king/) |
-| rent-house | [台北不是我的家！？—租屋黑市大揭露](https://www.mirrormedia.mg/story/rent-house/) |
+| rent-house | [台北不是我的家！？—租屋黑市大揭露](https://www.mirrormedia.mg/projects/rent-house/) |
