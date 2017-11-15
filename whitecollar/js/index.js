@@ -294,7 +294,7 @@ window.addEventListener('load', () => {
   })
 })
 window.addEventListener('resize', () => {
-  if (getClientOS() !== 'iOS') {
+  if (getClientOS() !== 'iOS' && getClientOS() !== 'Android') {
     location.reload()
   }
 })
