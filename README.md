@@ -28,3 +28,4 @@
 | hot-sugar | [蜘蛛也是演奏家  葛萊美獎入圍聯想音樂發明人Hot Sugar](https://www.mirrormedia.mg/projects/hot-sugar/) |
 | rental-house | [我是租屋王-租屋遊戲等你來挑戰！](https://www.mirrormedia.mg/projects/rent-king/) |
 | rent-house | [台北不是我的家！？—租屋黑市大揭露](https://www.mirrormedia.mg/projects/rent-house/) |
+| chefoil | [ChefOil 揮灑料理 一如主廚](https://www.mirrormedia.mg/campaigns/chefoil/) |
