@@ -6,6 +6,9 @@ import basePersonImg from '../data/base_person.js'
 import './index.styl'
 import './swiper.min.css'
 
+// const API_KEY = '41ca9da2f73b4f2eaac5f6dc547f2c8d'
+const API_KEY = 'fb75a564e93d4286a0336b51204ddaa4'
+
 class Lottery {
   constructor() {
     this._doStartSop = this._doStartSop.bind(this)
@@ -115,9 +118,9 @@ class Lottery {
         'returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion',
       ]
 
-      const url = `https://westus.api.cognitive.microsoft.com/face/v1.0/detect?${params.join('&')}`
+      const url = `https://eastasia.api.cognitive.microsoft.com/face/v1.0/detect?${params.join('&')}`
       xhttp.open('POST', url, true)
-      xhttp.setRequestHeader('Ocp-Apim-Subscription-Key', '41ca9da2f73b4f2eaac5f6dc547f2c8d')
+      xhttp.setRequestHeader('Ocp-Apim-Subscription-Key', API_KEY)
       if (type === 'url') {
         xhttp.setRequestHeader('Content-type', 'application/json')
         xhttp.send(JSON.stringify({ url: pic }))
@@ -138,10 +141,10 @@ class Lottery {
         }
       }
 
-      const url = 'https://westus.api.cognitive.microsoft.com/face/v1.0/verify?'
+      const url = 'https://eastasia.api.cognitive.microsoft.com/face/v1.0/verify?'
       xhttp.open('POST', url, true)
       xhttp.setRequestHeader('Content-type', 'application/json')
-      xhttp.setRequestHeader('Ocp-Apim-Subscription-Key', '41ca9da2f73b4f2eaac5f6dc547f2c8d')
+      xhttp.setRequestHeader('Ocp-Apim-Subscription-Key', API_KEY)
       xhttp.send(JSON.stringify({ faceId1, faceId2 }))
     })
   }

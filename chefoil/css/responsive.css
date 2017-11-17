@@ -1,0 +1,335 @@
+@charset "utf-8";
+
+@media only screen and (max-width : 1300px) {
+    .recontent h2 {max-width:300px;}    
+}
+
+@media only screen and (max-width : 1170px) {
+    .slick-prev {background-position:8px -29px;}
+    .slick-next {background-position:12px -91px;}
+    .slider--slot a {margin:6px;}
+
+    /* Recipes */
+    .rehero--oil {display:none;}  
+    .rehero--subtitle {left:20px;}
+    .rehero--name {padding:0 40px;}
+
+    .reintro--content {margin-right:0; padding:45px 45px 65px 45px;}
+    .reintro--content h2 {margin-bottom:25px;}
+    .reintro--chef {position:relative; top:auto; height:auto; margin-top:-30px;}
+    .reintro--chef img {width:calc(100% - 90px); height:auto; margin:0 auto;}
+
+    .recontent h2 {display:block; margin-left:130px; padding:0 0 0 30px;
+        border-right:none; text-align:left; max-width:none;
+    }  
+    .recontent h2.long {padding:0 0 0 30px;}
+
+    .ingredient ul {padding-right:60px;}
+    .ingredient li {
+        background-image:url("../images/recipes/dotted.png"); background-repeat:repeat-x;
+        background-size:auto 2px; background-position:left 14px;
+    }
+    .ingredient li:after {content:""; display:table; clear:both;}
+    .ingredient .name {background-image:none; width:auto; float:left;}
+    .quantity {float:right; background-color:#ede8e3; padding-left:18px;}
+    .even .quantity {background-color:#e7dfd8;}
+
+    
+}
+
+@media only screen and (max-width : 990px) {
+    
+    .sectionwpr.hero {height:auto; padding-bottom:32px;} 
+    .sectionwpr.hero:before {height:64px;}
+    
+    .hero--img {width:100%; height:100vh; position:absolute; left:0; top:0;}
+    .hero--content {position:relative; bottom:auto; left:auto; 
+        padding-top:76px; height:auto;
+    }
+    .hero--part1 {width:100%; height:auto; float:none; border-radius:1px 1px 0 0;}
+    .hero--part2 {width:100%; height:auto; float:none; padding:35px 0;
+        border-radius:0 0 1px 1px;
+    }
+    .hero--btn {display:none;}
+
+    .hero--part1 .valign {padding:55px 0 45px 0; margin-top:0;}
+    .hero--part1 h1 {margin-bottom:40px;}
+    .hero--part1 p {max-width:70%;}
+
+    .hero--logo {margin:0; display:inline-block; vertical-align:middle;
+        margin-right:12px;
+    }
+    .hero--oil {float:none; left:auto; display:inline-block; vertical-align:middle;}
+    .hero--oil .oil {right:auto; margin:0 20px;}
+
+    .slider--container {padding:0 34px;}
+    .slick-prev {background-position:14px -29px;}
+    .slick-next {background-position:6px -91px;}
+
+    .chefsalon--intro {height:220px;}
+    .chefsalon--portrait {width:220px; height:220px;}
+    .chefsalon--desc {width:calc(100% - 240px);}
+    .chefsalon--desc p {padding-left:1px;}
+    .chefsalon--desc2 {padding:22px 40px 40px 40px}
+
+    .chefchoice {padding-top:60px;}
+    .chefchoice h1 {margin-bottom:40px;}
+    .chefchoice h2 {width:560px;}
+    .chefchoice--oil {margin-right:0;}
+    .chefchoice--entry .chefchoice--hr {display:block;}
+
+    .cheftip--header {height:280px;}
+    .cheftip--header .portrait {width:280px; height:280px; top:-50px;}    
+    .cheftip--entry .imgwpr {width:44.9%; position:relative; z-index:200;}
+    .cheftip--entry .content {width:54.9%; box-shadow:none;}
+
+    .cheftip--entry.t01 .content,.cheftip--entry.t02 .content {padding:0 40px;}
+    .cheftip--entry.t03 .content {padding:50px 50px;}
+    .cheftip--entry.t03 .imgwpr {top:56px;}
+    .cheftip--entry.t03 .content .imgwpr {width:110%; margin-left:-5%; top:0; margin-bottom:0;}
+    
+    .cheftip--entry .content h2 {font-size:25px; margin-bottom:16px;}
+    .tiptag {display:none;}
+    .tiptag--m {display:inline-flex;}
+
+    .chefbuy--group {padding:0 10px; box-sizing:border-box;}
+
+    /* Recipes */
+    .rehero {position:relative; width:100%; height:100vh;}
+    .rehero--img {position:relative; background-position:right center;}
+    .rehero--oil {display:block;}  
+    .rehero--subtitle {left:190px;}
+
+    .recontainer {padding-left:0;}
+    
+    .recontent h2 {display:inline-block; padding:0 50px; margin:0 auto; max-width:320px;
+        text-align:center; border-right:2px solid #2d1b15;
+    }
+    .recontent h2.long {padding:0 20px;}
+
+}
+
+@media only screen and (max-width : 680px) {
+
+    .hero--part1 .valign {padding-top:45px;}
+    .hero--part1 h1 {font-size:34px;}
+    .hero--part2 {padding:155px 15px 35px 15px; box-sizing:border-box; overflow:visible;}
+    .hero--logo {margin-right:0; display:block; position:absolute; z-index:20; 
+        left:50%; top:-25px; margin-left:-80px;
+    }
+
+    .chefsalon--intro {display:inline-block; height:auto; margin-bottom:24px;}
+    .chefsalon--portrait {margin:0 auto;}
+    .chefsalon--desc {width:100%; margin-top:-14px; text-align:center;}
+
+    .chefchoice .centerwpr {overflow:hidden;}
+    .chefchoice h2 {font-size:22px; width:100%;}
+    .chefchoice--step.s01 {margin-bottom:40px;}
+
+    .cheftip--header {height:220px;}
+    .cheftip--header .portrait {width:220px; height:220px; margin-right:25px; top:-40px;}
+
+    .cheftip--entry .regular {display:none;}
+    .cheftip--entry .imgwpr.small {display:inline-block;}
+    .cheftip--entry .imgwpr {width:100%; max-width:none;}
+    .cheftip--entry .content {width:100%; max-width:none; box-sizing:border-box;
+        display:block; height:auto; padding:40px !important;
+    }
+    .cheftip--entry .content:after {display:none;}
+
+    .cheftip--entry.t02 .content {text-align:left;}
+    .cheftip--entry.t02 .content p {text-align:left;}
+
+    .cheftip--entry.t03 .imgwpr {top:auto;}
+    .cheftip--entry.t03 .content .imgwpr {width:100%; margin-left:0;}
+
+    .chefbuy {padding:60px 0;}
+    .chefbuy--group {width:100%; margin-bottom:60px; padding:0;}
+    .chefbuy--group:last-child {margin-bottom:0;}
+
+    /* Recipes */
+    .recontent h2 {display:block; margin-left:130px; padding:0 0 0 30px;
+        border-right:none; text-align:left; max-width:none;
+    }  
+    .recontent h2.long {padding:0 0 0 30px;}
+
+}
+
+
+@media only screen and (max-width : 600px) {
+
+    /* Recipes */
+    .rehero--oil {display:none;}  
+    .rehero--subtitle {left:20px;}
+    .rehero--name {padding:0 40px;}
+}
+
+
+@media only screen and (max-width : 500px) {
+
+    .centerwpr {padding:0 12px;}
+
+    .hero--part1 .valign {padding-top:35px;}
+    .hero--part1 h1 {margin-bottom:30px;}
+    .hero--part1 h1:before {display:none;}
+    .hero--part1 h1 i {display:block; margin:0 auto 10px auto; z-index:50;}
+    .hero--part1 p {max-width:none; padding:0 30px;}
+    .hero--part1 p.quote:before {left:15px;}
+    .hero--part1 p.quote:after {right:15px;}
+
+    .hero--oil {height:auto;}
+    .hero--oil .oil {width:33.3%; height:auto; margin:0; text-align:center;
+        box-sizing:border-box; padding:0 15px;
+    }
+    .hero--oil img {width:100%; height:auto; margin:0 auto;}
+
+    .slider--container {padding:0 34px;}
+    .slick-prev {background-position:10px -29px;}
+    .slick-next {background-position:10px -91px;}
+    .slider--slot a {transition:none; transition-property:none; transition-delay:0;}
+    .slider--slot a:hover {transform:none; opacity:1;}
+
+    .chefsalon {padding:50px 0 70px 0;}
+    .chefsalon h1 {text-align:center;}
+    .chefsalon h1 i {display:block; margin:0 auto; background-color:transparent; z-index:50;}
+    .chefsalon h1 span {padding:0 12px; }
+    .chefsalon h1:before {top:auto; bottom:8px;}
+    .chefsalon--desc2 {padding:22px 30px 40px 30px}
+
+    .chefchoice {padding-top:50px; padding-bottom:90px;}
+    .chefchoice h2 {height:auto;
+        line-height:100%; padding:12px 0; box-sizing:border-box;    
+    }
+    .chefchoice h2 span {float:none; position:relative; z-index:200;
+        font-size:24px; line-height:100%;
+    }
+    .chefchoice h2 .n1 {text-align:center; padding:0; width:100%; margin-bottom:8px;}
+    .chefchoice h2 .n2 {text-align:center; padding:0;
+        display:inline-block; vertical-align:middle; width:auto;
+    }
+    .chefchoice h2 i {display:inline-block; vertical-align:middle;
+        position:relative; left:auto; top:auto; margin:0 10px 0 0;
+        height:29px; background-position:1px -359px;
+    }
+    .chefchoice h2:before,.chefchoice h2:after {top:auto; bottom:-19px;}
+    .chefchoice--hr {margin:50px 0;}
+
+    .cheftip {padding-bottom:70px;}
+    .cheftip--header {display:inline-block; height:auto;}
+    .cheftip--header .portrait {margin:0 auto;}
+
+    .chefbuy--group h2 {font-size:20px;}
+    .cheftip--header .valign {top:auto;
+        margin-top:-30px; margin-bottom:20px; text-align:center;
+    }
+    .cheftip--hr {margin:39px 0 40px 0;}
+
+    .chefbuy {padding:50px 0;}
+    .chefbuy h1 i {display:block; margin:0 auto; margin-bottom:10px;}    
+
+    /* Recipes */
+    .recontainer .centerwpr {padding:60px 12px 70px 12px;}
+    .reintro {margin-top:-30px;}
+    .reintro--content {padding:45px 40px 40px 40px;}
+    .reintro--chef {margin-top:0;}
+    .reintro--chef img {width:100%;}    
+    .reintro--content h2 {font-size:24px;}
+
+    .recircle {width:90px; height:90px; margin-top:-45px;}
+    .recircle .circle {width:82px; height:82px; line-height:78px; font-size:44px;}
+    .recontent h2 {font-size:26px; padding-left:20px; margin-left:110px;}
+
+    .recontent--entry {font-size:16px;}
+    .recontent--entry p {font-size:17px;}
+    .ingredient ul {padding-right:30px;}
+
+    /* Recipes hero image */
+    .re02 .rehero--img {background-position:20% center;}
+
+    /* back top */
+    #fixBtn #backHome {margin-bottom:0;}
+    #fixBtn #backTop {display:none;}
+
+    /* scroll lock */
+    html.lock {overflow:hidden;}
+
+}
+
+@media only screen and (max-width : 400px) {
+
+    .tiptag--m {left:0; margin-left:-34px; margin-right:12px;}
+    .cheftip--entry .content {padding:35px 25px !important;}
+    .cheftip--entry .content h2 {margin-bottom:8px;}
+    .cheftip--entry .content p {text-align:justify !important;}
+
+    .chefbuy--group h2 {max-width:none; width:100%;}
+
+    /* Recipes */
+    .rehero--subtitle {font-size:18px;}
+    .rehero--name {padding:0 20px; font-size:18px;}
+    .reintro--content {padding-left:25px; padding-right:25px;}
+    .reintro--content h2:before {left:-54px;}
+
+    .recircle {width:80px; height:80px; margin-top:-40px;}
+    .recircle .circle {width:72px; height:72px; line-height:68px; font-size:40px;}
+    .recontent h2 {font-size:25px; padding-left:18px; margin-left:100px;}
+
+    .ingredient ul {padding-right:10px;}
+
+}
+
+@media only screen and (max-width : 350px) {
+
+    .hero--part1 h1 {font-size:30px;}
+    .hero--oil .oil {padding:0 10px;}
+
+    .slider--caption {padding:0 0 0 10px;}
+    .slider--slot a {margin:0;}
+
+    .cheftip--entry .content h2 {font-size:23px;}
+    .tiptag--m {font-size:14px; width:60px;}
+
+    /* Recipes */
+    .rehero--subtitle {display:none;}
+    .rehero--name {width:100%; padding:0; font-size:20px;}
+
+    .recontent--title {margin-top:-30px; margin-bottom:5px;}
+    .recircle {position:relative; top:0; margin:0 auto 12px auto;}
+    .recircle .text {margin-top:0; position:absolute; left:0; top:-24px;
+        width:100%;
+    }
+    .recontent h2 {margin:0 auto 20px auto; display:block;
+        padding:0 10px; text-align:center;
+        border-right:2px solid #2d1b15;
+        width:100%; box-sizing:border-box;
+    }
+    .recontent h2.long {padding:0 10px;}
+
+    .recontent h3 {position:relative; margin-bottom:10px;}
+    .recontent p {padding:0 8px;}
+    .ingredient ul {padding:0 8px;}
+    .recontent--entry.step {padding-top:0;}
+    .step--entry .text {text-align:justify; padding-right:8px;}  
+
+    .condiment ol {padding:0 8px; font-size:16px;}
+
+}
+
+@media only screen and (max-height : 650px) {
+
+    .menu--home {margin:15px auto 15px auto; width:120px; height:120px;
+        background-size:120px auto; background-position:0 0;
+    }
+    .menu--item a {height:60px; line-height:60px;}
+    .menu--ext .title {margin-bottom:4px;}
+
+}
+
+@media only screen and (max-height : 500px) {
+    
+    .menu--home {margin:14px auto;}
+    .menu--item a {height:52px; line-height:52px;}
+    .menu--ext {padding:15px 0 15px 60px;}
+    .menu--ext .title {margin-bottom:2px;}
+
+}

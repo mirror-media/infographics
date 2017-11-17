@@ -1,9 +1,20 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     template: `${__dirname}/index.html`,
     filename: 'index.html',
     inject: 'body',
+    minify: {
+      conservativeCollapse: true,
+      minifyJS: true,
+      collapseWhitespace: true,
+      removeComments: true,
+      collapseInlineTagWhitespace: true
+    }
 });
 const webpack = require('webpack');
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
@@ -23,45 +34,57 @@ module.exports = {
     },
     output: {
         path: `${__dirname}/lottery`,
-        publicPath: `/projects/lottery/`,
+        // publicPath: `/projects/lottery/`,
         // filename: '[name].js', // '[name].[hash].js', //
         filename: '[name].[hash].js',//'[name].js',//
     },
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'stage-0'],
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'stage-0']
+            }
+          }
+        },          
+        {
+          test: /\.styl$/,
+          exclude: /node_modules/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [ 'css-loader', 'stylus-loader' ]
+          })
+        },
+        {
+            test: /\.css$/,
+            exclude: /node_modules/,
+            use: [
+                {
+                    loader: 'style-loader',
                 },
-            },
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                    }
+                },
+                {
+                    loader: 'postcss-loader'
+                }
+            ]
+        },
+        {
+          test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+          use: [
             {
-                test: /\.json$/,
-                loader: 'json-loader'
-            },
-            {
-                test: /\.less$/,
-                loader: "style!css!less"
-            },
-            {
-                test: /\.scss$/,
-                loaders: ["style-loader", "css-loader", "sass-loader"]
-            },
-            {
-                test: /\.styl$/,
-                loaders: ["style-loader", "css-loader", "stylus-loader"]
-            },
-            { test: /\.css$/, 
-              loaders: [
-                  'style-loader',
-                  'css-loader?importLoaders=1',
-                  'postcss-loader'
-                ] 
-            },
-            { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/, loader: "file" },
-        ],
+              loader: 'file-loader'
+            }
+          ]
+        }
+      ]
     },
     devServer: {
         inline: true,
@@ -70,32 +93,32 @@ module.exports = {
     plugins: [
         HTMLWebpackPluginConfig,
         new webpack.optimize.UglifyJsPlugin({
+          uglifyOptions : {
             compress: {
-                warnings: true
-            }
+                warnings: true,
+            },
+            mangle: false,
+          }
         }),
-        new CleanWebpackPlugin(pathsToClean, cleanOptions)
+        new CleanWebpackPlugin(pathsToClean, cleanOptions),
+        new ExtractTextPlugin({
+          filename: '[name]-[chunkhash].css',
+        }),
+        new CopyWebpackPlugin([
+          // { from:'css', to:'css' },
+          { from:'js', to:'js' },
+          { from:'data', to:'data' }, 
+          { from:'images', to:'images' }
+        ]),
+        new CleanWebpackPlugin(pathsToClean, cleanOptions),
+        new webpack.LoaderOptionsPlugin({
+          options: {
+            stylus: {
+              use: [poststylus([ 'autoprefixer', 'rucksack-css' ])]
+            }
+          }
+        }),
+        new OptimizeCssAssetsPlugin(),
     ],
-    resolve: {
-        alias: {
-            'images': Path.resolve(__dirname, '../images'),
-            'data': Path.resolve(__dirname, '../data'),
-        }
-    },
-    postcss: () => {
-      return [
-        require('precss'),
-        require('autoprefixer')({
-          browsers: ['last 7 versions']
-        })
-      ];
-    },
-    stylus: {
-      use: [
-        poststylus([ 
-          'autoprefixer', 
-          'rucksack-css' 
-        ])
-      ]
-    }
+    resolve: {}
 };
