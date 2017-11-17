@@ -106,7 +106,7 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
           // { from:'css', to:'css' },
-          // { from:'js', to:'js' },
+          { from:'js', to:'js' },
           { from:'data', to:'data' }, 
           { from:'images', to:'images' }
         ]),

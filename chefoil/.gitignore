@@ -1,0 +1,8 @@
+dist
+err.log
+node_modules
+npm-debug.log*
+debug.log
+.DS_Store
+chefoil/*
+chefoil-beta/*
