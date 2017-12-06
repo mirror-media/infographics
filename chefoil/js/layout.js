@@ -9,6 +9,7 @@ $(".slider--container").slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
+    initialSlide: 2,
     prevArrow: '<div class="slick-prev">Previous</div>',
     nextArrow: '<div class="slick-next">Next</div>',
     responsive: [

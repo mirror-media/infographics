@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "metalsmith": "node genStatics.js",
     "test": "echo 'Error: no test specified' && exit 1",
     "lint": "eslint --ext .js src js",
     "lint-certain-file": "eslint js/index.js"
