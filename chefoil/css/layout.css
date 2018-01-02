@@ -551,6 +551,8 @@ background-size:cover; background-position:right top;
 }
 .re02 .rehero--img {background-position:center center;}
 .re03 .rehero--img {background-position:center 60%;}
+.re04 .rehero--img {background-position:center 85%;}
+.re05 .rehero--img {background-position:center center;}
 
 .rehero--footer {width:100%; height:62px; position:absolute; left:0; bottom:0;
 background-color:#fff;
