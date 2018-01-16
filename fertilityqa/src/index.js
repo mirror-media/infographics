@@ -45,7 +45,7 @@ class Fertility {
       const btnStart = document.querySelector('.opening .choices li')
       const btnClickHandler = () => {
         this.playground.appendChild(this.blocks[ 0 ])
-        this.setupNextQAHandler(this.blocks[ 0 ])
+        this.setupNextQAHandler(this.blocks[ 0 ], 0)
         btnStart.removeEventListener('click', btnClickHandler)
         const targetY = elmYPosition(`article[data-key="0"]`)
         smoothScrollTo({ yPos: targetY, steps: this.scrollStep })
@@ -63,15 +63,15 @@ class Fertility {
       resolve()
     })
   }
-  setupNextQAHandler (block) {
+  setupNextQAHandler (block, lastqNum) {
     return new Promise((resolve) => {
       const btns = [ ...block.querySelectorAll('.choices > li') ]
       const btnClickHandler = (e) => {
         const thisBlock = block.getAttribute('data-key')
         const targKey = e.target.getAttribute('data-key')
         this.playground.appendChild(this.blocks[ targKey ])
-        this.setupNextQAHandler(this.blocks[ targKey ]).then(() => {
-          this.sendAnswer(`${thisBlock}-${targKey}`, targKey)
+        this.setupNextQAHandler(this.blocks[ targKey ], thisBlock).then(() => {
+          this.sendAnswer(`${lastqNum}-${thisBlock}-${targKey}`, targKey)
         })
         btns.map((btn) => {
           btn.removeEventListener('click', btnClickHandler)
@@ -93,11 +93,14 @@ class Fertility {
         const last_qa_result = {}
         let total_count = 0
         for(let rs in data.result) {
-          if (rs.split('-')[ 0 ] === qcom.split('-')[ 0 ]) {
+          const rsArr = rs.split('-')
+          const qcomArr = qcom.split('-')
+          if (rsArr[ 0 ] === qcomArr[ 0 ] && rsArr[ 1 ] === qcomArr[ 1 ]) {
             last_qa_result[ rs ] = data.result[ rs ]
             total_count += Number(data.result[ rs ])
           }
         }
+        console.log('last_qa_result', last_qa_result)
         const theSameRate = Math.round(((Number(last_qa_result[ qcom ]) * 1000) / total_count)) / 10 + '%'
         const next_feedback_place = this.blocks[ nextqNum ].querySelector('.feedback > .count')
         if (next_feedback_place) {
@@ -105,7 +108,7 @@ class Fertility {
         }
       }
     }
-    const url = `https://www.mirrormedia.mg/gorest/poll_increase?qid=stork0116&field=${qcom}`
+    const url = `https://www.mirrormedia.mg/gorest/poll_increase?qid=stork01162&field=${qcom}`
     xhttp.open('GET', url, true)
     xhttp.send()
   }
