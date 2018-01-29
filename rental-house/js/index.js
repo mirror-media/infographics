@@ -78,6 +78,8 @@ window.addEventListener('load', () => {
       const pet = document.querySelector(radios[ 1 ].selector).value
       const salary = salaryInput.value
       const budget = budgetInput.value
+      const credit = document.querySelector('.credit')
+      
 
       const initProj = () => {
         isProjectInited = true
@@ -89,6 +91,7 @@ window.addEventListener('load', () => {
         document.querySelector('.requires-top > .wrapper > .budget').innerHTML = `預算 ${budget}`
         document.querySelector('.requires-top > .wrapper > .pet').innerHTML = `寵物 ${pet === 'yes' ? '有' : '無'}`
         document.querySelector('.requires-top').removeAttribute('style')
+        addClass(credit, 'hide')
         removeClass(guide, 'active')
       }
 
