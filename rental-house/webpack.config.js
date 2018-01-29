@@ -4,6 +4,13 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     template: `${__dirname}/index.html`,
     filename: 'index.html',
     inject: 'body',
+    minify: {
+      conservativeCollapse: true,
+      minifyJS: true,
+      collapseWhitespace: true,
+      removeComments: true,
+      collapseInlineTagWhitespace: true
+    }
 });
 const webpack = require('webpack');
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
