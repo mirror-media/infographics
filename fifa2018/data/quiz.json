@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "question": "這個顏色是我的幸運色！",
+    "option": [
+      {
+        "content": "紅",
+        "team": "RUS,KSA"
+      },
+      {
+        "content": "黃",
+        "team": "EGY,POR"
+      },
+      {
+        "content": "綠",
+        "team": "ESP,MAR"
+      },
+      {
+        "content": "藍",
+        "team": "IRN,FRA"
+      },
+      {
+        "content": "白",
+        "team": "AUS,PER"
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "question": "每次看到這家運動品牌的服飾，我都忍不住多看兩眼",
+    "option": [
+      {
+        "content": "Adidas",
+        "team": "RUS,KSA"
+      },
+      {
+        "content": "Nike",
+        "team": "EGY,POR"
+      },
+      {
+        "content": "Puma",
+        "team": "ESP,MAR"
+      },
+      {
+        "content": "New Balance",
+        "team": "IRN,FRA"
+      },
+      {
+        "content": "others",
+        "team": "AUS,PER"
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "question": "FIFA 排名可以看出球隊現在的戰力，因此我希望球隊",
+    "option": [
+      {
+        "content": "當然要前 10 名，才有奪冠的希望",
+        "team": "RUS,KSA"
+      },
+      {
+        "content": "不追求太誇張的名次，11-20 之間就好",
+        "team": "EGY,POR"
+      },
+      {
+        "content": "中庸之道，穩紮穩打 21-40 是最適中的名次",
+        "team": "ESP,MAR"
+      },
+      {
+        "content": "名次如糞土，41 以下我也可以接受",
+        "team": "DEN,FRA"
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "question": "XXXXXXXXXX",
+    "option": [
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      }
+    ]
+  },
+
+  {
+    "id": 5,
+    "question": "XXXXXXXXXX",
+    "option": [
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      },
+      {
+        "content": "XXXXXXXXXX",
+        "team": "XXXXXXXXXX"
+      }
+    ]
+  }
+
+
+
+
+]
