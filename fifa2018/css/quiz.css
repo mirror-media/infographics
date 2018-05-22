@@ -1,16 +1,92 @@
 .quizwpr {min-height:100vh;
-/* background-color:#f22c50;     */
+background-color:#ee294a;    
 }
 
-.swiper-container {
-width:600px; height:300px;
-}
 
+/* ----- pagination ----- */
+.swiper-pagination {position:relative; bottom:auto;
+margin-bottom:20px; padding-top:80px;
+}
+.result .swiper-pagination {visibility:hidden;}
+
+.swiper-pagination span {font-style:italic; color:#fff; line-height:1;}
+.swiper-pagination .qmark {font-size:50px; font-weight:bold}
+.swiper-pagination .current {font-size:56px; font-weight:bold}
+.swiper-pagination .slash {margin:0 5px;
+font-size:30px; position:relative; top:-4px;
+}
+.swiper-pagination .total {font-size:36px; font-weight:bold}
+
+/* ----- quiz ----- */
 .quiz {display:flex; flex-direction:column; align-items:center;}
 
-.quiz--option {width:300px; height:60px;
+.quiz--question {margin-bottom:30px;
+font-size:30px; font-weight:bold; color:#fff;
+}
+
+/* ----- roof button style ----- */
+.roofbtn {width:300px; height:60px; margin:0 12px;
+display:flex; justify-content:center; align-items:center;    
+position:relative;
+cursor:pointer; line-height:1.4; color:#2d4262; font-size:17px;
+background-color:#dcdcdc; border-radius:16px;
+}
+.roofbtn:hover {background-color:#c1c1c1;}
+.roofbtn:active {background-color:#ffd64d;}
+
+.roofbtn:before,
+.roofbtn:after {
+content:""; display:block; width:0; height:0;
+position:absolute; top:50%; margin-top:-20px;
+border-style:solid;
+}
+
+.roofbtn:before {
+left:-11px;     
+border-width:20px 12px 20px 0;
+border-color:transparent #dcdcdc transparent transparent;
+}
+.roofbtn:after {
+right:-11px;    
+border-width:20px 0 20px 12px;
+border-color:transparent transparent transparent #dcdcdc;
+}
+
+.roofbtn:hover:before {border-color:transparent #c1c1c1 transparent transparent;}
+.roofbtn:hover:after {border-color:transparent transparent transparent #c1c1c1;}
+
+.roofbtn:active:before {border-color:transparent #ffd64d transparent transparent;}
+.roofbtn:active:after {border-color:transparent transparent transparent #ffd64d;}
+
+
+/* ----- quiz option ----- */
+.quiz--option+.quiz--option {margin-top:10px;}
+
+
+
+#result-slide {visibility:hidden;}
+.result #result-slide {visibility:visible;}
+
+/* ---------- 再玩一次 ----------*/
+/* #resetQuiz {width:300px; height:60px; margin:0 auto;
 display:flex; justify-content:center; align-items:center;    
 cursor:pointer;
 background-color:#dcdcdc;
+} */
+
+/* ---------- 測驗結果 ----------*/
+.result {display:flex; flex-direction:column; align-items:center;}
+
+
+
+
+/* ---------- 測試用的計分板 ----------*/
+.blackboard {display:flex; justify-content:center; align-items:center;
+flex-wrap:wrap;
+position:fixed; left:0; bottom:0; width:100%; padding:8px 0;
+background-color:#2d4262;
 }
-.quiz--option+.quiz--option {margin-top:10px;}
+.score-entry {font-size:14px; white-space:nowrap; color:#fff;}
+.score-entry+.score-entry:before {content:"/"; margin:0 10px;
+color:#ccc;
+}

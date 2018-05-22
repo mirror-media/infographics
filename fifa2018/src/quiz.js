@@ -1,24 +1,8 @@
-/* ---------- Swiper 初始化 ----------*/
-export function initSwiper(Swiper){
-    window.quizSwiper = new Swiper(".swiper-container", {
-  
-      allowTouchMove: false,
-      pagination: {
-        el: ".swiper-pagination",
-        type: 'fraction'
-      }
-  
-    });
-  
-    quizSwiper.on('reachEnd',() => {
-      console.log('swiper end!');
-    });
-  }
-
 /* ---------- 建立題目 ----------*/
 export function initQuiz(quizData){
 
     const swiperWrapper = document.querySelector('.swiper-wrapper');
+    const resultSlide = document.querySelector('#result-slide');
 
     quizData.forEach((element) => {          
 
@@ -32,33 +16,40 @@ export function initQuiz(quizData){
         slide.classList.add('swiper-slide');
         slide.innerHTML = entry;
 
-        swiperWrapper.appendChild(slide);
+        swiperWrapper.insertBefore(slide,resultSlide);        
 
         /* ----- create slide options ----- */
         element.option.forEach((element) => {
 
             let option = document.createElement('div');
-            option.classList.add('quiz--option');
+            option.classList.add('quiz--option','roofbtn');
             option.innerHTML = element.content;
-            option.setAttribute('data-team', `${element.team}`);
+
+            // let foo = element.team;
+            // let bar = foo.replace(/\s/g,'');
+            
+            // console.log(bar);
+
+            option.setAttribute('data-team', `${element.team.replace(/\s/g,'')}`);
 
             slide.querySelector('.quiz').appendChild(option);           
 
         });
 
     });
+
 }
 
-/* ---------- quiz 行為 ----------*/
-export function quizOption() {
+/* ---------- quiz 操作行為 ----------*/
+export function quizAction(quizSwiper,blackboard) {
 
   //   console.log(typeof(team[1].score));
   document.querySelectorAll(".quiz--option").forEach(element => {
-    element.addEventListener(
-      "click",
-      () => {
-        window.quizSwiper.slideNext();
-        console.log(element.dataset.team);
+    element.addEventListener("click", () => {
+
+        quizSwiper.slideNext();
+
+        quizCount(element.dataset.team,blackboard)
 
       },
       false
@@ -67,8 +58,86 @@ export function quizOption() {
 
 }
 
+/* ---------- 計分 ----------*/
+export function quizCount(team,blackboard) {
+
+    // 使用者選擇的選項所代表的國家
+    const teamArray = team.split(','); 
+
+    /* ----- 比對 taemArray 與計分板 ----- */
+    blackboard.forEach((element) => {
+
+        if(teamArray.indexOf(element.FIFA) > -1){
+            
+            // 符合的國家分數 +1
+            element.score = element.score + 1;
+
+            // console.log(element.country);
+            // console.log(element.score);
+        }
+
+    });
+
+    showScore(blackboard);
+
+}
+
+/* ---------- 顯示測試用的計分黑板 ----------*/
+export function showScore(blackboard){
+
+    let wrapper = document.querySelector('.blackboard');
+    wrapper.innerHTML = '';
+
+    blackboard.forEach((element) => {
+        let entry = document.createElement('div');
+        entry.classList.add('score-entry');
+        entry.innerHTML = `${element.country}：${element.score}`;
+
+        wrapper.appendChild(entry);
+    });
+    // console.log('show blackboard');
+}
 
 
-export function resetQuiz() {
-  console.log("再玩一次");
+/* ---------- 顯示結果 ----------*/
+export function showResult(quizSwiper,blackboard){
+    // 隱藏 pagination
+    document.querySelector(".quizwpr").classList.add("result");
+
+    setTimeout(() => {
+       
+        let finalScore =  _.orderBy(blackboard, ['score','rank'], ['desc','asc']); 
+        
+        console.log(finalScore);
+
+        let resultCountry = finalScore[0].country;
+        let resultFIFACode = finalScore[0].FIFA;
+        let resultScore = finalScore[0].score;
+
+        console.log('結算成績 / ' + '國家：' + resultCountry + ' / 分數：' + resultScore + ' / FIFA 排名：' + finalScore[0].rank);
+
+        // let title = `你適合支持... ${resultCountry}`;
+        // document.querySelector(".result--title").innerHTML = title;
+
+        let brief = finalScore[0].brief;
+
+        document.querySelector('.result--content').innerHTML = `此處顯示國家介紹... ${brief}`;
+
+        quizSwiper.updateAutoHeight();
+
+    },0);
+    
+}
+
+/* ---------- 再玩一次 ----------*/
+export function resetQuiz(quizSwiper,blackboard) {  
+ 
+    blackboard.forEach((element) => {
+        element.score = 0;
+    });
+    
+    document.querySelector(".quizwpr").classList.remove("result");
+
+    quizSwiper.slideTo(0,0);
+
 }

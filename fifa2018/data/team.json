@@ -1,58 +1,227 @@
 [
     {
-        "country": "俄羅斯",
-        "FIFA": "RUS",
-        "score": 0
+        "rank": 1,
+        "country": "德國",
+        "FIFA": "GER",
+        "score": 0,
+        "brief": "德國介紹文字"
     },
     {
-        "country": "沙烏地阿拉伯",
-        "FIFA": "KSA",
-        "score": 0
+        "rank": 2,
+        "country": "巴西",
+        "FIFA": "BRA",
+        "score": 0,
+        "brief": "巴西介紹文字"
+    },
+    {        
+        "rank": 3,
+        "country": "比利時",
+        "FIFA": "BEL",
+        "score": 0,
+        "brief": "比利時介紹文字"
     },
     {
-        "country": "埃及",
-        "FIFA": "EGY",
-        "score": 0
-    },
-    {
+        "rank": 4,
         "country": "葡萄牙",
         "FIFA": "POR",
-        "score": 0
+        "score": 0,
+        "brief": "葡萄牙介紹文字"
     },
     {
-        "country": "西班牙",
-        "FIFA": "ESP",
-        "score": 0
+        "rank": 5,
+        "country": "阿根廷",
+        "FIFA": "ARG",
+        "score": 0,
+        "brief": "阿根廷介紹文字"
     },
     {
-        "country": "摩洛哥",
-        "FIFA": "MAR",
-        "score": 0
+        "rank": 6,
+        "country": "瑞士",
+        "FIFA": "SUI",
+        "score": 0,
+        "brief": "瑞士介紹文字"
     },
     {
-        "country": "伊朗",
-        "FIFA": "IRN",
-        "score": 0
-    },
-    {
+        "rank": 7,
         "country": "法國",
         "FIFA": "FRA",
-        "score": 0
+        "score": 0,
+        "brief": "法國介紹文字"
     },
     {
-        "country": "澳洲",
-        "FIFA": "AUS",
-        "score": 0
+        "rank": 8,
+        "country": "西班牙",
+        "FIFA": "ESP",
+        "score": 0,
+        "brief": "西班牙介紹文字"
     },
     {
+        "rank": 9,
+        "country": "波蘭",
+        "FIFA": "POL",
+        "score": 0,
+        "brief": "波蘭介紹文字"
+    },
+    {
+        "rank": 10,
         "country": "秘魯",
         "FIFA": "PER",
-        "score": 0
+        "score": 0,
+        "brief": "秘魯介紹文字"
     },
     {
+        "rank": 11,
         "country": "丹麥",
         "FIFA": "DEN",
-        "score": 0
+        "score": 0,
+        "brief": "丹麥介紹文字"
+    },
+    {
+        "rank": 12,
+        "country": "英格蘭",
+        "FIFA": "ENG",
+        "score": 0,
+        "brief": "英格蘭介紹文字"
+    },
+    {
+        "rank": 13,
+        "country": "突尼西亞",
+        "FIFA": "TUN",
+        "score": 0,
+        "brief": "突尼西亞介紹文字"
+    },
+    {
+        "rank": 14,
+        "country": "墨西哥",
+        "FIFA": "MEX",
+        "score": 0,
+        "brief": "墨西哥介紹文字"
+    },
+    {
+        "rank": 15,
+        "country": "哥倫比亞",
+        "FIFA": "COL",
+        "score": 0,
+        "brief": "哥倫比亞介紹文字"
+    },
+    {
+        "rank": 16,
+        "country": "烏拉圭",
+        "FIFA": "URU",
+        "score": 0,
+        "brief": "烏拉圭介紹文字"
+    },
+    {
+        "rank": 17,
+        "country": "克羅埃西亞",
+        "FIFA": "CRO",
+        "score": 0,
+        "brief": "克羅埃西亞介紹文字"
+    },
+    {
+        "rank": 18,
+        "country": "冰島",
+        "FIFA": "ISL",
+        "score": 0,
+        "brief": "冰島介紹文字"
+    },
+    {
+        "rank": 19,
+        "country": "瑞典",
+        "FIFA": "SWE",
+        "score": 0,
+        "brief": "瑞典介紹文字"
+    },
+    {
+        "rank": 20,
+        "country": "哥斯大黎加",
+        "FIFA": "CRC",
+        "score": 0,
+        "brief": "哥斯大黎加介紹文字"
+    },
+    {
+        "rank": 21,
+        "country": "塞內加爾",
+        "FIFA": "SEN",
+        "score": 0,
+        "brief": "塞內加爾介紹文字"
+    },
+    {
+        "rank": 22,
+        "country": "賽爾維亞",
+        "FIFA": "SRB",
+        "score": 0,
+        "brief": "賽爾維亞介紹文字"
+    },
+    {
+        "rank": 23,
+        "country": "伊朗",
+        "FIFA": "IRN",
+        "score": 0,
+        "brief": "伊朗介紹文字"
+    },
+    {
+        "rank": 24,
+        "country": "澳大利亞",
+        "FIFA": "AUS",
+        "score": 0,
+        "brief": "澳大利亞介紹文字"
+    },
+    {
+        "rank": 25,
+        "country": "摩洛哥",
+        "FIFA": "MAR",
+        "score": 0,
+        "brief": "摩洛哥介紹文字"
+    },
+    {
+        "rank": 26,
+        "country": "埃及",
+        "FIFA": "EGY",
+        "score": 0,
+        "brief": "埃及介紹文字"
+    },
+    {
+        "rank": 27,
+        "country": "奈及利亞",
+        "FIFA": "NGA",
+        "score": 0,
+        "brief": "奈及利亞介紹文字"
+    },
+    {
+        "rank": 28,
+        "country": "巴拿馬",
+        "FIFA": "PAN",
+        "score": 0,
+        "brief": "巴拿馬介紹文字"
+    },
+    {
+        "rank": 29,
+        "country": "日本",
+        "FIFA": "JPN",
+        "score": 0,
+        "brief": "日本介紹文字"
+    },
+    {
+        "rank": 30,
+        "country": "韓國",
+        "FIFA": "KOR",
+        "score": 0,
+        "brief": "韓國介紹文字"
+    },
+    {
+        "rank": 31,
+        "country": "俄羅斯",
+        "FIFA": "RUS",
+        "score": 0,
+        "brief": "俄羅斯介紹文字"
+    },
+    {
+        "rank": 32,
+        "country": "沙烏地阿拉伯",
+        "FIFA": "KSA",
+        "score": 0,
+        "brief": "沙烏地阿拉伯介紹文字"
     }
 
 ]

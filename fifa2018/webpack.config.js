@@ -8,7 +8,7 @@ module.exports = {
     filename: "[name].bundle.js"
   },
 
-  mode: 'development',
+  mode: 'production', // "production" | "development" | "none"
   watch: true,
 
   module: {

@@ -16,29 +16,33 @@
     <div class="quizwpr">
         <div class="centerwpr">
             <!-- ========== quiz swiper ==========- -->
-            <div class="swiper-container">
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-container">                
                 <div class="swiper-wrapper">     
 
                     <!-- <div class="swiper-slide">
                         <div class="quiz">
                             <h2 class="quiz--question">每次看到這家運動品牌的服飾，我都忍不住多看兩眼</h2>
-                            <div class="quiz--option" data-team="RUS,KSA">Adidas</div>
-                            <div class="quiz--option" data-team="EGY,POR">Nike</div>
-                            <div class="quiz--option" data-team="ESP,MAR">Puma</div>
-                            <div class="quiz--option" data-team="IRN,FRA">New Balance</div>
-                            <div class="quiz--option" data-team="AUS,PER">others</div>
+                            <div class="quiz--option" data-team="RUS,KSA">Adidas</div>      
                         </div>
                     </div> -->
 
-                </div>
+                    <div class="swiper-slide" id="result-slide">
+                        <div class="result">
+                            <h2 class="result--title">適合你的球隊是</h2>
+                            <div class="result--content"></div>
+                            <div id="resetQuiz" class="roofbtn">再玩一次</div>
+                        </div>
+                    </div>
 
-                <div class="swiper-pagination"></div>
+                </div>
             </div>
 
+            <div class="blackboard"></div>
+
         </div>
-    </div>
-
-
+    </div> 
 
 
     <script src="./dist/main.bundle.js"></script>
