@@ -111,7 +111,7 @@ export function showResult(quizSwiper,blackboard){
         console.log(finalScore);
 
         let resultCountry = finalScore[0].country;
-        let resultFIFACode = finalScore[0].FIFA;
+        // let resultFIFACode = finalScore[0].FIFA;
         let resultScore = finalScore[0].score;
 
         console.log('結算成績 / ' + '國家：' + resultCountry + ' / 分數：' + resultScore + ' / FIFA 排名：' + finalScore[0].rank);
