@@ -1,4 +1,4 @@
-/* ---------- reset ---------- */
+/* ----- reset ----- */
 body,dl,dt,dd,ul,ol,li,th,td,form,input,textarea,p {margin:0; padding:0;}
 img {display:block; border:0;}
 li {list-style:none}
@@ -6,7 +6,7 @@ sup {vertical-align:text-top;}
 sub {vertical-align:text-bottom;}
 article,aside,canvas,figure,figure img,figcaption,footer,header,hgroup,menu,nav,section,audio,video {display:block; margin:0; padding:0;}
 
-/* ---------- common ---------- */
+/* ----- common ----- */
 html {overflow-y:scroll;}
 body {text-align:center; font-size:16px; line-height:1.5; 
 font-family:"微軟正黑體", "Microsoft JhengHei", sans-serif; color:#333;
@@ -19,7 +19,124 @@ td {border:1px solid #000;}
 a {outline:none; text-decoration:none;}
 input {vertical-align:middle;}
 
+/* ----- main wrapper ----- */
+.outerwpr {min-height:100vh; position:relative;
+background-color:#ee294a;    
+}
+.outerwpr:before {content:""; display:block; width:100%; height:100vh;
+position:absolute; left:0; top:0;    
+background-image:url("../images/bg-roofcover.png"); background-repeat:no-repeat;
+background-size:100% auto; background-position:center top;
+}
+
 .centerwpr {max-width:960px; padding:0 20px; margin:0 auto;}
 
+/* -------------------- top nav -------------------- */
+.nav {position:fixed; left:0; top:0; width:100%; z-index:9998;}
+
+.nav--btn {display:block; width:42px; height:42px; cursor:pointer;
+position:absolute; 
+font-size:0; line-height:0;
+border-radius:50%; 
+/* box-shadow:0 1px 4px rgba(0,0,0,0.1); */
+background-image:url("../images/navbtn.png"); background-size:auto 100%;
+background-repeat:no-repeat;
+}
+.nav--btn.mirrormedia {left:10px; top:10px;
+background-color:#2d4262; background-position:0 0px;
+}
+
+/* ----- top nav: share button ----- */
+#shareBtn {position:absolute; left:10px; top:62px;}
+
+.nav--btn.share {left:0; top:0; z-index:100;
+background-color:#2d4262; background-position:-58px 0;
+}
+
+.nav--btn.social {
+background-image:url("../images/btn-social.png"); 
+background-size:100% auto;
+top:0; visibility:hidden; pointer-events:none;
+transition-duration:250ms; transition-property:top,visibility;
+}
+.social.facebook {
+background-color:#3b5998; background-position:0 0px;
+}
+.social.line {
+background-color:#00b900; background-position:0 -67px;
+}
+.social.gplus {
+background-color:#df4f3f; background-position:0 -134px;
+}
+
+.expand .nav--btn.social {visibility:visible; pointer-events:auto;}
+.expand .social.facebook {top:52px;}
+.expand .social.line {top:104px;}
+.expand .social.gplus {top:156px;}
+
+/* -------------------- roof button style -------------------- */
+.roofbtn {width:300px; height:70px; margin:0 12px;
+display:flex; justify-content:center; align-items:center;    
+position:relative;
+cursor:pointer; line-height:1.3; color:#2d4262; font-size:17px;
+background-color:#dcdcdc; border-radius:20px;
+}
+.roofbtn .text {padding:0 25px;}
+
+.roofbtn:hover {background-color:#c1c1c1;}
+.roofbtn:active {background-color:#ffd64d;}
+
+.roofbtn:before,
+.roofbtn:after {
+content:""; display:block; width:0; height:0;
+position:absolute; top:50%; margin-top:-24px;
+border-style:solid;
+}
+
+.roofbtn:before {
+left:-13px;     
+border-width:24px 15px 24px 0;
+border-color:transparent #dcdcdc transparent transparent;
+}
+.roofbtn:after {
+right:-13px;    
+border-width:24px 0 24px 15px;
+border-color:transparent transparent transparent #dcdcdc;
+}
+
+.roofbtn:hover:before {border-color:transparent #c1c1c1 transparent transparent;}
+.roofbtn:hover:after {border-color:transparent transparent transparent #c1c1c1;}
+
+.roofbtn:active:before {border-color:transparent #ffd64d transparent transparent;}
+.roofbtn:active:after {border-color:transparent transparent transparent #ffd64d;}
 
 
+/* ---------- 裝飾線標題 ----------*/
+.decoTitle {padding:0 10px; min-width:450px;
+font-size:44px; color:#fff; font-weight:bold;
+border-top:4px solid #fff;
+}
+
+
+/* -------------------- home -------------------- */
+.opening {height:100vh; display:flex; justify-content:center; align-items:center;
+flex-direction:column;
+}
+
+.opening--title {width:466px; height:320px; margin-bottom:70px;
+background-image:url("../images/opening-title.png"); background-repeat:no-repeat;
+}
+
+.start-quiz {background-color:#ffd64d;
+font-size:26px; font-weight:bold;
+}
+.start-quiz:before {border-color:transparent #ffd64d transparent transparent;}
+.start-quiz:after {border-color:transparent transparent transparent #ffd64d;}
+
+.start-quiz:hover {background-color:#ffe338;}
+.start-quiz:hover:before {border-color:transparent #ffe338 transparent transparent;}
+.start-quiz:hover:after {border-color:transparent transparent transparent #ffe338;}
+
+.start-quiz:active {background-color:#ffd64d;}
+.start-quiz:active:before {border-color:transparent #ffd64d transparent transparent;}
+.start-quiz:active:after {border-color:transparent transparent transparent #ffd64d;}

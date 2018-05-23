@@ -5,7 +5,7 @@
         "FIFA": "GER",
         "score": 0,
         "brief": "德國介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -14,7 +14,7 @@
         "FIFA": "BRA",
         "score": 0,
         "brief": "巴西介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {        
@@ -23,7 +23,7 @@
         "FIFA": "BEL",
         "score": 0,
         "brief": "比利時介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -32,7 +32,7 @@
         "FIFA": "POR",
         "score": 0,
         "brief": "葡萄牙介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -41,7 +41,7 @@
         "FIFA": "ARG",
         "score": 0,
         "brief": "阿根廷介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -50,7 +50,7 @@
         "FIFA": "SUI",
         "score": 0,
         "brief": "瑞士介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -59,7 +59,7 @@
         "FIFA": "FRA",
         "score": 0,
         "brief": "法國介紹文字",
-        "image": "",
+        "image": "images/team/FRA.jpg",
         "star": ""
     },
     {
@@ -68,7 +68,7 @@
         "FIFA": "ESP",
         "score": 0,
         "brief": "西班牙介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -77,7 +77,7 @@
         "FIFA": "POL",
         "score": 0,
         "brief": "波蘭介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -86,7 +86,7 @@
         "FIFA": "PER",
         "score": 0,
         "brief": "秘魯介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -95,7 +95,7 @@
         "FIFA": "DEN",
         "score": 0,
         "brief": "丹麥介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -104,7 +104,7 @@
         "FIFA": "ENG",
         "score": 0,
         "brief": "英格蘭介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -113,7 +113,7 @@
         "FIFA": "TUN",
         "score": 0,
         "brief": "突尼西亞介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -122,7 +122,7 @@
         "FIFA": "MEX",
         "score": 0,
         "brief": "墨西哥介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -131,7 +131,7 @@
         "FIFA": "COL",
         "score": 0,
         "brief": "哥倫比亞介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -140,7 +140,7 @@
         "FIFA": "URU",
         "score": 0,
         "brief": "烏拉圭介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -149,7 +149,7 @@
         "FIFA": "CRO",
         "score": 0,
         "brief": "克羅埃西亞介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -158,7 +158,7 @@
         "FIFA": "ISL",
         "score": 0,
         "brief": "冰島介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -167,7 +167,7 @@
         "FIFA": "SWE",
         "score": 0,
         "brief": "瑞典介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -176,7 +176,7 @@
         "FIFA": "CRC",
         "score": 0,
         "brief": "哥斯大黎加介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -185,7 +185,7 @@
         "FIFA": "SEN",
         "score": 0,
         "brief": "塞內加爾介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -194,7 +194,7 @@
         "FIFA": "SRB",
         "score": 0,
         "brief": "賽爾維亞介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -203,7 +203,7 @@
         "FIFA": "IRN",
         "score": 0,
         "brief": "伊朗介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -212,7 +212,7 @@
         "FIFA": "AUS",
         "score": 0,
         "brief": "澳大利亞介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -221,7 +221,7 @@
         "FIFA": "MAR",
         "score": 0,
         "brief": "摩洛哥介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -230,7 +230,7 @@
         "FIFA": "EGY",
         "score": 0,
         "brief": "埃及介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -239,7 +239,7 @@
         "FIFA": "NGA",
         "score": 0,
         "brief": "奈及利亞介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -248,7 +248,7 @@
         "FIFA": "PAN",
         "score": 0,
         "brief": "巴拿馬介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -257,7 +257,7 @@
         "FIFA": "JPN",
         "score": 0,
         "brief": "日本介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -266,7 +266,7 @@
         "FIFA": "KOR",
         "score": 0,
         "brief": "韓國介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -275,7 +275,7 @@
         "FIFA": "RUS",
         "score": 0,
         "brief": "俄羅斯介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     },
     {
@@ -284,7 +284,7 @@
         "FIFA": "KSA",
         "score": 0,
         "brief": "沙烏地阿拉伯介紹文字",
-        "image": "",
+        "image": "images/team/sample.jpg",
         "star": ""
     }
 

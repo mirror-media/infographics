@@ -13,7 +13,7 @@
 
 <body>
 
-    <div class="quizwpr">
+    <div class="outerwpr quizwpr">
         <div class="centerwpr">
             <!-- ========== quiz swiper ==========- -->
             <div class="swiper-pagination"></div>
@@ -30,8 +30,17 @@
 
                     <div class="swiper-slide" id="result-slide">
                         <div class="result">
-                            <h2 class="result--title">適合你的球隊是</h2>
-                            <div class="result--content"></div>
+                            <h2 class="decoTitle">
+                                <span class="decoTitle--text">適合你的球隊是</span>
+                                <div class="decoTitle--line">
+                                    <div class="decoTitle--mark"></div>
+                                </div>
+                            </h2>
+                            <div class="result--content">
+
+                                1234
+
+                            </div>
                             <div id="resetQuiz" class="roofbtn">再玩一次</div>
                         </div>
                     </div>
@@ -43,6 +52,16 @@
 
         </div>
     </div> 
+
+    <div class="nav">
+        <a class="nav--btn mirrormedia" href="https://www.mirrormedia.mg/">鏡傳媒 MirrorMedia</a>
+        <div id="shareBtn">
+            <div id="shareBtnTrigger" class="nav--btn share"></div>
+            <a class="nav--btn social facebook"></a>
+            <a class="nav--btn social line"></a>
+            <a class="nav--btn social gplus"></a>
+        </div>        
+    </div>
 
 
     <script src="./dist/main.bundle.js"></script>

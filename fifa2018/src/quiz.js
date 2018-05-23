@@ -23,12 +23,7 @@ export function initQuiz(quizData){
 
             let option = document.createElement('div');
             option.classList.add('quiz--option','roofbtn');
-            option.innerHTML = element.content;
-
-            // let foo = element.team;
-            // let bar = foo.replace(/\s/g,'');
-            
-            // console.log(bar);
+            option.innerHTML = `<div class="text">${element.content}</div>`;
 
             option.setAttribute('data-team', `${element.team.replace(/\s/g,'')}`);
 
@@ -61,6 +56,7 @@ export function quizAction(quizSwiper,blackboard) {
 /* ---------- 計分 ----------*/
 export function quizCount(team,blackboard) {
 
+    // console.log(team);
     // 使用者選擇的選項所代表的國家
     const teamArray = team.split(','); 
 
@@ -72,11 +68,13 @@ export function quizCount(team,blackboard) {
             // 符合的國家分數 +1
             element.score = element.score + 1;
 
-            // console.log(element.country);
+            console.log(`${element.country}(${element.FIFA}) +1`);
             // console.log(element.score);
         }
 
     });
+
+    console.log('---------- 題目分隔線 ----------');
 
     showScore(blackboard);
 
@@ -106,18 +104,12 @@ export function showResult(quizSwiper,blackboard){
 
     setTimeout(() => {
        
-        let finalScore =  _.orderBy(blackboard, ['score','rank'], ['desc','asc']); 
-        
-        console.log(finalScore);
+        let finalScore =  _.orderBy(blackboard, ['score','rank'], ['desc','asc']);         
 
-        let resultCountry = finalScore[0].country;
-        // let resultFIFACode = finalScore[0].FIFA;
-        let resultScore = finalScore[0].score;
+        let resultCountry = finalScore[0].country;     
+        let resultScore = finalScore[0].score;     
 
-        console.log('結算成績 / ' + '國家：' + resultCountry + ' / 分數：' + resultScore + ' / FIFA 排名：' + finalScore[0].rank);
-
-        // let title = `你適合支持... ${resultCountry}`;
-        // document.querySelector(".result--title").innerHTML = title;
+        console.log(`結算成績 / 國家：${resultCountry}(${finalScore[0].FIFA}) / 分數：${resultScore} / FIFA 排名：${finalScore[0].rank}`);     
 
         let brief = finalScore[0].brief;
 

@@ -14,7 +14,7 @@ import {
 } from "./quiz.js";
 
 if (document.querySelector(".quizwpr") != null) {
-  // var quizSwiper;
+  // var quizSwiper;  
 
   /* ---------- 測驗 ----------*/
 
@@ -63,8 +63,27 @@ if (document.querySelector(".quizwpr") != null) {
         },
         false
       );
+
+      // DEV: 跳到結果頁
+      // quizSwiper.slideTo(8,0)
+
     })
     .catch(function(err) {
       console.log(err);
     });
 }
+
+
+/* ---------- 分享按鈕 ----------*/
+document.querySelector('#shareBtnTrigger').addEventListener('click',() => {
+
+  document.querySelector('#shareBtn').classList.toggle('expand');
+
+}, false);
+
+
+
+
+
+
+
