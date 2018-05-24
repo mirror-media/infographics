@@ -14,8 +14,7 @@ import {
 } from "./quiz.js";
 
 import {
-  appendListing,
-  listingEqualHeight
+  appendListing
 } from "./news.js";
 
 /* -------------------- 測驗頁 --------------------*/
@@ -77,22 +76,55 @@ if (document.querySelector(".quizwpr") != null) {
 
 /* -------------------- 新聞頁 --------------------*/
 if (document.querySelector(".newswpr") != null) {
+
   //取得新聞 list
-  const getSectionList = superagent.get('https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=1&sort=-publishedDate');
+  const Listing = 'https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=1&sort=-publishedDate'
 
-  const test = superagent.get("https://spreadsheets.google.com/feeds/list/2PACX-1vThiLebs3Mjd0QCbiEOFZ9_u4g9WIiQ8xw0g5wGdaszIQDEZqRREB1I7xfTrp4dJwjRqHFvN0UH7HRn/od6/public/values?alt=json-in-script&callback=");
-
-  Promise.all([getSectionList])
-    .then(function(res){  
-
-      appendListing(JSON.parse(res[0].text));
-
-      // console.log(res[1]);
-
+  superagent.get(Listing)
+    .then(function (res) {
+      appendListing(JSON.parse(res.text));
     })
-    .catch(function(err){
+    .catch(function (err) {
       console.log(err);
     });
+
+
+
+  //取得戰績表 (Matches)
+  // GET https://sheets.googleapis.com/v4/spreadsheets/spreadsheetId/values/Sheet1!A1:D5 + (API key)
+  const Matches = 'https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/戰績表!A1:K9?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
+
+  superagent.get(Matches)
+    .then(function (res) {
+      console.log(JSON.parse(res.text));
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+
+  const Schedule = 'https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/賽程表!A1:K9?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
+
+  superagent.get(Schedule)
+    .then(function (res) {
+      console.log(JSON.parse(res.text));
+    })
+    .catch(function (err) {
+      console.log(err);
+    });  
+
+  //取得賽程 (Schedule)
+
+  // Promise.all([getSectionList,sheets])
+  //   .then(function(res){  
+
+  //     appendListing(JSON.parse(res[0].text));
+
+  //     console.log(JSON.parse(res[1].text));
+
+  //   })
+  //   .catch(function(err){
+  //     console.log(err);
+  //   });
 
 
   // window.addEventListener('resize',() => {

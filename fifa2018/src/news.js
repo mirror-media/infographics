@@ -1,3 +1,4 @@
+/* -------------------- Listing news --------------------*/
 export function appendListing(res){
 
     const data = res._items;
@@ -33,10 +34,18 @@ export function appendListing(res){
 
     });   
 
-    // setEqualHeight(document.querySelectorAll('.listing--innerwpr'));
-
 }
 
+/* -------------------- Listing news --------------------*/
+
+
+
+
+
+
+
+
+/* -------------------- set equal height --------------------*/
 export function setEqualHeight(target){
 
     let maxHeight = 0;
