@@ -1,12 +1,3 @@
-/* .quizwpr {min-height:100vh; position:relative;
-background-color:#ee294a;    
-}
-.quizwpr:before {content:""; display:block; width:100%; height:100vh;
-position:absolute; left:0; top:0;    
-background-image:url("../images/bg-roofcover.png"); background-repeat:no-repeat;
-background-size:100% auto; background-position:center top;
-} */
-
 /* ----- pagination ----- */
 .swiper-pagination {position:relative; bottom:auto;
 margin-bottom:20px; padding-top:120px;
@@ -32,23 +23,12 @@ font-size:30px; font-weight:bold; color:#fff;
 /* ----- quiz option ----- */
 .quiz--option+.quiz--option {margin-top:10px;}
 
-
-
 #result-slide {visibility:hidden;}
 .result #result-slide {visibility:visible;}
 
-/* ---------- 再玩一次 ----------*/
-/* #resetQuiz {width:300px; height:60px; margin:0 auto;
-display:flex; justify-content:center; align-items:center;    
-cursor:pointer;
-background-color:#dcdcdc;
-} */
 
 /* ---------- 測驗結果 ----------*/
 .result {display:flex; flex-direction:column; align-items:center;}
-
-
-
 
 
 

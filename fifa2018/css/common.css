@@ -29,7 +29,9 @@ background-image:url("../images/bg-roofcover.png"); background-repeat:no-repeat;
 background-size:100% auto; background-position:center top;
 }
 
-.centerwpr {max-width:960px; padding:0 20px; margin:0 auto;}
+.centerwpr {max-width:960px; padding:0 20px; margin:0 auto;
+position:relative;
+}
 
 /* -------------------- top nav -------------------- */
 .nav {position:fixed; left:0; top:0; width:100%; z-index:9998;}
@@ -112,10 +114,25 @@ border-color:transparent transparent transparent #dcdcdc;
 
 
 /* ---------- 裝飾線標題 ----------*/
-.decoTitle {padding:0 10px; min-width:450px;
+h2.deco {padding:0 10px; min-width:450px;
 font-size:44px; color:#fff; font-weight:bold;
 border-top:4px solid #fff;
 }
+
+
+h3.deco {height:33px; margin-bottom:40px;
+display:flex; align-items:center;    
+font-size:32px; color:#fff; font-weight:bold; 
+font-style:italic;
+}
+h3.deco:before,
+h3.deco:after {content:""; display:block; width:43px; height:33px;
+background-image:url("../images/line-deco.png"); background-repeat:no-repeat;
+background-size:62px auto;
+position:relative; top:1px; flex-shrink:0;
+}
+h3.deco:before {margin-right:10px; background-position:0 -67px;}
+h3.deco:after {margin-left:14px; background-position:right -67px;}
 
 
 /* -------------------- home -------------------- */

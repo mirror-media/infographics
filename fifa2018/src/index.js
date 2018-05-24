@@ -13,11 +13,13 @@ import {
   resetQuiz
 } from "./quiz.js";
 
+import {
+  appendListing,
+  listingEqualHeight
+} from "./news.js";
+
+/* -------------------- 測驗頁 --------------------*/
 if (document.querySelector(".quizwpr") != null) {
-  // var quizSwiper;  
-
-  /* ---------- 測驗 ----------*/
-
   const getTeam = superagent.get("./data/team.json"); //取得計分板
   const getQuiz = superagent.get("./data/quiz.json"); //取得題目
 
@@ -38,7 +40,8 @@ if (document.querySelector(".quizwpr") != null) {
           type: "custom",
           renderCustom: function(quizSwiper, current, total) {
             // return current + " / " + (total - 1);
-            return `<span class="qmark">Q</span><span class="current">${current}</span><span class="slash">/</span><span class="total">${total - 1}</span>`
+            return `<span class="qmark">Q</span><span class="current">${current}</span><span class="slash">/</span><span class="total">${total -
+              1}</span>`;
           }
         }
       });
@@ -66,24 +69,45 @@ if (document.querySelector(".quizwpr") != null) {
 
       // DEV: 跳到結果頁
       // quizSwiper.slideTo(8,0)
-
     })
     .catch(function(err) {
       console.log(err);
     });
 }
 
+/* -------------------- 新聞頁 --------------------*/
+if (document.querySelector(".newswpr") != null) {
+  //取得新聞 list
+  const getSectionList = superagent.get('https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=1&sort=-publishedDate');
+
+  Promise.all([getSectionList])
+    .then(function(res){
+
+      appendListing(res);
+
+    })
+    .catch(function(err){
+      console.log(err);
+    });
+
+
+  // window.addEventListener('resize',() => {
+
+  //   setEqualHeight(document.querySelectorAll('.listing--innerwpr'));
+
+  // });  
+
+
+
+
+  
+}
 
 /* ---------- 分享按鈕 ----------*/
-document.querySelector('#shareBtnTrigger').addEventListener('click',() => {
-
-  document.querySelector('#shareBtn').classList.toggle('expand');
-
-}, false);
-
-
-
-
-
-
-
+document.querySelector("#shareBtnTrigger").addEventListener(
+  "click",
+  () => {
+    document.querySelector("#shareBtn").classList.toggle("expand");
+  },
+  false
+);
