@@ -80,10 +80,14 @@ if (document.querySelector(".newswpr") != null) {
   //取得新聞 list
   const getSectionList = superagent.get('https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=1&sort=-publishedDate');
 
-  Promise.all([getSectionList])
-    .then(function(res){
+  const test = superagent.get("https://spreadsheets.google.com/feeds/list/2PACX-1vThiLebs3Mjd0QCbiEOFZ9_u4g9WIiQ8xw0g5wGdaszIQDEZqRREB1I7xfTrp4dJwjRqHFvN0UH7HRn/od6/public/values?alt=json-in-script&callback=");
 
-      appendListing(res);
+  Promise.all([getSectionList])
+    .then(function(res){  
+
+      appendListing(JSON.parse(res[0].text));
+
+      // console.log(res[1]);
 
     })
     .catch(function(err){

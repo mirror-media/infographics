@@ -1,6 +1,6 @@
 export function appendListing(res){
 
-    const data = res[0].body._items;
+    const data = res._items;
 
     const wrapper = document.querySelector('#listingwpr');
 
