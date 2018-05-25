@@ -14,8 +14,13 @@ import {
 } from "./quiz.js";
 
 import {
-  appendListing
+  appendListing,
+  setMatchTableTitle,
+  setMatchTableContent,
+  tabControl
 } from "./news.js";
+
+// var blackboard;
 
 /* -------------------- 測驗頁 --------------------*/
 if (document.querySelector(".quizwpr") != null) {
@@ -74,10 +79,10 @@ if (document.querySelector(".quizwpr") != null) {
     });
 }
 
-/* -------------------- 新聞頁 --------------------*/
+/* -------------------- 新聞頁 -------------------- */
 if (document.querySelector(".newswpr") != null) {
 
-  //取得新聞 list
+  /* ---------- 新聞頁 ---------- */
   const Listing = 'https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=1&sort=-publishedDate'
 
   superagent.get(Listing)
@@ -89,53 +94,68 @@ if (document.querySelector(".newswpr") != null) {
     });
 
 
+    /* ---------- 戰績與賽程表 ---------- */
+    // 隊伍資料
+    const Team = superagent.get("./data/team.json");
+
+    // 戰績表
+    const Matches = superagent.get('https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/戰績表!A1:I33?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA');
+
+    //賽程表
+    const Schedule = superagent.get('https://sheets.googleapis.com/v4/spreadsheets/1WkUY_MWnEGKCfMwyS-bIaJT9Pdrw3Qux0uQkzv7uIy8/values/小組賽!A1:G3?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA');
+
+    // Promise.all([Team,Matches,Schedule])
+    Promise.all([Team,Matches])
+      .then(function(res){
+        /* 
+        res[0] 隊伍資料
+        res[1] 戰績表
+        res[2] 賽程表
+        */
+        const teamData = JSON.parse(res[0].text);
+        const matchesData = JSON.parse(res[1].text);
+        // const scheduleData = JSON.parse(res[2].text);
+
+        // setMatchTableTitle(sheets.values[0]);
+        setMatchTableContent(matchesData.values,teamData);
+
+        tabControl();
+
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+
+
 
   //取得戰績表 (Matches)
   // GET https://sheets.googleapis.com/v4/spreadsheets/spreadsheetId/values/Sheet1!A1:D5 + (API key)
-  const Matches = 'https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/戰績表!A1:K9?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
+  // const Matches = 'https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/戰績表!A1:K33?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
 
-  superagent.get(Matches)
-    .then(function (res) {
-      console.log(JSON.parse(res.text));
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
+  // superagent.get(Matches)
+  //   .then(function (res) {
 
-  const Schedule = 'https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/賽程表!A1:K9?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
+  //     const sheets = JSON.parse(res.text);
 
-  superagent.get(Schedule)
-    .then(function (res) {
-      console.log(JSON.parse(res.text));
-    })
-    .catch(function (err) {
-      console.log(err);
-    });  
-
-  //取得賽程 (Schedule)
-
-  // Promise.all([getSectionList,sheets])
-  //   .then(function(res){  
-
-  //     appendListing(JSON.parse(res[0].text));
-
-  //     console.log(JSON.parse(res[1].text));
+  //     setMatchTableTitle(sheets.values[0]);
+  //     setMatchTableContent(sheets.values,blackboard);
 
   //   })
-  //   .catch(function(err){
+  //   .catch(function (err) {
   //     console.log(err);
   //   });
 
 
-  // window.addEventListener('resize',() => {
+  //取的賽程  
+  // const Schedule = 'https://sheets.googleapis.com/v4/spreadsheets/1WkUY_MWnEGKCfMwyS-bIaJT9Pdrw3Qux0uQkzv7uIy8/values/小組賽!A1:G3?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
 
-  //   setEqualHeight(document.querySelectorAll('.listing--innerwpr'));
-
-  // });  
-
-
-
-
+  // superagent.get(Schedule)
+  //   .then(function (res) {
+  //     console.log(JSON.parse(res.text));
+  //   })
+  //   .catch(function (err) {
+  //     console.log(err);
+  //   });  
   
 }
 
