@@ -20,8 +20,13 @@ a {outline:none; text-decoration:none;}
 input {vertical-align:middle;}
 
 /* ----- Typekit ----- */
-/* "source-han-sans-traditional" 400,700 */
-/* "prenton" 400,700 / normal & italic  */
+/* 
+"source-han-sans-traditional" 400,700
+"prenton" 400,700 / normal & italic
+
+font-family:"source-han-sans-traditional","微軟正黑體", "Microsoft JhengHei", sans-serif;
+font-family:"prenton","微軟正黑體", "Microsoft JhengHei", sans-serif;
+*/
 
 /* ----- main wrapper ----- */
 .outerwpr {min-height:100vh; position:relative;
@@ -36,6 +41,8 @@ background-size:100% auto; background-position:center top;
 .centerwpr {max-width:960px; padding:0 20px; margin:0 auto;
 position:relative;
 }
+
+section {position:relative;}
 
 /* -------------------- top nav -------------------- */
 .nav {position:fixed; left:0; top:0; width:100%; z-index:9998;}
@@ -116,14 +123,45 @@ border-color:transparent transparent transparent #dcdcdc;
 .roofbtn:active:before {border-color:transparent #ffd64d transparent transparent;}
 .roofbtn:active:after {border-color:transparent transparent transparent #ffd64d;}
 
+/* ---------- 裝飾線標題 h1 ----------*/
+.main-title {position:relative; display:inline-block;
+margin-bottom:40px;    
+}
 
-/* ---------- 裝飾線標題 ----------*/
-h2.deco {padding:0 10px; min-width:450px;
-font-size:44px; color:#fff; font-weight:700;
-border-top:4px solid #fff;
+/* .opening .main-title {margin-top:-50px;} */
+.newswpr .main-title {margin:160px auto 50px auto;}
+
+.main-title h1 {line-height:1; letter-spacing:2px;}
+.main-title h1.eng {margin-bottom:4px;
+font-size:86px; font-weight:700; color:#fff;
+font-family:"prenton","微軟正黑體", "Microsoft JhengHei", sans-serif;
+}
+.main-title h1.cht {margin-bottom:20px;
+font-size:66px; font-weight:700; color:#fff;
 }
 
 
+/* ---------- 裝飾線標題 h2 ----------*/
+h2.deco {margin-bottom:30px;
+font-size:40px; color:#fff; font-weight:700; line-height:1.3;
+border-top:4px solid #fff; letter-spacing:2px;
+}
+.deco--line {display:flex; justify-content:space-between; align-items:center;
+width:100%; height:33px; position:relative; top:-10px;
+}
+.deco--text {padding:5px 10px;}
+
+.deco--pin {width:62px; height:33px;
+background-image:url("../images/line-deco.png"); background-repeat:no-repeat;
+background-size:62px auto; background-position:0 0;
+}
+
+.deco--line:before,
+.deco--line:after {content:""; display:block; width:calc(50% - 38px);
+height:4px; background-color:#fff;
+}
+
+/* ---------- 裝飾線標題 h3 ----------*/
 h3.deco {height:33px; margin-bottom:40px;
 display:flex; align-items:center;    
 font-size:32px; color:#fff; font-weight:700; 
@@ -144,9 +182,9 @@ h3.deco:after {margin-left:14px; background-position:right -67px;}
 flex-direction:column;
 }
 
-.opening--title {width:466px; height:320px; margin-bottom:70px;
+/* .opening--title {width:466px; height:320px; margin-bottom:70px;
 background-image:url("../images/opening-title.png"); background-repeat:no-repeat;
-}
+} */
 
 .start-quiz {background-color:#ffd64d;
 font-size:26px; font-weight:700;

@@ -17,6 +17,7 @@ import {
   appendListing,
   setMatchTableTitle,
   setMatchTableContent,
+  setScheduleTable,
   tabControl
 } from "./news.js";
 
@@ -71,8 +72,8 @@ if (document.querySelector(".quizwpr") != null) {
         false
       );
 
-      // DEV: 跳到結果頁
-      // quizSwiper.slideTo(8,0)
+      // 測試用，跳到結果頁
+      quizSwiper.slideTo(8,0)
     })
     .catch(function(err) {
       console.log(err);
@@ -88,6 +89,11 @@ if (document.querySelector(".newswpr") != null) {
   superagent.get(Listing)
     .then(function (res) {
       appendListing(JSON.parse(res.text));
+
+      //測試用，模擬廣告
+      let listingEntry = document.querySelectorAll('.listing--entry');
+      listingEntry[2].classList.add('adv');
+
     })
     .catch(function (err) {
       console.log(err);
@@ -102,10 +108,12 @@ if (document.querySelector(".newswpr") != null) {
     const Matches = superagent.get('https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/戰績表!A1:I33?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA');
 
     //賽程表
-    const Schedule = superagent.get('https://sheets.googleapis.com/v4/spreadsheets/1WkUY_MWnEGKCfMwyS-bIaJT9Pdrw3Qux0uQkzv7uIy8/values/小組賽!A1:G3?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA');
+    //values:batchGet?ranges=Sheet1!B:B&ranges=Sheet1!D:D
+    const Schedule = superagent.get('https://sheets.googleapis.com/v4/spreadsheets/1WkUY_MWnEGKCfMwyS-bIaJT9Pdrw3Qux0uQkzv7uIy8/values/賽程!A1:F200?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA');   
 
-    // Promise.all([Team,Matches,Schedule])
-    Promise.all([Team,Matches])
+    const TabSetting = superagent.get('https://sheets.googleapis.com/v4/spreadsheets/1WkUY_MWnEGKCfMwyS-bIaJT9Pdrw3Qux0uQkzv7uIy8/values/tab-setting!B3?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA');  
+
+    Promise.all([Team,Matches,Schedule,TabSetting])
       .then(function(res){
         /* 
         res[0] 隊伍資料
@@ -114,12 +122,20 @@ if (document.querySelector(".newswpr") != null) {
         */
         const teamData = JSON.parse(res[0].text);
         const matchesData = JSON.parse(res[1].text);
-        // const scheduleData = JSON.parse(res[2].text);
+        const scheduleData = JSON.parse(res[2].text);
+        const tabSettingData = JSON.parse(res[3].text);
 
-        // setMatchTableTitle(sheets.values[0]);
+        // 建立戰績表
         setMatchTableContent(matchesData.values,teamData);
 
-        tabControl();
+        // 建立賽程表 (小組賽)
+        setScheduleTable(scheduleData.values,teamData,document.getElementById('schedule32Table'),document.getElementById('schedule16Table'));
+
+        // console.log(tabSettingData);
+
+        // tab 操作
+        tabControl(document.getElementById('scheduleTable'),'.schedule-select','.schedule-table');
+        // tabControl(document.getElementById('schedule32Table'));
 
       })
       .catch(function(err) {

@@ -5,7 +5,7 @@ margin-bottom:20px; padding-top:120px;
 .result .swiper-pagination {visibility:hidden;}
 
 .swiper-pagination span {font-style:italic; color:#fff; line-height:1;
-font-family:prenton;
+font-family:"prenton","微軟正黑體", "Microsoft JhengHei", sans-serif;
 }
 .swiper-pagination .qmark {font-size:50px; font-weight:700}
 .swiper-pagination .current {font-size:56px; font-weight:700}
