@@ -76,7 +76,7 @@ export function quizCount(team,blackboard) {
 
     console.log('---------- 題目分隔線 ----------');
 
-    showScore(blackboard);
+    // showScore(blackboard);
 
 }
 
@@ -98,7 +98,7 @@ export function showScore(blackboard){
 
 
 /* ---------- 顯示結果 ----------*/
-export function showResult(quizSwiper,blackboard){
+export function showResult(quizSwiper,blackboard,imagesLoaded){
     // 隱藏 pagination
     document.querySelector(".quizwpr").classList.add("result");
 
@@ -106,16 +106,38 @@ export function showResult(quizSwiper,blackboard){
        
         let finalScore =  _.orderBy(blackboard, ['score','rank'], ['desc','asc']);         
 
-        let resultCountry = finalScore[0].country;     
+        let resultCountry = finalScore[0].country; // 國家名稱     
         let resultScore = finalScore[0].score;     
 
         console.log(`結算成績 / 國家：${resultCountry}(${finalScore[0].FIFA}) / 分數：${resultScore} / FIFA 排名：${finalScore[0].rank}`);     
+        
+        let brief = finalScore[0].brief; // 國家介紹
 
-        let brief = finalScore[0].brief;
+        document.querySelector('.result--content').innerHTML = 
+        `<div class="result--image" style="background-image:url('${finalScore[0].image}');"></div>
+         <div class="result--brief">
+            <div class="brief--container">
+                <h4>${resultCountry}</h4>
+                <p>${brief}</p>
+            </div>
+         </div>`.trim();
 
-        document.querySelector('.result--content').innerHTML = `此處顯示國家介紹... ${brief}`;
+        document.querySelector('.result--extra').innerHTML = 
+        `<h3 class="deco white">說到${resultCountry}隊，你一定聽過</h3>
+         <div class="extra--container">
+            <div class="extra--portrait"><img src="${finalScore[0].extra.portrait}" /></div>
+            <div class="extra--brief">                
+                <div class="brief--container">
+                    <h4>${finalScore[0].extra.name}<span class="status">${finalScore[0].extra.status}</span></h4>
+                    <p>${finalScore[0].extra.intro}</p>
+                </div>
+            </div>
+         </div>`.trim(); 
 
-        quizSwiper.updateAutoHeight();
+        imagesLoaded( '#result-slide',{background:true}, function() {
+            // console.log('image loaded');
+            quizSwiper.updateAutoHeight();
+        });
 
     },0);
     

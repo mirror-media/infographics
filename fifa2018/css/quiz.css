@@ -2,7 +2,7 @@
 .swiper-pagination {position:relative; bottom:auto;
 margin-bottom:20px; padding-top:120px;
 }
-.result .swiper-pagination {visibility:hidden;}
+.result .swiper-pagination {display:none;}
 
 .swiper-pagination span {font-style:italic; color:#fff; line-height:1;
 font-family:"prenton","微軟正黑體", "Microsoft JhengHei", sans-serif;
@@ -30,13 +30,59 @@ font-size:30px; font-weight:700; color:#fff;
 
 
 /* ---------- 測驗結果 ----------*/
-.result {display:flex; flex-direction:column; align-items:center;}
+.resultwpr {display:flex; flex-direction:column; align-items:center;
+padding-top:70px;
+}
 
+.resultwpr h2.deco {min-width:320px;}
 
+.result--content {width:100%; margin-bottom:60px;
+background-color:#fff;
+display:flex; border-radius:4px; overflow:hidden;
+}
+.result--image {position:relative; width:60%; padding-top:40%;
+background-size:cover;
+}
+.result--brief {width:40%;
+display:flex; align-items:center;    
+text-align:left;
+}
+.brief--container {padding:30px 35px 30px 40px;}
 
+.brief--container h4 {margin-bottom:10px; letter-spacing:1px;
+font-size:30px; color:#e42137; font-weight:700; text-align:left;
+}
+.brief--container p {font-size:17px; line-height:1.6; letter-spacing:1px;}
 
+/* ----- 人物介紹 ----- */
+.result--extra {width:100%; margin-bottom:60px;}
+.result--extra h3.deco {font-style:normal; font-size:30px;
+justify-content:center; margin-bottom:20px;
+}
 
+.extra--container {width:100%;
+display:flex; align-items:center;
+}
+.extra--portrait {margin:0 20px; flex-shrink:0;}
+.extra--brief {color:#fff;}
+.extra--brief h4 {color:#fff; font-weight:700; font-size:24px;}
+.extra--brief .status {display:inline-block; margin-left:25px;
+font-size:16px; color:#2d4262; font-weight:700;
+border-top:3px solid #2d4262; border-bottom:3px solid #2d4262;
+}
 
+/* ----- 結果頁按鈕 ----- */
+.result--btnwpr {width:100%; display:flex; align-items:center; justify-content:center;
+margin-bottom:60px;
+}
+.result--btnwpr .roofbtn {width:280px;}
+.result--btnwpr .roofbtn+.roofbtn {margin-top:15px;}
+.result--btnwpr .hamivideo {margin-bottom:0; margin-left:30px;
+flex-shrink:0;
+}
+
+/* ----- 結果頁廣告 ----- */
+.resultwpr .advDesktop {margin-bottom:60px;}
 
 
 /* ---------- 測試用的計分板 ----------*/
@@ -44,6 +90,7 @@ font-size:30px; font-weight:700; color:#fff;
 flex-wrap:wrap;
 position:fixed; left:0; bottom:0; width:100%; padding:8px 0;
 background-color:#2d4262;
+display:none;
 }
 .score-entry {font-size:14px; white-space:nowrap; color:#fff;}
 .score-entry+.score-entry:before {content:"/"; margin:0 10px;

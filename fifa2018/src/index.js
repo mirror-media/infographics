@@ -2,6 +2,7 @@
 import superagent from "superagent";
 import _ from "lodash";
 import Swiper from "../plugins/swiper.js";
+import imagesLoaded from 'imagesloaded';
 
 /* ---------- import data ----------*/
 import {
@@ -9,7 +10,6 @@ import {
   quizAction,
   quizCount,
   showResult,
-  showScore,
   resetQuiz
 } from "./quiz.js";
 
@@ -22,6 +22,7 @@ import {
 } from "./news.js";
 
 // var blackboard;
+// console.log(imagesLoaded);
 
 /* -------------------- 測驗頁 --------------------*/
 if (document.querySelector(".quizwpr") != null) {
@@ -53,11 +54,17 @@ if (document.querySelector(".quizwpr") != null) {
 
       quizSwiper.on("reachEnd", () => {
         // 顯示結果頁，隱藏 pagination
-        showResult(quizSwiper, blackboard);
+        showResult(quizSwiper, blackboard,imagesLoaded);
+
+        // imagesLoaded( '#result-slide', function() {
+        //   console.log('image loaded');
+        //   quizSwiper.updateAutoHeight();
+        // });
+
       });
 
       //顯示測試用的計分黑板
-      showScore(blackboard);
+      // showScore(blackboard);
 
       //quiz 操作行為
       quizAction(quizSwiper, blackboard);
@@ -73,7 +80,7 @@ if (document.querySelector(".quizwpr") != null) {
       );
 
       // 測試用，跳到結果頁
-      quizSwiper.slideTo(8,0)
+      // quizSwiper.slideTo(8,0);
     })
     .catch(function(err) {
       console.log(err);
