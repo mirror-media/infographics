@@ -137,6 +137,7 @@ export function showResult(quizSwiper,blackboard,imagesLoaded){
         imagesLoaded( '#result-slide',{background:true}, function() {
             // console.log('image loaded');
             quizSwiper.updateAutoHeight();
+            document.querySelector('.result--btnwpr').classList.remove('disabled');
         });
 
     },0);

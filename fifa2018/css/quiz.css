@@ -75,6 +75,8 @@ border-top:3px solid #2d4262; border-bottom:3px solid #2d4262;
 .result--btnwpr {width:100%; display:flex; align-items:center; justify-content:center;
 margin-bottom:60px;
 }
+.result--btnwpr.disabled {pointer-events:none;}
+
 .result--btnwpr .roofbtn {width:280px;}
 .result--btnwpr .roofbtn+.roofbtn {margin-top:15px;}
 .result--btnwpr .hamivideo {margin-bottom:0; margin-left:30px;
