@@ -119,6 +119,8 @@ display:inline-flex; justify-content:center; align-items:center;
 cursor:pointer;
 }
 .schedule-select+.schedule-select {margin-left:14px;}
+
+.schedule-select:hover {background-color:#ffd64d;}
 .schedule-select.current {background-color:#ffd64d;}
 
 .schedule-table {display:none;}
@@ -134,7 +136,7 @@ cursor:pointer;
 .schedule-content .time {font-size:22px; color:#2d4262; font-weight:700;}
 
 .schedule-content .country.left {padding-left:30px;}
-.schedule-content .country.right {justify-content:right; padding-right:30px;
+.schedule-content .country.right {justify-content:flex-end; padding-right:30px;
 text-align:right;
 }
 
@@ -143,6 +145,15 @@ text-align:right;
 
 /* ---------- 賽程表 (16強賽) ---------- */
 #schedule16Table .tab {width:calc(100% / 5);}
+
+
+/* -------------------- RWD -------------------- */
+@media screen and (max-width: 990px) {
+    
+
+
+}
+
 
 
 

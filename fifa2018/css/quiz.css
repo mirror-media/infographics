@@ -98,3 +98,14 @@ display:none;
 .score-entry+.score-entry:before {content:"/"; margin:0 10px;
 color:#ccc;
 }
+
+/* -------------------- RWD -------------------- */
+@media screen and (max-width: 990px) {
+    
+
+
+}
+
+
+
+

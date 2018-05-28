@@ -91,12 +91,12 @@ background-color:#df4f3f; background-position:0 -134px;
 .roofbtn {width:300px; height:70px; margin:0 12px;
 display:flex; justify-content:center; align-items:center;    
 position:relative;
-cursor:pointer; line-height:1.3; color:#2d4262; font-size:17px;
+cursor:pointer; line-height:1.3; color:#2d4262; font-size:20px;
 background-color:#dcdcdc; border-radius:20px;
 }
 .roofbtn .text {padding:0 25px;}
 
-.roofbtn:hover {background-color:#c1c1c1;}
+.roofbtn:hover {background-color:#ffd64d;}
 .roofbtn:active {background-color:#ffd64d;}
 
 .roofbtn:before,
@@ -117,8 +117,8 @@ border-width:24px 0 24px 15px;
 border-color:transparent transparent transparent #dcdcdc;
 }
 
-.roofbtn:hover:before {border-color:transparent #c1c1c1 transparent transparent;}
-.roofbtn:hover:after {border-color:transparent transparent transparent #c1c1c1;}
+.roofbtn:hover:before {border-color:transparent #ffd64d transparent transparent;}
+.roofbtn:hover:after {border-color:transparent transparent transparent #ffd64d;}
 
 .roofbtn:active:before {border-color:transparent #ffd64d transparent transparent;}
 .roofbtn:active:after {border-color:transparent transparent transparent #ffd64d;}
@@ -155,7 +155,7 @@ border-top:4px solid #fff; letter-spacing:2px;
 .deco--line {display:flex; justify-content:space-between; align-items:center;
 width:100%; height:33px; position:relative; top:-10px;
 }
-.deco--text {padding:5px 10px;}
+.deco--text {padding:8px 10px;}
 
 .deco--pin {width:62px; height:33px;
 background-image:url("../images/line-deco.png"); background-repeat:no-repeat;
@@ -186,7 +186,7 @@ h3.deco.white:before {background-position:0 0;}
 h3.deco.white:after {background-position:right 0;}
 
 /* -------------------- Link -------------------- */
-.linkwpr {position:fixed; right:0; top:20px;}
+.linkwpr {position:fixed; right:0; top:20px; z-index:9998;}
 
 .newspage {width:190px; height:44px;
 background-color:#2d4262; border-radius:22px 0 0 22px;
@@ -204,6 +204,13 @@ flex-shrink:0; position:relative; top:-1px;
 .newspage .text {flex-shrink:0;
 font-size:22px; color:#ffd64d; font-style:italic; letter-spacing:1px;
 }
+
+.hamilogo {display:block; width:180px; height:72px;
+position:fixed; right:0; top:84px;
+background-image:url("../images/icon-hami.png"); background-repeat:no-repeat;
+background-size:150px auto; background-position:15px 2px;
+}
+
 
 
 /* -------------------- home -------------------- */
@@ -230,11 +237,46 @@ font-size:26px; font-weight:700;
 .start-quiz:active:after {border-color:transparent transparent transparent #ffd64d;}
 
 /* -------------------- Hami Video 與廣告 -------------------- */
-.hamivideo {width:300px; display:block; border-radius:20px;
+.hamivideo {width:300px; height:136px; border-radius:20px;
 overflow:hidden; margin-bottom:40px; cursor:pointer;
+display:flex; justify-content:center; align-items:center;
+background-color:#dcdcdc;
 }
-.hamivideo img {width:100%;}
+.hamivideo:hover {background-color:#d5d5d5;}
+.hamivideo:after {content:""; display:block;
+width:162px; height:80px;    
+background-image:url("../images/icon-hami.png"); background-repeat:no-repeat;
+background-size:100% auto; background-position:0 3px;
+position:relative; top:-2px;
+}
+.hamivideo p {margin-right:26px;
+color:#2d4262; font-size:26px; font-style:italic;
+font-weight:700; line-height:1.2; letter-spacing:2px;
+}
 
 .advDesktop {background-color:#464d58;}
 .advDesktop.portrait {width:300px; height:600px;}
 .advDesktop.landscape {width:970px; height:250px;}
+
+
+/* -------------------- RWD -------------------- */
+@media screen and (max-width: 990px) {
+    
+    .opening .main-title {margin-bottom:0;}
+
+    .main-title h1.eng {font-size:64px;}
+    .main-title h1.cht {font-size:50px;}
+
+    h2.deco {font-size:33px;}
+    
+    .hamilogo {position:relative; right:auto; top:auto;
+        width:252px; height:120px; margin-bottom:40px;
+        background-size:100% auto; background-position:0 0;
+    }
+
+
+}
+
+
+
+
