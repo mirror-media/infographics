@@ -26,12 +26,12 @@ background-size:100% auto; background-position:center top;
 
 
 /* -------------------- listing -------------------- */
-.listing {display:flex; flex-wrap:wrap; justify-content:space-around;
+.listing {display:flex; flex-wrap:wrap;
 margin:0 -10px;
 }
 
 .listing--entry {width:calc(33.3% - 20px); 
-margin-bottom:20px;
+margin:0 10px 20px 10px;
 text-align:left;
 background-color:#fff; border-radius:1px; overflow:hidden;
 position:relative; top:0; transition-duration:300ms; transition-property:top;
@@ -133,9 +133,12 @@ cursor:pointer;
 .schedule-content .left .flag {margin-right:10px;}
 .schedule-content .right .flag {margin-left:10px;}
 
-.schedule-content .time {font-size:22px; color:#2d4262; font-weight:700;}
+.schedule-content .date {width:160px;}
+.schedule-content .time {width:100px;
+font-size:22px; color:#2d4262; font-weight:700;
+}
 
-.schedule-content .country.left {padding-left:30px;}
+.schedule-content .country.left {padding-left:25px; text-align:left;}
 .schedule-content .country.right {justify-content:flex-end; padding-right:30px;
 text-align:right;
 }
@@ -150,7 +153,40 @@ text-align:right;
 /* -------------------- RWD -------------------- */
 @media screen and (max-width: 990px) {
     
+    .topLink.quiz {right:-200px;}
+    .topLink.quiz:hover {right:0;}
 
+    .columnwpr {display:block;}
+
+    .schedule-table table {display:block;}
+    .schedule-table tr {position:relative; display:block;
+        margin-top:50px;
+    }
+    .schedule-table tr:after {content:""; display:table; clear:both;}
+
+    .schedule-table td {display:block; float:left;}
+
+    .schedule-table .date {position:absolute; display:block; top:-30px; left:15px;
+        height:auto; text-align:left;
+    }
+    .schedule-content .time {width:80px;}
+     
+    .schedule-table .team {width:calc(50% - 40px);}
+    .schedule-content .country.left {padding-left:15px;}
+    .schedule-content .country.right {padding-right:15px;}
+
+    .matches-content .t2,
+    .matches-content .t3,
+    .matches-content .t4,
+    .matches-content .t5,
+    .matches-content .t6,
+    .matches-content .t7 {display:none;}
+
+
+    .aside {width:100%; margin-left:0;}
+
+    .listing {display:block; margin:0 auto;}
+    .listing--entry {width:100%; margin-left:0; margin-right:0;}
 
 }
 

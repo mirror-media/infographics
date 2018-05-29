@@ -15,6 +15,8 @@ import {
 
 import {
   appendListing,
+  listingLoadMore,
+  listingInsertAdv,
   setMatchTableTitle,
   setMatchTableContent,
   setScheduleTable,
@@ -80,7 +82,7 @@ if (document.querySelector(".quizwpr") != null) {
       );
 
       // 測試用，跳到結果頁
-      // quizSwiper.slideTo(8,0);
+      quizSwiper.slideTo(8,0);
     })
     .catch(function(err) {
       console.log(err);
@@ -90,17 +92,23 @@ if (document.querySelector(".quizwpr") != null) {
 /* -------------------- 新聞頁 -------------------- */
 if (document.querySelector(".newswpr") != null) {
 
+  let currentPage = 1;
+
   /* ---------- 新聞頁 ---------- */
-  const Listing = 'https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=1&sort=-publishedDate'
+  let Listing = `https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=5&page=1&sort=-publishedDate`;
 
   superagent.get(Listing)
-    .then(function (res) {
+    .then(function (res) {      
+
+      // 第一批 Listing
       appendListing(JSON.parse(res.text));
 
-      //測試用，模擬廣告
-      let listingEntry = document.querySelectorAll('.listing--entry');
-      listingEntry[2].classList.add('adv');
+      // Load more scroll listener
+      listingLoadMore(superagent,currentPage);
 
+      // 插入原生廣告
+      listingInsertAdv();   
+  
     })
     .catch(function (err) {
       console.log(err);
@@ -148,37 +156,6 @@ if (document.querySelector(".newswpr") != null) {
       .catch(function(err) {
         console.log(err);
       });
-
-
-
-  //取得戰績表 (Matches)
-  // GET https://sheets.googleapis.com/v4/spreadsheets/spreadsheetId/values/Sheet1!A1:D5 + (API key)
-  // const Matches = 'https://sheets.googleapis.com/v4/spreadsheets/1SWKXLdl3Cbw4ED-DeAAUyhkMj46Hkk3Bfigx0_6zU8E/values/戰績表!A1:K33?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
-
-  // superagent.get(Matches)
-  //   .then(function (res) {
-
-  //     const sheets = JSON.parse(res.text);
-
-  //     setMatchTableTitle(sheets.values[0]);
-  //     setMatchTableContent(sheets.values,blackboard);
-
-  //   })
-  //   .catch(function (err) {
-  //     console.log(err);
-  //   });
-
-
-  //取的賽程  
-  // const Schedule = 'https://sheets.googleapis.com/v4/spreadsheets/1WkUY_MWnEGKCfMwyS-bIaJT9Pdrw3Qux0uQkzv7uIy8/values/小組賽!A1:G3?key=AIzaSyAyxPNqEwIWW-tXjhxmEjGy3d_T3P_TIBA';
-
-  // superagent.get(Schedule)
-  //   .then(function (res) {
-  //     console.log(JSON.parse(res.text));
-  //   })
-  //   .catch(function (err) {
-  //     console.log(err);
-  //   });  
   
 }
 

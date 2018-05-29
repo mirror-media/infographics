@@ -1,3 +1,5 @@
+.quizwpr .centerwpr {padding-bottom:15px;}
+
 /* ----- pagination ----- */
 .swiper-pagination {position:relative; bottom:auto;
 margin-bottom:20px; padding-top:120px;
@@ -11,8 +13,9 @@ font-family:"prenton","微軟正黑體", "Microsoft JhengHei", sans-serif;
 .swiper-pagination .current {font-size:56px; font-weight:700}
 .swiper-pagination .slash {margin:0 5px;
 font-size:30px; position:relative; top:-4px;
+color:#dcdcdc;
 }
-.swiper-pagination .total {font-size:36px; font-weight:700}
+.swiper-pagination .total {font-size:36px; font-weight:700; color:#dcdcdc;}
 
 /* ----- quiz ----- */
 .quiz {display:flex; flex-direction:column; align-items:center;}
@@ -49,8 +52,9 @@ text-align:left;
 }
 .brief--container {padding:30px 35px 30px 40px;}
 
-.brief--container h4 {margin-bottom:10px; letter-spacing:1px;
+.brief--container h4 {margin-bottom:15px; letter-spacing:1px;
 font-size:30px; color:#e42137; font-weight:700; text-align:left;
+line-height:1;
 }
 .brief--container p {font-size:17px; line-height:1.6; letter-spacing:1px;}
 
@@ -102,6 +106,28 @@ color:#ccc;
 /* -------------------- RWD -------------------- */
 @media screen and (max-width: 990px) {
     
+    .swiper-pagination {padding-top:60px;}
+
+    .quiz--question {font-size:22px; line-height:1.3;}
+
+    .quiz .roofbtn .text {font-size:18px;}
+
+    .result--content {display:block; margin-bottom:30px;}
+
+    .result--image,.result--brief {width:100%;}
+    .result--image {padding-top:66.67%;}
+
+    .brief--container {padding:25px 20px;}
+    .brief--container h4 {text-align:center; font-size:26px; margin-bottom:10px;}
+
+    .result--btnwpr {display:block; margin-bottom:30px;}
+
+    .resultbtn-group {display:flex; justify-content:center; align-items:center;}
+    .resultbtn-group+.resultbtn-group {margin-top:30px;}
+    .resultbtn-group .roofbtn {width:calc(50% - 29px);}
+
+    .result--btnwpr .roofbtn + .roofbtn {margin-top:0; margin-left:22px;}
+    .result--btnwpr .hamivideo {margin:0 auto;}
 
 
 }

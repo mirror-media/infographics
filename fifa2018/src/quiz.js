@@ -68,13 +68,13 @@ export function quizCount(team,blackboard) {
             // 符合的國家分數 +1
             element.score = element.score + 1;
 
-            console.log(`${element.country}(${element.FIFA}) +1`);
+            // console.log(`${element.country}(${element.FIFA}) +1`);
             // console.log(element.score);
         }
 
     });
 
-    console.log('---------- 題目分隔線 ----------');
+    // console.log('---------- 題目分隔線 ----------');
 
     // showScore(blackboard);
 
@@ -109,7 +109,7 @@ export function showResult(quizSwiper,blackboard,imagesLoaded){
         let resultCountry = finalScore[0].country; // 國家名稱     
         let resultScore = finalScore[0].score;     
 
-        console.log(`結算成績 / 國家：${resultCountry}(${finalScore[0].FIFA}) / 分數：${resultScore} / FIFA 排名：${finalScore[0].rank}`);     
+        // console.log(`結算成績 / 國家：${resultCountry}(${finalScore[0].FIFA}) / 分數：${resultScore} / FIFA 排名：${finalScore[0].rank}`);     
         
         let brief = finalScore[0].brief; // 國家介紹
 
@@ -122,6 +122,7 @@ export function showResult(quizSwiper,blackboard,imagesLoaded){
             </div>
          </div>`.trim();
 
+        /* 
         document.querySelector('.result--extra').innerHTML = 
         `<h3 class="deco white">說到${resultCountry}隊，你一定聽過</h3>
          <div class="extra--container">
@@ -133,7 +134,8 @@ export function showResult(quizSwiper,blackboard,imagesLoaded){
                 </div>
             </div>
          </div>`.trim(); 
-
+        */
+       
         imagesLoaded( '#result-slide',{background:true}, function() {
             // console.log('image loaded');
             quizSwiper.updateAutoHeight();

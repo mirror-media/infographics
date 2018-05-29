@@ -4,23 +4,23 @@
     "question": "這個顏色是我的幸運色！",
     "option": [
       {
-        "content": "紅",
+        "content": "陽剛霸氣的紅色",
         "team": "KOR, EGY, MAR, CRC, PAN, RUS, BEL, ESP, SRB, POR, SUI, COR, DEN"
       },
       {
-        "content": "黃",
+        "content": "精神抖擻的黃色",
         "team": "AUS, BRA, COL, SWE"
       },
       {
-        "content": "綠",
+        "content": "沈著穩定的綠色",
         "team": "NGA, MEX"
       },
       {
-        "content": "藍",
+        "content": "無邊無際的藍色",
         "team": "JPN, URU, ARG, ISL, FRA"
       },
       {
-        "content": "白",
+        "content": "純淨自然的白色",
         "team": "IRN, KSA, SEN, TUN, PER, ENG, GER, POL"
       }
     ]
@@ -47,7 +47,7 @@
         "team": "CRC, PAN"
       },
       {
-        "content": "others",
+        "content": "沒有特定品牌",
         "team": "TUN, PER, ISL, DEN"
       }
     ]
@@ -55,7 +55,7 @@
 
   {
     "id": 3,
-    "question": "FIFA 排名可以看出球隊現在的戰力，因此我希望球隊",
+    "question": "FIFA 排名可以看出球隊現在的戰力，因此我希望球隊的 FIFA 排名為（FIFA排名依 2018/4/12 為準）",
     "option": [
       {
         "content": "當然要前 10 名，才有奪冠的希望",
@@ -101,7 +101,7 @@
         "team": "IRN, TUN, RUS, EGY"
       },
       {
-        "content": "什麼都沒有也沒關係（首次參賽）",
+        "content": "什麼都沒有也沒關係",
         "team": "PAN, ISL"
       }
     ]
@@ -112,7 +112,7 @@
     "question": "每支球隊大概要戰 ___ 次才會吸取到該有的經驗。（世界盃總共舉行了 21 次）",
     "option": [
       {
-        "content": "當然要經驗豐富， 16 次（含）以上",
+        "content": "當然要經驗豐富，16 次以上",
         "team": "MEX, BRA, ARG, GER"
       },
       {
@@ -120,7 +120,7 @@
         "team": "JPN, KOR, NGA, URU, COL, BEL, ENG, ESP, SRB, POL, FRA, POR, SUI, SWE"
       },
       {
-        "content": "5 次（含）以下也沒有問題，打越多次比賽越損耗精力",
+        "content": "5 次以下也沒有問題，打越多次比賽越損耗精力",
         "team": "IRN, KSA, AUS, EGY, SEN, MAR, TUN, CRC, PAN, PER, RUS, ISL, CRO, DEN"
       }
     ]
@@ -135,15 +135,15 @@
         "team": "NGA, TUN, MEX, ARG, RUS, GER, POL, SRB"
       },
       {
-        "content": "萬獸之王獅子",
+        "content": "萬獸之王—獅子",
         "team": "IRN, SEN, MAR, ENG"
       },
       {
-        "content": "天之驕子",
+        "content": "天之驕子 You & Me",
         "team": "JPN, KOR, EGY, CRC, BRA, URU, COL, BEL, ESP, POR, SUI, CRO, SWE, DEN"
       },
       {
-        "content": "其他",
+        "content": "越稀奇的動物越好，讓對方見見世面",
         "team": "FRA, ISL, PER, AUS, KSA, PAN"
       }
     ]
@@ -155,25 +155,25 @@
     "question": "球隊的 ___ 最重要",
     "option": [
       {
-        "content": "向心力",
+        "content": "團結，奪冠的唯一力量",
         "team": "GER"
       },
       {
-        "content": "顏值與體格",
+        "content": "顏值與體格就是唯一真理",
         "team": "BRA, ARG, FRA, JPN"
       },
       {
-        "content": "新鮮感",
+        "content": "新鮮感，上屆沒打，這屆才會加把勁",
         "team": "EGY, SEN, MAR, TUN, PAN, PER, POL, SRB, ISL, SWE, KSA, DEN"
       }
       ,
       {
-        "content": "演技（裝死跟假摔技巧）",
+        "content": "演技，包裝一切、博取分數",
         "team": "POR, KOR"
       }
       ,
       {
-        "content": "好勝心",
+        "content": "努力，只為取得最佳名次",
         "team": "IRN, AUS, NGA, CRC, MEX, URU, COL, RUS, BEL, ENG, ESP, SUI, CRO"
       }
     ]

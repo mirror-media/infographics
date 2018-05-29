@@ -36,6 +36,92 @@ export function appendListing(res){
 
 }
 
+/* -------------------- Listing news: load more --------------------*/
+export function listingLoadMore(superagent,currentPage){    
+
+    let allowLoadMore = true;
+
+    let scrollThrottle = _.throttle(() => {
+
+        // viewport height
+        let vh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;  
+
+        // 內容高度
+        let pageHeight = document.querySelector('.newswpr').offsetHeight;
+        
+        // 內容距離視窗底部的距離 (px)
+        let toBottom = pageHeight - window.pageYOffset - vh;
+
+        if(toBottom < 200 && allowLoadMore == true){
+            // console.log('到底了');
+
+            allowLoadMore = false;
+            currentPage = currentPage + 1;
+
+            let Listing = `https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=${currentPage}&sort=-publishedDate`;
+            
+            // 目前顯示的數量
+            let entryLength = document.querySelectorAll('.listing--entry').length;
+            // console.log(entryLength);
+
+            superagent.get(Listing)
+            .then(function (res) {
+
+                let resData = JSON.parse(res.text);
+
+                // 全部有的數量
+                let total = resData._meta.total;
+                // console.log(total);
+
+                if(total > entryLength) {
+                    appendListing(resData);
+                }     
+                
+                setTimeout(() => {
+                    allowLoadMore = true;
+                },300);
+          
+              })
+              .catch(function (err) {
+                console.log(err);
+              });
+        }    
+
+    }, 300, {
+        'leading': false
+    });
+    
+
+    window.addEventListener('scroll', () => {
+      
+      scrollThrottle();
+      
+    },false); 
+
+}
+
+/* -------------------- Listing news: 插入原生廣告 --------------------*/
+export function listingInsertAdv(){
+
+    let listingwpr = document.querySelector('#listingwpr');
+
+    let entry = document.querySelectorAll('.listing--entry');
+
+    // 測試
+    let advWrapper = document.createElement('div');
+    advWrapper.classList.add('listing--entry','adv');
+    
+    if(entry.length > 3){
+        // 大於三則的情況，插入到第三格
+        listingwpr.insertBefore(advWrapper,entry[2]);
+    } else {
+        // 小於三則的情況，插入到最後一格
+        listingwpr.appendChild(advWrapper);
+    }
+
+
+}
+
 /* -------------------- 戰績表 title (Matches) --------------------*/
 export function setMatchTableTitle(sheetsData){
 
@@ -334,7 +420,7 @@ export function tabControl(tabwpr,tab_list,tab_content){
                 }
             });           
 
-            console.log(element.dataset.tab);
+            // console.log(element.dataset.tab);
 
             document.getElementById(element.dataset.tab).classList.add('current');                
 
