@@ -84,7 +84,7 @@ if (document.querySelector(".quizwpr") != null) {
       );
 
       // 測試用，跳到結果頁
-      quizSwiper.slideTo(8,0);
+      // quizSwiper.slideTo(8,0);
     })
     .catch(function(err) {
       console.log(err);

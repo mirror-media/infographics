@@ -111,7 +111,7 @@ export function listingInsertAdv(){
     let advWrapper = document.createElement('div');
     // advWrapper.innerHTML = `<iframe src="advtest.html"></iframe>`
     advWrapper.classList.add('listing--entry','adv');
-    advWrapper.id = 'div-gpt-ad-1527677052790-0';
+    advWrapper.id = 'gptAdlisting';
     // div-gpt-ad-1527677052790-0
 
     // 設定高度
@@ -133,8 +133,15 @@ export function listingInsertAdv(){
 
     },false);
 
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527677052790-0'); });
+    // listing news AD
+    googletag.cmd.push(function () {
+        googletag.defineSlot('/40175602/mirror_RWD_2018FIFA_fluid_NA1', ['fluid'], 'gptAdlisting').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+    });
 
+    googletag.cmd.push(function () { googletag.display('gptAdlisting'); });
 
 }
 

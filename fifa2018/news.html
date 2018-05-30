@@ -11,19 +11,29 @@
     <script src="https://use.typekit.net/fuf0mys.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+    <!-- DFP -->
     <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
     <script>
         var googletag = googletag || {};
-        googletag.cmd = googletag.cmd || [];
-    </script>
-    <script>
+        googletag.cmd = googletag.cmd || [];      
+
+        // banner2 300x600
         googletag.cmd.push(function () {
-            googletag.defineSlot('/40175602/mirror_RWD_2018FIFA_fluid_NA1', ['fluid'], 'div-gpt-ad-1527677052790-0').addService(googletag.pubads());
+            googletag.defineSlot('/40175602/mirror_RWD_2018FIFA_300x600-300250_banner2', [[300, 600], [300, 250]], 'gptAdB2300x600').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+        });
+        
+        //banner2 300x250
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/40175602/mirror_RWD_2018FIFA_300x600-300250_banner2', [[300, 600], [300, 250]], 'gptAdB2300x250').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.pubads().collapseEmptyDivs();
             googletag.enableServices();
         });
     </script>
+    <!-- DFP -->
 </head>
 
 <body>
@@ -218,8 +228,8 @@
                 <a class="hamivideo" href="" target="_blank">
                     <p>收看<br />轉播</p>
                 </a>
-               <div class="advDesktop portrait"></div>    
-               <div class="advMobile"></div>            
+               <div class="advDesktop portrait" id='gptAdB2300x600'></div>    
+               <div class="advMobile" id="gptAdB2300x250"></div>            
             </div>
 
 
@@ -253,6 +263,13 @@
         </div>
     </div>
 
+    <script>
+        // banner2 300x600
+        googletag.cmd.push(function () { googletag.display('gptAdB2300x600'); });
+        
+        // banner2 300x250
+        googletag.cmd.push(function () { googletag.display('gptAdB2300x250'); });
+    </script>
 
     <script src="./dist/main.bundle.js"></script>
 </body>

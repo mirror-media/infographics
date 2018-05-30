@@ -11,6 +11,30 @@
     <link rel="stylesheet" href="css/quiz.css" />
     <script src="https://use.typekit.net/fuf0mys.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- DFP -->
+    <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];      
+
+        // banner1 970x250
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/40175602/mirror_RWD_2018FIFA_970250-300250_banner1', [[300, 250], [970, 250]], 'gptAdB1970x250').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+        });
+
+        //banner1 300x250
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/40175602/mirror_RWD_2018FIFA_970250-300250_banner1', [[300, 250], [970, 250]], 'gptAdB1300x250').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+        });
+    </script>
+    <!-- DFP -->
 </head>
 
 <body>
@@ -54,8 +78,8 @@
                                 </div>
                             </div>     
                             
-                            <div class="advDesktop landscape"></div>
-                            <div class="advMobile"></div>
+                            <div class="advDesktop landscape" id="gptAdB1970x250"></div>
+                            <div class="advMobile" id="gptAdB1300x250"></div>
 
                         </div>
                     </div>
@@ -82,6 +106,14 @@
             <a class="nav--btn social gplus"></a>
         </div>        
     </div>
+
+    <script>
+        // banner1 970x250
+        googletag.cmd.push(function () { googletag.display('gptAdB1970x250'); });
+        
+        // banner1 300x250
+        googletag.cmd.push(function () { googletag.display('gptAdB1300x250'); });
+    </script>
 
 
     <script src="./dist/main.bundle.js"></script>
