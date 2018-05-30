@@ -109,8 +109,15 @@ export function listingInsertAdv(){
 
     // 測試
     let advWrapper = document.createElement('div');
+    // advWrapper.innerHTML = `<iframe src="advtest.html"></iframe>`
     advWrapper.classList.add('listing--entry','adv');
-    
+    advWrapper.id = 'div-gpt-ad-1527677052790-0';
+    // div-gpt-ad-1527677052790-0
+
+    // 設定高度
+    let height = entry[0].offsetHeight;     
+    advWrapper.style.height = height + 'px';
+        
     if(entry.length > 3){
         // 大於三則的情況，插入到第三格
         listingwpr.insertBefore(advWrapper,entry[2]);
@@ -118,6 +125,15 @@ export function listingInsertAdv(){
         // 小於三則的情況，插入到最後一格
         listingwpr.appendChild(advWrapper);
     }
+
+    window.addEventListener('resize',() => {
+
+        let height = entry[0].offsetHeight;     
+        advWrapper.style.height = height + 'px';
+
+    },false);
+
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527677052790-0'); });
 
 
 }
@@ -236,7 +252,7 @@ export function setMatchTableContent(sheetsData,teamData){
 
     });    
 
-    tabControl(document.getElementById('matchesTable'),'.tab','.tab-content');
+    tabControl(document.getElementById('matchesTable'),'.tab','.tab-content','current');
 
 }
 
@@ -390,14 +406,16 @@ export function setScheduleTable(sheetsData,teamData,tabwpr1,tabwpr2){
 
     });
 
-    tabControl(tabwpr1,'.tab','.tab-content');
-    tabControl(tabwpr2,'.tab','.tab-content');
+    tabControl(tabwpr1,'.tab','.tab-content','current');
+    tabControl(tabwpr2,'.tab','.tab-content','current');
+
+    // tabControl(document.querySelector('#scheduleTable'),'.m-tab','.tab-content');
 
 }
 
 
 /* -------------------- Tab 操作 --------------------*/
-export function tabControl(tabwpr,tab_list,tab_content){    
+export function tabControl(tabwpr,tab_list,tab_content,activeCalss){    
     
     const tabLi = tabwpr.querySelectorAll(tab_list);
     const tabContent = tabwpr.querySelectorAll(tab_content);
@@ -407,28 +425,156 @@ export function tabControl(tabwpr,tab_list,tab_content){
         element.addEventListener('click',(e) => {
 
             tabLi.forEach((element) => {
-                if(element.classList.contains('current')){
-                    element.classList.remove('current');
+                if(element.classList.contains(activeCalss)){
+                    element.classList.remove(activeCalss);
                 }
             });
 
-            e.target.classList.add('current');
+            e.target.classList.add(activeCalss);
 
             tabContent.forEach((element) => {
-                if(element.classList.contains('current')){
-                    element.classList.remove('current');
+                if(element.classList.contains(activeCalss)){
+                    element.classList.remove(activeCalss);
                 }
             });           
 
             // console.log(element.dataset.tab);
 
-            document.getElementById(element.dataset.tab).classList.add('current');                
+            document.getElementById(element.dataset.tab).classList.add(activeCalss);                
 
         }, false);
 
     })
 
 }
+
+/* ----- 16 強賽 current tab 設定 ----- */
+export function setCurrentTab(setting){
+
+    // 目前進行中的賽事
+    const current = setting.values[0][0];
+
+    switch(current){
+
+        case '小組賽':
+            //do nothing
+
+        case '16強賽':
+            document.getElementById('s16GroupA').classList.add('current');
+            document.getElementById('schedule16GroupA').classList.add('current');
+            break;
+
+        case '8強賽':
+            document.getElementById('s16GroupB').classList.add('current');
+            document.getElementById('schedule16GroupB').classList.add('current');
+            break;
+
+        case '準決賽':
+            document.getElementById('s16GroupC').classList.add('current');
+            document.getElementById('schedule16GroupC').classList.add('current');
+            break;
+
+        case '第3名決定賽':
+            document.getElementById('s16GroupD').classList.add('current');
+            document.getElementById('schedule16GroupD').classList.add('current');
+            break;
+
+        case '決賽':
+            document.getElementById('s16GroupE').classList.add('current');
+            document.getElementById('schedule16GroupE').classList.add('current');
+            break;
+
+        default:
+            console.log('current tab error');
+
+    }
+
+}
+
+/* ----- Tab 操作 (手機) ----- */
+export function mobileTabControl(trigger,tabMenu,setting){
+
+    tabMenu.querySelectorAll('.m-tab').forEach((element) => {
+
+        element.addEventListener('click', () => {
+            // 更新 trigger 內的文字
+            trigger.textContent = element.textContent; 
+
+        }, false);
+    });
+
+    trigger.addEventListener('click',() => {
+
+        let height = tabMenu.scrollHeight;
+
+        if(trigger.classList.contains('expand')){
+            tabMenu.style.height = '0px';
+            trigger.classList.remove('expand');
+        } else {
+            tabMenu.style.height = height + 'px';
+            trigger.classList.add('expand');
+        }
+
+    }, false);
+
+    trigger.addEventListener('touchend',(e) => {
+
+        e.preventDefault();
+
+    }, false);
+
+    if (setting != 'none') {
+
+        // 目前進行中的賽事 (只是用於賽程表)
+        const current = setting.values[0][0];
+
+        switch (current) {
+
+            case '16強賽':
+                document.getElementById('s16GroupA').classList.add('m-current');
+                document.getElementById('schedule16GroupA').classList.add('m-current');
+                document.getElementById('scheduleTabTrigger').textContent = '16 強賽';
+                break;
+
+            case '8強賽':
+                document.getElementById('s16GroupB').classList.add('m-current');
+                document.getElementById('schedule16GroupB').classList.add('m-current');
+                document.getElementById('scheduleTabTrigger').textContent = '8 強賽';
+                break;
+
+            case '準決賽':
+                document.getElementById('s16GroupC').classList.add('m-current');
+                document.getElementById('schedule16GroupC').classList.add('m-current');
+                document.getElementById('scheduleTabTrigger').textContent = '準決賽';
+                break;
+
+            case '第3名決定賽':
+                document.getElementById('s16GroupD').classList.add('m-current');
+                document.getElementById('schedule16GroupD').classList.add('m-current');
+                document.getElementById('scheduleTabTrigger').textContent = '第 3 名決定賽';
+                break;
+
+            case '決賽':
+                document.getElementById('s16GroupE').classList.add('m-urrent');
+                document.getElementById('schedule16GroupE').classList.add('m-current');
+                document.getElementById('scheduleTabTrigger').textContent = '冠軍賽';
+                break;
+
+            case '小組賽':
+                // 小組賽
+                document.getElementById('s32GroupA').classList.add('m-urrent');
+                document.getElementById('schedule32GroupA').classList.add('m-current');
+                document.getElementById('scheduleTabTrigger').textContent = '小組賽 A 組';
+                break;
+
+            default:
+                console.log('tab setting error');
+        }
+
+    } 
+
+}
+
 
 /* -------------------- set equal height --------------------*/
 export function setEqualHeight(target){

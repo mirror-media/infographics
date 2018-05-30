@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="css/news.css" />
     <script src="https://use.typekit.net/fuf0mys.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/40175602/mirror_RWD_2018FIFA_fluid_NA1', ['fluid'], 'div-gpt-ad-1527677052790-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+        });
+    </script>
 </head>
 
 <body>
@@ -33,10 +47,38 @@
        
             <div class="columnwpr">
 
-            <div class="tablewpr" id="scheduleTable">
+            <div class="tablewpr">
 
-            <section>
+            <section id="scheduleTable">
                 <h3 class="deco">賽&nbsp;&nbsp;&nbsp;&nbsp;程</h3>
+
+                <div class="m-tabTrigger" id="scheduleTabTrigger">小組賽 A 組</div>
+                <div class="m-tabMenu" id="scheduleTabMenu">                    
+                    <ul class="m-tabs tab32">
+                        <li data-tab="schedule32GroupA" class="m-tab">小組賽 A 組</li>
+                        <li data-tab="schedule32GroupB" class="m-tab">小組賽 B 組</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="schedule32GroupC" class="m-tab">小組賽 C 組</li>
+                        <li data-tab="schedule32GroupD" class="m-tab">小組賽 D 組</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="schedule32GroupE" class="m-tab">小組賽 E 組</li>
+                        <li data-tab="schedule32GroupF" class="m-tab">小組賽 F 組</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="schedule32GroupG" class="m-tab">小組賽 G 組</li>
+                        <li data-tab="schedule32GroupH" class="m-tab">小組賽 H 組</li>
+                        <li class="m-hr"></li>
+                    </ul>
+                    <ul class="m-tabs tab16">
+                        <li data-tab="schedule16GroupA" class="m-tab">16 強賽</li>
+                        <li data-tab="schedule16GroupB" class="m-tab">8 強賽</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="schedule16GroupC" class="m-tab">準決賽</li>
+                        <li data-tab="schedule16GroupD" class="m-tab">第 3 名決定賽</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="schedule16GroupE" class="m-tab">冠軍賽</li>
+                    </ul>
+                </div>
+
 
                 <div class="schedule-selectWpr">
                     <div class="schedule-select current" data-tab="schedule32Table">小組賽</div>
@@ -46,14 +88,14 @@
 
                 <div class="tabwpr schedule-table current" id="schedule32Table">
                     <ul class="tabs">
-                        <li data-tab="schedule32GroupA" class="current tab">A 組</li>
-                        <li data-tab="schedule32GroupB" class="tab">B 組</li>
-                        <li data-tab="schedule32GroupC" class="tab">C 組</li>
-                        <li data-tab="schedule32GroupD" class="tab">D 組</li>
-                        <li data-tab="schedule32GroupE" class="tab">E 組</li>
-                        <li data-tab="schedule32GroupF" class="tab">F 組</li>
-                        <li data-tab="schedule32GroupG" class="tab">G 組</li>
-                        <li data-tab="schedule32GroupH" class="tab">H 組</li>
+                        <li data-tab="schedule32GroupA" class="current tab" id="s32GroupA">A 組</li>
+                        <li data-tab="schedule32GroupB" class="tab" id="s32GroupB">B 組</li>
+                        <li data-tab="schedule32GroupC" class="tab" id="s32GroupC">C 組</li>
+                        <li data-tab="schedule32GroupD" class="tab" id="s32GroupD">D 組</li>
+                        <li data-tab="schedule32GroupE" class="tab" id="s32GroupE">E 組</li>
+                        <li data-tab="schedule32GroupF" class="tab" id="s32GroupF">F 組</li>
+                        <li data-tab="schedule32GroupG" class="tab" id="s32GroupG">G 組</li>
+                        <li data-tab="schedule32GroupH" class="tab" id="s32GroupH">H 組</li>
                     </ul>
                     <div id="schedule32GroupA" class="tab-content schedule-content current">
                         <table></table>
@@ -83,13 +125,13 @@
 
                 <div class="tabwpr schedule-table" id="schedule16Table">
                     <ul class="tabs">
-                        <li data-tab="schedule16GroupA" class="current tab">16 強賽</li>
-                        <li data-tab="schedule16GroupB" class="tab">8 強賽</li>
-                        <li data-tab="schedule16GroupC" class="tab">準決賽</li>
-                        <li data-tab="schedule16GroupD" class="tab">第 3 名決定賽</li>
-                        <li data-tab="schedule16GroupE" class="tab">冠軍賽</li>
+                        <li data-tab="schedule16GroupA" class="tab" id="s16GroupA">16 強賽</li>
+                        <li data-tab="schedule16GroupB" class="tab" id="s16GroupB">8 強賽</li>
+                        <li data-tab="schedule16GroupC" class="tab" id="s16GroupC">準決賽</li>
+                        <li data-tab="schedule16GroupD" class="tab" id="s16GroupD">第 3 名決定賽</li>
+                        <li data-tab="schedule16GroupE" class="tab" id="s16GroupE">冠軍賽</li>
                     </ul>
-                    <div id="schedule16GroupA" class="tab-content schedule-content current">
+                    <div id="schedule16GroupA" class="tab-content schedule-content">
                         <table></table>
                     </div>
                     <div id="schedule16GroupB" class="tab-content schedule-content">
@@ -105,13 +147,36 @@
                         <table></table>
                     </div>                       
                 </div>
-            </section>            
+            </section>       
+            
+            <a class="hamivideo" href="" target="_blank">
+                <p>收看<br />轉播</p>
+            </a>
 
-            <section>
+            <section id="matchesTable">
                 <h3 class="deco">戰績表</h3>
-                <div class="tabwpr" id="matchesTable">
+
+                <div class="m-tabTrigger" id="matchesTabTrigger">A 組</div>
+                <div class="m-tabMenu" id="matchesTabMenu">                    
+                    <ul class="m-tabs tab32">
+                        <li data-tab="matchesGroupA" class="m-tab m-current">A 組</li>
+                        <li data-tab="matchesGroupB" class="m-tab">B 組</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="matchesGroupC" class="m-tab">C 組</li>
+                        <li data-tab="matchesGroupD" class="m-tab">D 組</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="matchesGroupE" class="m-tab">E 組</li>
+                        <li data-tab="matchesGroupF" class="m-tab">F 組</li>
+                        <li class="m-hr"></li>
+                        <li data-tab="matchesGroupG" class="m-tab">G 組</li>
+                        <li data-tab="matchesGroupH" class="m-tab">H 組</li>                     
+                    </ul>
+                </div>
+
+                <!-- <div class="tabwpr" id="matchesTable"> -->
+                <div class="tabwpr">
                     <ul class="tabs">
-                        <li data-tab="matchesGroupA" class="current tab">A 組</li>
+                        <li data-tab="matchesGroupA" class="current tab m-current">A 組</li>
                         <li data-tab="matchesGroupB" class="tab">B 組</li>
                         <li data-tab="matchesGroupC" class="tab">C 組</li>
                         <li data-tab="matchesGroupD" class="tab">D 組</li>
@@ -120,7 +185,7 @@
                         <li data-tab="matchesGroupG" class="tab">G 組</li>
                         <li data-tab="matchesGroupH" class="tab">H 組</li>
                     </ul>             
-                    <div id="matchesGroupA" class="tab-content matches-content current">
+                    <div id="matchesGroupA" class="tab-content matches-content current m-current">
                         <table></table>
                     </div>
                     <div id="matchesGroupB" class="tab-content matches-content">
@@ -153,7 +218,8 @@
                 <a class="hamivideo" href="" target="_blank">
                     <p>收看<br />轉播</p>
                 </a>
-               <div class="advDesktop portrait"></div>                
+               <div class="advDesktop portrait"></div>    
+               <div class="advMobile"></div>            
             </div>
 
 

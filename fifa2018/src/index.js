@@ -20,7 +20,9 @@ import {
   setMatchTableTitle,
   setMatchTableContent,
   setScheduleTable,
-  tabControl
+  tabControl,
+  setCurrentTab,
+  mobileTabControl
 } from "./news.js";
 
 // var blackboard;
@@ -143,14 +145,33 @@ if (document.querySelector(".newswpr") != null) {
         // 建立戰績表
         setMatchTableContent(matchesData.values,teamData);
 
-        // 建立賽程表 (小組賽)
+        // 建立賽程表
         setScheduleTable(scheduleData.values,teamData,document.getElementById('schedule32Table'),document.getElementById('schedule16Table'));
 
-        // console.log(tabSettingData);
+        // 目前進行中的賽事
+        setCurrentTab(tabSettingData);
 
-        // tab 操作
-        tabControl(document.getElementById('scheduleTable'),'.schedule-select','.schedule-table');
-        // tabControl(document.getElementById('schedule32Table'));
+        // tab 操作 (切換小組賽跟16強)
+        tabControl(document.getElementById('scheduleTable'),'.schedule-select','.schedule-table','current');
+   
+        // 手機版 tab 操作
+        tabControl(document.getElementById('scheduleTable'),'.m-tab','.tab-content','m-current');
+        mobileTabControl(
+          document.getElementById('scheduleTabTrigger'),
+          document.getElementById('scheduleTabMenu'),
+          tabSettingData
+        );
+
+        tabControl(document.getElementById('matchesTable'),'.m-tab','.tab-content','m-current');
+        mobileTabControl(
+          document.getElementById('matchesTabTrigger'),
+          document.getElementById('matchesTabMenu'),
+          'none'
+        );
+
+
+
+
 
       })
       .catch(function(err) {
