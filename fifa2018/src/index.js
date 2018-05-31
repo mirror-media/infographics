@@ -3,6 +3,7 @@ import superagent from "superagent";
 import _ from "lodash";
 import Swiper from "../plugins/swiper.js";
 import imagesLoaded from 'imagesloaded';
+import PerfectScrollbar from 'perfect-scrollbar';
 
 /* ---------- import data ----------*/
 import {
@@ -27,6 +28,8 @@ import {
 
 // var blackboard;
 // console.log(imagesLoaded);
+
+// console.log(PerfectScrollbar);
 
 /* -------------------- 測驗頁 --------------------*/
 if (document.querySelector(".quizwpr") != null) {
@@ -58,7 +61,7 @@ if (document.querySelector(".quizwpr") != null) {
 
       quizSwiper.on("reachEnd", () => {
         // 顯示結果頁，隱藏 pagination
-        showResult(quizSwiper, blackboard,imagesLoaded);
+        showResult(quizSwiper, blackboard,imagesLoaded,PerfectScrollbar);
 
         // imagesLoaded( '#result-slide', function() {
         //   console.log('image loaded');
@@ -84,7 +87,7 @@ if (document.querySelector(".quizwpr") != null) {
       );
 
       // 測試用，跳到結果頁
-      quizSwiper.slideTo(8,0);
+      // quizSwiper.slideTo(8,0);
     })
     .catch(function(err) {
       console.log(err);

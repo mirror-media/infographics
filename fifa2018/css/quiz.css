@@ -1,3 +1,9 @@
+.quizwpr:before {content:""; display:block; width:100%; height:100vh;
+position:absolute; left:0; top:0;    
+background-image:url("../images/bg-roofcover.png"); background-repeat:no-repeat;
+background-size:100% auto; background-position:center top;
+}
+
 .quizwpr .centerwpr {padding-bottom:15px;}
 
 /* ----- pagination ----- */
@@ -43,23 +49,33 @@ padding-top:70px;
 background-color:#fff;
 display:flex; border-radius:4px; overflow:hidden;
 }
-.result--image {position:relative; width:60%; padding-top:40%;
+.result--image {position:relative; width:60%; 
+/* padding-top:40%; */
 background-size:cover;
 }
+.result--image img {width:100%; display:none;}
+
 .result--brief {width:40%;
-display:flex; align-items:center;    
+/* display:flex; align-items:center;     */
 text-align:left;
+max-height:400px; overflow-y:hidden; position:relative;
 }
 .brief--container {padding:30px 35px 30px 40px;}
 
-.brief--container h4 {margin-bottom:15px; letter-spacing:1px;
+.brief--container h4 {margin-bottom:20px; letter-spacing:1px;
 font-size:30px; color:#e42137; font-weight:700; text-align:left;
 line-height:1;
 }
 .brief--container p {font-size:17px; line-height:1.6; letter-spacing:1px;}
+.brief--container p+p {margin-top:20px;}
 
 /* ----- 人物介紹 ----- */
-.result--extra {width:100%; margin-bottom:60px;}
+.result--star {margin-top:30px;}
+.result--star h5 {font-size:20px; margin-bottom:5px;}
+.result--star li {margin-bottom:2px;}
+.result--star .name {font-size:18px; color:#e42137;}
+
+/* .result--extra {width:100%; margin-bottom:60px;}
 .result--extra h3.deco {font-style:normal; font-size:30px;
 justify-content:center; margin-bottom:20px;
 }
@@ -73,7 +89,7 @@ display:flex; align-items:center;
 .extra--brief .status {display:inline-block; margin-left:25px;
 font-size:16px; color:#2d4262; font-weight:700;
 border-top:3px solid #2d4262; border-bottom:3px solid #2d4262;
-}
+} */
 
 /* ----- 結果頁按鈕 ----- */
 .result--btnwpr {width:100%; display:flex; align-items:center; justify-content:center;
@@ -114,11 +130,15 @@ color:#ccc;
 
     .result--content {display:block; margin-bottom:30px;}
 
-    .result--image,.result--brief {width:100%;}
-    .result--image {padding-top:66.67%;}
+    .result--image,.result--brief {width:100%; max-height:none;}
+    .result--image {background-image:none !important;}
+
+    .result--image img {display:block;}
 
     .brief--container {padding:25px 20px;}
     .brief--container h4 {text-align:center; font-size:26px; margin-bottom:10px;}
+
+    .result--star {text-align:center;}
 
     .result--btnwpr {display:block; margin-bottom:30px;}
 

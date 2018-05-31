@@ -98,43 +98,77 @@ export function showScore(blackboard){
 
 
 /* ---------- 顯示結果 ----------*/
-export function showResult(quizSwiper,blackboard,imagesLoaded){
+export function showResult(quizSwiper,blackboard,imagesLoaded,PerfectScrollbar){
     // 隱藏 pagination
     document.querySelector(".quizwpr").classList.add("result");
 
     setTimeout(() => {
        
-        let finalScore =  _.orderBy(blackboard, ['score','rank'], ['desc','asc']);         
+        let finalScore =  _.orderBy(blackboard, ['score','rank'], ['desc','asc']); 
+        
+        let finalTeam = finalScore[0];
 
-        let resultCountry = finalScore[0].country; // 國家名稱     
+        // let resultCountry = finalScore[0].country; // 國家名稱     
         let resultScore = finalScore[0].score;     
 
         // console.log(`結算成績 / 國家：${resultCountry}(${finalScore[0].FIFA}) / 分數：${resultScore} / FIFA 排名：${finalScore[0].rank}`);     
         
-        let brief = finalScore[0].brief; // 國家介紹
+        // let brief = finalScore[0].brief; // 國家介紹
 
         document.querySelector('.result--content').innerHTML = 
-        `<div class="result--image" style="background-image:url('${finalScore[0].image}');"></div>
-         <div class="result--brief">
+        `<div class="result--image" style="background-image:url('${finalTeam.image}');">
+            <img src="${finalTeam.image}" />
+        </div>
+         <div class="result--brief" id="resultScrollwpr">
             <div class="brief--container">
-                <h4>${resultCountry}</h4>
-                <p>${brief}</p>
+                <h4>${finalTeam.nickname}&nbsp;&nbsp;${finalTeam.country}</h4>
+                ${finalTeam.brief}
+                <div class="result--star">
+                    <h5>重點球星</h5>
+                    <ul>
+                        <li class="name">${finalTeam.star.name}</li>
+                        <li>生日：${finalTeam.star.birthday}</li>
+                        <li>位置：${finalTeam.star.position}</li>
+                        <li>效力球會：${finalTeam.star.team}</li>
+                    </ul>
+                </div>
             </div>
          </div>`.trim();
 
-        /* 
-        document.querySelector('.result--extra').innerHTML = 
-        `<h3 class="deco white">說到${resultCountry}隊，你一定聽過</h3>
-         <div class="extra--container">
-            <div class="extra--portrait"><img src="${finalScore[0].extra.portrait}" /></div>
-            <div class="extra--brief">                
-                <div class="brief--container">
-                    <h4>${finalScore[0].extra.name}<span class="status">${finalScore[0].extra.status}</span></h4>
-                    <p>${finalScore[0].extra.intro}</p>
-                </div>
-            </div>
-         </div>`.trim(); 
-        */
+        // PerfectScrollbar
+        const scrollwpr = document.getElementById('resultScrollwpr');
+        let ps = null;
+
+        function setPs(){
+
+            let vw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            if(vw > 990){
+
+                if(ps == null){
+                    ps = new PerfectScrollbar(scrollwpr);
+                    scrollwpr.scrollTop = 0;
+                } else {
+                    ps.update();
+                    scrollwpr.scrollTop = 0;
+                }     
+
+            } else if (vw < 900) {
+
+                if(ps != null){
+                    ps.destroy();
+                    ps == null;
+                }
+            }
+        }
+
+        setPs();    
+
+        window.addEventListener('resize',() => {
+
+            setPs();  
+
+        },false);     
        
         imagesLoaded( '#result-slide',{background:true}, function() {
             // console.log('image loaded');
@@ -142,7 +176,13 @@ export function showResult(quizSwiper,blackboard,imagesLoaded){
             document.querySelector('.result--btnwpr').classList.remove('disabled');
         });
 
-    },0);
+        // Share link
+        // const shareBtn = document.getElementById('shareResult');
+        const currentLocation = window.location.protocol + '//' + window.location.host;
+
+        document.getElementById('shareResult').setAttribute("href", `https://www.facebook.com/share.php?u=${currentLocation}/fifa2018/quiz/${finalTeam.FIFA}/`);
+
+    },0);    
     
 }
 

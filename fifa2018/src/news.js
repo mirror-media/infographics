@@ -112,7 +112,6 @@ export function listingInsertAdv(){
     // advWrapper.innerHTML = `<iframe src="advtest.html"></iframe>`
     advWrapper.classList.add('listing--entry','adv');
     advWrapper.id = 'div-gpt-ad-1527677052790-0';
-    // div-gpt-ad-1527677052790-0
 
     // 設定高度
     let height = entry[0].offsetHeight;     
@@ -128,17 +127,16 @@ export function listingInsertAdv(){
 
     window.addEventListener('resize',() => {
 
+        advWrapper.style.height = 'auto';
+
         let height = entry[0].offsetHeight;     
-        advWrapper.style.height = height + 'px';
+        advWrapper.style.height = height + 'px';        
 
     },false);
     
     // DFP
-    setTimeout(() => {
-        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1527677052790-0'); });
-    },1000);
+    googletag.cmd.push(function () { googletag.display('div-gpt-ad-1527677052790-0'); });
 
-    // googletag.cmd.push(function () { googletag.display('div-gpt-ad-1527677052790-0'); });
 
 }
 
@@ -498,34 +496,54 @@ export function setCurrentTab(setting){
 /* ----- Tab 操作 (手機) ----- */
 export function mobileTabControl(trigger,tabMenu,setting){
 
+    //click menu item
     tabMenu.querySelectorAll('.m-tab').forEach((element) => {
 
         element.addEventListener('click', () => {
             // 更新 trigger 內的文字
             trigger.textContent = element.textContent; 
+            
+            //關閉選單
+            closeTabMenu(trigger,tabMenu);
 
         }, false);
     });
 
-    trigger.addEventListener('click',() => {
-
-        let height = tabMenu.scrollHeight;
+    // click trigger
+    trigger.addEventListener('click',() => {        
 
         if(trigger.classList.contains('expand')){
-            tabMenu.style.height = '0px';
-            trigger.classList.remove('expand');
+            closeTabMenu(trigger,tabMenu);
         } else {
-            tabMenu.style.height = height + 'px';
-            trigger.classList.add('expand');
+            openTabMenu(trigger,tabMenu);
         }
 
     }, false);
 
-    trigger.addEventListener('touchend',(e) => {
+    //open menu
+    function openTabMenu(trigger,tabMenu){
 
-        e.preventDefault();
+        let height = tabMenu.scrollHeight;
 
-    }, false);
+        tabMenu.style.height = height + 'px';
+        trigger.classList.add('expand');      
+
+    }
+
+    //close menu
+    function closeTabMenu(trigger,tabMenu){
+
+        tabMenu.style.height = '0px';
+        trigger.classList.remove('expand');
+
+    }
+
+    // prevent touch event
+    // trigger.addEventListener('touchend',(e) => {
+
+    //     e.preventDefault();
+
+    // }, false);
 
     if (setting != 'none') {
 
