@@ -26,10 +26,20 @@ import {
   mobileTabControl
 } from "./news.js";
 
-// var blackboard;
-// console.log(imagesLoaded);
+/* -------------------- GA --------------------*/
+(function (i, s, o, g, r, a, m) {
+i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+  (i[r].q = i[r].q || []).push(arguments)
+}, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-// console.log(PerfectScrollbar);
+ga('create', 'UA-83609754-1', 'mirrormedia.mg');
+ga('create', 'UA-83609754-1', 'auto');
+ga('require', 'linkid', 'linkid.js');
+// ga('set', 'contentGroup1', 'news');
+// ga('set', 'contentGroup2', 'life');
+ga('send', 'pageview');
 
 /* -------------------- 測驗頁 --------------------*/
 if (document.querySelector(".quizwpr") != null) {
@@ -191,3 +201,5 @@ document.querySelector("#shareBtnTrigger").addEventListener(
   },
   false
 );
+
+
