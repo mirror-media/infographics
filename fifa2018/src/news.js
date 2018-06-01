@@ -442,7 +442,10 @@ export function tabControl(tabwpr,tab_list,tab_content,activeCalss){
 
             // console.log(element.dataset.tab);
 
-            document.getElementById(element.dataset.tab).classList.add(activeCalss);                
+            document.getElementById(element.dataset.tab).classList.add(activeCalss);    
+            
+            //GA event: 切換 tab
+            ga('send', 'event', 'projects', 'click', `news tab selected`, { nonInteraction: false });
 
         }, false);
 
@@ -514,9 +517,15 @@ export function mobileTabControl(trigger,tabMenu,setting){
 
         if(trigger.classList.contains('expand')){
             closeTabMenu(trigger,tabMenu);
+
+            ga('send', 'event', 'projects', 'click', `close mobile tab menu`, { nonInteraction: false });
+
         } else {
             openTabMenu(trigger,tabMenu);
-        }
+
+            ga('send', 'event', 'projects', 'click', `open mobile tab menu`, { nonInteraction: false });
+
+        }        
 
     }, false);
 

@@ -44,13 +44,31 @@ export function quizAction(quizSwiper,blackboard) {
 
         quizSwiper.slideNext();
 
-        quizCount(element.dataset.team,blackboard)
+        quizCount(element.dataset.team,blackboard);
+
+        // GA events: 點擊選項
+        ga('send', 'event', 'projects', 'click', `select quiz option`, { nonInteraction: false });
 
       },
       false
     );
   });
 
+  document.querySelectorAll('.swiper-slide').forEach((slide,index) => {
+
+    let slideIndex = index + 1;
+
+    slide.querySelectorAll('.quiz--option').forEach((option) => {
+
+        option.addEventListener('click',() => {      
+            // GA events: 回答了第幾題
+            ga('send', 'event', 'projects', 'click', `answerd Q${slideIndex}`, { nonInteraction: false });
+        });
+
+    });
+
+  });
+  
 }
 
 /* ---------- 計分 ----------*/
@@ -180,6 +198,10 @@ export function showResult(quizSwiper,blackboard,imagesLoaded,PerfectScrollbar){
         const currentLocation = window.location.protocol + '//' + window.location.host;
 
         document.getElementById('shareResult').setAttribute("href", `https://www.facebook.com/share.php?u=${currentLocation}/fifa2018/quiz/${finalTeam.FIFA}/`);
+
+        //GA evemts: 送出結果
+        ga('send', 'event', 'projects', 'result', `${finalTeam.FIFA}`, { nonInteraction: false })
+
 
     },0);    
     

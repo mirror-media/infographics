@@ -26,7 +26,7 @@ import {
   mobileTabControl
 } from "./news.js";
 
-/* -------------------- GA --------------------*/
+/* -------------------- GA init --------------------*/
 (function (i, s, o, g, r, a, m) {
 i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
   (i[r].q = i[r].q || []).push(arguments)
@@ -39,7 +39,82 @@ ga('create', 'UA-83609754-1', 'auto');
 ga('require', 'linkid', 'linkid.js');
 // ga('set', 'contentGroup1', 'news');
 // ga('set', 'contentGroup2', 'life');
+
+/* -------------------- GA Events (common) --------------------*/
 ga('send', 'pageview');
+
+// 鏡 Logo
+document.querySelector('.nav--btn.mirrormedia').addEventListener('click',() => {
+  ga('send', 'event', 'projects', 'click', `go to Mirrormedia.mg`, { nonInteraction: false });
+});
+
+// 分享按鈕
+document.querySelector('#shareBtnTrigger').addEventListener('click',() => {
+  ga('send', 'event', 'projects', 'click', `click share button`, { nonInteraction: false });
+});
+
+// 分享到 Facebook
+document.querySelector('.nav--btn.facebook').addEventListener('click',() => {
+  ga('send', 'event', 'projects', 'click', `share to facebook`, { nonInteraction: false });
+});
+
+// 分享到 Line
+document.querySelector('.nav--btn.line').addEventListener('click',() => {
+  ga('send', 'event', 'projects', 'click', `share to line`, { nonInteraction: false });
+});
+
+// 分享到 Google plus
+document.querySelector('.nav--btn.gplus').addEventListener('click',() => {
+  ga('send', 'event', 'projects', 'click', `share to googleplus`, { nonInteraction: false });
+});
+
+// MOD logo link
+if(document.querySelector('.modlogo') != null){
+  document.querySelector('.modlogo').addEventListener('click',() => {
+    ga('send', 'event', 'projects', 'click', `Home: mod logo`, { nonInteraction: false });
+  });
+}
+
+// Hami video link
+if(document.querySelector('.hamilogo') != null){
+  document.querySelector('.hamilogo').addEventListener('click',() => {
+    ga('send', 'event', 'projects', 'click', `Home: hami video logo`, { nonInteraction: false });
+  });
+}
+
+// 開始測驗
+if(document.querySelector('.start-quiz') != null){
+  document.querySelector('.start-quiz').addEventListener('click',() => {
+    ga('send', 'event', 'projects', 'click', `start quiz`, { nonInteraction: false });
+  });
+}
+
+// topLink: 賽況追蹤
+if(document.querySelector('.topLink.news') != null){
+  document.querySelector('.topLink.news').addEventListener('click',() => {
+    ga('send', 'event', 'projects', 'click', `topLink: to news`, { nonInteraction: false });
+  });
+}
+
+// topLink: 返回首頁
+if(document.querySelector('.topLink.quiz') != null){
+  document.querySelector('.topLink.quiz').addEventListener('click',() => {
+    ga('send', 'event', 'projects', 'click', `topLink: to quiz`, { nonInteraction: false });
+  });
+}
+
+// 收看轉播 (Hami banner)
+if(document.querySelector('.hamivideo') != null){
+
+  document.querySelectorAll('.hamivideo').forEach((element) => {
+
+    element.addEventListener('click',() => {
+      ga('send', 'event', 'projects', 'click', `Hami video banner`, { nonInteraction: false });
+    });
+
+  });
+
+}
 
 /* -------------------- 測驗頁 --------------------*/
 if (document.querySelector(".quizwpr") != null) {
@@ -71,12 +146,7 @@ if (document.querySelector(".quizwpr") != null) {
 
       quizSwiper.on("reachEnd", () => {
         // 顯示結果頁，隱藏 pagination
-        showResult(quizSwiper, blackboard,imagesLoaded,PerfectScrollbar);
-
-        // imagesLoaded( '#result-slide', function() {
-        //   console.log('image loaded');
-        //   quizSwiper.updateAutoHeight();
-        // });
+        showResult(quizSwiper, blackboard,imagesLoaded,PerfectScrollbar);   
 
       });
 
@@ -91,10 +161,19 @@ if (document.querySelector(".quizwpr") != null) {
         "click",
         () => {
           resetQuiz(quizSwiper, blackboard);
-          showScore(blackboard);
+          // showScore(blackboard);
+
+          // GA event: 再玩一次
+          ga('send', 'event', 'projects', 'click', `play quiz again`, { nonInteraction: false });
+
         },
         false
       );
+
+      // GA event: 分享結果
+      document.getElementById('shareResult').addEventListener('click',() => {
+        ga('send', 'event', 'projects', 'click', `share quiz result`, { nonInteraction: false });
+      });
 
       // 測試用，跳到結果頁
       // quizSwiper.slideTo(8,0);
@@ -102,6 +181,7 @@ if (document.querySelector(".quizwpr") != null) {
     .catch(function(err) {
       console.log(err);
     });
+
 }
 
 /* -------------------- 新聞頁 -------------------- */
@@ -182,18 +262,15 @@ if (document.querySelector(".newswpr") != null) {
           'none'
         );
 
-
-
-
-
       })
       .catch(function(err) {
         console.log(err);
-      });
+      });   
+
   
 }
 
-/* ---------- 分享按鈕 ----------*/
+/* ---------- 分享按鈕操作：展開 / 收合 ----------*/
 document.querySelector("#shareBtnTrigger").addEventListener(
   "click",
   () => {
