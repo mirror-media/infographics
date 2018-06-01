@@ -116,8 +116,8 @@ export function showResult(quizSwiper,blackboard,imagesLoaded,PerfectScrollbar){
         // let brief = finalScore[0].brief; // 國家介紹
 
         document.querySelector('.result--content').innerHTML = 
-        `<div class="result--image" style="background-image:url('${finalTeam.image}');">
-            <img src="${finalTeam.image}" />
+        `<div class="result--image" style="background-image:url('images/team/${finalTeam.FIFA}.jpg');">
+            <img src="images/team/${finalTeam.FIFA}.jpg" />
         </div>
          <div class="result--brief" id="resultScrollwpr">
             <div class="brief--container">
@@ -176,8 +176,7 @@ export function showResult(quizSwiper,blackboard,imagesLoaded,PerfectScrollbar){
             document.querySelector('.result--btnwpr').classList.remove('disabled');
         });
 
-        // Share link
-        // const shareBtn = document.getElementById('shareResult');
+        // Share link (facebook)
         const currentLocation = window.location.protocol + '//' + window.location.host;
 
         document.getElementById('shareResult').setAttribute("href", `https://www.facebook.com/share.php?u=${currentLocation}/fifa2018/quiz/${finalTeam.FIFA}/`);
