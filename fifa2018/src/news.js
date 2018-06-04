@@ -113,16 +113,25 @@ export function listingInsertAdv(){
     advWrapper.classList.add('listing--entry','adv');
     advWrapper.id = 'div-gpt-ad-1527677052790-0';
 
-    // 設定高度
-    let height = entry[0].offsetHeight;     
+    // DFP 的預設高度
+    let height = 0;
+
+    if(entry[0]){
+        height = entry[0].offsetHeight;
+    } else {
+        height = 380;
+    }
+  
     advWrapper.style.height = height + 'px';
         
     if(entry.length > 3){
         // 大於三則的情況，插入到第三格
         listingwpr.insertBefore(advWrapper,entry[2]);
+
     } else {
         // 小於三則的情況，插入到最後一格
         listingwpr.appendChild(advWrapper);
+        
     }
 
     window.addEventListener('resize',() => {
