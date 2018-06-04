@@ -359,7 +359,14 @@ margin:0 auto;
     .roofbtn:before {left:-11px; margin-top:-20px; border-width:20px 12px 20px 0;}
     .roofbtn:after {right:-11px; margin-top:-20px; border-width:20px 0 20px 12px;}
 
+}
 
+@media screen and (max-width: 350px) {
+
+    .main-title h1.eng {font-size:58px;}
+    .main-title h1.cht {font-size:45px;}
+
+    h2.deco {font-size:28px;}
 
 }
 

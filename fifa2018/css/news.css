@@ -290,5 +290,11 @@ text-align:right;
 }
 
 
+@media screen and (max-width: 350px) {
+
+    .newswpr .main-title {margin-top:130px;}
+
+}
+
 
 

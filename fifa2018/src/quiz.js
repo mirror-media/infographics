@@ -199,7 +199,7 @@ export function showResult(quizSwiper,blackboard,imagesLoaded,PerfectScrollbar){
 
         document.getElementById('shareResult').setAttribute("href", `https://www.facebook.com/share.php?u=${currentLocation}/fifa2018/quiz/${finalTeam.FIFA}/`);
 
-        //GA evemts: 送出結果
+        //GA events: 送出結果
         ga('send', 'event', 'projects', 'result', `${finalTeam.FIFA}`, { nonInteraction: false })
 
 
