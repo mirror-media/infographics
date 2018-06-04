@@ -58,7 +58,7 @@ export function listingLoadMore(superagent,currentPage){
             allowLoadMore = false;
             currentPage = currentPage + 1;
 
-            let Listing = `https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=6&page=${currentPage}&sort=-publishedDate`;
+            let Listing = `https://api.mirrormedia.mg/listing?where={%22tags%22:{%22$in%22:[%225b14f5b8cead080f004d00ed%22]}}&max_results=6&page=${currentPage}&sort=-publishedDate`;
             
             // 目前顯示的數量
             let entryLength = document.querySelectorAll('.listing--entry').length;

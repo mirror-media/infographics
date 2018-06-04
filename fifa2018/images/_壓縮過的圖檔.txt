@@ -1,4 +1,0 @@
-bg-roofcover.png
-bg-roofcover-blue
-
-opening.png

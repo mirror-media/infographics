@@ -37,8 +37,6 @@ i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
 ga('create', 'UA-83609754-1', 'mirrormedia.mg');
 ga('create', 'UA-83609754-1', 'auto');
 ga('require', 'linkid', 'linkid.js');
-// ga('set', 'contentGroup1', 'news');
-// ga('set', 'contentGroup2', 'life');
 
 /* -------------------- GA Events (common) --------------------*/
 ga('send', 'pageview');
@@ -190,7 +188,7 @@ if (document.querySelector(".newswpr") != null) {
   let currentPage = 1;
 
   /* ---------- 新聞頁 ---------- */
-  let Listing = `https://api.mirrormedia.mg/listing?where={%22sections%22:{%22$in%22:[%2257e1e0e5ee85930e00cad4e9%22]}}&embedded={%22heroVideo.coverPhoto%22:1}&max_results=5&page=1&sort=-publishedDate`;
+  let Listing = `https://api.mirrormedia.mg/listing?where={%22tags%22:{%22$in%22:[%225b14f5b8cead080f004d00ed%22]}}&max_results=5&page=1&sort=-publishedDate`;
 
   superagent.get(Listing)
     .then(function (res) {      
