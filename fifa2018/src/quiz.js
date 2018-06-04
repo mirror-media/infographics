@@ -197,7 +197,7 @@ export function showResult(quizSwiper,blackboard,imagesLoaded,PerfectScrollbar){
         // Share link (facebook)
         const currentLocation = window.location.protocol + '//' + window.location.host;
 
-        document.getElementById('shareResult').setAttribute("href", `https://www.facebook.com/share.php?u=${currentLocation}/fifa2018/quiz/${finalTeam.FIFA}/`);
+        document.getElementById('shareResult').setAttribute("href", `https://www.facebook.com/share.php?u=${currentLocation}/projects/fifa2018/quiz/${finalTeam.FIFA}/`);
 
         //GA events: 送出結果
         ga('send', 'event', 'projects', 'result', `${finalTeam.FIFA}`, { nonInteraction: false })

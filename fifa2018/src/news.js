@@ -131,14 +131,23 @@ export function listingInsertAdv(){
     } else {
         // 小於三則的情況，插入到最後一格
         listingwpr.appendChild(advWrapper);
-        
+
     }
 
     window.addEventListener('resize',() => {
 
         advWrapper.style.height = 'auto';
 
-        let height = entry[0].offsetHeight;     
+        // let height = entry[0].offsetHeight;     
+        // DFP 的預設高度
+        let height = 0;
+
+        if(entry[0]){
+            height = entry[0].offsetHeight;
+        } else {
+            height = 380;
+        }
+
         advWrapper.style.height = height + 'px';        
 
     },false);
