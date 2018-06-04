@@ -1,0 +1,300 @@
+.outerwpr.newswpr {background-color:#2d4262;
+background-image:none; overflow:hidden;
+}
+.outerwpr.newswpr:before {display:none;}
+
+.newsbg {width:100%; height:100vh; position:absolute; left:0; top:0;
+background-color:#ee294a;
+background-image:url("../images/texture.png"); background-size:1000px auto;
+/* background-attachment:fixed; */
+}
+.newsbg:before {content:""; display:block; width:100%; height:100vh;
+position:absolute; left:0; top:0;    
+background-image:url("../images/bg-roofcover-blue.png"); background-repeat:no-repeat;
+background-size:100% auto; background-position:center 0;
+}
+.newsbg:after {content:""; display:block; width:100%;}
+
+.outerwpr {min-height:100vh; position:relative;
+background-color:#ee294a;    
+}
+.outerwpr:before {content:""; display:block; width:100%; height:100vh;
+position:absolute; left:0; top:0;    
+background-image:url("../images/bg-roofcover.png"); background-repeat:no-repeat;
+background-size:100% auto; background-position:center top;
+}
+
+/* ---------- Title ---------- */
+.newsTitleContainer {margin-bottom:40px;}
+.newsTitleContainer:before,
+.newsTitleContainer:after {content:""; display:block; position:absolute;
+background-repeat:no-repeat; background-size:auto 100%;
+background-position:center center;
+}
+.newsTitleContainer:before {width:140px; height:360px;
+bottom:0; left:70px;
+background-image:url("../images/opening-man-alone.png");
+}
+.newsTitleContainer:after {width:150px; height:148px;
+top:70px; right:70px;
+background-image:url("../images/opening-ball.png");
+}
+
+
+
+/* -------------------- listing -------------------- */
+.listing {display:flex; flex-wrap:wrap;
+margin:0 -10px;
+}
+
+.listing--entry {width:calc(33.3% - 20px); 
+margin:0 10px 20px 10px;
+text-align:left;
+background-color:#fff; border-radius:1px; overflow:hidden;
+position:relative; top:0; transition-duration:300ms; transition-property:top;
+}
+.listing--entry:hover {top:-10px;}
+
+.listing--container {display:block;}
+
+.listing--hero {width:100%; height:0; padding-top:66.66%;
+background-size:cover; background-position:center cetner;
+}
+
+.listing--innerwpr {padding:18px 24px;}
+.listing--title {margin-bottom:10px;
+font-size:20px; color:#2d4262; text-align:justify; font-weight:400;
+line-height:1.4;
+}
+.listing--brief {color:#a0a0a0; text-align:justify;}
+
+/* -------------------- listing: 廣告 -------------------- */
+.listing--entry.adv {background-color:#f4f1e9; overflow:hidden;}
+.listing--entry.adv > div {height:100% !important;}
+
+.listing--entry.adv iframe {width:100%; height:100%; border:0;}
+
+
+/* -------------------- center column -------------------- */
+.columnwpr {display:flex; margin-bottom:100px;}
+
+.tablewpr {flex:1;}
+.tablewpr section:last-child {margin-top:50px;}
+
+.tablewpr .hamivideo {display:none; margin-top:50px;}
+
+.aside {width:300px; margin-left:30px;}
+
+
+/* -------------------- Tab -------------------- */
+.tabwpr {
+border-radius:4px; overflow:hidden;    
+}
+
+.tabs {height:60px;
+background:linear-gradient(to right, rgba(87,120,173,1) 0%,rgba(75,106,154,1) 50%,rgba(56,81,120,1) 100%);
+}
+.tabs:after {content:""; display:block; clear:both;}
+
+.tab {display:block; float:left; cursor:pointer;
+height:100%;
+line-height:60px; border-radius:4px 4px 0 0;
+}
+
+.tab-content {background-color:#dcdcdc; display:none; padding:15px 0;}
+.tab-content.current {display:block;}
+.tab-content table {width:100%; table-layout:fixed;}
+.tab-content th,
+.tab-content td {height:60px; vertical-align:middle; line-height:1.3;}
+
+.tab-content td {font-size:16px; color:#535353;}
+
+.tabwpr .country {display:flex; align-items:center;}
+.tabwpr img.flag {width:40px; vertical-align:middle; display:inline-block;
+flex-shrink:0;
+}
+
+/* ---------- Mobile tab style ---------- */
+.m-tabTrigger {display:none; height:50px;
+justify-content:center; align-items:center;    
+background-color:#ffd64d; border-radius:4px 4px 0 0;
+cursor:pointer; color:#2d4262; font-size:19px;
+}
+.m-tabTrigger:after {content:""; display:block; width:0; height:0;
+border-style:solid; border-width:8px 6px 0 8px;
+border-color:#2d4262 transparent transparent transparent;
+margin-left:10px;
+}
+
+.m-tabMenu {display:none;
+background-color:#c8c8c8;
+overflow:hidden; height:0;
+transition-duration:400ms; transition-property:height;
+}
+
+.tab32 {border-top:1px solid #bbb;}
+.tab16 {border-bottom:1px solid #bbb;}
+.m-tabs:after {content:""; display:table; clear:both;}
+
+.m-hr {width:100%; height:1px; clear:both;
+background-color:#b5b5b5; border-bottom:1px solid #d7d7d7;
+}
+
+.m-tab {display:block; width:50%; height:50px;
+display:flex; align-items:center; justify-content:center; float:left;
+cursor:pointer; box-sizing:border-box;
+font-size:16px; white-space:nowrap; color:#2d4262;
+}
+/* .m-tab:hover {
+background-color:#eee;    
+} */
+
+
+
+
+
+
+/* ---------- 戰績表 (Matches) ---------- */
+#matchesTable .tab {width:calc(100% / 8);}
+#matchesTable .tab.current {background-color:#ffd64d;}
+
+.matches-content {padding-bottom:5px; padding-top:0;}
+
+.matches-content th {font-weight:400;
+background-color:#ffd64d;
+}
+
+.matches-content td {width:calc((100% - 130px) / 8);}
+.matches-content .t0 {text-align:left; width:130px; padding:0 10px 0 15px;
+box-sizing:border-box;
+}
+
+#matchesTable img.flag {margin-right:10px;}
+
+/* ---------- 賽程表切換 (小組賽 / 決賽) ---------- */
+.schedule-selectWpr {position:absolute; right:0; top:16px;}
+.schedule-select {width:100px; height:38px; display:inline-block;
+text-align:center; font-size:20px; color:#2d4262;
+background-color:#dcdcdc; border-radius:19px;
+display:inline-flex; justify-content:center; align-items:center;
+cursor:pointer;
+}
+.schedule-select+.schedule-select {margin-left:14px;}
+
+.schedule-select:hover {background-color:#ffd64d;}
+.schedule-select.current {background-color:#ffd64d;}
+
+.schedule-table {display:none;}
+.schedule-table.current {display:block;}
+
+/* ---------- 賽程表 (全) ---------- */
+#schedule32Table .tab.current,
+#schedule16Table .tab.current {background-color:#dcdcdc;}
+
+.schedule-content .left .flag {margin-right:10px;}
+.schedule-content .right .flag {margin-left:10px;}
+
+.schedule-content .date {width:160px;}
+.schedule-content .time {width:100px;
+font-size:22px; color:#2d4262; font-weight:700;
+}
+
+.schedule-content .country.left {padding-left:25px; text-align:left;}
+.schedule-content .country.right {justify-content:flex-end; padding-right:30px;
+text-align:right;
+}
+
+/* ---------- 賽程表 (小組賽) ---------- */
+#schedule32Table .tab {width:calc(100% / 8);}
+
+/* ---------- 賽程表 (16強賽) ---------- */
+#schedule16Table .tab {width:calc(100% / 5);}
+
+
+/* -------------------- RWD -------------------- */
+@media screen and (max-width: 990px) {
+
+    .newsbg:before {background-position:center 20px;}  
+
+    /* ---------- Title ---------- */
+    .newsTitleContainer:before {bottom:-40%; left:-45px; z-index:999;}
+    .newsTitleContainer:after {right:-70px; top:65%; z-index:999;}
+
+
+    /* ---------- Title ---------- */
+    
+    .columnwpr {display:block; margin-bottom:40px;}
+    .tablewpr section:last-child {margin-top:0;}
+
+    .schedule-selectWpr {display:none;}
+    .tabwpr .tabs {display:none;}
+
+    /* -------- mobile tab menu -------- */
+    .m-tabTrigger {display:flex;}
+    .m-tabMenu {display:block;}
+
+    .tab-content.current {display:none;}
+    .tab-content.m-current {display:block;}
+
+    .schedule-table {display:block;}
+
+    #schedule32Table,
+    #schedule16Table {border-radius:0 0 4px 4px;}
+    /* -------- mobile tab menu -------- */
+
+    /* -------- mobile table style -------- */
+    .schedule-table table {display:block;}
+    .schedule-table tr {position:relative; display:block;
+        margin-top:50px;
+    }
+    .schedule-table tr:after {content:""; display:table; clear:both;}
+
+    .schedule-table td {display:block; float:left;}
+
+    .schedule-table .date {position:absolute; display:block; top:-30px; left:15px;
+        height:auto; text-align:left;
+    }
+    .schedule-content .time {width:80px;
+        display:flex; align-items:center; justify-content:center;
+    }
+     
+    .schedule-table .team {width:calc(50% - 40px);}
+    .schedule-content .country {height:100%;}
+    .schedule-content .country.left {padding-left:15px;}
+    .schedule-content .country.right {padding-right:15px;}
+
+    #matchesTable .tabwpr {border-radius:0 0 4px 4px;}
+    .matches-content th {background-color:transparent;
+        border-bottom:2px solid #c8c8c8;
+    }
+
+    .matches-content .t2,
+    .matches-content .t3,
+    .matches-content .t4,
+    .matches-content .t5,
+    .matches-content .t6,
+    .matches-content .t7 {display:none;}
+    /* #matchesTable {overflow-x:auto;}
+    .matches-content {width:600px;}    */
+    
+    /* -------- mobile table style -------- */
+
+
+    .aside {width:100%; margin-left:0; margin-top:40px;}
+    .aside .hamivideo {display:none;}
+    .tablewpr .hamivideo {display:flex;}
+
+    .listing {margin:0 auto; display:block;}
+    .listing--entry {width:100%; margin-left:0; margin-right:0;}
+
+}
+
+
+@media screen and (max-width: 350px) {
+
+    .newswpr .main-title {margin-top:130px;}
+
+}
+
+
+

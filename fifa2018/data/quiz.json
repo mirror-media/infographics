@@ -1,0 +1,220 @@
+[
+  {
+    "id": 1,
+    "question": "這個顏色是我的幸運色！",
+    "option": [
+      {
+        "content": "陽剛霸氣的紅色",
+        "team": "KOR, EGY, MAR, CRC, PAN, RUS, BEL, ESP, SRB, POR, SUI, COR, DEN"
+      },
+      {
+        "content": "精神抖擻的黃色",
+        "team": "AUS, BRA, COL, SWE"
+      },
+      {
+        "content": "沈著穩定的綠色",
+        "team": "NGA, MEX"
+      },
+      {
+        "content": "無邊無際的藍色",
+        "team": "JPN, URU, ARG, ISL, FRA"
+      },
+      {
+        "content": "純淨自然的白色",
+        "team": "IRN, KSA, SEN, TUN, PER, ENG, GER, POL"
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "question": "每次看到這家運動品牌的服飾，我都忍不住多看兩眼",
+    "option": [
+      {
+        "content": "Adidas",
+        "team": "IRN, JPN, EGY, MAR, MEX, ARG, COL, RUS, BEL, GER, ESP, SWE"
+      },
+      {
+        "content": "Nike",
+        "team": "KSA, KOR, AUS, NGA, BRA, ENG, POL, FRA, POR, CRO"
+      },
+      {
+        "content": "Puma",
+        "team": "SEN, URU, SRB, SUI"
+      },
+      {
+        "content": "New Balance",
+        "team": "CRC, PAN"
+      },
+      {
+        "content": "沒有特定品牌",
+        "team": "TUN, PER, ISL, DEN"
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "question": "FIFA 排名可以看出球隊現在的戰力，因此我希望球隊的 FIFA 排名為（FIFA排名依 2018/4/12 為準）",
+    "option": [
+      {
+        "content": "當然要前 10 名，才有奪冠的希望",
+        "team": "BRA, ARG, BEL, GER, ESP, POL, FRA, POR, SUI"
+      },
+      {
+        "content": "不追求太誇張的名次，11-20 之間就好",
+        "team": "TUN, MEX, URU, COL, PER, ENG, CRO, DEN"
+      },
+      {
+        "content": "中庸之道，穩紮穩打 21-40 是最適中的名次",
+        "team": "IRN, AUS, SEN, CRC, SRB, ISL, SWE"
+      },
+      {
+        "content": "名次如糞土，41 以下我也可以接受",
+        "team": "KSA, JPN, KOR, NGA, EGY, MAR, PAN, RUS"
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "question": "一支球隊當然要至少",
+    "option": [
+      {
+        "content": "得過冠軍",
+        "team": "BRA, URU, ARG, ENG, GER, ESP, FRA"
+      },
+      {
+        "content": "進過四強",
+        "team": "KOR, BEL, POL, SRB, POR, CRO, SWE"
+      },
+      {
+        "content": "進過八強",
+        "team": "SEN, CRC, MEX, COL, PER, SUI, DEN"
+      },
+      {
+        "content": "進過十六強",
+        "team": "KSA, JPN, AUS, NGA, MAR"
+      },
+      {
+        "content": "打入第一輪",
+        "team": "IRN, TUN, RUS, EGY"
+      },
+      {
+        "content": "什麼都沒有也沒關係",
+        "team": "PAN, ISL"
+      }
+    ]
+  },
+
+  {
+    "id": 5,
+    "question": "每支球隊大概要戰 ___ 次才會吸取到該有的經驗。（世界盃總共舉行了 21 次）",
+    "option": [
+      {
+        "content": "當然要經驗豐富，16 次以上",
+        "team": "MEX, BRA, ARG, GER"
+      },
+      {
+        "content": "比賽在精不在多，6-15 次已經足夠",
+        "team": "JPN, KOR, NGA, URU, COL, BEL, ENG, ESP, SRB, POL, FRA, POR, SUI, SWE"
+      },
+      {
+        "content": "5 次以下也沒有問題，打越多次比賽越損耗精力",
+        "team": "IRN, KSA, AUS, EGY, SEN, MAR, TUN, CRC, PAN, PER, RUS, ISL, CRO, DEN"
+      }
+    ]
+  },
+
+  {
+    "id": 6,
+    "question": "要出征了，攜帶什麼動物最能助長氣勢",
+    "option": [
+      {
+        "content": "雄赳赳氣昂昂的老鷹",
+        "team": "NGA, TUN, MEX, ARG, RUS, GER, POL, SRB"
+      },
+      {
+        "content": "萬獸之王—獅子",
+        "team": "IRN, SEN, MAR, ENG"
+      },
+      {
+        "content": "天之驕子 You & Me",
+        "team": "JPN, KOR, EGY, CRC, BRA, URU, COL, BEL, ESP, POR, SUI, CRO, SWE, DEN"
+      },
+      {
+        "content": "越稀奇的動物越好，讓對方見見世面",
+        "team": "FRA, ISL, PER, AUS, KSA, PAN"
+      }
+    ]
+  }
+  ,
+
+  {
+    "id": 7,
+    "question": "球隊的 ___ 最重要",
+    "option": [
+      {
+        "content": "團結，奪冠的唯一力量",
+        "team": "GER"
+      },
+      {
+        "content": "顏值與體格就是唯一真理",
+        "team": "BRA, ARG, FRA, JPN"
+      },
+      {
+        "content": "新鮮感，上屆沒打，這屆才會加把勁",
+        "team": "EGY, SEN, MAR, TUN, PAN, PER, POL, SRB, ISL, SWE, KSA, DEN"
+      }
+      ,
+      {
+        "content": "演技，包裝一切、博取分數",
+        "team": "POR, KOR"
+      }
+      ,
+      {
+        "content": "努力，只為取得最佳名次",
+        "team": "IRN, AUS, NGA, CRC, MEX, URU, COL, RUS, BEL, ENG, ESP, SUI, CRO"
+      }
+    ]
+  }
+  ,
+
+  {
+    "id": 8,
+    "question": "請憑直覺選出最吸引您的詞",
+    "option": [
+      {
+        "content": "浪漫古典",
+        "team": "RUS, BEL, ENG, GER, ESP, POL, SRB, FRA, POR, SUI, CRO"
+      },
+      {
+        "content": "熱力四射",
+        "team": "CRC, MEX, PAN, BRA, URU, ARG, COL, PER"
+      },
+      {
+        "content": "簡約自然",
+        "team": "ISL, SWE, DEN"
+      }
+      ,
+      {
+        "content": "朝氣奔騰",
+        "team": "NGA, EGY, SEN, MAR"
+      }
+      ,
+      {
+        "content": "神秘富饒",
+        "team": "IRN, KSA, JPN, KOR"
+      }
+      ,
+      {
+        "content": "珍禽異獸",
+        "team": "AUS"
+      }
+    ]
+  }
+
+
+
+
+]
