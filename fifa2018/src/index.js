@@ -106,9 +106,18 @@ if(document.querySelector('.hamivideo') != null){
 
   document.querySelectorAll('.hamivideo').forEach((element) => {
 
-    element.addEventListener('click',() => {
-      ga('send', 'event', 'projects', 'click', `Hami video banner`, { nonInteraction: false });
-    });
+    if(document.querySelector('.quizwpr')){
+      // quiz result
+      element.addEventListener('click',() => {
+        ga('send', 'event', 'projects', 'click', `Hami video button (quiz result)`, { nonInteraction: false });
+      });
+
+    } else if (document.querySelector('.newswpr')){
+      // news page
+      element.addEventListener('click',() => {
+        ga('send', 'event', 'projects', 'click', `Hami video button (news)`, { nonInteraction: false });
+      });
+    }   
 
   });
 

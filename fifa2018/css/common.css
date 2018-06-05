@@ -162,7 +162,7 @@ font-size:98px; font-weight:700; color:#fff;
 font-family:"prenton","微軟正黑體", "Microsoft JhengHei", sans-serif;
 }
 .main-title h1.cht {margin-bottom:20px;
-font-size:66px; font-weight:700; color:#fff;
+font-size:76px; font-weight:700; color:#fff;
 }
 
 
@@ -347,12 +347,14 @@ margin:0 auto;
     .topLink:before {transform:scale(0.8); margin-left:10px; margin-right:5px;}
 
     .topLink.news {width:155px;}
-    .topLink.quiz {width:230px;}
-    .topLink.quiz {right:-182px;}
+    .topLink.quiz {width:200px; height:32px;}
+    /* .topLink.quiz {right:-182px;} */
     .topLink.quiz:hover {right:0;}
 
     .topLink .text {font-size:18px;}
-    .topLink.quiz .text {font-size:18px;}
+    .topLink.quiz .text {font-size:16px;}
+
+    .topLink:before {transform:scale(0.65); margin-left:5px; margin-right:-2px;}
 
     /* ----- roof button ----- */
     .roofbtn {height:60px; border-radius:16px;}
