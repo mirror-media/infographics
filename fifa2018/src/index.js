@@ -138,6 +138,7 @@ if (document.querySelector(".quizwpr") != null) {
       //初始化 Swiper
       let quizSwiper = new Swiper(".swiper-container", {
         allowTouchMove: false,
+        simulateTouch: false,
         autoHeight: true,
 
         pagination: {
