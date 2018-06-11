@@ -158,11 +158,16 @@ margin-bottom:40px;
 
 .main-title h1 {line-height:1; letter-spacing:2px;}
 .main-title h1.eng {margin-bottom:4px;
-font-size:98px; font-weight:700; color:#fff;
+font-size:94px; font-weight:700; color:#fff;
 font-family:"prenton","微軟正黑體", "Microsoft JhengHei", sans-serif;
 }
+.main-title h1.eng .cht {font-size:74px;
+font-family:"source-han-sans-traditional","微軟正黑體", "Microsoft JhengHei", sans-serif; 
+position:relative; top:-3px;
+}
+
 .main-title h1.cht {margin-bottom:20px;
-font-size:76px; font-weight:700; color:#fff;
+font-size:74px; font-weight:700; color:#fff;
 }
 
 
@@ -317,6 +322,7 @@ margin:0 auto;
     .opening .main-title {margin-bottom:0;}
 
     .main-title h1.eng {font-size:64px;}
+    .main-title h1.eng .cht {font-size:50px;}
     .main-title h1.cht {font-size:50px;}
 
     .opening h2.deco {margin-bottom:0;}
@@ -368,6 +374,7 @@ margin:0 auto;
 @media screen and (max-width: 350px) {
 
     .main-title h1.eng {font-size:58px;}
+    .main-title h1.eng .cht {font-size:45px; top:-2px;}
     .main-title h1.cht {font-size:45px;}
 
     h2.deco {font-size:28px;}
