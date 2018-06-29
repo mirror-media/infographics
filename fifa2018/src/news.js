@@ -477,34 +477,43 @@ export function setCurrentTab(setting){
     // 目前進行中的賽事
     const current = setting.values[0][0];
 
+    const clickEvent = new Event('click');
+    const s32Tab = document.querySelectorAll('.schedule-select')[1];    
+
     switch(current){
 
         case '小組賽':
             //do nothing
+            break;
 
         case '16強賽':
             document.getElementById('s16GroupA').classList.add('current');
             document.getElementById('schedule16GroupA').classList.add('current');
+            s32Tab.dispatchEvent(clickEvent);
             break;
 
         case '8強賽':
             document.getElementById('s16GroupB').classList.add('current');
             document.getElementById('schedule16GroupB').classList.add('current');
+            s32Tab.dispatchEvent(clickEvent);
             break;
 
         case '準決賽':
             document.getElementById('s16GroupC').classList.add('current');
             document.getElementById('schedule16GroupC').classList.add('current');
+            s32Tab.dispatchEvent(clickEvent);
             break;
 
         case '第3名決定賽':
             document.getElementById('s16GroupD').classList.add('current');
             document.getElementById('schedule16GroupD').classList.add('current');
+            s32Tab.dispatchEvent(clickEvent);
             break;
 
         case '決賽':
             document.getElementById('s16GroupE').classList.add('current');
             document.getElementById('schedule16GroupE').classList.add('current');
+            s32Tab.dispatchEvent(clickEvent);
             break;
 
         default:
