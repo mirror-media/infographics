@@ -247,10 +247,7 @@ if (document.querySelector(".newswpr") != null) {
         setMatchTableContent(matchesData.values,teamData);
 
         // 建立賽程表
-        setScheduleTable(scheduleData.values,teamData,document.getElementById('schedule32Table'),document.getElementById('schedule16Table'));
-
-        // 目前進行中的賽事
-        setCurrentTab(tabSettingData);
+        setScheduleTable(scheduleData.values,teamData,document.getElementById('schedule32Table'),document.getElementById('schedule16Table'));        
 
         // tab 操作 (切換小組賽跟16強)
         tabControl(document.getElementById('scheduleTable'),'.schedule-select','.schedule-table','current');
@@ -269,6 +266,9 @@ if (document.querySelector(".newswpr") != null) {
           document.getElementById('matchesTabMenu'),
           'none'
         );
+
+        // 目前進行中的賽事
+        setCurrentTab(tabSettingData);
 
       })
       .catch(function(err) {
