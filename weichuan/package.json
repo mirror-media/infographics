@@ -1,0 +1,26 @@
+{
+  "name": "soysauce",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery-parallax.js": "^1.5.0",
+    "jquery.localscroll": "^2.0.0",
+    "jquery.scrollto": "^2.1.2",
+    "slick-carousel": "^1.8.1"
+  }
+}
