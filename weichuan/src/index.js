@@ -87,6 +87,7 @@ $(".menu--item a").click(function(){
     closeMenu();
 });
 
+// aside menu scroll action (homepage only)
 if($("body").hasClass("home")){
     //local scroll
     $.localScroll({
@@ -106,14 +107,12 @@ $("#backTop").click(function(){
 // show/hide back top button
 function showBacktop(fixBtn){
     let scroll_top = $(window).scrollTop();
-
     //scroll top btn
     if(scroll_top > 100){
         fixBtn.addClass("active");
     } else {
         fixBtn.removeClass("active");
-    }
-    
+    }    
 }
 
 // window scroll
