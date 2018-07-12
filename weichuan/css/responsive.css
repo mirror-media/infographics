@@ -47,8 +47,9 @@
         padding-top:76px; height:auto;
     }
     .hero--part1 {width:100%; height:auto; float:none; border-radius:1px 1px 0 0;}
-    .hero--part2 {width:100%; height:auto; float:none; padding:35px 0;
+    .hero--part2 {width:100%; height:auto; float:none; padding:40px 0 25px 0;
         border-radius:0 0 1px 1px;
+        display:flex; justify-content:center; align-items:center;
     }
     .hero--btn {display:none;}
 
@@ -56,27 +57,31 @@
     .hero--part1 h1 {margin-bottom:40px;}
     .hero--part1 p {max-width:70%;}
 
-    .hero--logo {margin:0; display:inline-block; vertical-align:middle;
-        margin-right:12px;
+    .hero--logo {margin:0 40px 0 0;}
+    .hero--logo .badge {position:relative; top:auto; left:auto;
+        margin-left:20px;
     }
-    .hero--oil {float:none; left:auto; display:inline-block; vertical-align:middle;}
-    .hero--oil .oil {right:auto; margin:0 20px;}
+    /* .hero--oil {float:none; left:auto; display:inline-block; vertical-align:middle;}
+    .hero--oil .oil {right:auto; margin:0 20px;} */
 
     .slider--container {padding:0 34px;}
     .slick-prev {background-position:14px -29px;}
     .slick-next {background-position:6px -91px;}
 
     .chefsalon--intro {height:220px;}
-    .chefsalon--portrait {width:220px; height:220px;}
+    .chefsalon--portrait {width:220px; height:220px; margin-right:10px;}
     .chefsalon--desc {width:calc(100% - 240px);}
     .chefsalon--desc p {padding-left:1px;}
     .chefsalon--desc2 {padding:22px 40px 40px 40px}
 
-    .chefchoice {padding-top:60px;}
-    .chefchoice h1 {margin-bottom:40px;}
-    .chefchoice h2 {width:560px;}
-    .chefchoice--oil {margin-right:0;}
-    .chefchoice--entry .chefchoice--hr {display:block;}
+    /* .chefchoice {padding-top:60px;} */
+    /* .chefchoice h1 {margin-bottom:40px;} */
+    /* .chefchoice h2 {width:560px;} */
+    /* .chefchoice--oil {margin-right:0;} */
+    /* .chefchoice--entry .chefchoice--hr {display:block;} */
+
+    .chefchoice--entry {padding:40px 20px 40px 150px;}
+    .chefchoice--image {left:0px;}
 
     .cheftip--header {height:280px;}
     .cheftip--header .portrait {width:280px; height:280px; top:-50px;}    
@@ -113,10 +118,14 @@
 
     .hero--part1 .valign {padding-top:45px;}
     .hero--part1 h1 {font-size:34px;}
-    .hero--part2 {padding:155px 15px 35px 15px; box-sizing:border-box; overflow:visible;}
+    /* .hero--part2 {padding:155px 15px 35px 15px; box-sizing:border-box; overflow:visible;}
     .hero--logo {margin-right:0; display:block; position:absolute; z-index:20; 
         left:50%; top:-25px; margin-left:-80px;
-    }
+    } */
+    .hero--logo {margin-right:10px;}
+
+    .slider--caption {padding:0 10px; justify-content:center;}
+    .slider--caption:after {display:none;}
 
     .chefsalon--intro {display:inline-block; height:auto; margin-bottom:24px;}
     .chefsalon--portrait {margin:0 auto;}

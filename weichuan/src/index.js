@@ -30,7 +30,7 @@ $(".slider--container").slick({
     nextArrow: '<div class="slick-next">Next</div>',
     responsive: [
         {
-            breakpoint: 680,
+            breakpoint: 970,
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 2
@@ -123,7 +123,10 @@ window.addEventListener("scroll",() => {
 }, false);
 
 
-
+/* ---------- 分享按鈕操作：展開 / 收合 ----------*/
+document.querySelector("#shareBtnTrigger").addEventListener("click",() => {
+    document.querySelector("#shareBtn").classList.toggle("expand");
+},false);
 
 
 
