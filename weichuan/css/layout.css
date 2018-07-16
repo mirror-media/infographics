@@ -37,7 +37,14 @@ input {vertical-align:middle;}
 .sectionwpr {position:relative; width:100%;}
 .centerwpr {position:relative; margin:0 auto; max-width:1100px; padding:0 20px;}
 
+.quoteMark {display:inline-block; width:30px;
+/* font-size:40px; line-height:20px;
+opacity:0.5; position:relative; top:8px; */
+}
+
 /*--- hero ---*/
+body.home {background-color:#9b6e16;}
+
 .sectionwpr.hero {height:100vh; padding-bottom:72px;
 box-sizing:border-box;
 }
@@ -59,7 +66,7 @@ background:linear-gradient(to bottom, rgba(238,205,118,.95) 0%,#eac46a 100%);
 }
 .hero--part1 .valign {width:100%; margin-top:80px;}
 .hero--part1 h1 {margin-bottom:56px; position:relative;
-font-size:48px; color:#231916; text-align:center;
+font-size:50px; color:#231916; text-align:center;
 }
 .hero--part1 h1:before {content:""; display:block; width:96px; height:14px;
 position:absolute; left:-10px; top:50%; margin-top:-7px; z-index:5; 
@@ -67,7 +74,7 @@ background-color:#a90b04;
 }
 
 .hero--part1 p {max-width:460px; margin:0 auto; position:relative;
-color:#231916; text-align:center; font-size:19px;
+color:#413324; text-align:center; font-size:22px; line-height:1.65;
 }
 
 .hero--btn {display:block; width:42px; height:42px; cursor:pointer;
@@ -240,6 +247,7 @@ background-image:url("../images/chefchoice/ribbon-right.png");
 .chefchoice h2 {margin-bottom:20px;
 font-size:28px; color:#fff;
 }
+.chefchoice h2 br {display:none;}
 .chefchoice .intro {max-width:720px; margin:0 auto 70px auto;
 color:#f0ece7; text-align:center;
 }
@@ -256,7 +264,7 @@ background:linear-gradient(to bottom, #ede8e3 0%,#e3dace 100%);
 .chefchoice--image {width:auto; height:335px; 
 position:absolute; left:60px; top:50%; margin-top:-163px;
 }
-
+.chefchoice--image.alt {display:none;}
 
 .chefchoice--oil {max-width:540px;}
 .chefchoice--oil h3 {position:relative;
@@ -285,6 +293,7 @@ background-repeat:no-repeat; background-position:0 -185px;
 }
 
 .chefchoice--oil h4 span {margin:0 8px;}
+.chefchoice--oil h4 br {display:none;}
 
 .chefchoice--oil p {text-align:center;}
 
@@ -529,10 +538,10 @@ background-position:0 -552px;
 .rehero--img {position:absolute; left:0; top:0; width:100%; height:calc(100% - 62px);
 background-size:cover; background-position:right top;
 }
-.re02 .rehero--img {background-position:center center;}
+/* .re02 .rehero--img {background-position:center center;}
 .re03 .rehero--img {background-position:center 60%;}
 .re04 .rehero--img {background-position:center 85%;}
-.re05 .rehero--img {background-position:center center;}
+.re05 .rehero--img {background-position:center center;} */
 
 .rehero--footer {width:100%; height:62px; position:absolute; left:0; bottom:0;
 background-color:#fff;
@@ -540,43 +549,45 @@ background-color:#fff;
 .rehero--name {position:absolute; right:0; top:0;
 padding:0 30px; height:62px; line-height:62px; letter-spacing:1px;
 color:#fff; font-size:19px; white-space:nowrap;
-background-color:#193265;    
+background-color:#9b6e16;    
 }
 
-.rehero--oil {position:absolute; left:24px; bottom:8px;}
+.rehero--oil {position:absolute; left:8px; bottom:8px;}
 .rehero--oil:after {content:""; display:table; clear:both;}
-.rehero--oil .oil {height:108px; float:left; margin-right:15px;}
+.rehero--oil .oil {height:108px; float:left;}
 .rehero--oil .oil:last-child {margin-right:0;}
 .rehero--oil .oil img {height:100%;}
 
-.rehero--subtitle {position:absolute; left:190px; top:0;
+.rehero--subtitle {position:absolute; left:165px; top:0;
 height:62px; line-height:62px; letter-spacing:1px;
 color:#2d1b15; font-size:19px; white-space:nowrap;
 }
 
 /* recipes container */
 .recontainer {padding-left:45%; position:relative;
-background-color:#ede8e3;
+background-color:#e7dfd8;
 }
-.recontainer .sectionwpr.even {background-color:#e7dfd8;}
-.recontainer .centerwpr {max-width:740px; padding:60px 30px 90px 30px;}
-.recontainer .centerwpr:last-child {padding-bottom:60px;}
+.recontainer .sectionwpr:first-child {background-color:#ede8e3;}
+/* .recontainer .sectionwpr.even {background-color:#e7dfd8;} */
+.recontainer .centerwpr {max-width:740px; padding:60px 30px;}
+/* .recontainer .centerwpr:last-child {padding-bottom:60px;} */
 
 .reintro {position:relative;}
 .reintro--chef {height:380px; position:absolute; right:0; top:50%;
 margin-top:-190px;
 }
 .reintro--chef img {height:100%;}
-.reintro--content {margin-right:226px; padding:90px 88px 72px 56px;
+.reintro--content {margin-right:226px; padding:40px 120px 40px 60px;
 font-size:16px; line-height:27px; text-align:left;    
-background-color:#fff;
+display:flex; flex-direction:column; justify-content:center; align-items:cetner;
+background-color:#fff; min-height:400px;
 }
 .reintro--content h2 {position:relative;
 font-size:26px; margin-bottom:30px;
 }
 .reintro--content h2:before {content:""; display:block; width:44px; height:10px;
 position:absolute; left:-64px; top:50%; margin-top:-5px;
-background-color:#ffa522;
+background-color:#a90b04;
 }
 
 .recontent {position:relative; padding-top:25px;}
@@ -600,7 +611,7 @@ border-left:2px solid #2d1b15; border-right:2px solid #2d1b15;
 .recontent--final {margin-bottom:40px;}
 
 .recontent--entry {position:relative; min-height:35px;
-margin-bottom:40px; padding-top:4px;
+margin-bottom:40px;
 text-align:left; line-height:27px;
 }
 .recontent--entry:last-child {margin-bottom:0;}
@@ -611,17 +622,29 @@ background-color:#faf9f7; border-radius:1px;
 }
 .recontent p {font-size:18px; padding-left:92px;}
 
-.ingredient ul {padding-left:92px; margin-bottom:22px;}
-.ingredient li {margin-bottom:4px;}
-.ingredient div {display:inline-block; vertical-align:middle;}
-.ingredient .name {width:342px; margin-right:18px;
+.ingredient ul {margin-bottom:22px; padding-left:95px;}
+.ingredient li {margin-bottom:6px; max-width:500px;
+display:flex; justify-content:space-between; align-items:center;
+letter-spacing:1px;
+}
+.ingredient .name {flex-shrink:0; margin-right:15px;}
+.ingredient .quantity {flex-shrink:0; margin-left:15px;}
+
+.ingredient .dotted {content:""; display:block; height:10px;
+flex:1;
+background-image:url("../images/recipes/dotted.png"); background-repeat:repeat-x;
+background-size:auto 2px; background-position:left center;
+}
+
+/* .ingredient div {display:inline-block; vertical-align:middle;} */
+/* .ingredient .name {width:342px; margin-right:18px;
 background-image:url("../images/recipes/dotted.png"); background-repeat:repeat-x;
 background-size:auto 2px; background-position:right center;
-}
-.ingredient .text {padding-right:18px;
+} */
+/* .ingredient .text {padding-right:18px;
 background-color:#ede8e3;
 }
-.even .ingredient .text {background-color:#e7dfd8;}
+.even .ingredient .text {background-color:#e7dfd8;} */
 
 .condiment ol {padding-left:92px; font-size:18px;}
 .condiment ol li {list-style:decimal; list-style-position:inside;}
@@ -640,6 +663,16 @@ margin-top:-9px;
 
 .recontent--entry .anno {font-size:13px; position:relative; top:-5px; margin:0 2px;}
 
+.step--tips {display:flex;
+font-size:15px;
+background-color:#f8f6f4;
+}
+.step--tips .t1 {padding:0 11px;
+color:#fff; font-weight:700;    
+background-color:#966915;    
+display:flex; align-items:center; justify-content:center;
+}
+.step--tips .t2 {padding:5px 12px; line-height:1.4;}
 
 /* footer */
 .footer {padding:16px 0;

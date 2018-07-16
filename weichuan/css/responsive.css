@@ -55,7 +55,7 @@
 
     .hero--part1 .valign {padding:55px 0 45px 0; margin-top:0;}
     .hero--part1 h1 {margin-bottom:40px;}
-    .hero--part1 p {max-width:70%;}
+    .hero--part1 p {max-width:70%; font-size:21px; line-height:1.6;}
 
     .hero--logo {margin:0 40px 0 0;}
     .hero--logo .badge {position:relative; top:auto; left:auto;
@@ -127,11 +127,15 @@
     .slider--caption {padding:0 10px; justify-content:center;}
     .slider--caption:after {display:none;}
 
+    .chefsalon {padding-bottom:70px;}
     .chefsalon--intro {display:inline-block; height:auto; margin-bottom:24px;}
-    .chefsalon--portrait {margin:0 auto;}
-    .chefsalon--desc {width:100%; margin-top:-14px; text-align:center;}
+    .chefsalon--portrait {margin:0 auto 10px auto;}
+    .chefsalon--desc {width:100%; text-align:center;}
+    .chefsalon--desc2 {padding:20px;}
 
-    .chefchoice .centerwpr {overflow:hidden;}
+    .chefchoice {padding-bottom:0;}
+    .chefchoice .centerwpr {overflow:hidden; padding-bottom:100px;}
+    .chefchoice h1 {margin-top:40px; max-width:450px; font-size:31px;}
     .chefchoice h2 {font-size:22px; width:100%;}
     .chefchoice--step.s01 {margin-bottom:40px;}
 
@@ -174,7 +178,7 @@
 }
 
 
-@media only screen and (max-width : 500px) {
+@media only screen and (max-width : 600px) {
 
     .centerwpr {padding:0 12px;}
 
@@ -182,9 +186,14 @@
     .hero--part1 h1 {margin-bottom:30px;}
     .hero--part1 h1:before {display:none;}
     .hero--part1 h1 i {display:block; margin:0 auto 10px auto; z-index:50;}
-    .hero--part1 p {max-width:none; padding:0 30px;}
+    .hero--part1 p {max-width:none; padding:0 20px; font-size:18px;}
     .hero--part1 p.quote:before {left:15px;}
     .hero--part1 p.quote:after {right:15px;}
+
+    .hero--part2 {display:block; padding-top:10px;}
+    .hero--logo {margin-right:0;}
+    .hero--logo .logo {transform:scale(0.95);}
+    .hero--logo .badge {position:absolute; left:50%; top:5px; margin-left:70px;}
 
     .hero--oil {height:auto;}
     .hero--oil .oil {width:33.3%; height:auto; margin:0; text-align:center;
@@ -203,11 +212,32 @@
     .chefsalon h1 i {display:block; margin:0 auto; background-color:transparent; z-index:50;}
     .chefsalon h1 span {padding:0 12px; }
     .chefsalon h1:before {top:auto; bottom:8px;}
-    .chefsalon--desc2 {padding:22px 30px 40px 30px}
+    .chefsalon--desc2 {padding:22px 12px 22px 12px}
+    .chefsalon--desc2 p {text-align:justify;}
 
-    .chefchoice {padding-top:50px; padding-bottom:90px;}
-    .chefchoice h2 {height:auto;
-        line-height:100%; padding:12px 0; box-sizing:border-box;    
+    .chefchoice {padding-top:30px; padding-bottom:0;}
+    .chefchoice .centerwpr {padding-bottom:40px;}
+    .chefchoice h1 {margin-top:0; margin-bottom:40px;}
+    .chefchoice .intro {margin-bottom:30px;}
+
+    .chefchoice--entry {padding:40px 20px 40px 0; 
+        font-size:17px; line-height:1.5;
+    }
+    .chefchoice--entry + .chefchoice--entry {margin-top:10px;}
+    .chefchoice--image {position:relative; left:auto; top:auto;
+        margin-top:0;
+    }
+    .chefchoice--oil h3 {font-size:27px; margin-bottom:15px;}
+    /* .chefchoice--oil h3:before {margin-right:6px;}
+    .chefchoice--oil h3:after {margin-left:6px;} */
+    .chefchoice--oil h3:before,
+    .chefchoice--oil h3:after {display:none;}
+    .chefchoice--oil h4 {font-size:18px;}
+    .chefchoice--oil h4 br {display:block;}
+    .itqi {margin-bottom:10px;}
+    /* .chefchoice--oil p {font-size:16px;} */
+    /* .chefchoice h2 {height:auto;
+        padding:12px 0; box-sizing:border-box;    
     }
     .chefchoice h2 span {float:none; position:relative; z-index:200;
         font-size:24px; line-height:100%;
@@ -221,7 +251,7 @@
         height:29px; background-position:1px -359px;
     }
     .chefchoice h2:before,.chefchoice h2:after {top:auto; bottom:-19px;}
-    .chefchoice--hr {margin:50px 0;}
+    .chefchoice--hr {margin:50px 0;} */
 
     .cheftip {padding-bottom:70px;}
     .cheftip--header {display:inline-block; height:auto;}
@@ -266,6 +296,20 @@
 
 @media only screen and (max-width : 400px) {
 
+    .hero--part1 .valign {padding-bottom:35px;}
+    .hero--part1 h1 {margin-bottom:20px;}
+    
+    .slider--caption {font-size:16px;}
+
+    .chefsalon--desc h1 {font-size:29px;}
+
+    .chefchoice h1 {font-size:28px;}
+    .chefchoice h2 {line-height:1.4;}
+    .chefchoice h2 .space {display:none;}
+    .chefchoice h2 br {display:block;}
+
+    .chefchoice--image {height:280px;}
+
     .tiptag--m {left:0; margin-left:-34px; margin-right:12px;}
     .cheftip--entry .content {padding:35px 25px !important;}
     .cheftip--entry .content h2 {margin-bottom:8px;}
@@ -292,8 +336,15 @@
     .hero--part1 h1 {font-size:30px;}
     .hero--oil .oil {padding:0 10px;}
 
+    .hero--soy {height:220px;}
+
     .slider--caption {padding:0 0 0 10px;}
     .slider--slot a {margin:0;}
+
+    .chefchoice--entry {padding:40px 10px;}
+    .chefchoice--image {display:none;}
+    .chefchoice--image.alt {display:block; height:220px; margin:0 auto 10px auto;}
+    .chefchoice--oil h4 br {display:none;}
 
     .cheftip--entry .content h2 {font-size:23px;}
     .tiptag--m {font-size:14px; width:60px;}
