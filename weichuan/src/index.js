@@ -21,7 +21,7 @@ if(window.location.hash.length > 1){
 }
 
 
-$(document).ready(function(){
+$(document).ready(function(){ 
 
 // Home: hero image parallax
 $(".hero--img").parallax({
