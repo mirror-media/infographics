@@ -156,4 +156,39 @@ ga('create', 'UA-83609754-1', 'auto');
 ga('require', 'linkid', 'linkid.js');
 
 /* -------------------- GA Events (common) --------------------*/
-ga('send', 'pageview');
+
+// pageview
+ga('send', {
+    hitType: 'pageview',
+    page: location.pathname
+});
+
+
+// click eveent
+const menuItem = document.querySelectorAll('.menu--item li');
+
+menuItem[0].addEventListener('click',() => {
+    ga('send', 'event', 'campaigns', 'click', `weichuan-menu-home`, { nonInteraction: false });
+}, false);
+
+menuItem[1].addEventListener('click',() => {
+    ga('send', 'event', 'campaigns', 'click', `weichuan-menu-colin`, { nonInteraction: false });
+}, false);
+
+menuItem[2].addEventListener('click',() => {
+    ga('send', 'event', 'campaigns', 'click', `weichuan-menu-recipe`, { nonInteraction: false });
+}, false);
+
+menuItem[3].addEventListener('click',() => {
+    ga('send', 'event', 'campaigns', 'click', `weichuan-menu-website`, { nonInteraction: false });
+}, false);
+
+const menuExtItem = document.querySelectorAll('.menu--ext li');
+
+menuExtItem[0].addEventListener('click',() => {
+    ga('send', 'event', 'campaigns', 'click', `weichuan-menu-story01`, { nonInteraction: false });
+}, false);
+
+menuExtItem[1].addEventListener('click',() => {
+    ga('send', 'event', 'campaigns', 'click', `weichuan-menu-story02`, { nonInteraction: false });
+}, false);
