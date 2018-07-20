@@ -158,11 +158,7 @@ ga('require', 'linkid', 'linkid.js');
 /* -------------------- GA Events (common) --------------------*/
 
 // pageview
-ga('send', {
-    hitType: 'pageview',
-    page: location.pathname
-});
-
+ga('send', 'pageview');
 
 // click eveent
 const menuItem = document.querySelectorAll('.menu--item li');
