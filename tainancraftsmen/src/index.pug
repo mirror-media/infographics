@@ -1,0 +1,76 @@
+doctype html
+html(lang="zh-Hant")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    title 臺南薈萃百工職人
+    meta(name="description", content="臺南有豐厚的文化底蘊，供給百業創作者充足養分，淬鍊出多彩多姿的創意成果，而大臺南地區更是臺灣傳統產業聚集重鎮，即使產業陸續外移後有些沒落，民間依舊有不少碩果僅存的職人⋯⋯薈萃的百工職人，是否正好也是您想尋訪學習的目標，不妨深入一探究竟。")
+
+    meta(property="og:title", content="臺南薈萃百工職人")
+    meta(property="og:description", content="臺南有豐厚的文化底蘊，供給百業創作者充足養分，淬鍊出多彩多姿的創意成果，而大臺南地區更是臺灣傳統產業聚集重鎮，即使產業陸續外移後有些沒落，民間依舊有不少碩果僅存的職人⋯⋯薈萃的百工職人，是否正好也是您想尋訪學習的目標，不妨深入一探究竟。")
+    meta(property="og:url", content=`${SITE_URL}projects/tainancraftsmen/`)
+    meta(property="og:image", content="./assets/main-bg.jpg")
+    meta(property="og:image:width", content="5760")
+    meta(property="og:image:height", content="3840")
+    meta(property="og:site_name", content="鏡週刊 Mirror Media")
+    meta(property="og:locale", content="zh_TW")
+    meta(property="og:type", content="website")
+
+    meta(name="twitter:card", content="summary_large_image")
+
+    meta(property="fb:app_id", content="175313259598308")
+    meta(property="fb:pages", content="1855418728011324")
+
+    link(rel="icon", type="image/x-icon", href=`${SITE_URL}favicon.ico`)
+    link(rel="icon", type="image/png", sizes="32x32", href=`${SITE_URL}favicon-32x32.png`)
+    link(rel="icon", type="image/png", sizes="16x16", href=`${SITE_URL}favicon-16x16.png`)
+    link(rel="apple-touch-icon", sizes="180x180", href=`${SITE_URL}apple-touch-icon.png`)
+    link(rel="manifest", href=`${SITE_URL}site.webmanifest`)
+    link(rel="mask-icon", href=`${SITE_URL}safari-pinned-tab.svg`, color="#5bbad5")
+    meta(name="msapplication-TileColor", content="#ffffff")
+    meta(name="theme-color", content="#ffffff")
+
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/index.scss")
+
+  body
+    header
+      a#logo(href=SITE_URL, target="_blank")
+        !=svgLogo
+
+    main
+      .intro
+        h1 臺南薈萃<br />百工職人
+        p 臺南有豐厚的文化底蘊，供給百業創作者充足養分，淬鍊出多彩多姿的創意成果，而大臺南地區更是臺灣傳統產業聚集重鎮，即使產業陸續外移後有些沒落，民間依舊有不少碩果僅存的職人，製琴、糊紙、手繪電影看板，每一項都是現今社會難得一見的藝術展現。在農業發展上，臺南市政府以永續經營為目標，推動新三農計畫，吸引無數年輕人返鄉，造就遍地開花的新農榮景。還有懷抱夢想的創業青年、達人藝術家，承載滿腔熱血，打造出自己的一方園地。
+        p 薈萃的百工職人，是否正好也是您想尋訪學習的目標，不妨深入一探究竟。
+
+      .gallery
+        each card in gallery
+          .category
+            h2= card.category
+            .people
+              each person in card.people
+                a(href=`${SITE_URL}story/${person.slug}`, target="_blank")
+                  div
+                    img(src=`./assets/${person.src}.jpg`, alt="")
+                    h3= person.name
+                    p= person.work
+                  .mask
+                    h3= person.name
+                    p= person.work
+    footer
+      p 發布時間 / 2020.09.04
+      p 文字 / 黃淑卿&nbsp;&nbsp;&nbsp;&nbsp;設計 / 許玲瑋&nbsp;&nbsp;&nbsp;&nbsp;網頁製作 / 林昱帆&nbsp;&nbsp;陳玟諺&nbsp;&nbsp;簡信昌
+    .bg.bg--main
+    .bg.bg--mask
+
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-83609754-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-83609754-1');
+
+    script(src="./js/index.js")

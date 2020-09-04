@@ -1,0 +1,17 @@
+{
+  "name": "tainancraftsmen",
+  "version": "1.0.0",
+  "author": "Yeefun Lin",
+  "scripts": {
+    "predev": "rimraf dist",
+    "dev": "parcel src/index.pug --no-cache",
+    "prebuild": "rimraf dist",
+    "build": "parcel build src/index.pug --public-url /projects/tainancraftsmen/ --no-cache"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "pug": "^3.0.0",
+    "sass": "^1.26.10"
+  },
+  "dependencies": {}
+}

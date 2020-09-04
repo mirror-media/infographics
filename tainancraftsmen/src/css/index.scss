@@ -1,0 +1,285 @@
+$lg: 992px;
+
+@mixin media-breakpoint-up($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+html {
+  color: #fff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Noto Sans CJK TC", "Noto Sans CJK", "Source Han Sans", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 900;
+}
+
+img {
+  display: block;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+  z-index: 99;
+
+  a,
+  svg {
+    display: block;
+  }
+}
+
+a {
+  cursor: pointer;
+  user-select: none;
+}
+
+main {
+  padding-top: 90px;
+  @include media-breakpoint-up($lg) {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-auto-flow: column;
+    column-gap: 100px;
+    grid-template-columns: 360px;
+    max-width: 1168px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 132px 27px 99px 27px;
+  }
+}
+
+.intro {
+  margin-bottom: 48px;
+  padding-left: 27px;
+  padding-right: 27px;
+  @include media-breakpoint-up($lg) {
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 2;
+    text-align: justify;
+    @include media-breakpoint-up($lg) {
+      font-size: 18px;
+      letter-spacing: 2px;
+      line-height: 1.6;
+    }
+
+    + p {
+      margin-top: 1em;
+    }
+  }
+}
+
+h1 {
+  text-shadow: 0 0 2px rgba(#000, 0.25);
+  font-size: 46px;
+  margin-bottom: 36px;
+  line-height: 1.24;
+  @include media-breakpoint-up($lg) {
+    font-size: 66px;
+    line-height: 1.14;
+    margin-bottom: 47px;
+  }
+}
+
+.gallery {
+  display: grid;
+  row-gap: 20px;
+  @include media-breakpoint-up($lg) {
+    row-gap: 19px;
+  }
+}
+
+.category {
+  background-color: rgba(#000, 0.65);
+  padding-top: 30px;
+  overflow: hidden;
+  @include media-breakpoint-up($lg) {
+    background-color: transparent;
+    padding-top: 0;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 16px;
+    grid-template-columns: 20px;
+  }
+
+  img {
+    width: 100%;
+    height: 68px;
+    object-fit: cover;
+    margin-bottom: 6px;
+    @include media-breakpoint-up($lg) {
+      height: 120px;
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+  }
+}
+
+.people {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100px;
+  column-gap: 20px;
+  grid-template-columns: 7px;
+  overflow-x: auto;
+  padding-bottom: 30px;
+  @include media-breakpoint-up($lg) {
+    column-gap: 17px;
+    grid-template-columns: none;
+    grid-auto-columns: 120px;
+    padding-bottom: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    @include media-breakpoint-up($lg) {
+      position: relative;
+
+      div:first-child {
+        h3,
+        p {
+          display: none;
+        }
+      }
+    }
+
+    &[href*="tainan-trad02"] img {
+      object-position: 50% 97%;
+    }
+
+    &:hover .mask {
+      opacity: 1;
+    }
+  }
+
+  .mask {
+    display: none;
+    @include media-breakpoint-up($lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      background-color: rgba(#000, 0.8);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-left: 18px;
+      padding-right: 18px;
+      box-sizing: border-box;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.45s;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    @include media-breakpoint-up($lg) {
+      content: none;
+    }
+  }
+
+  &::after {
+    width: 7px;
+  }
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.44;
+  padding-left: 27px;
+  @include media-breakpoint-up($lg) {
+    padding-left: 0;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+}
+
+h3 {
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 1.625;
+  @include media-breakpoint-up($lg) {
+    font-size: 18px;
+    line-height: 1.56;
+    margin-bottom: 8px;
+  }
+}
+
+footer {
+  line-height: 1.54;
+  letter-spacing: 1px;
+  color: rgba(#fff, 0.66);
+  font-size: 13px;
+  padding: 20px 27px;
+  @include media-breakpoint-up($lg) {
+    padding-top: 0;
+    padding-bottom: 12px;
+    padding-left: 0;
+    padding-right: 29px;
+    display: flex;
+    justify-content: flex-end;
+
+    p:first-child {
+      order: 2;
+      margin-left: 31px;
+    }
+  }
+
+  p + p {
+    margin-top: 10px;
+    @include media-breakpoint-up($lg) {
+      margin-top: 0;
+    }
+  }
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &--main {
+    background-image: url(../assets/main-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+  }
+
+  &--mask {
+    background-image: linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0.3) 83%);
+    z-index: -1;
+    @include media-breakpoint-up($lg) {
+      background-image: linear-gradient(to bottom, rgba(#fff, 0.6), rgba(#000, 0.6) 83%);
+    }
+  }
+}
