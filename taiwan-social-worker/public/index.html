@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <meta name="description" content="社工是一群專業的助人工作者，面對社會最悲劇的陰暗角落，為何成了為何飽受社會大眾的誤解、憂鬱沮喪的專業人士？根據社工職場問卷普查，九成以上社工有心理創傷，《鏡週刊》人物組採訪多位第一線服務社工，製作專題報導，並製作心理測驗遊戲，邀你體驗社工日常的助人兩難，也看看你是屬於哪一種社工？">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= webpackConfig.output.publicPath %>apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%= webpackConfig.output.publicPath %>favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<%= webpackConfig.output.publicPath %>favicon-16x16.png">
+  <link rel="manifest" href="<%= webpackConfig.output.publicPath %>site.webmanifest">
+  <link rel="mask-icon" href="<%= webpackConfig.output.publicPath %>safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#000">
+
+  <meta property="fb:app_id" content="175313259598308">
+  <meta property="fb:pages" content="1855418728011324">
+  
+  <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
+  <meta property="og:description" content="社工是一群專業的助人工作者，面對社會最悲劇的陰暗角落，為何成了為何飽受社會大眾的誤解、憂鬱沮喪的專業人士？根據社工職場問卷普查，九成以上社工有心理創傷，《鏡週刊》人物組採訪多位第一線服務社工，製作專題報導，並製作心理測驗遊戲，邀你體驗社工日常的助人兩難，也看看你是屬於哪一種社工？" />
+  <meta property="og:url" content="https://www.mirrormedia.mg<%= webpackConfig.output.publicPath %>" />
+  <meta property="og:image" content="<%= webpackConfig.output.publicPath %>og.jpg">
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <meta property="og:site_name" content="鏡週刊 Mirror Media">
+  <meta property="og:locale" content="zh_TW" />
+
+  <meta property="og:type" content="website" />
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+  <!-- ga -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83609754-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-83609754-1');
+  </script>
+</body>
+</html>
