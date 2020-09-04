@@ -1,0 +1,42 @@
+@import './global.styl'
+
+.bg-graphic
+  padding-left 15px
+  padding-right 15px
+  @media (min-width 420px)
+    padding-left 0
+    padding-right 0
+  &__text
+    background-color rgba(#000, 0.8)
+    padding 25px 15px 30px 15px
+    max-width 290px
+    margin-right auto
+    margin-left auto
+    box-sizing border-box
+    @media (min-width $bp-desktop-small)
+      max-width 268px
+    & h2
+      font-size 2.6rem
+      font-weight 700
+      font-family $ff-serif
+    & p, button
+      font-size 1.6rem
+      line-height 1.88
+    & p
+      // font-family $ff-sans-serif
+      margin-top 15px
+      margin-bottom 15px
+    & button
+      background-color transparent
+      color #fff
+      border 1px solid #fff
+      padding 3px 16px
+      transition background-color 0.15s ease-in-out, color 0.15s ease-in-out, font-weight 0.15s ease-in-out, border-color 0.15s ease-in-out
+      &:hover
+        background-color #fff
+        color rgba(0, 0, 0, 0.87)
+        font-weight 500
+      &:active
+        background-color #8b8b8b
+        border-color #8b8b8b
+        color #282828
