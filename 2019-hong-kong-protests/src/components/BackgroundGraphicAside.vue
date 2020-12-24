@@ -9,6 +9,8 @@
           </h2>
           <p>{{ profile.intro }}</p>
           <button type="button" @click="handleClick(profile.id, profile.name)">看{{ profile.name }}的故事</button>
+          <br />
+          <a :href="profile.link2020" target="_blank" rel="noopener noreferrer" @click="$root.sendGa('click', 'projects', linkText(profile.name))">{{ linkText(profile.name) }}</a>
         </div>
       </div>
     </div>
@@ -49,6 +51,10 @@ export default {
     })
   },
   methods: {
+    linkText (name) {
+      return `國安法下的${name !== '鄧鍵一、袁瑋熙、李立峯、鄭煒' ? name : '李立峯'}`
+    },
+
     sendProfileGa (id) {
       if (this.gaSentProfileIds.includes(id)) { return }
 

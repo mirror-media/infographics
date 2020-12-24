@@ -6,6 +6,8 @@
     <p>攝影／楊子磊、王漢順</p>
     <p>設計／許玲瑋</p>
     <p>工程／林昱帆</p>
+
+    <p class="update-time">更新時間：2020.12.31</p>
   </section>
 </template>
 
@@ -29,4 +31,6 @@ export default {
   @media (min-width $bp-desktop-small)
     padding-top 280px
     padding-bottom 220px
+.update-time
+  margin-top 16px
 </style>

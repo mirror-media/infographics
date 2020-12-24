@@ -10,6 +10,8 @@
           <h2>{{ profile.title }}</h2>
           <p>{{ profile.intro }}</p>
           <button type="button" @click="handleClick(profile.id, profile.name)">看{{ profile.name }}的故事</button>
+          <br />
+          <a :href="profile.link2020" target="_blank" rel="noopener noreferrer" @click="$root.sendGa('click', 'projects', linkText(profile.name))">{{ linkText(profile.name) }}</a>
         </div>
       </div>
     </div>
@@ -38,6 +40,9 @@ export default {
     })
   },
   methods: {
+    linkText (name) {
+      return `國安法下的${name}`
+    },
     handleClick (id, name) {
       this.showLightbox(id)
       this.$root.sendGa('click', 'projects', `read ${name}`)
