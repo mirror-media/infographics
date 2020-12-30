@@ -75,7 +75,7 @@ export default [
       <p>「這是我的人生轉捩點。讓我成長了很多。」他說，「我的體能變好了、說話技巧變好了、待人處事進化了。本來我不會關心別人，現在看見有人神情很差，我就會去關心。」這句型乍聽有點耳熟？我想起港劇《食神》裡形容爆漿瀨尿牛丸的經典對白： 「我吃了以後明顯的高了，人也壯了，自信心都回到我身邊了。」「吃了以後，我頭腦靈光很多，考試都考 100 分！」人生沒有 100 分，集體一夜長大意味著整個世代共同背負的逼迫，若說這場運動給年輕抗爭者留下了什麼，就當暫時吞了精神上的瀨尿牛丸吧。</p>
     `,
     caption: '阿 Z 從渠底爬出來之後，覺得地下的味道久久不散。',
-    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-cq5r5'
+    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-n2sd'
   },
   {
     id: 3,
@@ -109,7 +109,7 @@ export default [
       <p>註：「阿絲」和「阿巴」化名由來：前線互稱「絲打」「巴打」（sister and brother），許多抗爭者矢言「今生只嫁前線巴」、「今生只娶前線絲」，表達決心。</p>
     `,
     caption: '阿絲（右）和阿巴（左）駐足旺角街頭，停在反送中活動經常都看到「Pepe 蛙」塗鴉前。',
-    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-4o2d6'
+    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-9qk0t'
   },
   {
     id: 4,
@@ -151,7 +151,7 @@ export default [
       <p>她說多年前曾意外懷孕，又意外流產，「如果那孩子還在，現在應該 19 歲了吧。」哀傷的神色一閃而逝，在凝結的空氣裡，他倆自行破冰，呵呵哈哈閒聊，並肩走著，男孩比女人高出一個頭了，那背影看上去就像是一對真正的母子。</p>
     `,
     caption: '迷彩在隱密民宅接受我們的採訪，身邊的「香港」意象燈座，放倒了即成為「加油」字樣。',
-    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-9b8ao'
+    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-5efui'
   },
   {
     id: 5,
@@ -210,7 +210,7 @@ export default [
       <p>「最後我們會勝利的。現在政府用不同辦法打擊我們，但我們有方案應付。」應付歸應付，但談到未來，阿寶還是不排除持續逃避。她誠實地說，想過移民到台灣，「但我如果現在去台灣，十年後台灣變成香港，那不是從一個坑跳到另一個坑？」自問自答沒有答案，她想過下半生也許去馬來西亞，也許是泰國，「我想去一個可以投票的地方，但我不要遇到香港這些問題。也許我會選擇繼續逃避吧。」</p>
     `,
     caption: '阿寶在運動中協助接送抗爭者，亦是急救人員之一。',
-    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-3m39s'
+    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-cq5r5'
   },
   {
     id: 7,
@@ -247,7 +247,7 @@ export default [
       <p>「但身為一個香港人，就是要做一點點的事情要保護這地方吧。但如果 2047 時情況沒變好，但我相信挺多香港人會離開這地方。」這個即將成為中醫師的青年，原先想在香港執業，但經過這場運動，他開始思考若經濟條件許可，也許可以靠著中醫這項專長，辦理專業移民。講來講去，他還是用了病灶的隱喻：「我覺得如果北京不正面處理問題，就是病情會惡化。還會有愈來愈多香港人要港獨。我覺得挺悲傷。畢竟香港是我們的家。現在家正在被破壞，而有一天，我可能也要離開他。」</p>
     `,
     caption: '國難忠醫辦公室位於不顯眼的大樓中，這天僅留中醫系學生阿樂駐守。',
-    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-984c'
+    link2020: 'https://www.mirrormedia.mg/story/2020-hong-kong-protests/#header-4o2d6'
   },
   {
     id: 8,
