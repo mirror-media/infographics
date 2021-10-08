@@ -1,0 +1,56 @@
+{
+  "CoverBottomGif": {
+    "description": "Auto imported from /components/CoverBottomGif.vue"
+  },
+  "LazyCoverBottomGif": {
+    "description": "Auto imported from /components/CoverBottomGif.vue"
+  },
+  "CoverIntro": {
+    "description": "Auto imported from /components/CoverIntro.vue"
+  },
+  "LazyCoverIntro": {
+    "description": "Auto imported from /components/CoverIntro.vue"
+  },
+  "CoverTopGif": {
+    "description": "Auto imported from /components/CoverTopGif.vue"
+  },
+  "LazyCoverTopGif": {
+    "description": "Auto imported from /components/CoverTopGif.vue"
+  },
+  "Credit": {
+    "description": "Auto imported from /components/Credit.vue"
+  },
+  "LazyCredit": {
+    "description": "Auto imported from /components/Credit.vue"
+  },
+  "Navbar": {
+    "description": "Auto imported from /components/Navbar.vue"
+  },
+  "LazyNavbar": {
+    "description": "Auto imported from /components/Navbar.vue"
+  },
+  "ReportArticle": {
+    "description": "Auto imported from /components/ReportArticle.vue"
+  },
+  "LazyReportArticle": {
+    "description": "Auto imported from /components/ReportArticle.vue"
+  },
+  "UiAnnotation": {
+    "description": "Auto imported from /components/UiAnnotation.vue"
+  },
+  "LazyUiAnnotation": {
+    "description": "Auto imported from /components/UiAnnotation.vue"
+  },
+  "UiNavbarList": {
+    "description": "Auto imported from /components/UiNavbarList.vue"
+  },
+  "LazyUiNavbarList": {
+    "description": "Auto imported from /components/UiNavbarList.vue"
+  },
+  "UiReportImage": {
+    "description": "Auto imported from /components/UiReportImage.vue"
+  },
+  "LazyUiReportImage": {
+    "description": "Auto imported from /components/UiReportImage.vue"
+  }
+}

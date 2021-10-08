@@ -1,0 +1,29 @@
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px // 依照設計的 breakpoint 調整,,,,,,,,,,,,
+) !default;
+
+$max-width-xl: 1120px;
+$max-width-xxl: 1200px;
+$aside-width-md: 284px;
+$aside-width-lg: 384px;
+$aside-width-xl: 384px;
+$aside-width-xxl: 384px;
+$color-grey: #e7e7e7;
+$color-grey-deep: #979797;
+$color-blue: #014db8;
+$color-blue-deep: #036;
+
+:export {
+  @each $key, $value in $grid-breakpoints {
+    breakpoint-#{$key}: $value;
+  }
+}
