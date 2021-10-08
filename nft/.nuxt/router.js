@@ -25,6 +25,7 @@ export const routerOptions = {
   routes: [{
     path: "/",
     component: _f2f82cae,
+    alias: "/index.html",
     name: "index"
   }],
 

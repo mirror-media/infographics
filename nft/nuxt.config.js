@@ -96,5 +96,12 @@ export default {
   build: {},
   router: {
     base: SITE_BASE,
+    extendRoutes(routes) {
+      routes.forEach((route) => {
+        const alias =
+          route.path.length > 1 ? `${route.path}/index.html` : '/index.html'
+        route.alias = alias
+      })
+    },
   },
 }
