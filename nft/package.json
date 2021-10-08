@@ -1,0 +1,52 @@
+{
+  "name": "nft",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "@nuxtjs/google-analytics": "^2.4.0",
+    "@readr-media/web-components": "^2.2.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.8.3",
+    "intersection-observer": "^0.12.0",
+    "lodash": "^4.17.21",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.14.12",
+    "sass-loader": "^10.1.0",
+    "vue-lazy-renderer": "^1.2.1",
+    "vue-lazyload": "^1.3.3",
+    "vue2-smooth-scroll": "^1.5.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "@nuxtjs/svg": "^0.2.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^7.8.0",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0"
+  }
+}
