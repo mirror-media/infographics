@@ -42,25 +42,10 @@
 </template>
 
 <script>
-import scrollama from 'scrollama'
-import 'intersection-observer'
 import gaMixin from '~/mixins/gaMixin'
 
 export default {
   mixins: [gaMixin],
-  mounted() {
-    const scrollerCredit = scrollama()
-    scrollerCredit
-      .setup({
-        step: '#credit',
-      })
-      .onStepEnter((response) => {
-        if (response.direction === 'down') {
-          this.gaScrollHandler('to credit')
-        }
-      })
-    window.addEventListener('resize', scrollerCredit.resize)
-  },
 }
 </script>
 

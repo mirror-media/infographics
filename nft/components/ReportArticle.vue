@@ -1,6 +1,8 @@
 <template>
   <section class="article">
-    <div class="article-start-anchor" />
+    <div id="article" class="gif-graph">
+      <img src="~/assets/gif/dollar-money.gif" alt="dollar money" />
+    </div>
     <div>
       <h2>文章標題文章標題文章標題文章標題文章標題文章標題</h2>
       <p>
@@ -79,6 +81,25 @@
         />由交通部改成鐵道局執行；而過去發生重大鐵道事故時，是由交通部聘請專家學者調查，修法後無論是重大、一般或異常事故，全部都由鐵道局負責。
       </p>
     </div>
+    <div id="extend" class="gif-graph">
+      <img src="~/assets/gif/treasure.gif" alt="treasure" />
+    </div>
+    <div>
+      <h2>文章標題文章標題文章標題文章標題文章標題文章標題</h2>
+      <p>
+        2021 年 4 月 2
+        日清明連假，一輛從邊坡滑落到軌道的大貨車造成臺鐵營運史上死傷最慘重的事故，共
+        49 人魂斷花蓮、逾 200 人輕重傷。交通部 7
+        月中公布的行政報告指出，這次事故主因是外物入侵，以及臺鐵局的工地管理有嚴重疏失。
+      </p>
+      <p>臺鐵的改革究竟出了什麼問題？</p>
+      <h3>從 Dcard 論壇資料，窺見中國流行語滲透</h3>
+      <p>
+        因為鐵軌出現異物引起的太魯閣號事故，看似是個案，但從臺鐵局統計的行車事故類型可以發現，光是去年的相關事件就超過
+        82 件（佔比 13%），每個月平均有 7
+        件。「外物」種類千奇百怪，包含土石、樹木、牛群、野貓、野狗、機車與小客車等各式車種、還有掉落或橫越軌道的民眾。
+      </p>
+    </div>
   </section>
 </template>
 
@@ -100,11 +121,18 @@ export default {
 .article {
   width: 100%;
   max-width: 600px;
+  font-family: Noto Serif TC, sans-serif;
   padding: 0 20px;
-  .article-start-anchor {
-    padding: 96px 0 0;
+  .gif-graph {
+    width: 55px;
+    height: 62px;
+    margin: 60px auto;
+    img {
+      width: 100%;
+      height: 100%;
+    }
     @include media-breakpoint-up(md) {
-      padding: 120px 0 0;
+      margin: 96px auto;
     }
   }
   h2 {
