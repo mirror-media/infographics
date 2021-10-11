@@ -1,126 +1,49 @@
 <template>
   <div id="credit" class="credit">
-    <div class="credit__wrapper">
-      <div class="credit__row">
-        <div class="credit__employee">
-          <div class="credit__employee_head">監製</div>
-          <div class="credit__employee_name">簡信昌</div>
-        </div>
-        <div class="credit__employee">
-          <div class="credit__employee_head">製作人</div>
-          <div class="credit__employee_name">李又如、陳玟諺</div>
-        </div>
-        <div class="credit__employee">
-          <div class="credit__employee_head">記者</div>
-          <div class="credit__employee_name">李又如、陳珮瑜</div>
-        </div>
-        <div class="credit__employee">
-          <div class="credit__employee_head">設計</div>
-          <div class="credit__employee_name">吳曼努、曾立宇</div>
-        </div>
-        <div class="credit__employee">
-          <div class="credit__employee_head">建模</div>
-          <div class="credit__employee_name">洪詩宸</div>
-        </div>
-      </div>
-      <div class="credit__row">
-        <div class="credit__employee">
-          <div class="credit__employee_head">攝影</div>
-          <div class="credit__employee_name">翁睿坤、蘇立坤、賴一銀</div>
-        </div>
-        <div class="credit__employee">
-          <div class="credit__employee_head">工程</div>
-          <div class="credit__employee_name">溫凱傑、報導者開放實驗室</div>
-        </div>
-        <div class="credit__employee">
-          <div class="credit__employee_head">社群</div>
-          <div class="credit__employee_name">徐湘芸</div>
-        </div>
-      </div>
+    <div class="credit__list">
+      <div class="credit__list__item">記者：王思涵</div>
+      <div class="credit__list__item">網頁製作：曾立宇、李又如、簡信昌</div>
+    </div>
+    <div class="credit__time">
+      <span>2021.10.20</span>
     </div>
   </div>
 </template>
 
 <script>
-import gaMixin from '~/mixins/gaMixin'
-
-export default {
-  mixins: [gaMixin],
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
 .credit {
-  padding: 0 60px;
-  background: transparent;
-
-  &__wrapper {
-    max-width: 640px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__row {
-    display: flex;
-    flex-direction: column;
-    // tablet range
+  &__list {
+    margin: 0 0 16px;
     @include media-breakpoint-up(md) {
-      flex-direction: row;
+      display: flex;
       justify-content: center;
-
-      &:first-child {
-        justify-content: space-between;
+      align-items: center;
+    }
+    &__item {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 20px;
+      color: #fff;
+      text-align: center;
+    }
+    &__item + &__item {
+      margin: 0 0 4px;
+      @include media-breakpoint-up(md) {
+        margin: 0 0 0 24px;
       }
     }
   }
-
-  &__employee {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-right: 24px;
-    margin-bottom: 12px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-    @include media-breakpoint-up(md) {
-      flex-direction: row;
-    }
-
-    &_head {
-      font-family: 'Noto Sans CJK TC', sans-serif;
-      font-style: normal;
+  &__time {
+    text-align: center;
+    span {
+      font-size: 14px;
       font-weight: 300;
-      font-size: 12px;
-      line-height: 120%;
-      display: flex;
-      align-items: center;
-      color: #e0e0e0;
-      flex: none;
-      order: 0;
-      flex-grow: 0;
-      margin-right: 4px;
-    }
-
-    &_name {
-      font-family: 'Noto Sans CJK TC', sans-serif;
-      font-style: normal;
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 120%;
-      display: flex;
-      align-items: center;
-      color: #e0e0e0;
-      flex: none;
-      order: 1;
-      flex-grow: 0;
-      margin: 4px 0;
-
-      @include media-breakpoint-up(md) {
-        margin: 0;
-      }
+      line-height: 20px;
+      color: #fff;
     }
   }
 }
