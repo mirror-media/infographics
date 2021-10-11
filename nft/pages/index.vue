@@ -8,6 +8,7 @@
         <CoverBottomGif />
       </div>
       <CoverIntro class="nft__content__intro" />
+      <ReportQuiz class="nft__content__quiz" />
       <ReportArticle class="nft__content__article" />
     </div>
   </div>
@@ -19,6 +20,7 @@ import CoverTopGif from '~/components/CoverTopGif.vue'
 import CoverBottomGif from '~/components/CoverBottomGif.vue'
 import CoverIntro from '~/components/CoverIntro.vue'
 import ReportArticle from '~/components/ReportArticle.vue'
+import ReportQuiz from '~/components/ReportQuiz.vue'
 import gaMixin from '~/mixins/gaMixin'
 
 export default {
@@ -27,6 +29,7 @@ export default {
     CoverTopGif,
     CoverBottomGif,
     CoverIntro,
+    ReportQuiz,
     ReportArticle,
   },
   mixins: [gaMixin],
@@ -60,7 +63,10 @@ export default {
       }
     }
     &__intro {
-      margin: 0 auto;
+      margin: 0 auto 12px;
+      @include media-breakpoint-up(md) {
+        margin: 0 auto 28px;
+      }
     }
     &__article {
       margin: 0 auto;

@@ -35,6 +35,12 @@
   "LazyReportArticle": {
     "description": "Auto imported from /components/ReportArticle.vue"
   },
+  "ReportQuiz": {
+    "description": "Auto imported from /components/ReportQuiz.vue"
+  },
+  "LazyReportQuiz": {
+    "description": "Auto imported from /components/ReportQuiz.vue"
+  },
   "UiAnnotation": {
     "description": "Auto imported from /components/UiAnnotation.vue"
   },
