@@ -6,7 +6,7 @@
     </li>
     <li>
       <img src="~/assets/gif/giphy-2.gif" alt="to test" />
-      <a v-smooth-scroll href="#test" @click="closeList">NFT小測驗</a>
+      <a v-smooth-scroll href="#quiz-start" @click="closeList">NFT小測驗</a>
     </li>
     <li>
       <img src="~/assets/gif/giphy-4.gif" alt="to article" />

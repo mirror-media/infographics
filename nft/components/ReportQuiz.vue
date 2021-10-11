@@ -1,6 +1,7 @@
 <template>
   <div class="quiz">
-    <div v-html="iframeSrc" class="quiz__iframe" />
+    <!-- eslint-disable vue/no-v-html -->
+    <div class="quiz__iframe" v-html="iframeSrc" />
   </div>
 </template>
 

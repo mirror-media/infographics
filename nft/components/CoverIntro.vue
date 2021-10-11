@@ -16,7 +16,7 @@
       </div>
       <a v-smooth-scroll href="#article">跳過測驗看報導</a>
     </div>
-    <div class="cover-intro__scrolldown">
+    <div id="quiz-start" class="cover-intro__scrolldown">
       <span>往下滑開始測驗</span>
     </div>
   </div>
@@ -35,6 +35,7 @@
       font-weight: 300;
       line-height: 32px;
       color: #bababa;
+      animation: blinker 1.2s ease-in-out infinite;
       @include media-breakpoint-up(md) {
         font-size: 18px;
         line-height: 36px;
@@ -82,6 +83,12 @@
       letter-spacing: 2.5px;
       color: #fff;
     }
+  }
+}
+
+@keyframes blinker {
+  50% {
+    color: #d1d1d1;
   }
 }
 </style>

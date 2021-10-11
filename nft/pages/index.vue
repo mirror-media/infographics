@@ -10,6 +10,8 @@
       <CoverIntro class="nft__content__intro" />
       <ReportQuiz class="nft__content__quiz" />
       <ReportArticle class="nft__content__article" />
+      <ReportRelated class="nft__content__related" />
+      <Credit class="nft__content__credit" />
     </div>
   </div>
 </template>
@@ -21,6 +23,8 @@ import CoverBottomGif from '~/components/CoverBottomGif.vue'
 import CoverIntro from '~/components/CoverIntro.vue'
 import ReportArticle from '~/components/ReportArticle.vue'
 import ReportQuiz from '~/components/ReportQuiz.vue'
+import ReportRelated from '~/components/ReportRelated.vue'
+import Credit from '~/components/Credit.vue'
 import gaMixin from '~/mixins/gaMixin'
 
 export default {
@@ -30,7 +34,9 @@ export default {
     CoverBottomGif,
     CoverIntro,
     ReportQuiz,
+    ReportRelated,
     ReportArticle,
+    Credit,
   },
   mixins: [gaMixin],
 }
@@ -70,6 +76,16 @@ export default {
     }
     &__article {
       margin: 0 auto;
+    }
+    &__related {
+      margin: 0 auto 76px;
+      @include media-breakpoint-up(md) {
+        margin: 0 auto 100px;
+      }
+    }
+    &__credit {
+      margin: 0 auto;
+      padding: 0 0 48px;
     }
   }
 }
