@@ -34,7 +34,7 @@ export default {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 0 4px 4px 4px;
+  margin: 0 4px 4px;
   width: 24px;
   height: 24px;
   vertical-align: middle;
