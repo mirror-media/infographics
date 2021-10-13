@@ -2,7 +2,9 @@
   <div id="credit" class="credit">
     <div class="credit__list">
       <div class="credit__list__item">記者：王思涵</div>
-      <div class="credit__list__item">網頁製作：曾立宇、李又如、簡信昌</div>
+      <div class="credit__list__item">
+        網頁製作：溫凱傑、曾立宇、李又如、陳玟諺、簡信昌
+      </div>
     </div>
     <div class="credit__time">
       <span>2021.10.20</span>
