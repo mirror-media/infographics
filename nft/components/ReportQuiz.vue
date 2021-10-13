@@ -39,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 .quiz {
   width: 100%;
-  min-height: 3600px;
+  min-height: 3320px;
   @include media-breakpoint-up(md) {
     min-height: 4000px;
   }
