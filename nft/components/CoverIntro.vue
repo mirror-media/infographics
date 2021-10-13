@@ -1,23 +1,21 @@
 <template>
   <div class="cover-intro">
     <div class="cover-intro__content">
+      <p>NFT 遊戲，換你（妳）來競標：猜猜這幅 NFT 值多少？</p>
       <p>
-        一則推特叫價上百萬美金、一群百無聊賴的猿猴頭像交易總額突破五億美金。今年以來，NFT的暴利神話，加上科技先驅不斷高鳴：網路末世將近，結合NFT、AI
-        的元宇宙（Metaverse）已然降臨，過去十年沒有加入加密貨幣金錢遊戲的觀望者也不免動心：是不是該做些什麼？
-      </p>
-      <p>
-        NFT
-        潮流不只是商業趨勢，背後更是年輕世代與區塊鏈信仰者在他們理想新世界的拓荒旅程，有些人在路上暴富，有些人找到朋友，有些人還在尋求方向。
+        一張迷因圖讓人從此脫貧、一群無聊猿猴的頭像交易突破五億美金——今年以來，NFT（非同質化代幣）的暴利神話從國際新聞到社群一波一波傳散開來，在大家還沒搞清楚
+        NFT 之前，NFT 已經像一場「有錢人」的金錢遊戲。想知道你（妳）在 NFT
+        新世界的鑑價能力、生存指數，快來參與這場瘋狂拍賣。
       </p>
     </div>
     <div class="cover-intro__skip">
       <div class="cover-intro__skip-img">
         <img src="~/assets/gif/pointer.gif" alt="skip" />
       </div>
-      <span @click="handleSkip">跳過測驗看報導</span>
+      <span @click="handleSkip">我想先更了解 NFT</span>
     </div>
     <div id="quiz-start" class="cover-intro__scrolldown">
-      <span>往下滑開始測驗</span>
+      <span>往下滑動立即開始測驗！</span>
     </div>
   </div>
 </template>
@@ -43,7 +41,8 @@ export default {
 
 .cover-intro {
   max-width: 656px;
-  font-family: Noto Serif TC, sans-serif;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 400;
   &__content {
     margin: 0 0 30px;
     @include media-breakpoint-up(md) {

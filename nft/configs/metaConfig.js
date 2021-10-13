@@ -1,7 +1,8 @@
 const { app } = require('./config')
 
-export const SITE_TITLE = '測試'
-export const SITE_DESCRIPTION = '測試'
+export const SITE_TITLE = 'NFT 遊戲，換你（妳）來競標：猜猜這幅 NFT 值多少？'
+export const SITE_DESCRIPTION =
+  '一張迷因圖讓人從此脫貧、一群無聊猿猴的頭像交易突破五億美金——今年以來，NFT（非同質化代幣）的暴利神話從國際新聞到社群一波一波傳散開來，在大家還沒搞清楚 NFT 之前，NFT 已經像一場「有錢人」的金錢遊戲。想知道你（妳）在 NFT 新世界的鑑價能力、生存指數，快來參與這場瘋狂拍賣。'
 export const SITE_URL = `${app.siteProtocol}://${app.domain}${app.base}`
 export const SITE_DOMAIN = `${app.domain}${app.base}`
 export const SITE_OG_IMAGE = `${app.siteProtocol}://${app.domain}${app.base}/images/og.jpeg`

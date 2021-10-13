@@ -5,13 +5,9 @@
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
-
 html {
   font-family: 'Noto Serif TC', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+    Roboto, 'Helvetica Neue', Arial, serif, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

@@ -72,6 +72,12 @@ export default {
     { src: '~/plugins/VueLazyRenderer', ssr: false },
   ],
 
+  googleFonts: {
+    families: {
+      'Noto+Serif+TC': [300, 400, 500],
+    },
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -81,6 +87,8 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
+    '@nuxtjs/svg',
+    '@nuxtjs/google-fonts',
     '@nuxtjs/google-analytics',
   ],
   googleAnalytics: {
@@ -88,9 +96,6 @@ export default {
       return 'UA-83609754-1'
     },
   },
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/svg'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
