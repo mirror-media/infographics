@@ -56,8 +56,6 @@ export default {
 
 <style lang="scss" scoped>
 .share-icon {
-  position: relative;
-  z-index: 1500;
   .share {
     display: inline-block;
     width: 40px;

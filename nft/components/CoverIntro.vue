@@ -14,7 +14,7 @@
       <div class="cover-intro__skip-img">
         <img src="~/assets/gif/pointer.gif" alt="skip" />
       </div>
-      <a v-smooth-scroll href="#article">跳過測驗看報導</a>
+      <span @click="handleSkip">跳過測驗看報導</span>
     </div>
     <div id="quiz-start" class="cover-intro__scrolldown">
       <span>往下滑開始測驗</span>
@@ -22,9 +22,28 @@
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    handleSkip() {
+      const element = document.querySelector('#article')
+      element.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      })
+    },
+  },
+}
+</script>
+
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
+
 .cover-intro {
   max-width: 656px;
+  font-family: Noto Serif TC, sans-serif;
   &__content {
     margin: 0 0 30px;
     @include media-breakpoint-up(md) {
@@ -62,7 +81,7 @@
         height: 100%;
       }
     }
-    a {
+    span {
       display: inline-block;
       font-size: 16px;
       font-weight: 700;
@@ -70,6 +89,7 @@
       color: #e9b34a;
       border-bottom: 1px solid #e9b34a;
       margin: 0 0 0 12px;
+      cursor: pointer;
     }
   }
   &__scrolldown {

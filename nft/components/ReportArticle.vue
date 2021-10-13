@@ -118,6 +118,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
+
 .article {
   width: 100%;
   max-width: 600px;
@@ -134,9 +138,9 @@ export default {
     &.bonus {
       width: 130px;
       height: 137px;
-      margin: 30px auto;
+      margin: 36px auto;
       @include media-breakpoint-up(md) {
-        margin: 66px auto;
+        margin: 72px auto;
       }
     }
     img {
