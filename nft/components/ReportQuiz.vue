@@ -39,6 +39,13 @@ export default {
 <style lang="scss" scoped>
 .quiz {
   width: 100%;
+  min-height: 3600px;
+  @include media-breakpoint-up(md) {
+    min-height: 4000px;
+  }
+  @include media-breakpoint-up(xl) {
+    min-height: 4800px;
+  }
   // height: 3660px;
   // min-height: 3660px;
   // @include media-breakpoint-up(sm) {
@@ -61,5 +68,12 @@ export default {
   //   width: 100%;
   //   height: 100%;
   // }
+}
+.flourish-embed {
+  &::v-deep {
+    .flourish-credit {
+      opacity: 0.3;
+    }
+  }
 }
 </style>
