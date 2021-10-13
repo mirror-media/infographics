@@ -32,9 +32,20 @@ export default {
     SvgFbIcon,
     SvgLineIcon,
   },
+  props: {
+    url: {
+      type: String,
+      default: undefined,
+    },
+  },
+  data() {
+    return {
+      isMounted: false,
+    }
+  },
   computed: {
     shareUrl() {
-      return this.url || (this.isMounted && location.href)
+      return encodeURIComponent(this.url || (this.isMounted && location.href))
     },
   },
   mounted() {
