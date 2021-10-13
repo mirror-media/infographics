@@ -80,9 +80,9 @@ export default {
 .navbar {
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 10px 16px;
   @include media-breakpoint-up(md) {
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
   &__left {
     width: 49px;

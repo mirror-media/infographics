@@ -28,14 +28,21 @@ export default {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    margin: 0 0 12px;
+    margin: 0 0 8px;
   }
   span {
-    font-size: 16px;
-    line-height: 24px;
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
     color: #fff;
-    opacity: 0.5;
-    margin: 0 0 0 20px;
+    @include media-breakpoint-up(md) {
+      font-size: 14px;
+      line-height: 20px;
+      text-align: left;
+    }
   }
 }
 </style>

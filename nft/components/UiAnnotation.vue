@@ -1,12 +1,12 @@
 <template>
-  <span class="article-annotation">
+  <p class="article-annotation">
     <readr-annotation :text="pureAnnotationText" class="readr-annotation">
       <span slot="toggle" class="toggle">
         <SvgArrowToggle />
       </span>
       <span class="text">{{ text }}</span>
     </readr-annotation>
-  </span>
+  </p>
 </template>
 
 <script>
@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.article-annotation {
+  display: inline;
+  text-align: left;
+}
 .toggle {
   display: inline-flex;
   justify-content: center;

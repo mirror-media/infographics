@@ -96,7 +96,7 @@ export default {
       li {
         width: 100%;
         @include media-breakpoint-up(md) {
-          width: calc((100% - 40px) / 3);
+          width: calc((100% - 80px) / 3);
         }
         a {
           width: 100%;
@@ -129,7 +129,7 @@ export default {
             font-weight: 300px;
             line-height: 24px;
             color: #fff;
-            text-align: center;
+            text-align: justify;
             word-wrap: break-word;
             word-break: break-all;
             -webkit-line-clamp: 4;
