@@ -19,17 +19,14 @@
           <div
             class="navbar__right-menu--ham"
             :class="{ rotate: shouldShowList }"
-            @click="shouldShowList = !shouldShowList"
+            @click="handleListClicked"
           >
             <img src="~/assets/images/menu_default.svg" alt="menu" />
           </div>
         </div>
-        <div
-          class="navbar__right-share"
-          @click="shouldShowSare = !shouldShowSare"
-        >
+        <div class="navbar__right-share" @click="handleShareClicked">
           <img src="~/assets/images/share.svg" alt="share" />
-          <UiShare v-show="shouldShowSare" class="navbar__right-share--list" />
+          <UiShare v-show="shouldShowShare" class="navbar__right-share--list" />
         </div>
       </div>
     </div>
@@ -54,7 +51,7 @@ export default {
     return {
       innerWidth: 0,
       shouldShowList: false,
-      shouldShowSare: false,
+      shouldShowShare: false,
     }
   },
   mounted() {
@@ -63,6 +60,14 @@ export default {
     }
   },
   methods: {
+    handleListClicked() {
+      this.shouldShowShare = false
+      this.shouldShowList = !this.shouldShowList
+    },
+    handleShareClicked() {
+      this.shouldShowList = false
+      this.shouldShowShare = !this.shouldShowShare
+    },
     closeList() {
       this.shouldShowList = false
     },

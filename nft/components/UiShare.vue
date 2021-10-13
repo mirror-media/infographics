@@ -70,7 +70,8 @@ export default {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: #111;
+      border: 1px solid #e0e0e0;
+      background-color: rgba(0, 0, 0, 0.7);
     }
     .fb {
       display: block;
