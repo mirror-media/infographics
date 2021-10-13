@@ -64,5 +64,11 @@
   },
   "LazyUiReportImage": {
     "description": "Auto imported from /components/UiReportImage.vue"
+  },
+  "UiShare": {
+    "description": "Auto imported from /components/UiShare.vue"
+  },
+  "LazyUiShare": {
+    "description": "Auto imported from /components/UiShare.vue"
   }
 }

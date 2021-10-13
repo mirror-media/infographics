@@ -24,8 +24,12 @@
             <img src="~/assets/images/menu_default.svg" alt="menu" />
           </div>
         </div>
-        <div class="navbar__right-share">
+        <div
+          class="navbar__right-share"
+          @click="shouldShowSare = !shouldShowSare"
+        >
           <img src="~/assets/images/share.svg" alt="share" />
+          <UiShare v-show="shouldShowSare" class="navbar__right-share--list" />
         </div>
       </div>
     </div>
@@ -39,15 +43,18 @@
 
 <script>
 import UiNavbarList from '~/components/UiNavbarList.vue'
+import UiShare from '~/components/UiShare.vue'
 
 export default {
   components: {
     UiNavbarList,
+    UiShare,
   },
   data() {
     return {
       innerWidth: 0,
       shouldShowList: false,
+      shouldShowSare: false,
     }
   },
   mounted() {
@@ -73,13 +80,13 @@ export default {
 .navbar {
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 10px 16px;
   @include media-breakpoint-up(md) {
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
   &__left {
-    width: 40px;
-    height: 40px;
+    width: 49px;
+    height: 49px;
     img {
       width: 100%;
       height: 100%;
@@ -103,6 +110,8 @@ export default {
         height: 31px;
         transition: all 0.2s ease-in-out;
         @include media-breakpoint-up(md) {
+          width: 44px;
+          height: 44px;
           margin: 0 0 0 34px;
         }
         img {
@@ -118,8 +127,8 @@ export default {
       }
     }
     &-share {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       margin: 0 0 0 12px;
       @include media-breakpoint-up(md) {
         margin: 0 0 0 18px;
@@ -127,6 +136,9 @@ export default {
       img {
         width: 100%;
         height: 100%;
+      }
+      &--list {
+        margin: 12px 0 0;
       }
       &:hover {
         cursor: pointer;

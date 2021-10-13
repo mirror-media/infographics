@@ -9,6 +9,7 @@ export { default as ReportRelated } from '../../components/ReportRelated.vue'
 export { default as UiAnnotation } from '../../components/UiAnnotation.vue'
 export { default as UiNavbarList } from '../../components/UiNavbarList.vue'
 export { default as UiReportImage } from '../../components/UiReportImage.vue'
+export { default as UiShare } from '../../components/UiShare.vue'
 
 export const LazyCoverBottomGif = import('../../components/CoverBottomGif.vue' /* webpackChunkName: "components/cover-bottom-gif" */).then(c => c.default || c)
 export const LazyCoverIntro = import('../../components/CoverIntro.vue' /* webpackChunkName: "components/cover-intro" */).then(c => c.default || c)
@@ -21,3 +22,4 @@ export const LazyReportRelated = import('../../components/ReportRelated.vue' /* 
 export const LazyUiAnnotation = import('../../components/UiAnnotation.vue' /* webpackChunkName: "components/ui-annotation" */).then(c => c.default || c)
 export const LazyUiNavbarList = import('../../components/UiNavbarList.vue' /* webpackChunkName: "components/ui-navbar-list" */).then(c => c.default || c)
 export const LazyUiReportImage = import('../../components/UiReportImage.vue' /* webpackChunkName: "components/ui-report-image" */).then(c => c.default || c)
+export const LazyUiShare = import('../../components/UiShare.vue' /* webpackChunkName: "components/ui-share" */).then(c => c.default || c)

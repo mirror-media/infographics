@@ -53,7 +53,7 @@
         />
       </p>
       <p>
-        國家運輸安全調查委員會<UiAnnotation
+        <UiAnnotation
           :text="'國家運輸安全調查委員會'"
           :pureAnnotationText="'註：2018 年發生普悠瑪號出軌意外後，時任行政院長賴清德推動將「飛航安全調查委員會」改制為「國家運輸安全調查委員會」，調查範圍從原本的航空案件，擴大到陸、海、空等重大的運輸事故。'"
         />8
@@ -68,14 +68,14 @@
         個臨軌工程全面停工，通過鐵道局查核後才復工；未來新建的工程原則上由鐵道局負責，臺鐵局則必須負起工地安全管理責任，不能全數外包給廠商。
       </p>
       <p>
-        同時規劃新建工程和監督臺鐵工作，鐵道局不會有「球員兼裁判」的疑慮嗎<UiAnnotation
+        同時規劃新建工程和監督臺鐵工作，鐵道局不會有<UiAnnotation
           :text="'「球員兼裁判」的疑慮嗎'"
           :pureAnnotationText="'註：交通部鐵道局負責興建工程，橋梁、隧道、路線、軌道與建築等土建鐵道工程。交通部臺灣鐵路局除提供大眾運輸服務與營運外、也需負責養護工程作業，如電力、電訊、號誌、車輛、機廠維修設備與中央監控等系統機電工程。2018年，《交通部鐵道局組織法》施行，將鐵路監理業務劃歸鐵道局，但因為母法《鐵路法》尚未修正，法制化的工作還沒有完成。'"
         />？鐵道局進一步解釋，未來新增的業務會包含重大邊坡、橋樑、隧道及車站等工程，鐵道建設及營運監理是不同部門負責，各自辦理業務，如果鐵道局負責的業務出現疏失，「我們也不會參與調查作業。」
       </p>
       <p>
         此外，鐵道局表示，行政院 9 月 16
-        日通過《鐵路法》修正草案，明訂「鐵路監督管理」<UiAnnotation
+        日通過《鐵路法》修正草案，明訂<UiAnnotation
           :text="'「鐵路監督管理」'"
           :pureAnnotationText="'包含鐵路興建營運備查、列車駕駛檢定發照、設備不當通知改善、重大事故通報查核等業務。'"
         />由交通部改成鐵道局執行；而過去發生重大鐵道事故時，是由交通部聘請專家學者調查，修法後無論是重大、一般或異常事故，全部都由鐵道局負責。
@@ -85,7 +85,7 @@
       <img src="~/assets/gif/treasure.gif" alt="treasure" />
     </div>
     <div>
-      <h2>文章標題文章標題文章標題文章標題文章標題文章標題</h2>
+      <h2>番外番外番外番外番外番外番外番外番外番外番外番外番外番外番外番外</h2>
       <p>
         2021 年 4 月 2
         日清明連假，一輛從邊坡滑落到軌道的大貨車造成臺鐵營運史上死傷最慘重的事故，共
@@ -122,7 +122,6 @@ export default {
   width: 100%;
   max-width: 600px;
   font-family: Noto Serif TC, sans-serif;
-  padding: 0 20px;
   .gif-graph {
     width: 55px;
     height: 62px;
@@ -169,13 +168,12 @@ export default {
     font-size: 16px;
     font-weight: 300;
     line-height: 32px;
-    text-align: justify;
-    color: #bababa;
+    text-align: left;
+    color: #fff;
     @include media-breakpoint-up(md) {
       font-size: 18px;
       font-weight: 400;
-      line-height: 36px;
-      color: #979797;
+      line-height: 34px;
     }
     a {
       text-decoration: underline;
@@ -190,9 +188,14 @@ export default {
     }
   }
   &__image {
-    width: 100%;
+    width: calc(100% + 40px);
     height: calc((100vw - 40px) / 1.5);
-    max-height: 400px;
+    transform: translateX(-20px);
+    @include media-breakpoint-up(md) {
+      width: 100%;
+      height: 400px;
+      transform: none;
+    }
   }
 }
 </style>
