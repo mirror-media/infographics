@@ -2,19 +2,19 @@
   <ul>
     <li>
       <img src="~/assets/gif/giphy-3.gif" alt="to home" />
-      <a v-smooth-scroll href="#cover" @click="closeList">回到首頁</a>
+      <span @click="handleItemClicked('#cover')">回到首頁</span>
     </li>
     <li>
       <img src="~/assets/gif/giphy-2.gif" alt="to test" />
-      <a v-smooth-scroll href="#quiz-start" @click="closeList">NFT小測驗</a>
+      <span @click="handleItemClicked('#quiz-start')">NFT小測驗</span>
     </li>
     <li>
       <img src="~/assets/gif/giphy-4.gif" alt="to article" />
-      <a v-smooth-scroll href="#article" @click="closeList">完整報導</a>
+      <span @click="handleItemClicked('#article')">完整報導</span>
     </li>
     <li>
       <img src="~/assets/gif/giphy-4.gif" alt="to extend report" />
-      <a v-smooth-scroll href="#extend" @click="closeList">番外篇</a>
+      <span @click="handleItemClicked('#extend')">番外篇</span>
     </li>
   </ul>
 </template>
@@ -22,6 +22,14 @@
 <script>
 export default {
   methods: {
+    handleItemClicked(anchorId = '#cover') {
+      this.closeList()
+      const element = document.querySelector(anchorId)
+      element.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      })
+    },
     closeList() {
       this.$emit('close-list')
     },
@@ -54,13 +62,14 @@ ul {
       width: 31px;
       height: 31px;
     }
-    a {
+    span {
       display: block;
       font-size: 18px;
       font-weight: 300;
       line-height: 24px;
       color: #e9b34a;
       margin: 0 0 0 6px;
+      cursor: pointer;
       border-bottom: 1px solid #e9b34a;
     }
   }

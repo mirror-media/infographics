@@ -1,6 +1,6 @@
 <template>
   <section class="article">
-    <div id="article" class="gif-graph">
+    <div id="article" class="gif-graph money">
       <img src="~/assets/gif/dollar-money.gif" alt="dollar money" />
     </div>
     <div>
@@ -81,8 +81,8 @@
         />由交通部改成鐵道局執行；而過去發生重大鐵道事故時，是由交通部聘請專家學者調查，修法後無論是重大、一般或異常事故，全部都由鐵道局負責。
       </p>
     </div>
-    <div id="extend" class="gif-graph">
-      <img src="~/assets/gif/treasure.gif" alt="treasure" />
+    <div id="extend" class="gif-graph bonus">
+      <img src="~/assets/gif/bonus.gif" alt="bonus" />
     </div>
     <div>
       <h2>番外番外番外番外番外番外番外番外番外番外番外番外番外番外番外番外</h2>
@@ -118,20 +118,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
+
 .article {
   width: 100%;
   max-width: 600px;
   font-family: Noto Serif TC, sans-serif;
   .gif-graph {
-    width: 55px;
-    height: 62px;
-    margin: 60px auto;
+    &.money {
+      width: 55px;
+      height: 62px;
+      margin: 60px auto;
+      @include media-breakpoint-up(md) {
+        margin: 96px auto;
+      }
+    }
+    &.bonus {
+      width: 130px;
+      height: 137px;
+      margin: 36px auto;
+      @include media-breakpoint-up(md) {
+        margin: 72px auto;
+      }
+    }
     img {
       width: 100%;
       height: 100%;
-    }
-    @include media-breakpoint-up(md) {
-      margin: 96px auto;
     }
   }
   h2 {
