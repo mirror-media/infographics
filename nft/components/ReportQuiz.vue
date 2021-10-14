@@ -2,47 +2,46 @@
   <div class="quiz">
     <!-- eslint-disable vue/no-v-html -->
     <!-- <div class="quiz__iframe" v-html="iframeSrc" /> -->
-    <div
-      class="flourish-embed flourish-quiz"
-      data-src="visualisation/7190892"
-    />
+    <div class="flourish-embed flourish-quiz" data-src="visualisation/7190892">
+      <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  // data() {
-  //   return {
-  //     iframeSrc: `
-  //       <iframe
-  //         src='https://flo.uri.sh/visualisation/7190892/embed'
-  //         title='Interactive or visual content'
-  //         class='flourish-embed-iframe'
-  //         frameborder='0'
-  //         scrolling='no'
-  //         style='width:100%;height:100%;'
-  //         sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'
-  //       ></iframe>
-  //     `,
-  //   }
-  // },
-  mounted() {
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.crossOrigin = true
-    script.src = 'https://public.flourish.studio/resources/embed.js'
-    document.body.appendChild(script)
-  },
-}
+// export default {
+// data() {
+//   return {
+//     iframeSrc: `
+//       <iframe
+//         src='https://flo.uri.sh/visualisation/7190892/embed'
+//         title='Interactive or visual content'
+//         class='flourish-embed-iframe'
+//         frameborder='0'
+//         scrolling='no'
+//         style='width:100%;height:100%;'
+//         sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'
+//       ></iframe>
+//     `,
+//   }
+// },
+// mounted() {
+//   const script = document.createElement('script')
+//   script.type = 'text/javascript'
+//   script.crossOrigin = true
+//   script.src = 'https://public.flourish.studio/resources/embed.js'
+//   document.body.appendChild(script)
+// },
+// }
 </script>
 
 <style lang="scss" scoped>
 .quiz {
   width: 100%;
-  min-height: 8150px;
-  @include media-breakpoint-up(md) {
-    min-height: 10150px;
-  }
+  // min-height: 8150px;
+  // @include media-breakpoint-up(md) {
+  //   min-height: 10150px;
+  // }
   // height: 3660px;
   // min-height: 3660px;
   // @include media-breakpoint-up(sm) {
