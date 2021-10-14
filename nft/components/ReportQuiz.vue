@@ -1,38 +1,21 @@
 <template>
-  <div class="quiz">
-    <!-- eslint-disable vue/no-v-html -->
-    <!-- <div class="quiz__iframe" v-html="iframeSrc" /> -->
+  <div class="quiz" :class="{ open: shouldShowContent }">
     <div
       class="flourish-embed flourish-quiz"
       data-src="visualisation/7190892"
+      @click="shouldShowContent = true"
     />
+    <div v-if="!shouldShowContent" class="hide" />
   </div>
 </template>
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     iframeSrc: `
-  //       <iframe
-  //         src='https://flo.uri.sh/visualisation/7190892/embed'
-  //         title='Interactive or visual content'
-  //         class='flourish-embed-iframe'
-  //         frameborder='0'
-  //         scrolling='no'
-  //         style='width:100%;height:100%;'
-  //         sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'
-  //       ></iframe>
-  //     `,
-  //   }
-  // },
-  // mounted() {
-  //   const script = document.createElement('script')
-  //   script.type = 'text/javascript'
-  //   script.crossOrigin = true
-  //   script.src = 'https://public.flourish.studio/resources/embed.js'
-  //   document.body.appendChild(script)
-  // },
+  data() {
+    return {
+      shouldShowContent: false,
+    }
+  },
   head() {
     return {
       script: [
@@ -50,32 +33,30 @@ export default {
 <style lang="scss" scoped>
 .quiz {
   width: 100%;
-  // min-height: 8150px;
-  // @include media-breakpoint-up(md) {
-  //   min-height: 10150px;
-  // }
-  // height: 3660px;
-  // min-height: 3660px;
-  // @include media-breakpoint-up(sm) {
-  //   height: 3900px;
-  //   min-height: 3900px;
-  // }
-  // @include media-breakpoint-up(md) {
-  //   height: 4200px;
-  //   min-height: 4200px;
-  // }
-  // @include media-breakpoint-up(xl) {
-  //   height: 5660px;
-  //   min-height: 5660px;
-  // }
-  // @include media-breakpoint-up(xxl) {
-  //   height: 5700px;
-  //   min-height: 5700px;
-  // }
-  // &__iframe {
-  //   width: 100%;
-  //   height: 100%;
-  // }
+  max-height: 2000px;
+  overflow: hidden;
+  position: relative;
+}
+.open {
+  width: 100%;
+  max-height: none;
+}
+.hide {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.3) 20%,
+    rgba(0, 0, 0, 0.5) 35%,
+    rgba(0, 0, 0, 0.7) 65%,
+    rgba(0, 0, 0, 0.85) 70%,
+    #000
+  );
 }
 .flourish-embed {
   &::v-deep {
