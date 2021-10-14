@@ -26,12 +26,23 @@ export default {
   //     `,
   //   }
   // },
-  mounted() {
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.crossOrigin = true
-    script.src = 'https://public.flourish.studio/resources/embed.js'
-    document.body.appendChild(script)
+  // mounted() {
+  //   const script = document.createElement('script')
+  //   script.type = 'text/javascript'
+  //   script.crossOrigin = true
+  //   script.src = 'https://public.flourish.studio/resources/embed.js'
+  //   document.body.appendChild(script)
+  // },
+  head() {
+    return {
+      script: [
+        {
+          hid: 'flourish',
+          src: 'https://public.flourish.studio/resources/embed.js',
+          crossOrigin: true,
+        },
+      ],
+    }
   },
 }
 </script>
