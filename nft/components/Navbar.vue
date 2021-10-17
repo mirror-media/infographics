@@ -16,16 +16,23 @@
             class="xl-list"
             @close-list="closeList"
           />
-          <div
+          <button
+            type="button"
             class="navbar__right-menu--ham"
             :class="{ rotate: shouldShowList }"
             @click="handleListClicked"
           >
             <img src="~/assets/images/menu_default.svg" alt="menu" />
-          </div>
+          </button>
         </div>
-        <div class="navbar__right-share" @click="handleShareClicked">
-          <img src="~/assets/images/share.svg" alt="share" />
+        <div class="navbar__right-share">
+          <button
+            type="button"
+            class="navbar__right-share--btn"
+            @click="handleShareClicked"
+          >
+            <img src="~/assets/images/share.svg" alt="share" />
+          </button>
           <UiShare v-show="shouldShowShare" class="navbar__right-share--list" />
         </div>
       </div>
@@ -111,6 +118,7 @@ export default {
         align-items: center;
       }
       &--ham {
+        display: block;
         width: 31px;
         height: 31px;
         transition: all 0.2s ease-in-out;
@@ -126,27 +134,41 @@ export default {
         &:hover {
           cursor: pointer;
         }
+        &:focus,
+        &:active {
+          outline: none;
+        }
       }
       .rotate {
         transform: rotate(90deg);
       }
     }
     &-share {
-      width: 40px;
-      height: 40px;
+      position: relative;
       margin: 0 0 0 12px;
       @include media-breakpoint-up(md) {
         margin: 0 0 0 18px;
       }
-      img {
-        width: 100%;
-        height: 100%;
+      &--btn {
+        display: block;
+        width: 40px;
+        height: 40px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+        &:focus,
+        &:active {
+          outline: none;
+        }
       }
       &--list {
-        margin: 12px 0 0;
-      }
-      &:hover {
-        cursor: pointer;
+        position: absolute;
+        top: 56px;
+        left: 0;
       }
     }
   }

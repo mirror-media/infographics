@@ -1,47 +1,49 @@
 <template>
   <div class="quiz">
-    <!-- eslint-disable vue/no-v-html -->
-    <!-- <div class="quiz__iframe" v-html="iframeSrc" /> -->
-    <div
-      class="flourish-embed flourish-quiz"
-      data-src="visualisation/7190892"
-    />
+    <div id="interact-5e746fc2bb7d7000148263d2" />
   </div>
 </template>
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     iframeSrc: `
-  //       <iframe
-  //         src='https://flo.uri.sh/visualisation/7190892/embed'
-  //         title='Interactive or visual content'
-  //         class='flourish-embed-iframe'
-  //         frameborder='0'
-  //         scrolling='no'
-  //         style='width:100%;height:100%;'
-  //         sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'
-  //       ></iframe>
-  //     `,
-  //   }
-  // },
-  // mounted() {
-  //   const script = document.createElement('script')
-  //   script.type = 'text/javascript'
-  //   script.crossOrigin = true
-  //   script.src = 'https://public.flourish.studio/resources/embed.js'
-  //   document.body.appendChild(script)
-  // },
   head() {
     return {
       script: [
         {
-          hid: 'flourish',
-          src: 'https://public.flourish.studio/resources/embed.js',
-          crossOrigin: true,
+          hid: 'quiz',
+          innerHTML: `
+            var app_5e746fc2bb7d7000148263d2;
+            (function(d, t){
+              var s = d.createElement(t),
+              options = {
+                "appId": "5e746fc2bb7d7000148263d2",
+                "width": "800",
+                "height": "800",
+                "async": true,
+                "host": "quiz.tryinteract.com",
+                "auto_resize": true,
+                "footer": "show",
+              };
+              s.src = 'https://i.tryinteract.com/embed/app.js';
+              s.onload = s.onreadystatechange = function(){
+                var rs = this.readyState;
+                if(rs) if(rs != 'complete') if(rs != 'loaded') return;
+                try{
+                  app_5e746fc2bb7d7000148263d2 = new InteractApp();
+                  app_5e746fc2bb7d7000148263d2.initialize(options);
+                  app_5e746fc2bb7d7000148263d2.display();
+                } catch(e){}
+              };
+              var scr = d.getElementsByTagName(t)[0],
+              par = scr.parentNode;
+              par.insertBefore(s, scr);
+            })(document, 'script');
+          `,
         },
       ],
+      __dangerouslyDisableSanitizersByTagID: {
+        quiz: ['innerHTML'],
+      },
     }
   },
 }
@@ -50,38 +52,9 @@ export default {
 <style lang="scss" scoped>
 .quiz {
   width: 100%;
-  // min-height: 8150px;
-  // @include media-breakpoint-up(md) {
-  //   min-height: 10150px;
-  // }
-  // height: 3660px;
-  // min-height: 3660px;
-  // @include media-breakpoint-up(sm) {
-  //   height: 3900px;
-  //   min-height: 3900px;
-  // }
-  // @include media-breakpoint-up(md) {
-  //   height: 4200px;
-  //   min-height: 4200px;
-  // }
-  // @include media-breakpoint-up(xl) {
-  //   height: 5660px;
-  //   min-height: 5660px;
-  // }
-  // @include media-breakpoint-up(xxl) {
-  //   height: 5700px;
-  //   min-height: 5700px;
-  // }
-  // &__iframe {
-  //   width: 100%;
-  //   height: 100%;
-  // }
-}
-.flourish-embed {
-  &::v-deep {
-    .flourish-credit {
-      opacity: 0.3;
-    }
+  margin: 0 auto;
+  @include media-breakpoint-up(md) {
+    width: 656px;
   }
 }
 </style>
