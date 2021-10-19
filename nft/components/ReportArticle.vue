@@ -4,7 +4,6 @@
       <img src="~/assets/gif/dollar-money.gif" alt="dollar money" />
     </div>
     <div>
-      <h2>文章標題文章標題文章標題文章標題文章標題文章標題</h2>
       <p>
         2021 年 4 月 2
         日清明連假，一輛從邊坡滑落到軌道的大貨車造成臺鐵營運史上死傷最慘重的事故，共

@@ -1,15 +1,15 @@
 {
+  "Cover": {
+    "description": "Auto imported from /components/Cover.vue"
+  },
+  "LazyCover": {
+    "description": "Auto imported from /components/Cover.vue"
+  },
   "CoverBottomGif": {
     "description": "Auto imported from /components/CoverBottomGif.vue"
   },
   "LazyCoverBottomGif": {
     "description": "Auto imported from /components/CoverBottomGif.vue"
-  },
-  "CoverIntro": {
-    "description": "Auto imported from /components/CoverIntro.vue"
-  },
-  "LazyCoverIntro": {
-    "description": "Auto imported from /components/CoverIntro.vue"
   },
   "CoverTopGif": {
     "description": "Auto imported from /components/CoverTopGif.vue"
