@@ -2,12 +2,7 @@
   <div class="nft">
     <Navbar />
     <div class="nft__content">
-      <div id="cover" class="nft__content__cover">
-        <CoverTopGif />
-        <img src="~/assets/images/title.png" alt="cover" class="img" />
-        <CoverBottomGif />
-      </div>
-      <CoverIntro class="nft__content__intro" />
+      <Cover class="nft__content__cover" />
       <ReportQuiz class="nft__content__quiz" />
       <ReportArticle class="nft__content__article" />
       <ReportRelated class="nft__content__related" />
@@ -18,27 +13,21 @@
 
 <script>
 import Navbar from '~/components/Navbar.vue'
-import CoverTopGif from '~/components/CoverTopGif.vue'
-import CoverBottomGif from '~/components/CoverBottomGif.vue'
-import CoverIntro from '~/components/CoverIntro.vue'
+import Cover from '~/components/Cover.vue'
 import ReportArticle from '~/components/ReportArticle.vue'
 import ReportQuiz from '~/components/ReportQuiz.vue'
 import ReportRelated from '~/components/ReportRelated.vue'
 import Credit from '~/components/Credit.vue'
-import gaMixin from '~/mixins/gaMixin'
 
 export default {
   components: {
     Navbar,
-    CoverTopGif,
-    CoverBottomGif,
-    CoverIntro,
+    Cover,
     ReportQuiz,
     ReportRelated,
     ReportArticle,
     Credit,
   },
-  mixins: [gaMixin],
 }
 </script>
 
@@ -51,27 +40,17 @@ export default {
   &__content {
     padding: 0 20px;
     &__cover {
-      max-width: 666px;
-      margin: 0 auto 40px;
+      margin: 0 auto;
       padding: 84px 0 0;
       @include media-breakpoint-up(md) {
-        margin: 0 auto 45px;
         padding: 128px 0 0;
       }
-      .img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-        margin: 6px 0;
-        @include media-breakpoint-up(md) {
-          margin: 12px 0;
-        }
-      }
     }
-    &__intro {
-      margin: 0 auto 12px;
+    &__quiz {
+      margin: 0 auto;
+      padding: 70px 0 0;
       @include media-breakpoint-up(md) {
-        margin: 0 auto 28px;
+        padding: 80px 0 0;
       }
     }
     &__article {
