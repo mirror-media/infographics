@@ -493,15 +493,10 @@ export default {
       margin: 0 0 44px;
     }
     &-para {
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 32px;
+      font-size: 18px;
+      line-height: 34px;
       text-align: justify;
       color: #e9b34a;
-      @include media-breakpoint-up(md) {
-        font-size: 18px;
-        line-height: 34px;
-      }
     }
     &-para + &-para {
       margin: 16px 0 0;
@@ -513,11 +508,9 @@ export default {
   &__content {
     &__image {
       width: calc(100% + 40px);
-      height: calc((100vw - 40px) / 1.5);
       transform: translateX(-20px);
       @include media-breakpoint-up(md) {
         width: 100%;
-        height: 400px;
         transform: none;
       }
     }
@@ -555,7 +548,8 @@ export default {
       font-size: 16px;
       font-weight: 300;
       line-height: 32px;
-      text-align: left;
+      text-align: justify;
+      letter-spacing: 0.006em;
       color: #fff;
       @include media-breakpoint-up(md) {
         font-size: 18px;

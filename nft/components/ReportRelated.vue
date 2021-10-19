@@ -31,21 +31,21 @@ export default {
       list: [
         {
           href: 'https://www.mirrormedia.mg/story/20211011edi033/',
-          image: require('~/assets/images/article-picture-1.jpeg'),
+          image: require('~/assets/images/article/img1.jpg'),
           title: '【全文】我們不是神：看不見的社工職業創傷',
           text:
             '社工是一群專業的助人工作者，為何飽受社會大眾的誤解？他們面對社會最悲劇的陰暗角落，為何成了憂鬱沮喪的專業人士？《鏡週刊》人物組採用台北市社工師',
         },
         {
           href: 'https://www.mirrormedia.mg/story/20211011edi033/',
-          image: require('~/assets/images/article-picture-1.jpeg'),
+          image: require('~/assets/images/article/img1.jpg'),
           title: '【全文】我們不是神：看不見的社工職業創傷',
           text:
             '社工是一群專業的助人工作者，為何飽受社會大眾的誤解？他們面對社會最悲劇的陰暗角落，為何成了憂鬱沮喪的專業人士？《鏡週刊》人物組採用台北市社工師',
         },
         {
           href: 'https://www.mirrormedia.mg/story/20211011edi033/',
-          image: require('~/assets/images/article-picture-1.jpeg'),
+          image: require('~/assets/images/article/img1.jpg'),
           title: '【全文】我們不是神：看不見的社工職業創傷',
           text:
             '社工是一群專業的助人工作者，為何飽受社會大眾的誤解？他們面對社會最悲劇的陰暗角落，為何成了憂鬱沮喪的專業人士？《鏡週刊》人物組採用台北市社工師',

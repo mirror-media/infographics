@@ -1,7 +1,7 @@
 <template>
   <div class="report-image">
     <img :src="image" :alt="`image-${text}`" />
-    <span>{{ text }}</span>
+    <p>{{ text }}</p>
   </div>
 </template>
 
@@ -22,26 +22,32 @@ export default {
 
 <style lang="scss" scoped>
 .report-image {
-  margin: 32px 0 64px;
+  margin: 44px 0;
   img {
     width: 100%;
-    height: 100%;
+    height: calc((100vw - 40px) / 1.5);
     object-fit: cover;
     object-position: center;
-    margin: 0 0 8px;
+    margin: 0 0 16px;
+    @include media-breakpoint-up(md) {
+      height: 400px;
+    }
   }
-  span {
+  p {
     display: block;
     width: 100%;
     font-size: 12px;
     font-weight: 500;
-    line-height: 18px;
-    text-align: center;
-    color: #fff;
+    line-height: 1.8;
+    text-align: justify;
+    letter-spacing: 0.04em;
+    color: #5b9c4b;
+    padding: 0 20px;
     @include media-breakpoint-up(md) {
       font-size: 14px;
-      line-height: 20px;
-      text-align: left;
+      font-weight: 400;
+      line-height: 2;
+      padding: 0;
     }
   }
 }
