@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="credit__time">
-      <span>2021.10.20</span>
+      <span>2021.10.23</span>
     </div>
   </div>
 </template>
@@ -53,18 +53,14 @@ export default {
           name: ['陳冠達'],
         },
         {
-          title: '設計',
+          title: '週刊版面設計',
           name: ['徐佳慧'],
         },
       ],
       list2: [
         {
-          title: '繪圖',
-          name: ['于子薇'],
-        },
-        {
-          title: '插畫',
-          name: ['米承鶴'],
+          title: '插畫繪圖',
+          name: ['于子薇', '米承鶴'],
         },
         {
           title: '網頁製作',

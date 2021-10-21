@@ -87,7 +87,13 @@ export default {
   width: 100%;
   position: fixed;
   z-index: 1000;
-  background-color: #000;
+  background: linear-gradient(
+    to bottom,
+    #000,
+    rgba(0, 0, 0, 0.95) 50%,
+    rgba(0, 0, 0, 0.7) 70%,
+    transparent 90%
+  );
 }
 .navbar {
   display: flex;
