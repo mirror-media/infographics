@@ -51,7 +51,10 @@ export default {
       }
     }
     &__article {
-      margin: 0 auto;
+      margin: 0 auto 66px;
+      @include media-breakpoint-up(md) {
+        margin: 0 auto 122px;
+      }
     }
     &__credit {
       margin: 0 auto;
