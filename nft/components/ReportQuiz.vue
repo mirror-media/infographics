@@ -46,6 +46,21 @@ export default {
       },
     }
   },
+  mounted() {
+    const resizeOb = new ResizeObserver(() => {
+      const element = document.querySelector('#quiz-start')
+      if (
+        (window.innerWidth < 768 && window.pageYOffset > 200) ||
+        (window.innerWidth >= 768 && window.pageYOffset > 500)
+      ) {
+        element.scrollIntoView({
+          block: 'start',
+          behavior: 'smooth',
+        })
+      }
+    })
+    resizeOb.observe(document.querySelector('#quiz-start'))
+  },
 }
 </script>
 
