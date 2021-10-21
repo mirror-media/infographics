@@ -5,7 +5,6 @@
       <Cover class="nft__content__cover" />
       <ReportQuiz class="nft__content__quiz" />
       <ReportArticle class="nft__content__article" />
-      <ReportRelated class="nft__content__related" />
       <Credit class="nft__content__credit" />
     </div>
   </div>
@@ -16,7 +15,6 @@ import Navbar from '~/components/Navbar.vue'
 import Cover from '~/components/Cover.vue'
 import ReportArticle from '~/components/ReportArticle.vue'
 import ReportQuiz from '~/components/ReportQuiz.vue'
-import ReportRelated from '~/components/ReportRelated.vue'
 import Credit from '~/components/Credit.vue'
 
 export default {
@@ -24,7 +22,6 @@ export default {
     Navbar,
     Cover,
     ReportQuiz,
-    ReportRelated,
     ReportArticle,
     Credit,
   },
@@ -54,12 +51,9 @@ export default {
       }
     }
     &__article {
-      margin: 0 auto;
-    }
-    &__related {
-      margin: 0 auto 76px;
+      margin: 0 auto 66px;
       @include media-breakpoint-up(md) {
-        margin: 0 auto 100px;
+        margin: 0 auto 122px;
       }
     }
     &__credit {

@@ -1,6 +1,6 @@
 <template>
   <div class="report-image">
-    <img :src="image" :alt="`image-${text}`" />
+    <img v-lazy="image" :alt="`image-${text}`" />
     <p>{{ text }}</p>
   </div>
 </template>
