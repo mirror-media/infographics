@@ -22,7 +22,8 @@ export const pagesData = {
     type: 'map',
     content: {
       text: {
-        "zh-tw": `在二月二十四日俄國侵略烏克蘭之前，我從維也納搭機前往基輔不過兩個多小時。如今，同樣旅程需要花上兩天時間，還得用盡各種可能的交通方式—火車、汽車、巴士、計程車，加上在邊境等待的數個小時，以及無數個檢查哨。
+        "zh-tw": {
+          caption: `在二月二十四日俄國侵略烏克蘭之前，我從維也納搭機前往基輔不過兩個多小時。如今，同樣旅程需要花上兩天時間，還得用盡各種可能的交通方式—火車、汽車、巴士、計程車，加上在邊境等待的數個小時，以及無數個檢查哨。
 
   無論如何，我總算從被戰爭撕裂的烏克蘭回到（奧地利葛拉茨）家中。我把頭盔和防彈背心丟到地上，把穿了將近一個月的衣服扔進洗衣機，除了偶爾傳來的洗衣機砰砰聲，周遭是一片詭異的安靜。如同往常，我從家中望見遠方地平線上，覆著雪的阿爾卑斯山。我給仙人掌澆水，留言給孩子們，打開紅酒。我想藉酒精放鬆一下，趴在廚房桌上睡著了，洗衣機開始旋轉，轟隆隆的洗衣機聲變成烏克蘭的空襲警報，我被驚醒。
   
@@ -37,9 +38,11 @@ export const pagesData = {
   距波蘭、烏克蘭邊境僅七十多公里的烏克蘭西部城市利沃夫，被認為是相對安全的地方。戰爭開打數週以前，已有不少國家的外交人員從基輔撤退至此。只是，顯然在烏克蘭境內已經沒有安全的地方了。在烏克蘭境內，每天關於可疑行動的電話就有大約一萬通。人們以一種祕密、高度警戒的方式，追捕烏克蘭境內潛在的俄羅斯「破壞者」。
   
   我的工作的荒謬性或許在於，我傾向前往人們不停逃出的地方，一個逆行者⋯⋯`},
-      "en": `Before the Russian invasion of Ukraine on February 24, I had been on a flight from Vienna to Kyiv for just over two hours. Today, the same journey takes two days and exhausts every possible mode of transportation — trains, cars, buses, taxis, plus hours of waiting at the border, and countless checkpoints.
+        "en": {
+          caption: `Before the Russian invasion of Ukraine on February 24, I had been on a flight from Vienna to Kyiv for just over two hours. Today, the same journey takes two days and exhausts every possible mode of transportation — trains, cars, buses, taxis, plus hours of waiting at the border, and countless checkpoints.
 
-      Anyway, I finally returned home (Graz, Austria) from war-torn Ukraine. I threw my helmet and bulletproof vest on the ground, and threw my clothes that I had worn for nearly a month into the washing machine, and it was eerily quiet except for the occasional thump of the washing machine. From home, as usual, I saw the snow-covered Alps on the far horizon. I water the cacti, leave messages to the kids, and open the wine. I wanted to relax with alcohol and fell asleep on the kitchen table. The washing machine started spinning, and the rumbling of the washing machine turned into a Ukrainian air raid siren. I was woken up.`,
+      Anyway, I finally returned home (Graz, Austria) from war-torn Ukraine. I threw my helmet and bulletproof vest on the ground, and threw my clothes that I had worn for nearly a month into the washing machine, and it was eerily quiet except for the occasional thump of the washing machine. From home, as usual, I saw the snow-covered Alps on the far horizon. I water the cacti, leave messages to the kids, and open the wine. I wanted to relax with alcohol and fell asleep on the kitchen table. The washing machine started spinning, and the rumbling of the washing machine turned into a Ukrainian air raid siren. I was woken up.`}
+      },
       photo: 'public/mountain_3840x2160.jpg'
     }
   }, {

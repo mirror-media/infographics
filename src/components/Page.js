@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import styled from 'styled-components'
+import Caption from './Caption'
 
 const Wrapper = styled.div`
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -28,9 +30,12 @@ const Content = styled.div`
 `
 
 export default function Page({ page, onClick }) {
+  const caption = page.content.text["zh-tw"].caption
+  console.log(caption)
 
-  return <Wrapper onClick={onClick.bind(null, page.id)}>
+  return <Wrapper onClick={() => { }}>
     <Background src='mountain_3840x2160.jpg' />
     <Content>{page.id + ' ' + page.type}</Content>
+    {caption && <Caption caption={caption} enlarge={page.type === 'map'} />}
   </Wrapper>
 }
