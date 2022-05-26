@@ -1,8 +1,10 @@
+import Landscape from './components/Landscape.js';
 
 
 function App() {
+
   return (
-    <div></div>
+    <Landscape />
   );
 }
 
