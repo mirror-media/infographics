@@ -29,7 +29,7 @@ const Content = styled.div`
 
 export default function Page({ page, onClick }) {
 
-  return <Wrapper>
+  return <Wrapper onClick={onClick.bind(null, page.id)}>
     <Background src='mountain_3840x2160.jpg' />
     <Content>{page.id + ' ' + page.type}</Content>
   </Wrapper>
