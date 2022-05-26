@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import Pages from "./Pages";
 import useForceLandscape from "../hooks/useForceLandscape";
 
 const Wrapper = styled.div``
@@ -9,7 +10,7 @@ export default function Landscape() {
   return (
     <Wrapper>
       {forceLandscape && <div>給我橫向</div>}
-      {!forceLandscape && <div>Pages...</div>}
+      {!forceLandscape && <Pages />}
     </Wrapper>
   )
 }
