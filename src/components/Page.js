@@ -9,11 +9,11 @@ const Wrapper = styled.div`
   overflow: hidden;
 `
 
-const Background = styled.img`
+const CoverImage = styled.img`
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   z-index: 0;
 `
 
@@ -34,7 +34,7 @@ export default function Page({ page, onClick }) {
   console.log(caption)
 
   return <Wrapper onClick={() => { }}>
-    <Background src='mountain_3840x2160.jpg' />
+    <CoverImage src='mountain_3840x2160.jpg' />
     <Content>{page.id + ' ' + page.type}</Content>
     {caption && <Caption caption={caption} enlarge={page.type === 'map'} />}
   </Wrapper>
