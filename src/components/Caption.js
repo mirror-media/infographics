@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
   position: absolute;
-  z-index: 10;
+  z-index: 5;
   background: rgba(0,0,0,0.6);
   opcacity: 0.8;
   ${({ enlarge }) => (

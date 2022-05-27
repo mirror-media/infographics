@@ -9,11 +9,11 @@ const Wrapper = styled.div`
   overflow: hidden;
 `
 
-const CoverImage = styled.img`
+const BackgroundImage = styled.img`
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 0;
 `
 
@@ -24,17 +24,17 @@ const Content = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  z-index: 1;
 
   font-size: 38px;
 `
 
-export default function Page({ page, onClick }) {
+export default function Page({ page }) {
   const caption = page.content.text["zh-tw"].caption
   console.log(caption)
 
   return <Wrapper onClick={() => { }}>
-    <CoverImage src='mountain_3840x2160.jpg' />
+    <BackgroundImage src='images/mountain_3840x2160.jpg' />
+
     <Content>{page.id + ' ' + page.type}</Content>
     {caption && <Caption caption={caption} enlarge={page.type === 'map'} />}
   </Wrapper>
