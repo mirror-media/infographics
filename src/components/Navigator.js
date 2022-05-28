@@ -122,7 +122,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex })
               const active = browsingIndex === index
               return (index === 0 || index === pages.length - 1) ? <div key={page.id}></div> : (
                 <PageButton key={page.id} onClick={navigateTo.bind(null, index)} active={active} className={active ? 'active' : ''}>
-                  <Thumbnail src='images/mountain_3840x2160.jpg' alt="thumbnail of photos" />
+                  <Thumbnail src='images/mountain.jpg' alt="thumbnail of photos" />
                   <FakeId>{index}</FakeId>
                 </PageButton>
               )

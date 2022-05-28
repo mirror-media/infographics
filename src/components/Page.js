@@ -32,8 +32,7 @@ export default function Page({ page, pageInfo, navigateTo }) {
   const caption = page.content.text["zh-tw"].caption
 
   return <Wrapper onClick={() => { }} className='page' id={`page-${page.id}`}>
-    <BackgroundImage src='images/mountain_3840x2160.jpg' />
-
+    <BackgroundImage src='images/mountain.jpg' />
     <Content>{page.id + ' ' + page.type}</Content>
     {caption && <Caption caption={caption} enlarge={page.type === 'map'} />}
     <PageControl pageInfo={pageInfo} goLast={() => { navigateTo(page.id - 1) }} goNext={() => { navigateTo(page.id + 1) }} />
