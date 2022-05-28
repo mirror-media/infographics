@@ -9,13 +9,13 @@ const pages = pagesData.pages
 
 export default function Pages() {
   const wrapperRef = useRef()
-  const { navigateTo } = useNavigate(wrapperRef)
+  const { browsingIndex, navigateTo } = useNavigate(wrapperRef)
 
   return (
     <div ref={wrapperRef}>
-      <Controls />
+      <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} />
       {
-        pages.map((page) => (
+        pages.map((page, index) => (
           < Page key={page.id} page={page} onClick={navigateTo} />
         ))
       }

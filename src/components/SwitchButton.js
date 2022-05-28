@@ -85,8 +85,8 @@ export default function SwitchButton({ left, right }) {
   return <Wrapper>
     <Border />
     <Switch>
-      <input type="checkbox" id="color_mode" value="1" />
-      <label for="color_mode" data-on={right} data-off={left}></label>
+      <input type="checkbox" id="switch" value="1" />
+      <label htmlFor="switch" data-on={right} data-off={left}></label>
     </Switch>
   </Wrapper >
 }

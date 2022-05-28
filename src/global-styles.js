@@ -10,6 +10,14 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;  
     background-color: black;
     color: white;
+    overflow: auto;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  
   }
   a {
     color: inherit;

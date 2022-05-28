@@ -1,4 +1,6 @@
+import { useState } from "react"
 import styled from "styled-components"
+import Navigator from "./Navigator"
 import SwitchButton from "./SwitchButton"
 
 const Logo = styled.a`
@@ -37,13 +39,16 @@ const ShareButton = styled.button`
   margin-left: 30.9px;
 `
 
-export default function Controls() {
+export default function Controls({ pages, navigateTo, browsingIndex }) {
+  const [showNavigator, setShowNavigator] = useState(false)
+  const disableNavigator = (browsingIndex === 0 || browsingIndex === pages.length - 1)
   return <>
     <Logo href="https://www.mirrormedia.mg/" target="_blank"><img src="images/mirrormedia-logo.svg" alt="mirror media logo" /></Logo>
     <NavButtons>
-      <NavigateButton><img src="images/navigate.svg" alt="toggle navigator" /></NavigateButton>
+      {!disableNavigator && <NavigateButton onClick={() => { setShowNavigator(true) }}><img src="images/navigate.svg" alt="toggle navigator" /></NavigateButton>}
       <SwitchButton left="中" right="EN" />
       <ShareButton><img src="images/share.svg" alt="share to social network" /></ShareButton>
     </NavButtons>
+    {!disableNavigator && showNavigator && <Navigator pages={pages} onClose={() => { setShowNavigator(false) }} navigateTo={navigateTo} browsingIndex={browsingIndex} />}
   </>
 }

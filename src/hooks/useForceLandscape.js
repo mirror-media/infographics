@@ -7,7 +7,6 @@ export default function useForceLandscape() {
   const windowDimensions = useWindowDimensions()
 
   useEffect(() => {
-    console.log('resize')
     const { width, height } = windowDimensions
     if ((width < 960) && (height >= width)) {
       setForceLandscape(true)
