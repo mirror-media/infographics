@@ -1,5 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
+import { useTranslation } from "react-i18next"
+
 import Navigator from "./Navigator"
 import SwitchButton from "./SwitchButton"
 
@@ -40,13 +42,26 @@ const ShareButton = styled.button`
 `
 
 export default function Controls({ pages, navigateTo, browsingIndex }) {
+  const [lang, setLang] = useState('zh-TW')
   const [showNavigator, setShowNavigator] = useState(false)
+  const { i18n } = useTranslation();
   const disableNavigator = (browsingIndex === 0 || browsingIndex === pages.length - 1)
+
+  const onLanguageChanged = (notChinese) => {
+    const lang = notChinese ? 'en' : 'zh-TW'
+    setLang(lang)
+  }
+
+  useEffect(() => {
+    i18n.changeLanguage(lang)
+    window.i18n = i18n
+  }, [i18n, lang])
+
   return <>
     <Logo href="https://www.mirrormedia.mg/" target="_blank"><img src="images/mirrormedia-logo.svg" alt="mirror media logo" /></Logo>
     <NavButtons>
       {!disableNavigator && <NavigateButton onClick={() => { setShowNavigator(true) }}><img src="images/navigate.svg" alt="toggle navigator" /></NavigateButton>}
-      <SwitchButton left="中" right="EN" />
+      <SwitchButton left="中" right="EN" onSwitch={onLanguageChanged} switchOn={lang === 'en'} />
       <ShareButton><img src="images/share.svg" alt="share to social network" /></ShareButton>
     </NavButtons>
     {!disableNavigator && showNavigator && <Navigator pages={pages} onClose={() => { setShowNavigator(false) }} navigateTo={navigateTo} browsingIndex={browsingIndex} />}

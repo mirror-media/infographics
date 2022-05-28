@@ -81,11 +81,15 @@ const Switch = styled.label`
 `
 
 
-export default function SwitchButton({ left, right }) {
+export default function SwitchButton({ left, right, onSwitch, switchOn }) {
+
+  const inputChangedHandler = ({ target }) => {
+    onSwitch(target.checked)
+  }
   return <Wrapper>
     <Border />
     <Switch>
-      <input type="checkbox" id="switch" value="1" />
+      <input type="checkbox" id="switch" checked={switchOn} onChange={inputChangedHandler} />
       <label htmlFor="switch" data-on={right} data-off={left}></label>
     </Switch>
   </Wrapper >
