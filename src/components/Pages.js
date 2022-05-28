@@ -16,7 +16,10 @@ export default function Pages() {
       <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} />
       {
         pages.map((page, index) => (
-          < Page key={page.id} page={page} onClick={navigateTo} />
+          < Page key={page.id} page={page} navigateTo={navigateTo} pageInfo={{
+            isFirst: page.id === 0,
+            isLast: page.id === pages.length - 1
+          }} />
         ))
       }
     </div >

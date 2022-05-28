@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Caption from './Caption'
+import PageControl from './PageControl'
 
 const Wrapper = styled.div`
   position: relative;
@@ -27,7 +28,7 @@ const Content = styled.div`
   font-size: 38px;
 `
 
-export default function Page({ page }) {
+export default function Page({ page, pageInfo, navigateTo }) {
   const caption = page.content.text["zh-tw"].caption
 
   return <Wrapper onClick={() => { }} className='page' id={`page-${page.id}`}>
@@ -35,5 +36,6 @@ export default function Page({ page }) {
 
     <Content>{page.id + ' ' + page.type}</Content>
     {caption && <Caption caption={caption} enlarge={page.type === 'map'} />}
+    <PageControl pageInfo={pageInfo} goLast={() => { navigateTo(page.id - 1) }} goNext={() => { navigateTo(page.id + 1) }} />
   </Wrapper>
 }
