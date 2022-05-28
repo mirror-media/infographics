@@ -4,19 +4,20 @@ const Wrapper = styled.div`
   position: absolute;
   z-index: 5;
   background: rgba(0,0,0,0.6);
-  opcacity: 0.8;
+  opacity: 0.8;
+
   ${({ enlarge }) => (
     enlarge ? `
+      top: 73px;
       right: 82px;
       bottom: 40px;
       width: 439px;
-      height: 692px;
       padding: 40px 16px 56px 32px;
     ` : `
       right: 40px;
       bottom: 40px;
       width: 310px;
-      height: 292px;  
+      max-height: 292px;
       padding: 24px 16px 20px 16px;
 
       // 0.5 pixel border
@@ -40,6 +41,7 @@ const ScrollWrapper = styled.div`
   z-index: 10;
   width: 100%;
   height: 100%;
+  max-height: ${({ enlarge }) => (enlarge ? 'unset' : '248px')};
   overflow: auto;
   padding-right: ${({ enlarge }) => (enlarge ? '18px' : '14px')};
   &::-webkit-scrollbar {
@@ -50,6 +52,7 @@ const ScrollWrapper = styled.div`
     border-radius: 2px;
     margin-right: 6px;
   }
+
 `
 
 const Text = styled.p`

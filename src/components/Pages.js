@@ -2,10 +2,8 @@ import { useRef } from "react"
 
 import Page from "./Page"
 import useNavigate from '../hooks/useNavigate'
-import { pagesData } from "../datas"
+import pages from "../datas/pages.json"
 import Controls from "./Controls"
-
-const pages = pagesData.pages
 
 export default function Pages() {
   const wrapperRef = useRef()
