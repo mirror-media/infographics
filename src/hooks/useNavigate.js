@@ -16,7 +16,7 @@ export default function useNavigate(pagesRef) {
   useEffect(() => {
     const pageDoms = [...pagesRef.current.querySelectorAll(':scope > div.page')]
     pageNavigationInfosRef.current = pageDoms.map((pageDom, index) => ({ index, height: pageDom.clientHeight }))
-    console.log('count all pages height!', pageNavigationInfosRef.current[0])
+    console.log('count all pages height!', pageNavigationInfosRef.current)
   }, [pagesRef, windowDimensions])
 
   useEffect(() => {

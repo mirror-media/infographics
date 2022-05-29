@@ -6,11 +6,7 @@ import useNavigate from '../hooks/useNavigate'
 import pages from "../datas/pages.json"
 import Controls from "./Controls"
 
-const Wrapper = styled.div`
-  // height: 100vh;
-  // scroll-snap-type: y mandatory;
-  // overflow: auto;
-`
+const Wrapper = styled.div``
 
 export default function Pages() {
   const [showCaption, setShowCaption] = useState(false)

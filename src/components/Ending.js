@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 
@@ -6,11 +7,16 @@ const Wrapper = styled.div`
   font-size: 14px;
   line-height: 25.2px;
   font-weight: 300;
+  b {
+    font-weight: 900;
+  }
 `
 
 const ArticleWrapper = styled.div`
   position: relative;
-  padding: 136px 26.8% 300px 28.6%;
+  padding: 136px 0 300px 0;
+  margin: 0 auto;
+  width: 640px;
 `
 
 const Credit = styled.div`
@@ -48,9 +54,15 @@ const NameWrapper = styled.div`
 `
 
 const Name = styled.div`
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 36px;
+  ${({ lang }) => (lang === 'zh-TW') ? `
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+  `: `
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 25.2px;
+  `}
 `
 
 const IG = styled.a`
@@ -70,32 +82,50 @@ const Second = styled.div`
 `
 
 const Header = styled.div`
-  font-size: 32px;
-  line-height: 180%;
-  margin-bottom: 19.2px;
+  ${({ lang }) => (lang === 'zh-TW') ? `
+    font-size: 32px;
+    line-height: 180%;
+    margin-bottom: 19.2px;
+  ` : `
+    font-weight: 900;
+  `}
 `
 
 const Independent = styled.div`
-  margin-bottom: 68px;
+  ${({ lang }) => (lang === 'zh-TW') ? `
+    margin-bottom: 68px;
+  ` : `
+    margin-bottom: 25.2px;
+  `}
 `
 
 const Text = styled.div`
-  margin-bottom: 32px;
+  ${({ lang }) => (lang === 'zh-TW') ? `
+    margin-bottom: 32px;
 
-  &:last-of-type {
-    margin-bottom: unset;
-  }
+    &:last-of-type {
+      margin-bottom: unset;
+    }
+  ` : ``}
 `
 
 export default function Ending({ id, image }) {
-  const { t } = useTranslation()
+  const { t, i18n: { language } } = useTranslation()
+  //en or zh-TW
+  const [lang, setLang] = useState(language)
 
-  return (
-    <Wrapper>
+  useEffect(() => {
+    console.log(language)
+    setLang(language)
+  }, [language])
+
+  let EndingComponent
+  if (lang === 'zh-TW') {
+    EndingComponent = (
       <ArticleWrapper>
         <First>
           <NameWrapper>
-            <Name>{t(`${id}.text.first.name`)}</Name>
+            <Name lang={lang}>{t(`${id}.text.first.name`)}</Name>
             <IG href={t(`${id}.text.first.ig`)} target="_blank"><img src="images/ig.svg" alt="instagram link" /></IG>
           </NameWrapper>
           <b>{t(`${id}.text.first.pairs.0.head`)}</b>{t(`${id}.text.first.pairs.0.body`)}
@@ -109,16 +139,54 @@ export default function Ending({ id, image }) {
           <ProfileImageCaption>{t(`${id}.text.caption`)}</ProfileImageCaption>
         </ProfileImageWrapper>
         <Second>
-          <Independent>{t(`${id}.text.second.first`)}</Independent>
-          <Header>{t(`${id}.text.second.pairs.0.head`)}</Header>
-          <Text>{t(`${id}.text.second.pairs.0.body`)}</Text>
-          <Header>{t(`${id}.text.second.pairs.1.head`)}</Header>
-          <Text>{t(`${id}.text.second.pairs.1.body`)}</Text>
-          <Header>{t(`${id}.text.second.pairs.2.head`)}</Header>
-          <Text>{t(`${id}.text.second.pairs.2.body`)}</Text>
+          <Independent lang={lang}>{t(`${id}.text.second.first`)}</Independent>
+          <Header lang={lang}>{t(`${id}.text.second.pairs.0.head`)}</Header>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.0.body`)}</Text>
+          <Header lang={lang}>{t(`${id}.text.second.pairs.1.head`)}</Header>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.1.body`)}</Text>
+          <Header lang={lang}>{t(`${id}.text.second.pairs.2.head`)}</Header>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.2.body`)}</Text>
         </Second>
         <Credit>{t(`${id}.text.credit`)}</Credit>
       </ArticleWrapper>
+    )
+  } else {
+    EndingComponent = (
+      <ArticleWrapper>
+        <First>
+          <NameWrapper>
+            <Name lang={lang}>{t(`${id}.text.first.name`)}</Name>
+            <IG href={t(`${id}.text.first.ig`)} target="_blank"><img src="images/ig.svg" alt="instagram link" /></IG>
+          </NameWrapper>
+          {t(`${id}.text.first.pairs.0.body`)}
+          <div><b>{t(`${id}.text.first.pairs.1.head`)}</b></div>{t(`${id}.text.first.pairs.1.body`)}
+          <div><b>{t(`${id}.text.first.pairs.2.head`)}</b></div>{t(`${id}.text.first.pairs.2.body`)}
+          <div><b>{t(`${id}.text.first.pairs.3.head`)}</b></div>{t(`${id}.text.first.pairs.3.body`)}
+          <div><b>{t(`${id}.text.first.pairs.4.head`)}</b></div>{t(`${id}.text.first.pairs.4.body`)}
+        </First>
+        <ProfileImageWrapper>
+          <ProfileImage src={image} />
+          <ProfileImageCaption>{t(`${id}.text.caption`)}</ProfileImageCaption>
+        </ProfileImageWrapper>
+        <Second>
+          <Independent lang={lang}>{t(`${id}.text.second.first`)}</Independent>
+          <Header lang={lang}>{t(`${id}.text.second.pairs.0.head`)}</Header>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.0.body`)}</Text>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.1.body`)}</Text>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.2.body`)}</Text>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.3.body`)}</Text>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.4.body`)}</Text>
+          <Text lang={lang}>{t(`${id}.text.second.pairs.5.body`)}</Text>
+        </Second>
+        <Credit>{t(`${id}.text.credit`)}</Credit>
+      </ArticleWrapper>
+    )
+  }
+
+
+  return (
+    <Wrapper>
+      {EndingComponent}
     </Wrapper>
   )
 }
