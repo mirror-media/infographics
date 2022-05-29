@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { useTranslation } from "react-i18next"
 import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
@@ -14,6 +15,11 @@ const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+
+  ${({ showTutorial }) => showTutorial ? `
+  background: #595757;
+  opacity: 0.7;
+  ` : ``}
 `
 
 const NavigateWrapper = styled.div`
@@ -72,15 +78,6 @@ const Thumbnail = styled.img`
   display: block;
 `
 
-const FakeId = styled.div`
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-`
-
 const Close = styled.img`
   display: block;
   position: absolute;
@@ -91,9 +88,65 @@ const Close = styled.img`
   cursor: pointer;
 `
 
-export default function Navigator({ pages, onClose, navigateTo, browsingIndex }) {
+const TutorialMask = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+`
+
+const TutorialClickHint = styled.div`
+  position: absolute;
+  top: 38.7%;
+  left: calc((100% - 305px)/2);
+  width: 305px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  .title {
+    font-weight: 900;
+    color: white;
+  }
+  .arrow {
+    width: 24px;
+    height: 24px;
+    margin-top: 29px;
+  }
+  .hint {
+    color: #70EEFF;
+    margin-top: 30px;
+    white-space: pre-wrap;
+  }
+`
+
+const TutorialNavigateHint = styled.div`
+  position: absolute;
+  top: 87px;
+  right: 140px;
+  width: 152px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #70EEFF;
+  text-align: center;
+`
+
+const TutorialArrowHint = styled.div`
+  position: absolute;
+  top: calc((100% - 44px)/2);
+  right: 77px;
+  width: 194px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #70EEFF;
+  text-align: center;
+`
+
+export default function Navigator({ pages, onClose, navigateTo, browsingIndex, showTutorial, tutorialFinish }) {
   const [percent, setPercent] = useState(0)
   const navigateRef = useRef()
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (navigateRef.current) {
@@ -112,7 +165,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex })
   }, [browsingIndex, pages.length])
 
   return (
-    <Wrapper onClick={onClose}>
+    <Wrapper onClick={onClose} showTutorial={showTutorial}>
       <GlobalStyles />
       <NavigateWrapper onClick={(e) => { e.stopPropagation() }}>
         <Navigate ref={navigateRef}>
@@ -123,7 +176,6 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex })
               return (index === 0 || index === pages.length - 1) ? <div key={page.id}></div> : (
                 <PageButton key={page.id} onClick={navigateTo.bind(null, index)} active={active} className={active ? 'active' : ''}>
                   <Thumbnail src={page.image} alt="thumbnail of photos" />
-                  <FakeId>{index}</FakeId>
                 </PageButton>
               )
             })}
@@ -131,6 +183,19 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex })
         </Navigate>
         <Progress percent={percent} />
       </NavigateWrapper>
+      {showTutorial && <TutorialMask onClick={tutorialFinish}>
+        <TutorialClickHint>
+          <div className="title">{t('2.tutorial.caption.title')}</div>
+          <img className="arrow" src='images/cursor.svg' alt="click to show caption" />
+          <div className="hint">{t('2.tutorial.caption.hint')}</div>
+        </TutorialClickHint>
+        <TutorialNavigateHint>
+          {t('2.tutorial.navigate')}
+        </TutorialNavigateHint>
+        <TutorialArrowHint>
+          {t('2.tutorial.arrow')}
+        </TutorialArrowHint>
+      </TutorialMask>}
     </Wrapper>
   )
 }

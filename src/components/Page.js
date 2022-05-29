@@ -21,7 +21,7 @@ const BackgroundImage = styled.img`
   z-index: 0;
 `
 
-export default function Page({ page, pageInfo, navigateTo, showCaption, onClick }) {
+export default function Page({ page, pageInfo, navigateTo, showCaption, onClick, showTutorial }) {
   const { t } = useTranslation()
   const { id, type, image } = page
 
@@ -30,13 +30,13 @@ export default function Page({ page, pageInfo, navigateTo, showCaption, onClick 
     Content = (
       <>
         <Landing title={t(`${id}.text.title`)} description={t(`${id}.text.foreword`)} credit={t(`${id}.text.credit`)} ig={t(`${id}.text.ig`)} />
-        {showCaption && <Caption caption={t(`${id}.text.text`)} enlarge={type === 'M'} />}
+        {/* {showCaption && <Caption caption={t(`${id}.text.text`)} enlarge={type === 'M'} />} */}
       </>
     )
   } else if (type === "E") {
     Content = <Ending id={id} image={image} />
   } else {
-    Content = showCaption ? <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} /> : null
+    Content = (showCaption || type === 'M') ? <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} showTutorial={showTutorial} /> : null
   }
 
   return (

@@ -43,8 +43,6 @@ firstPage = {
   }
 }
 
-console.log(firstPage)
-
 const endingPage = datas.filter(data => data.type === "E").reduce((first, second) => {
   return {
     order: first.order,
@@ -150,7 +148,6 @@ const endingPage = datas.filter(data => data.type === "E").reduce((first, second
 
 datas = [firstPage, ...datas.filter(data => data.type !== "E" && data.type !== "L"), endingPage]
 
-
 datas.forEach(({ text, eng_text, order, type, filename, name }, index) => {
   i18n_zh_tw.push({ text })
   i18n_en.push({ text: eng_text })
@@ -167,6 +164,26 @@ datas.forEach(({ text, eng_text, order, type, filename, name }, index) => {
     name,
   })
 })
+
+const tutorial_en = i18n_en[2]
+const tutorial_tw = i18n_zh_tw[2]
+tutorial_tw.tutorial = {
+  caption: {
+    title: '操作說明',
+    hint: '點擊螢幕任意處，開啟圖片說明\n再次點擊可關閉',
+  },
+  navigate: '點擊按鈕開啟側欄，選擇縮圖，可快速跳轉至指定照片',
+  arrow: '點擊左右箭頭，或直接滑動螢幕，可播放下一張照片',
+}
+tutorial_en.tutorial = {
+  caption: {
+    title: 'Instructions',
+    hint: 'To click anywhere on the screen will open the caption.\nClick again to close the caption.',
+  },
+  navigate: 'Click the button and choose a thumbnail. It can swiftly change into the chosen photo. ',
+  arrow: 'To click left and right arrow buttons or to swipe the screen can play the next photo.',
+}
+
 
 console.log(`pages has ${pages.length} pages`)
 console.log(`i18n_tw has ${i18n_zh_tw.length} pages`)

@@ -34,6 +34,10 @@ const Wrapper = styled.div`
       }    
     `
   )}
+
+  ${({ showTutorial }) => showTutorial ? `
+    z-index: 25;
+  ` : ''}
 `
 
 const ScrollWrapper = styled.div`
@@ -62,9 +66,9 @@ const Text = styled.p`
   text-align center;
 `
 
-export default function Caption({ caption, enlarge }) {
+export default function Caption({ caption, enlarge, showTutorial }) {
   return (
-    <Wrapper enlarge={enlarge}>
+    <Wrapper enlarge={enlarge} showTutorial={showTutorial} onClick={(e) => { e.stopPropagation() }}>
       <ScrollWrapper enlarge={enlarge} id="scroll">
         <Text>{caption}</Text>
       </ScrollWrapper>
