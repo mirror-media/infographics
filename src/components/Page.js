@@ -21,7 +21,7 @@ const BackgroundImage = styled.img`
   z-index: 0;
 `
 
-export default function Page({ page, pageInfo, navigateTo }) {
+export default function Page({ page, pageInfo, navigateTo, showCaption, onClick }) {
   const { t } = useTranslation()
   const { id, type, image } = page
 
@@ -30,17 +30,17 @@ export default function Page({ page, pageInfo, navigateTo }) {
     Content = (
       <>
         <Landing title={t(`${id}.text.title`)} description={t(`${id}.text.foreword`)} credit={t(`${id}.text.credit`)} ig={t(`${id}.text.ig`)} />
-        <Caption caption={t(`${id}.text.text`)} enlarge={type === 'M'} />
+        {showCaption && <Caption caption={t(`${id}.text.text`)} enlarge={type === 'M'} />}
       </>
     )
   } else if (type === "E") {
     Content = <Ending id={id} image={image} />
   } else {
-    Content = <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} />
+    Content = showCaption ? <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} /> : null
   }
 
   return (
-    <Wrapper onClick={() => { }} className='page' id={`page-${id}`} fixed={type !== 'E'}>
+    <Wrapper onClick={onClick} className='page' id={`page-${id}`} fixed={type !== 'E'}>
       {type !== "E" && <BackgroundImage src={image} />}
       {Content}
       <PageControl pageInfo={pageInfo} goLast={() => { navigateTo(id - 1) }} goNext={() => { navigateTo(id + 1) }} />
