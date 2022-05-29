@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   bottom: 0;
   left: 0;
 
-  ${({ showTutorial }) => showTutorial ? `
+  ${({ showingTutorial }) => showingTutorial ? `
   background: #595757;
   opacity: 0.7;
   ` : ``}
@@ -143,7 +143,7 @@ const TutorialArrowHint = styled.div`
   text-align: center;
 `
 
-export default function Navigator({ pages, onClose, navigateTo, browsingIndex, showTutorial, tutorialFinish }) {
+export default function Navigator({ pages, onClose, navigateTo, browsingIndex, showingTutorial, tutorialFinish }) {
   const [percent, setPercent] = useState(0)
   const navigateRef = useRef()
   const { t } = useTranslation()
@@ -165,7 +165,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
   }, [browsingIndex, pages.length])
 
   return (
-    <Wrapper onClick={onClose} showTutorial={showTutorial}>
+    <Wrapper onClick={onClose} showingTutorial={showingTutorial}>
       <GlobalStyles />
       <NavigateWrapper onClick={(e) => { e.stopPropagation() }}>
         <Navigate ref={navigateRef}>
@@ -183,7 +183,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
         </Navigate>
         <Progress percent={percent} />
       </NavigateWrapper>
-      {showTutorial && <TutorialMask onClick={tutorialFinish}>
+      {showingTutorial && <TutorialMask onClick={tutorialFinish}>
         <TutorialClickHint>
           <div className="title">{t('2.tutorial.caption.title')}</div>
           <img className="arrow" src='images/cursor.svg' alt="click to show caption" />

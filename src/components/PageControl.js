@@ -52,14 +52,23 @@ const Bottom = styled.button`
 
 export default function PageControl({ page, pageInfo: { isFirst, isLast }, goLast, goNext }) {
 
+  const onNext = (e) => {
+    e.stopPropagation()
+    goNext()
+  }
+  const onLast = (e) => {
+    e.stopPropagation()
+    goLast()
+  }
+
   let Arrows
   if (isFirst) {
-    Arrows = <Bottom onClick={goNext}>{LeftArrow}</Bottom>
+    Arrows = <Bottom onClick={onNext}>{LeftArrow}</Bottom>
   } else if (isLast) {
     Arrows = <div></div>
   } else {
-    Arrows = (<><Left onClick={goLast}>{LeftArrow}</Left>
-      <Right onClick={goNext}>{LeftArrow}</Right></>)
+    Arrows = (<><Left onClick={onLast}>{LeftArrow}</Left>
+      <Right onClick={onNext}>{LeftArrow}</Right></>)
   }
 
   return <>{Arrows}</>

@@ -41,7 +41,7 @@ const ShareButton = styled.button`
   margin-left: 30.9px;
 `
 
-export default function Controls({ pages, navigateTo, browsingIndex, showTutorial, tutorialFinish }) {
+export default function Controls({ pages, navigateTo, browsingIndex, showingTutorial, tutorialFinish }) {
   const [lang, setLang] = useState('zh-TW')
   const [showNavigator, setShowNavigator] = useState(false)
   const { i18n } = useTranslation();
@@ -58,10 +58,12 @@ export default function Controls({ pages, navigateTo, browsingIndex, showTutoria
   }, [i18n, lang])
 
   useEffect(() => {
-    if (showTutorial) {
-      setShowNavigator(showTutorial && browsingIndex !== 1)
+    if (showingTutorial) {
+      setShowNavigator(true)
+    } else {
+      setShowNavigator(false)
     }
-  }, [browsingIndex, showTutorial])
+  }, [showingTutorial])
 
   return <>
     <Logo href="https://www.mirrormedia.mg/" target="_blank"><img src="images/mirrormedia-logo.svg" alt="mirror media logo" /></Logo>
@@ -70,6 +72,6 @@ export default function Controls({ pages, navigateTo, browsingIndex, showTutoria
       <SwitchButton left="中" right="EN" onSwitch={onLanguageChanged} switchOn={lang === 'en'} />
       <ShareButton><img src="images/share.svg" alt="share to social network" /></ShareButton>
     </NavButtons>
-    {!disableNavigator && showNavigator && <Navigator pages={pages} onClose={() => { setShowNavigator(false) }} navigateTo={navigateTo} browsingIndex={browsingIndex} showTutorial={showTutorial} tutorialFinish={tutorialFinish} />}
+    {!disableNavigator && showNavigator && <Navigator pages={pages} onClose={() => { setShowNavigator(false) }} navigateTo={navigateTo} browsingIndex={browsingIndex} showingTutorial={showingTutorial} tutorialFinish={tutorialFinish} />}
   </>
 }

@@ -7,7 +7,8 @@ import Controls from "./Controls"
 
 export default function Pages() {
   const [showCaption, setShowCaption] = useState(false)
-  const [showTutorial, setShowTutorial] = useState(false)
+  const [showingTutorial, setShowingTutorial] = useState(false)
+  const [shouldShowTutorial, setShouldShowTutorial] = useState(false)
   const wrapperRef = useRef()
   const { browsingIndex, navigateTo } = useNavigate(wrapperRef)
 
@@ -17,7 +18,9 @@ export default function Pages() {
 
   const onFinishTutorial = (e) => {
     e.stopPropagation()
-    setShowTutorial(false)
+    setShowingTutorial(false)
+    setShowCaption(false)
+    setShouldShowTutorial(false)
     localStorage.tutorial = JSON.stringify({
       expire: + new Date()
     })
@@ -29,21 +32,29 @@ export default function Pages() {
       // check if expired
       if (+ new Date() - expire > 30 * 24 * 60 * 60 * 1000) {
         delete localStorage.tutorial
-        setShowTutorial(true)
-        setShowCaption(true)
+        setShouldShowTutorial(true)
       }
     } else {
-      setShowTutorial(true)
-      setShowCaption(true)
+      setShouldShowTutorial(true)
     }
   }, [])
 
+  useEffect(() => {
+    if (shouldShowTutorial) {
+      const type = pages[browsingIndex].type
+      if (type === 'P') {
+        setShowingTutorial(true)
+        setShowCaption(true)
+      }
+    }
+  }, [browsingIndex, shouldShowTutorial])
+
   return (
     <div ref={wrapperRef}>
-      <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} showTutorial={showTutorial} tutorialFinish={onFinishTutorial} />
+      <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} showingTutorial={showingTutorial} tutorialFinish={onFinishTutorial} />
       {
         pages.map((page, index) => (
-          < Page key={page.id} page={page} navigateTo={navigateTo} showCaption={showCaption} showTutorial={showTutorial} onClick={onPageClicked} pageInfo={{
+          < Page key={page.id} page={page} navigateTo={navigateTo} showCaption={showCaption} showingTutorial={showingTutorial} onClick={onPageClicked} pageInfo={{
             isFirst: page.id === 0,
             isLast: page.id === pages.length - 1
           }} />

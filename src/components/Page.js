@@ -21,7 +21,7 @@ const BackgroundImage = styled.img`
   z-index: 0;
 `
 
-export default function Page({ page, pageInfo, navigateTo, showCaption, onClick, showTutorial }) {
+export default function Page({ page, pageInfo, navigateTo, showCaption, onClick, showingTutorial }) {
   const { t } = useTranslation()
   const { id, type, image } = page
 
@@ -36,14 +36,14 @@ export default function Page({ page, pageInfo, navigateTo, showCaption, onClick,
   } else if (type === "E") {
     Content = <Ending id={id} image={image} />
   } else {
-    Content = (showCaption || type === 'M') ? <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} showTutorial={showTutorial} /> : null
+    Content = (showCaption || type === 'M') ? <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} showingTutorial={showingTutorial} /> : null
   }
 
   return (
-    <Wrapper onClick={onClick} className='page' id={`page-${id}`} fixed={type !== 'E'}>
+    <Wrapper onClick={type === 'P' ? onClick : () => { }} className='page' id={`page-${id}`} fixed={type !== 'E'}>
       {type !== "E" && <BackgroundImage src={image} />}
       {Content}
       <PageControl pageInfo={pageInfo} goLast={() => { navigateTo(id - 1) }} goNext={() => { navigateTo(id + 1) }} />
-    </Wrapper>
+    </Wrapper >
   )
 }
