@@ -10,6 +10,11 @@ const Wrapper = styled.div`
   b {
     font-weight: 900;
   }
+
+  @media (max-width: 812px) {
+    font-size: 12px;
+    line-height: 21.6px;
+  }
 `
 
 const ArticleWrapper = styled.div`
@@ -17,6 +22,15 @@ const ArticleWrapper = styled.div`
   padding: 136px 0 300px 0;
   margin: 0 auto;
   width: 640px;
+
+  @media (max-width: 812px) {
+    padding: 60px 166px 250px 166px;
+    width: 100%;
+  }
+  @media (max-width: 568px) {
+    padding: 80px 44px 250px 44px;
+  }
+
 `
 
 const Credit = styled.div`
@@ -26,11 +40,27 @@ const Credit = styled.div`
   width: 640px;
   text-align: center;
   white-space: pre-wrap;
+
+  @media (max-width: 812px) {
+    width: unset;
+    left: 166px;
+    right: 166px;
+  }
+  @media (max-width: 568px) {
+    width: unset;
+    left: 44px;
+    right: 44px;
+  }
+
 `
 
 const ProfileImageWrapper = styled.div`
   margin: 36px auto;  
   width: 400px;
+
+  @media (max-width: 812px) {
+    margin: 40px auto;
+  }
 `
 const ProfileImage = styled.img`
   width: 100%
@@ -86,6 +116,12 @@ const Header = styled.div`
     font-size: 32px;
     line-height: 180%;
     margin-bottom: 19.2px;
+
+    @media (max-width: 812px) {
+      font-size: 20px;
+      line-height: 36px;
+    }
+  
   ` : `
     font-weight: 900;
   `}
@@ -102,7 +138,6 @@ const Independent = styled.div`
 const Text = styled.div`
   ${({ lang }) => (lang === 'zh-TW') ? `
     margin-bottom: 32px;
-
     &:last-of-type {
       margin-bottom: unset;
     }

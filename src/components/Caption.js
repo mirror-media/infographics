@@ -13,6 +13,21 @@ const Wrapper = styled.div`
       bottom: 40px;
       width: 439px;
       padding: 40px 16px 56px 32px;
+
+      @media (max-width: 812px) {
+        top: 40px;
+        right: 32px;
+        bottom: 40px;
+        width: 279px;
+        padding: 24px 12px 22px 16px;
+      }
+
+      @media (max-width: 568px) {
+        top: 53px;
+        right: 32px;
+        bottom: 19px;
+        padding: 16px 12px 16px 16px;
+      }
     ` : `
       right: 40px;
       bottom: 40px;
@@ -32,6 +47,23 @@ const Wrapper = styled.div`
         border: 1px solid;
         transform: scale(0.5);
       }    
+      @media (max-width: 812px) {
+        right: 0;
+        bottom: 0;
+        width: 216px;
+        max-height: 144px;
+        padding: 12px 12px 5px 20px;
+
+        &:before{
+          display: none;
+        }
+      }
+
+      @media (max-width: 568px) {
+        width: 151px;
+        max-height: 114px;
+        padding: 12px 10px 5px 12px;
+      }
     `
   )}
 
@@ -57,20 +89,34 @@ const ScrollWrapper = styled.div`
     margin-right: 6px;
   }
 
+  @media (max-width: 812px) {
+    padding-right: ${({ enlarge }) => (enlarge ? '14px' : '10px')};
+  }
 `
 
 const Text = styled.p`
   margin: 0;
-  font-size: 14px;
-  line-height: 21px;
   text-align center;
+  ${({ enlarge }) => (enlarge ? `
+    font-size: 16px;
+    line-height: 24px;
+  ` : `
+    font-size: 14px;
+    line-height: 21px;
+  `)}
+
+  @media (max-width: 812px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
 `
 
 export default function Caption({ caption, enlarge, showingTutorial }) {
   return (
     <Wrapper enlarge={enlarge} showingTutorial={showingTutorial} onClick={(e) => { e.stopPropagation() }}>
       <ScrollWrapper enlarge={enlarge} id="scroll">
-        <Text>{caption}</Text>
+        <Text enlarge={enlarge}>{caption}</Text>
       </ScrollWrapper>
     </Wrapper>
   )

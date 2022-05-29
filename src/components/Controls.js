@@ -13,10 +13,15 @@ const Logo = styled.a`
   left: 29px;
   cursor: pointer;
   z-index: 1;
-
   img {
     width: 100%;
     height: 100%;
+  }
+  @media (max-width: 812px) {
+    width: 52px;
+    height: 21.7px;
+    top: 12px;
+    left: 12px;
   }
 `
 
@@ -27,18 +32,36 @@ const NavButtons = styled.div`
   display: flex;
   z-index: 10;
   align-items: center;
+  @media (max-width: 812px) {
+    top: 12px;
+    right: 16px;
+  }
+
 `
 
 const NavigateButton = styled.button`
+  background: url('images/navigate.svg') no-repeat;
   width: 32px;
   height: 28px;
   margin-right: 32.1px;
+  @media (max-width: 812px) {
+    margin-right: 18px;
+    width: 22.8px;
+    height: 18px;  
+  }
 `
 
 const ShareButton = styled.button`
+  background: url('images/share.svg') no-repeat;
   width: 34px;
   height: 32px;
   margin-left: 30.9px;
+  @media (max-width: 812px) {
+    background: url('images/share-mobile.svg') no-repeat;
+    margin-left: 12px;
+    width: 18px;
+    height: 16px;  
+  }
 `
 
 export default function Controls({ pages, navigateTo, browsingIndex, showingTutorial, tutorialFinish }) {
@@ -68,9 +91,9 @@ export default function Controls({ pages, navigateTo, browsingIndex, showingTuto
   return <>
     <Logo href="https://www.mirrormedia.mg/" target="_blank"><img src="images/mirrormedia-logo.svg" alt="mirror media logo" /></Logo>
     <NavButtons>
-      {!disableNavigator && <NavigateButton onClick={() => { setShowNavigator(true) }} ><img src="images/navigate.svg" alt="toggle navigator" /></NavigateButton>}
+      {!disableNavigator && <NavigateButton onClick={() => { setShowNavigator(true) }} />}
       <SwitchButton left="中" right="EN" onSwitch={onLanguageChanged} switchOn={lang === 'en'} />
-      <ShareButton><img src="images/share.svg" alt="share to social network" /></ShareButton>
+      <ShareButton />
     </NavButtons>
     {!disableNavigator && showNavigator && <Navigator pages={pages} onClose={() => { setShowNavigator(false) }} navigateTo={navigateTo} browsingIndex={browsingIndex} showingTutorial={showingTutorial} tutorialFinish={tutorialFinish} />}
   </>

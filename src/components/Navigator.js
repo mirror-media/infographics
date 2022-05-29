@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
 import styled, { createGlobalStyle } from "styled-components"
+import useWindowDimensions from "../hooks/useWindowDimensions"
 
 export const GlobalStyles = createGlobalStyle`
   html, body {
@@ -29,6 +30,14 @@ const NavigateWrapper = styled.div`
   width: 338px;
   height: 100%;
   background: #000;
+
+  @media (max-width: 812px) {
+    width: 156px;
+  }
+
+  @media (max-width: 568px) {
+  }
+
 `
 
 const Navigate = styled.div`
@@ -43,34 +52,50 @@ const Navigate = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  
+  @media (max-width: 812px) {
+    border-width: 1px;
+    padding: 0 23px 0 12px;
+
+  }
+
 `
 
 const Progress = styled.div`
   position: absolute;
   top: 0;
-  left: calc(100% - 2px);
+  right: -1px;
   display: flex;
   flex-direction: column;
   width: 3px;
   height: ${({ percent }) => (`${percent}%`)};
   background-color: #fff;
   border-radius: 3px;
+
+  @media (max-width: 812px) {
+    width: 1px;
+    right: 0;
+  }
 `
 
 const PageButtonWrapper = styled.div``
 
 const PageButton = styled.button`
   position: relative;
-  width: 256px;
+  width: 100%;
   margin: 20px 0;
+  @media (max-width: 812px) {
+    margin: 9px 0;
+  }
 
-    &:hover {
+  &:hover {
     border: 2px solid #666666;
   }
-    &:active {
+  &:active {
     border: 1px solid #FFFFFF;
   }
-  border: ${({ active }) => active ? '1px solid #FFFFFF !important' : ''}
+  border: ${({ active }) => active ? '1px solid #FFFFFF !important' : ''};
+
 `
 
 const Thumbnail = styled.img`
@@ -119,6 +144,21 @@ const TutorialClickHint = styled.div`
     margin-top: 30px;
     white-space: pre-wrap;
   }
+  
+  @media (max-width: 812px) {
+    top: 21%;
+    font-size: 12px;
+    line-height: 18px;
+  
+    .arrow {
+      width: 27px;
+      height: 40px;
+      margin-top: 33px;
+    }
+  }
+  @media (max-width: 568px) {
+    top: 18.75%;
+  }
 `
 
 const TutorialNavigateHint = styled.div`
@@ -130,6 +170,23 @@ const TutorialNavigateHint = styled.div`
   line-height: 24px;
   color: #70EEFF;
   text-align: center;
+
+  @media (max-width: 812px) {
+    top: 41px;
+    right: 80px;
+    width: 116px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  @media (max-width: 568px) {
+    top: 42px;
+    ${({ lang }) => lang === 'en' ? `
+      width: 126px;
+      right: 88px;
+    ` : `
+      right: 96px;
+    `};  
+  }
 `
 
 const TutorialArrowHint = styled.div`
@@ -141,12 +198,25 @@ const TutorialArrowHint = styled.div`
   line-height: 24px;
   color: #70EEFF;
   text-align: center;
+
+  @media (max-width: 812px) {
+    top: calc((100% - 53px)/2);
+    right: 34px;
+    width: ${({ lang }) => lang === 'en' ? '170px' : '99px'};  
+    font-size: 12px;
+    line-height: 18px;
+  }
+  @media (max-width: 568px) {
+    top: 40%;
+
+  }
 `
 
 export default function Navigator({ pages, onClose, navigateTo, browsingIndex, showingTutorial, tutorialFinish }) {
   const [percent, setPercent] = useState(0)
   const navigateRef = useRef()
-  const { t } = useTranslation()
+  const { t, i18n: { language } } = useTranslation()
+  const { width } = useWindowDimensions()
 
   useEffect(() => {
     if (navigateRef.current) {
@@ -186,13 +256,13 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
       {showingTutorial && <TutorialMask onClick={tutorialFinish}>
         <TutorialClickHint>
           <div className="title">{t('2.tutorial.caption.title')}</div>
-          <img className="arrow" src='images/cursor.svg' alt="click to show caption" />
+          {width <= 812 ? <img className="arrow" src='images/touch.svg' alt="touch to show caption" /> : <img className="arrow" src='images/cursor.svg' alt="click to show caption" />}
           <div className="hint">{t('2.tutorial.caption.hint')}</div>
         </TutorialClickHint>
-        <TutorialNavigateHint>
+        <TutorialNavigateHint lang={language}>
           {t('2.tutorial.navigate')}
         </TutorialNavigateHint>
-        <TutorialArrowHint>
+        <TutorialArrowHint lang={language}>
           {t('2.tutorial.arrow')}
         </TutorialArrowHint>
       </TutorialMask>}

@@ -4,6 +4,11 @@ const Wrapper = styled.div`
   width: 80px;
   height: 32px;
   position: relative;
+
+  @media (max-width: 812px) {
+    width: 60px;
+    height: 20px;  
+  }
 `
 
 const Border = styled.div`
@@ -14,6 +19,10 @@ const Border = styled.div`
   bottom: 0;
   border: 1px solid #fff;
   border-radius: 12px;
+
+  @media (max-width: 812px) {
+    border-radius: 8px;
+  }
 `
 
 const Switch = styled.label`
@@ -28,7 +37,6 @@ const Switch = styled.label`
     margin: 0px;
     width: 80px;
     height: 32px;
-    // border-radius: 12px;
     overflow: hidden;
     position: relative;
     display: block;
@@ -78,6 +86,38 @@ const Switch = styled.label`
     content: attr(data-off);
     left: 0;
   }
+
+  @media (max-width: 812px) {
+    font-size: 12px;
+
+    >label {
+      width: 60px;
+      height: 20px;  
+    }
+    >label:before {
+      font-size: 12px;
+      transform: scale(calc(10/12))
+    }
+
+    >label:after {
+      font-size: 12px;
+      border-radius: 8px;
+      transform: scale(calc(10/12));
+      width: 60%;
+      height: 120%;
+      top: -2px;
+      left: -2px;
+    }
+
+    & input:checked + label:after {
+      content: attr(data-on);
+      top: -2px;
+      right: -2px;
+      left: unset;
+    }
+  
+  }
+
 `
 
 
