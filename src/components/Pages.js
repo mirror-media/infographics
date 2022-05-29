@@ -1,9 +1,16 @@
 import { useRef, useState, useEffect } from "react"
+import styled from "styled-components"
 
 import Page from "./Page"
 import useNavigate from '../hooks/useNavigate'
 import pages from "../datas/pages.json"
 import Controls from "./Controls"
+
+const Wrapper = styled.div`
+  // height: 100vh;
+  // scroll-snap-type: y mandatory;
+  // overflow: auto;
+`
 
 export default function Pages() {
   const [showCaption, setShowCaption] = useState(false)
@@ -49,8 +56,14 @@ export default function Pages() {
     }
   }, [browsingIndex, shouldShowTutorial])
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      console.log('scrolling!')
+    })
+  }, [])
+
   return (
-    <div ref={wrapperRef}>
+    <Wrapper ref={wrapperRef}>
       <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} showingTutorial={showingTutorial} tutorialFinish={onFinishTutorial} />
       {
         pages.map((page, index) => (
@@ -60,6 +73,6 @@ export default function Pages() {
           }} />
         ))
       }
-    </div >
+    </Wrapper >
   )
 }

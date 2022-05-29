@@ -9,8 +9,9 @@ import Ending from './Ending';
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: ${({ fixed }) => fixed ? '100vh' : 'unset'};
-  overflow: hidden;
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-align: start;
 `
 
 const BackgroundImage = styled.img`

@@ -10,8 +10,8 @@ export default function useNavigate(pagesRef) {
   const jumpToPage = useCallback((index) => {
     const scrollYPosition = pageNavigationInfosRef.current.slice(0, index).reduce((sum, next) => (sum + next.height), 0)
     console.log(`scroll to ${scrollYPosition} ${index}`)
-    window.scrollTo(0, scrollYPosition)
-  }, [])
+    pagesRef.current.parentElement.scroll(0, scrollYPosition)
+  }, [pagesRef])
 
   useEffect(() => {
     const pageDoms = [...pagesRef.current.querySelectorAll(':scope > div.page')]
