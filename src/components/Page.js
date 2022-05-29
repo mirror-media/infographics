@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import Caption from './Caption'
 import PageControl from './PageControl'
+import Landing from './Landing';
 
 const Wrapper = styled.div`
   position: relative;
@@ -19,7 +20,7 @@ const BackgroundImage = styled.img`
   z-index: 0;
 `
 
-const Content = styled.div`
+const Article = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,17 +31,23 @@ const Content = styled.div`
 `
 
 export default function Page({ page, pageInfo, navigateTo }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
+  const { id } = page
 
-
-  const caption = t(`${page.id}.text`)
+  let Content
+  if (page.type === "L") {
+    Content = <Landing title={t(`${id}.text.title`)} description={t(`${id}.text.foreword`)} credit={t(`${id}.text.credit`)} ig={t(`${id}.text.ig`)} />
+  } else if (page.type === "E") {
+    Content = <Article>{id + ' ' + page.type}</Article>
+  } else {
+    Content = <Caption caption={t(`${id}.text`)} enlarge={page.type === 'M'} />
+  }
 
   return (
-    <Wrapper onClick={() => { }} className='page' id={`page-${page.id}`}>
+    <Wrapper onClick={() => { }} className='page' id={`page-${id}`}>
       <BackgroundImage src={page.image} />
-      <Content>{page.id + ' ' + page.type}</Content>
-      {caption && <Caption caption={caption} enlarge={page.type === 'M'} />}
-      <PageControl pageInfo={pageInfo} goLast={() => { navigateTo(page.id - 1) }} goNext={() => { navigateTo(page.id + 1) }} />
+      {Content}
+      <PageControl pageInfo={pageInfo} goLast={() => { navigateTo(id - 1) }} goNext={() => { navigateTo(page.id + 1) }} />
     </Wrapper>
   )
 }

@@ -6,7 +6,7 @@ let i18n_zh_tw = []
 let i18n_en = []
 let pages = []
 const mmBaseUrl = "https://storage.googleapis.com/mirrormedia-files/assets/images"
-const fallbackImageUrl = "images/mountain.jpg"
+const fallbackImageUrl = ""
 
 /*
   欠缺landing page 圖片\前言、map for mobile
@@ -65,7 +65,7 @@ datas.forEach(({ text, eng_text, order, type, filename, name }, index) => {
   i18n_zh_tw.push({ text })
   i18n_en.push({ text: eng_text })
   let image
-  if (type === "P" || type === "L") {
+  if (type === "P" || type === "L" || type === "E") {
     image = filename ? `${mmBaseUrl}/${filename}.jpg` : fallbackImageUrl
   } else if (type === "M") {
     image = order === "1" ? "images/map1.gif" : "images/map2.gif"

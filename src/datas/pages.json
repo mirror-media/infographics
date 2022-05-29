@@ -2,7 +2,7 @@
   {
     "id": 0,
     "type": "L",
-    "image": "images/mountain.jpg",
+    "image": "",
     "name": "Landing Page"
   },
   {
@@ -260,6 +260,7 @@
   {
     "id": 43,
     "type": "E",
+    "image": "https://storage.googleapis.com/mirrormedia-files/assets/images/20220527163720-e8b30d310c0c29a5f7554fdb17ae440b.jpg",
     "name": "CCCUK_profile"
   }
 ]
