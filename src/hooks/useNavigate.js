@@ -28,6 +28,7 @@ export default function useNavigate(pagesRef) {
         if (showingPageIndex > lowestPageIndexRef.current) {
           lowestPageIndexRef.current = showingPageIndex
         }
+
         setBrowsingIndex(showingPageIndex)
       } else if (entries.length > 1) {
         console.error("[Error]: intersection observer observe two intersecting")

@@ -97,6 +97,8 @@ const ScrollWrapper = styled.div`
 const Text = styled.p`
   margin: 0;
   text-align center;
+  white-space: pre-wrap;
+  
   ${({ enlarge }) => (enlarge ? `
     font-size: 16px;
     line-height: 24px;

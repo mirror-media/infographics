@@ -226,7 +226,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
         navigateRef.current.scrollTo(0, activeOffsetTop - 20)
       }
     }
-  }, [])
+  }, [browsingIndex])
 
   useEffect(() => {
     const pagesLength = pages.length

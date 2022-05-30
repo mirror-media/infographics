@@ -24,9 +24,9 @@ export default function Pages() {
     setShowingTutorial(false)
     setShowCaption(false)
     setShouldShowTutorial(false)
-    // localStorage.tutorial = JSON.stringify({
-    //   expire: + new Date()
-    // })
+    localStorage.tutorial = JSON.stringify({
+      expire: + new Date()
+    })
   }
 
   useEffect(() => {
