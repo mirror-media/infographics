@@ -9,14 +9,14 @@ export default function useNavigate(pagesRef) {
 
   const jumpToPage = useCallback((index) => {
     const scrollYPosition = pageNavigationInfosRef.current.slice(0, index).reduce((sum, next) => (sum + next.height), 0)
-    console.log(`scroll to ${scrollYPosition} ${index}`)
+    // console.log(`scroll to ${scrollYPosition} ${index}`)
     pagesRef.current.parentElement.scroll(0, scrollYPosition)
   }, [pagesRef])
 
   useEffect(() => {
     const pageDoms = [...pagesRef.current.querySelectorAll(':scope > div.page')]
     pageNavigationInfosRef.current = pageDoms.map((pageDom, index) => ({ index, height: pageDom.clientHeight }))
-    console.log('count all pages height!', pageNavigationInfosRef.current)
+    // console.log('count all pages height!', pageNavigationInfosRef.current)
   }, [pagesRef, windowDimensions])
 
   useEffect(() => {

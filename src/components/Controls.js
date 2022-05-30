@@ -51,7 +51,7 @@ const NavigateButton = styled.button`
   }
 `
 
-const ShareButton = styled.button`
+const ShareButton = styled.div`
   position: relative;
   background: url('images/share.svg') no-repeat;
   width: 34px;
@@ -112,10 +112,10 @@ const ShareIcon = styled.button`
 `
 
 export default function Controls({ pages, navigateTo, browsingIndex, showingTutorial, tutorialFinish }) {
-  const [lang, setLang] = useState('zh-TW')
+  const { i18n } = useTranslation();
+  const [lang, setLang] = useState(i18n.language)
   const [showNavigator, setShowNavigator] = useState(false)
   const [showShares, setShowShares] = useState(false)
-  const { i18n } = useTranslation();
   const disableNavigator = (browsingIndex === 0 || browsingIndex === pages.length - 1)
 
   const onLanguageChanged = (notChinese) => {

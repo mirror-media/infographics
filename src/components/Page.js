@@ -43,6 +43,25 @@ const Video = styled.video`
   }
 `
 
+const Image = styled.img`
+  display: block;
+  position: absolute;
+  top: 21.2%;
+  left: 7.5%;
+  width: 52%;
+
+  @media (max-width: 812px) {
+    left: 0;
+    top: 14.4%;
+    width: 58.2%;
+  }
+  @media (max-width: 568px) {
+    left: 0;
+    top: 22.5%;
+    width: 54.9%;
+  }
+`
+
 export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCaption, onClick, showingTutorial }) {
   const videoRef = useRef(null)
   const { t } = useTranslation()
@@ -51,9 +70,7 @@ export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCa
 
   useEffect(() => {
     if (type === 'M' && videoRef.current) {
-      console.log(browsingIndex, 'page.id', page.id, videoRef.current.played)
       if (browsingIndex === page.id) {
-        console.log('start playing')
         setTimeout(() => {
           videoRef.current.play()
         }, 100)
@@ -78,8 +95,12 @@ export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCa
   let Media
   switch (type) {
     case 'M':
-      Media = (
-        <Video ref={videoRef} className='video' src="images/map1.m4v" muted />
+      window.id = id;
+      const src = id === 1 ? 'images/map1.m4v' : 'images/map2.m4v'
+      Media = width > 812 ? (
+        <Video ref={videoRef} className='video' src={src} muted />
+      ) : (
+        <Image src={photo} />
       )
       break;
     case 'L':

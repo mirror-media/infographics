@@ -150,7 +150,6 @@ export default function Ending({ id, image }) {
   const [lang, setLang] = useState(language)
 
   useEffect(() => {
-    console.log(language)
     setLang(language)
   }, [language])
 

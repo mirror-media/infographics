@@ -52,12 +52,6 @@ export default function Pages() {
     }
   }, [browsingIndex, shouldShowTutorial])
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      console.log('scrolling!')
-    })
-  }, [])
-
   return (
     <Wrapper ref={wrapperRef}>
       <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} showingTutorial={showingTutorial} tutorialFinish={onFinishTutorial} />

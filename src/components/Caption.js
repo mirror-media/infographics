@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   z-index: 5;
   background: rgba(0,0,0,0.6);
   opacity: 0.8;
+  
 
   ${({ enlarge }) => (
     enlarge ? `
@@ -37,6 +38,7 @@ const Wrapper = styled.div`
       width: 310px;
       max-height: 292px;
       padding: 24px 16px 20px 16px;
+      overflow: auto;
 
       // 0.5 pixel border
       &:before {

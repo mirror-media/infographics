@@ -165,7 +165,7 @@ datas.forEach(({ text, eng_text, order, type, filename, name }, index) => {
   i18n_en.push({ text: eng_text })
   let image
   if (type === "M") {
-    image = order === "1" ? "images/map1.m4v" : "images/map2.m4v"
+    image = order === "1" ? "images/map1.jpeg" : "images/map2.jpeg"
   } else {
     image = filename ? filename : ''
   }
