@@ -29,8 +29,8 @@ const Video = styled.video`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100 %;
-  height: 100 %;
+  width: 100%;
+  height: 100%;
 `
 
 export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCaption, onClick, showingTutorial }) {
