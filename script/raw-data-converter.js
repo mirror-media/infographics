@@ -28,14 +28,14 @@ firstPage = {
   filename: firstPage.filename,
   text: {
     title: "前線的前線\n攝影師張乾琦烏克蘭戰地紀實",
-    foreword: "2022 年 2 月開始的俄烏戰爭仍持續延燒，攝影師張乾琦二度前往被戰爭撕裂的烏克蘭紀錄實況。",
+    foreword: "2022 年 2 月開始的俄烏戰爭仍持續延燒，台灣攝影師張乾琦二度前往被戰爭撕裂的烏克蘭紀錄實況。",
     credit: "張乾琦",
     ig: "https://www.instagram.com/chien_chi_chang",
     text: firstPage.text
   },
   eng_text: {
     title: "The Frontline of Frontline\nPhotographer Chien-Chi Chang in Ukraine",
-    foreword: "The Russian invasion of Ukraine started on February 24 is still raging. Photographer Chien-Chi Chang went to the war-torn Ukraine twice to record the situation.",
+    foreword: "The Russian invasion of Ukraine started on February 24 is still raging. Taiwanese photographer Chien-Chi Chang went to the war-torn Ukraine twice to record the situation.",
     credit: "Chien-Chi Chang",
     ig: "https://www.instagram.com/chien_chi_chang",
     eng_text: firstPage.eng_text
@@ -54,23 +54,23 @@ const endingPage = datas.filter(data => data.type === "E").reduce((first, second
         ig: 'https://www.instagram.com/chien_chi_chang',
         pairs: [
           {
-            head: '出生:',
+            head: '出生：',
             body: '1961年1月生於台中市烏日區。\n\n',
           },
           {
-            head: '學經歷:',
+            head: '學經歷：',
             body: '美國印第安那大學教育碩士，曾任《西雅圖時報》《巴爾的摩太陽報》攝影記者，現為馬格蘭通訊社終身會員。\n\n',
           },
           {
-            head: '攝影作品:',
+            head: '攝影作品：',
             body: '《鍊》（The Chain）、《我願意》（I do I do I do）、《囍》（Double Happiness）、《時差》（Jet Lag）、《唐人街》（Chinatown）、《脫北者》(Escape from North Korea )等。\n\n',
           },
           {
-            head: '獲獎:',
+            head: '獲獎：',
             body: '曾獲荷蘭世界新聞攝影獎、美國NPPA年度攝影師、法國影像Visa國際紀實攝影獎、尤金．史密斯攝影獎、美國年度新聞攝影獎、加拿大人權攝影獎多媒體類首獎、第二十八屆東元獎人文類獎。攝影作品廣泛刊於《國家地理雜誌》、《時代雜誌》、《泰晤士報》、《費加洛報》等國際知名媒體。\n\n',
           },
           {
-            head: '展覽與典藏:',
+            head: '展覽與典藏：',
             body: '曾參與威尼斯雙年展、巴西聖保羅雙年展、紐約攝影三年展、斐列茲藝術博覽會等國際展覽。攝影作品獲亨利·卡地亞-布列松基金會、喬治·伊斯曼博物館、紐約國際攝影博物館、台南奇美博物館、台灣美術館、紐約皇后藝術博物館等納為典藏。',
           }
         ]
@@ -165,7 +165,7 @@ datas.forEach(({ text, eng_text, order, type, filename, name }, index) => {
   i18n_en.push({ text: eng_text })
   let image
   if (type === "M") {
-    image = order === "1" ? "images/map1.gif" : "images/map2.gif"
+    image = order === "1" ? "images/map1.m4v" : "images/map2.m4v"
   } else {
     image = filename ? filename : ''
   }
@@ -177,9 +177,15 @@ datas.forEach(({ text, eng_text, order, type, filename, name }, index) => {
   })
 })
 
-const tutorial_en = i18n_en[2]
-const tutorial_tw = i18n_zh_tw[2]
-tutorial_tw.tutorial = {
+i18n_zh_tw[0].rotate = {
+  hint: '此專題建議以橫向格式閱讀\n請橫置手機\n以獲得最佳閱讀體驗',
+  confirm: '確定'
+}
+i18n_en[0].rotate = {
+  hint: 'Rotate your phone for best experience',
+  confirm: 'OK'
+}
+i18n_zh_tw[2].tutorial = {
   caption: {
     title: '操作說明',
     hint: '點擊螢幕任意處，開啟圖片說明\n再次點擊可關閉',
@@ -187,7 +193,7 @@ tutorial_tw.tutorial = {
   navigate: '點擊按鈕開啟側欄，選擇縮圖，可快速跳轉至指定照片',
   arrow: '點擊左右箭頭，或直接滑動螢幕，可播放下一張照片',
 }
-tutorial_en.tutorial = {
+i18n_en[2].tutorial = {
   caption: {
     title: 'Instructions',
     hint: 'To click anywhere on the screen will open the caption.\nClick again to close the caption.',

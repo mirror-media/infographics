@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -49,12 +50,13 @@ const HintAction = styled.button`
 `
 
 export default function LandscapeHint({ onConfirm }) {
+  const { t } = useTranslation()
   return (
     <Wrapper>
       <HintWrapper>
         <Icon src="images/rotate-hint.svg" />
-        <Hint>{'本專題建議以橫向格式閱讀\n請橫置手機\n獲得最佳的閱讀體驗'}</Hint>
-        <HintAction onClick={onConfirm}>確定</HintAction>
+        <Hint>{t('0.rotate.hint')}</Hint>
+        <HintAction onClick={onConfirm}>{t('0.rotate.confirm')}</HintAction>
       </HintWrapper>
     </Wrapper>
   )

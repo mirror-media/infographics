@@ -23,9 +23,9 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   text-align: center;
-  font-weight: 900;
-  font-size: 32px;
-  line-height: 48px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.5;
   white-space: pre-wrap;
 
   @media (max-width: 812px) {

@@ -63,7 +63,7 @@ export default function Pages() {
       <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} showingTutorial={showingTutorial} tutorialFinish={onFinishTutorial} />
       {
         pages.map((page, index) => (
-          < Page key={page.id} page={page} navigateTo={navigateTo} showCaption={showCaption} showingTutorial={showingTutorial} onClick={onPageClicked} pageInfo={{
+          < Page key={page.id} page={page} browsingIndex={browsingIndex} navigateTo={navigateTo} showCaption={showCaption} showingTutorial={showingTutorial} onClick={onPageClicked} pageInfo={{
             isFirst: page.id === 0,
             isLast: page.id === pages.length - 1
           }} />

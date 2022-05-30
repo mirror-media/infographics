@@ -9,8 +9,8 @@ const LeftArrow = (<svg width="28" height="52" viewBox="0 0 28 52" fill="none" x
 )
 
 const MobileLeftArrow = (< svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
-  <line x1="1.41421" y1="12" x2="12" y2="22.5858" stroke="#959595" stroke-width="2" stroke-linecap="round" />
-  <line x1="12" y1="1.41421" x2="1.41421" y2="12" stroke="#959595" stroke-width="2" stroke-linecap="round" />
+  <line x1="1.41421" y1="12" x2="12" y2="22.5858" stroke="#959595" strokeWidth="2" strokeLinecap="round" />
+  <line x1="12" y1="1.41421" x2="1.41421" y2="12" stroke="#959595" strokeWidth="2" strokeLinecap="round" />
 </svg >)
 
 
