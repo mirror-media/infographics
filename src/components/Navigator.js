@@ -257,7 +257,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
               const active = browsingIndex === index
               let photo = page.image
               if (page.type !== 'M') {
-                const mmBaseUrl = "https://storage.googleapis.com/mirrormedia-files/assets/images/"
+                const mmBaseUrl = "https://www.mirrormedia.mg/assets/images/"
                 let suffix = ''
                 if (width > 812) {
                   suffix = '-desktop.jpg'

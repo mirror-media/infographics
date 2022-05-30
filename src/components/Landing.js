@@ -18,6 +18,9 @@ const Wrapper = styled.div`
   @media (max-width: 568px) {
     top: 29%;
   }
+  @media (max-height: 300px) {
+    top: 22%;
+  }
 
 `
 
@@ -74,6 +77,9 @@ const Credit = styled.div`
     ${({ lang }) => lang === 'en' ? `
       margin-top: 16px;
     ` : ''}
+  }
+  @media (max-height: 300px) {
+    margin-top: 12px;
   }
 
 `

@@ -27,19 +27,26 @@ const BackgroundImage = styled.img`
 
 const Video = styled.video`
   position: absolute;
-  top: 21.2%;
+  top: 0;
   left: 7.5%;
-  width: 52%;
+  bottom: 30px;
+  margin: auto;
+  height: 50%;
+  max-width: 52%;
 
   @media (max-width: 812px) {
     left: 0;
-    top: 14.4%;
-    width: 58.2%;
+    top: 0;
+    bottom: 0;
+    height: 71%;
+    max-width: 58%;
   }
   @media (max-width: 568px) {
+    top: 0;
     left: 0;
-    top: 22.5%;
-    width: 54.9%;
+    bottom: 10px;
+    max-width: 54.9%;
+    height: 55.3%;
   }
 `
 
@@ -48,7 +55,8 @@ const Image = styled.img`
   position: absolute;
   top: 21.2%;
   left: 7.5%;
-  width: 52%;
+  max-width: 52%;
+  min-height: 100px;
 
   @media (max-width: 812px) {
     left: 0;
@@ -80,7 +88,7 @@ export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCa
 
   let photo = image
   if (type !== 'M') {
-    const mmBaseUrl = "https://storage.googleapis.com/mirrormedia-files/assets/images/"
+    const mmBaseUrl = "https://www.mirrormedia.mg/assets/images/"
     let suffix = ''
     if (width > 812) {
       suffix = '-desktop.jpg'
@@ -97,11 +105,11 @@ export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCa
     case 'M':
       window.id = id;
       const src = id === 1 ? 'images/map1.m4v' : 'images/map2.m4v'
-      Media = width > 812 ? (
-        <Video ref={videoRef} className='video' src={src} muted />
-      ) : (
-        <Image src={photo} />
-      )
+      // Media = width > 812 ? (
+      Media = < Video ref={videoRef} className='video' src={src} muted />
+      // ) : (
+      //   <Image src={photo} />
+      // )
       break;
     case 'L':
     case 'P':
