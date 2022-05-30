@@ -8,24 +8,27 @@ const Wrapper = styled.div`
 
   ${({ enlarge }) => (
     enlarge ? `
-      top: 73px;
-      right: 82px;
+      top: 9%;
+      right: 5.6%;
       bottom: 40px;
-      width: 439px;
+      width: 30%;
       padding: 40px 16px 56px 32px;
+      background: rgba(61,61,61,0.7);
 
       @media (max-width: 812px) {
-        top: 40px;
-        right: 32px;
-        bottom: 40px;
-        width: 279px;
+        top: 10.6%;
+        right: 3.9%;
+        bottom: 10.6%;
+        width: 34.35%;
         padding: 24px 12px 22px 16px;
+        background: rgba(0,0,0,0.6);
       }
 
       @media (max-width: 568px) {
-        top: 53px;
-        right: 32px;
-        bottom: 19px;
+        top: 11.56%;
+        right: 5.6%;
+        bottom: 5.9%;
+        width: 43.3%;
         padding: 16px 12px 16px 16px;
       }
     ` : `

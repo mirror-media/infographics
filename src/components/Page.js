@@ -27,10 +27,20 @@ const BackgroundImage = styled.img`
 
 const Video = styled.video`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 21.2%;
+  left: 7.5%;
+  width: 52%;
+
+  @media (max-width: 812px) {
+    left: 0;
+    top: 14.4%;
+    width: 58.2%;
+  }
+  @media (max-width: 568px) {
+    left: 0;
+    top: 22.5%;
+    width: 54.9%;
+  }
 `
 
 export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCaption, onClick, showingTutorial }) {

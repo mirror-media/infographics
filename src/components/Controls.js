@@ -57,6 +57,7 @@ const ShareButton = styled.button`
   width: 34px;
   height: 32px;
   margin-left: 30.9px;
+  cursor: pointer;
   @media (max-width: 812px) {
     background: url('images/share-mobile.svg') no-repeat;
     margin-left: 12px;
