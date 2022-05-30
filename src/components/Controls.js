@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useTranslation } from "react-i18next"
+import ReactGA from 'react-ga';
 
 import Navigator from "./Navigator"
 import SwitchButton from "./SwitchButton"
@@ -127,6 +128,15 @@ export default function Controls({ pages, navigateTo, browsingIndex, showingTuto
     setShowShares(showShares => !showShares)
   }
 
+  const onNavigateClicked = () => {
+    setShowNavigator(true)
+    ReactGA.event({
+      category: 'Click',
+      action: 'Click the navigate icon',
+      label: `Click the navigate icon to open navigator`
+    });
+  }
+
   const onShareFB = (e) => {
     e.stopPropagation()
     window.open('https://www.facebook.com/share.php?u='.concat(encodeURIComponent(window.location.protocol + '//' + window.location.host + window.location.pathname)));
@@ -153,7 +163,7 @@ export default function Controls({ pages, navigateTo, browsingIndex, showingTuto
   return <>
     <Logo href="https://www.mirrormedia.mg/" target="_blank"><img src="images/mirrormedia-logo.svg" alt="mirror media logo" /></Logo>
     <NavButtons>
-      {!disableNavigator && <NavigateButton onClick={() => { setShowNavigator(true) }} />}
+      {!disableNavigator && <NavigateButton onClick={onNavigateClicked} />}
       <SwitchButton left="中" right="EN" onSwitch={onLanguageChanged} switchOn={lang === 'en'} />
       <ShareButton onClick={onShareClicked}>
 

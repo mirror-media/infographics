@@ -1,4 +1,6 @@
 import { useEffect, useRef, useCallback, useState } from "react"
+import ReactGA from 'react-ga';
+
 import useWindowDimensions from "./useWindowDimensions"
 
 export default function useNavigate(pagesRef) {
@@ -27,6 +29,13 @@ export default function useNavigate(pagesRef) {
 
         if (showingPageIndex > lowestPageIndexRef.current) {
           lowestPageIndexRef.current = showingPageIndex
+          if (showingPageIndex === pagesRef.current.querySelectorAll(':scope > div.page').length - 1) {
+            ReactGA.event({
+              category: 'Scroll',
+              action: 'Scroll to the ending page',
+              label: `Scroll to the ending page`
+            });
+          }
         }
 
         setBrowsingIndex(showingPageIndex)
@@ -47,6 +56,20 @@ export default function useNavigate(pagesRef) {
       })
     }
   }, [pagesRef])
+
+  useEffect(() => {
+    const beforeunloadHandler = () => {
+      ReactGA.event({
+        category: 'Scroll',
+        action: 'Scroll depth of pages',
+        label: `Scroll to page ${lowestPageIndexRef.current}`
+      });
+    }
+    window.addEventListener("beforeunload", beforeunloadHandler);
+
+    return () => window.removeEventListener("beforeunload", beforeunloadHandler)
+  }, [])
+
 
   return {
     navigateTo: jumpToPage,

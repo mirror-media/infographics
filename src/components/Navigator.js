@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
+import ReactGA from 'react-ga';
+
 import styled, { createGlobalStyle } from "styled-components"
 import useWindowDimensions from "../hooks/useWindowDimensions"
 
@@ -218,6 +220,16 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
   const { t, i18n: { language } } = useTranslation()
   const { width } = useWindowDimensions()
 
+  const onPageButtonClicked = (index) => {
+    console.log(index)
+    navigateTo(index)
+    ReactGA.event({
+      category: 'Click',
+      action: 'Click the page thumbnail on navigator',
+      label: `Click the page ${index} thumbnail on navigator`
+    });
+  }
+
   useEffect(() => {
     if (navigateRef.current) {
       const activeButton = navigateRef.current.querySelector('.active')
@@ -258,7 +270,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
               }
 
               return (index === 0 || index === pages.length - 1) ? <div key={page.id}></div> : (
-                <PageButton key={page.id} onClick={navigateTo.bind(null, index)} active={active} className={active ? 'active' : ''}>
+                <PageButton key={page.id} onClick={onPageButtonClicked.bind(null, index)} active={active} className={active ? 'active' : ''}>
                   <Thumbnail src={photo} alt="thumbnail of photos" />
                 </PageButton>
               )

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import ReactGA from 'react-ga';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -120,11 +121,23 @@ const Text = styled.p`
 
 `
 
-export default function Caption({ caption, enlarge, showingTutorial }) {
+export default function Caption({ caption, enlarge, showingTutorial, index }) {
+
+  const onScrollHandler = (e) => {
+    const scroller = e.target
+    if (scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight < 1) {
+      ReactGA.event({
+        category: 'Scroll',
+        action: 'Scroll the caption to the end',
+        label: `Scroll the caption on page ${index} to the end`
+      });
+    }
+  }
+
   return (
     <Wrapper enlarge={enlarge} showingTutorial={showingTutorial} onClick={(e) => { e.stopPropagation() }}>
-      <ScrollWrapper enlarge={enlarge} id="scroll">
-        <Text enlarge={enlarge}>{caption}</Text>
+      <ScrollWrapper enlarge={enlarge} id="scroll" onScroll={onScrollHandler} >
+        <Text enlarge={enlarge} >{caption}</Text>
       </ScrollWrapper>
     </Wrapper>
   )

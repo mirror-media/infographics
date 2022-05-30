@@ -125,7 +125,7 @@ export default function Page({ page, pageInfo, browsingIndex, navigateTo, showCa
   } else if (type === "E") {
     Content = <Ending id={id} image={photo} />
   } else {
-    Content = (showCaption || type === 'M') ? <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} showingTutorial={showingTutorial} /> : null
+    Content = (showCaption || type === 'M') ? <Caption caption={t(`${id}.text`)} enlarge={type === 'M'} showingTutorial={showingTutorial} index={id} /> : null
   }
 
   return (
