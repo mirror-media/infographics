@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  ${({ forceLandscape }) => forceLandscape ? `
+    transform: rotateZ(90deg);
+  ` : ``}
 `
 
 export default function Landscape() {
@@ -33,7 +37,7 @@ export default function Landscape() {
   }
 
   return (
-    <Wrapper>
+    <Wrapper forceLandscape={forceLandscape && hintConfirm}>
       {Content}
     </Wrapper>
   )
