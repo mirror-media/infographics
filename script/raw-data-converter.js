@@ -5,7 +5,6 @@ const path = require('path');
 let i18n_zh_tw = []
 let i18n_en = []
 let pages = []
-const mmBaseUrl = "https://storage.googleapis.com/mirrormedia-files/assets/images"
 
 /*
   欠缺landing page 圖片\前言、map for mobile
@@ -168,7 +167,7 @@ datas.forEach(({ text, eng_text, order, type, filename, name }, index) => {
   if (type === "M") {
     image = order === "1" ? "images/map1.gif" : "images/map2.gif"
   } else {
-    image = filename ? `${mmBaseUrl}/${filename}.jpg` : ''
+    image = filename ? filename : ''
   }
   pages.push({
     id: index,

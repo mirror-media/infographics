@@ -243,9 +243,23 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
           <PageButtonWrapper>
             {pages.map((page, index) => {
               const active = browsingIndex === index
+              let photo = page.image
+              if (page.type !== 'M') {
+                const mmBaseUrl = "https://storage.googleapis.com/mirrormedia-files/assets/images/"
+                let suffix = ''
+                if (width > 812) {
+                  suffix = '-desktop.jpg'
+                } else if (width > 568) {
+                  suffix = '-tablet.jpg'
+                } else {
+                  suffix = '-mobile.jpg'
+                }
+                photo = mmBaseUrl + page.image + suffix
+              }
+
               return (index === 0 || index === pages.length - 1) ? <div key={page.id}></div> : (
                 <PageButton key={page.id} onClick={navigateTo.bind(null, index)} active={active} className={active ? 'active' : ''}>
-                  <Thumbnail src={page.image} alt="thumbnail of photos" />
+                  <Thumbnail src={photo} alt="thumbnail of photos" />
                 </PageButton>
               )
             })}
