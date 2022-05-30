@@ -13,7 +13,7 @@ const resources = {
 };
 
 let browserLanguage = navigator.language || navigator.userLanguage
-if (browserLanguage === 'zh-CN' || browserLanguage === 'zh-HK' || browserLanguage === 'zh-TW') {
+if (browserLanguage.toLowerCase().includes('zh')) {
   browserLanguage = 'zh-TW'
 } else {
   browserLanguage = 'en'
