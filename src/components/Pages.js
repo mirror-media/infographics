@@ -8,7 +8,7 @@ import Controls from "./Controls"
 
 const Wrapper = styled.div``
 
-export default function Pages() {
+export default function Pages({ fakeLandscape }) {
   const [showCaption, setShowCaption] = useState(false)
   const [showingTutorial, setShowingTutorial] = useState(false)
   const [shouldShowTutorial, setShouldShowTutorial] = useState(false)
@@ -57,7 +57,7 @@ export default function Pages() {
       <Controls pages={pages} navigateTo={navigateTo} browsingIndex={browsingIndex} showingTutorial={showingTutorial} tutorialFinish={onFinishTutorial} />
       {
         pages.map((page, index) => (
-          < Page key={page.id} page={page} browsingIndex={browsingIndex} navigateTo={navigateTo} showCaption={showCaption} showingTutorial={showingTutorial} onClick={onPageClicked} pageInfo={{
+          < Page fakeLandscape={fakeLandscape} key={page.id} page={page} browsingIndex={browsingIndex} navigateTo={navigateTo} showCaption={showCaption} showingTutorial={showingTutorial} onClick={onPageClicked} pageInfo={{
             isFirst: page.id === 0,
             isLast: page.id === pages.length - 1
           }} />
