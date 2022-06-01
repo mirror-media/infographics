@@ -78,8 +78,6 @@ const IntroductionWrapper = styled.div`
   margin: 0 auto;
   .introduction--container {
     width: 432px;
-    color: white;
-    border: 1px solid white;
     overflow: auto;
     height: 100vh;
     display: flex;
@@ -90,7 +88,6 @@ const IntroductionWrapper = styled.div`
   .introduction--dialog {
     width: 432px;
     height: 275px;
-    border: 1px solid red;
     background-position: center;
     background-size: contain;
     background-image: url(${introDialog});
@@ -101,8 +98,9 @@ const IntroductionWrapper = styled.div`
     align-items: center;
     p {
       margin: 0;
-      color: white;
+      color: #f8f3e8;
       line-height: 163.7%;
+      font-size: 18px;
     }
   }
 `;
@@ -141,42 +139,6 @@ export default function Intro() {
 
       <IntroductionWrapper>
         {introTextJsx}
-        {/* <div className="introduction--container">
-          <InView
-            id="1"
-            as="div"
-            className="introduction--dialog"
-            onChange={(inView, entry) =>
-              changeBackgroundImage(inView, entry.target.id)
-            }
-          >
-            第一篇
-          </InView>
-        </div>
-        <div className="introduction--container">
-          <InView
-            id="2"
-            as="div"
-            className="introduction--dialog"
-            onChange={(inView, entry) =>
-              changeBackgroundImage(inView, entry.target.id)
-            }
-          >
-            第二篇
-          </InView>
-        </div>
-        <div className="introduction--container">
-          <InView
-            id="3"
-            as="div"
-            className="introduction--dialog"
-            onChange={(inView, entry) =>
-              changeBackgroundImage(inView, entry.target.id)
-            }
-          >
-            第三篇
-          </InView>
-        </div> */}
         <div className="introduction--container"></div>
       </IntroductionWrapper>
     </React.Fragment>
