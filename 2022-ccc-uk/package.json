@@ -1,0 +1,39 @@
+{
+  "name": "topic-ukraine",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "i18next": "^21.8.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-ga": "^3.3.0",
+    "react-i18next": "^11.16.9",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "BUILD_PATH=dist react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "https://www.mirrormedia.mg/projects/topic_ukraine"
+}
