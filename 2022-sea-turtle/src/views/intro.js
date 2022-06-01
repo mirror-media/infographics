@@ -1,0 +1,184 @@
+import React, { useState } from 'react';
+import { InView } from 'react-intersection-observer';
+
+import styled, { css } from 'styled-components';
+
+import introImage1 from '../assets/image/intro-1.png';
+import introImage2 from '../assets/image/intro-2.png';
+import introImage3 from '../assets/image/intro-3.png';
+import introDialog from '../assets/image/intro-dialog.png';
+const INTRO_TEXT = [
+  {
+    id: 0,
+    text: [
+      '海龜是穿越時間的獸。',
+      '兩億多年前，牠們與恐龍一起現身，',
+      '倖存過白堊紀大滅絕，',
+      '現今依舊徜徉於大海。',
+    ],
+  },
+  {
+    id: 1,
+    text: [
+      '海龜是穿越時間的獸。',
+      '兩億多年前，牠們與恐龍一起現身，',
+      '倖存過白堊紀大滅絕，',
+      '現今依舊徜徉於大海。',
+    ],
+  },
+  {
+    id: 2,
+    text: [
+      '海龜是穿越時間的獸。',
+      '兩億多年前，牠們與恐龍一起現身，',
+      '倖存過白堊紀大滅絕，',
+      '現今依舊徜徉於大海。',
+    ],
+  },
+];
+const IntroWrapperStyle = css`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+const IntroWrapper1 = styled.div`
+  ${IntroWrapperStyle}
+  visibility: ${(props) => (props.shouldShow ? 'visible' : 'hidden')};
+  background-image: url(${introImage1});
+`;
+const IntroWrapper2 = styled.div`
+  ${IntroWrapperStyle}
+  visibility: ${(props) => (props.shouldShow ? 'visible' : 'hidden')};
+  background-image: url(${introImage2});
+`;
+const IntroWrapper3 = styled.div`
+  ${IntroWrapperStyle}
+  visibility: ${(props) => (props.shouldShow ? 'visible' : 'hidden')};
+  background-image: url(${introImage3});
+`;
+const IntroductionWrapper = styled.div`
+  * {
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  width: fit-content;
+  background-color: transparent;
+  margin: 0 auto;
+  .introduction--container {
+    width: 432px;
+    color: white;
+    border: 1px solid white;
+    overflow: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .introduction--dialog {
+    width: 432px;
+    height: 275px;
+    border: 1px solid red;
+    background-position: center;
+    background-size: contain;
+    background-image: url(${introDialog});
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      margin: 0;
+      color: white;
+      line-height: 163.7%;
+    }
+  }
+`;
+export default function Intro() {
+  const [count, setCount] = useState('');
+
+  function changeBackgroundImage(isInView, whichDialog) {
+    if (!isInView) {
+      return;
+    }
+    setCount(whichDialog);
+  }
+  const introTextJsx = INTRO_TEXT.map((item) => (
+    <div className="introduction--container" key={item.id}>
+      <InView
+        id={item.id}
+        as="div"
+        className="introduction--dialog"
+        onChange={(inView, entry) =>
+          changeBackgroundImage(inView, entry.target.id)
+        }
+      >
+        {item.text.map((text, index) => (
+          <React.Fragment key={index}>
+            <p>{text}</p>
+          </React.Fragment>
+        ))}
+      </InView>
+    </div>
+  ));
+  return (
+    <React.Fragment>
+      <IntroWrapper1 shouldShow={count === '0' ? true : false} />
+      <IntroWrapper2 shouldShow={count === '1' ? true : false} />
+      <IntroWrapper3 shouldShow={count === '2' ? true : false} />
+
+      <IntroductionWrapper>
+        {introTextJsx}
+        {/* <div className="introduction--container">
+          <InView
+            id="1"
+            as="div"
+            className="introduction--dialog"
+            onChange={(inView, entry) =>
+              changeBackgroundImage(inView, entry.target.id)
+            }
+          >
+            第一篇
+          </InView>
+        </div>
+        <div className="introduction--container">
+          <InView
+            id="2"
+            as="div"
+            className="introduction--dialog"
+            onChange={(inView, entry) =>
+              changeBackgroundImage(inView, entry.target.id)
+            }
+          >
+            第二篇
+          </InView>
+        </div>
+        <div className="introduction--container">
+          <InView
+            id="3"
+            as="div"
+            className="introduction--dialog"
+            onChange={(inView, entry) =>
+              changeBackgroundImage(inView, entry.target.id)
+            }
+          >
+            第三篇
+          </InView>
+        </div> */}
+        <div className="introduction--container"></div>
+      </IntroductionWrapper>
+    </React.Fragment>
+  );
+}
