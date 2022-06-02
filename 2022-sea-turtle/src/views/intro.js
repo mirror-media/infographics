@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { InView } from 'react-intersection-observer';
+import PropTypes from 'prop-types';
 
 import styled, { css } from 'styled-components';
 
@@ -104,7 +105,12 @@ const IntroductionWrapper = styled.div`
     }
   }
 `;
-export default function Intro() {
+
+Intro.propTypes = {
+  changeView: PropTypes.func,
+};
+
+export default function Intro(props) {
   const [count, setCount] = useState('');
 
   function changeBackgroundImage(isInView, whichDialog) {
@@ -139,7 +145,11 @@ export default function Intro() {
 
       <IntroductionWrapper>
         {introTextJsx}
-        <div className="introduction--container"></div>
+        <div className="introduction--container">
+          <InView as="div" onChange={(inView) => props.changeView(inView)}>
+            <p></p>
+          </InView>
+        </div>
       </IntroductionWrapper>
     </React.Fragment>
   );
