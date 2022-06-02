@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  font-family: 'Noto Serif TC','Georgia', 'Garamond', 'Times New Roman', serif;
+  font-family: 'Noto Serif TC' ,'Noto Serif', 'Garamond', 'Times New Roman', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
