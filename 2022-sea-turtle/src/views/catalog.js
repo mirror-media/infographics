@@ -43,57 +43,125 @@ const CatalogTitle = styled.div`
 `;
 const ComicCardWrapper = styled.div`
   margin: 0 auto;
-  width: 841px;
   height: 100%;
+  width: fit-content;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: flex-start;
+
+  @media (min-width: 841px) {
+    width: 841px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
 const ComicCard = styled.div`
   margin: 0 0 20px;
-  &:nth-child(-n + 2) {
-    margin-top: 35px;
+  /* &:before {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    bottom: -19px;
+    left: 0;
+    @media (min-width: 841px) {
+      display: none;
+    }
+  } */
+
+  &:not(:first-child) {
+    margin: 16px 0 20px;
   }
-  &:nth-child(n + 3) {
-    margin-top: 38px;
+  @media (min-width: 841px) {
+    margin: 35px 0 20px;
+    &:not(:first-child) {
+      margin: 35px 0 20px;
+    }
   }
   position: relative;
-  &:nth-child(2n + 1) {
+  :nth-child(2n + 1) {
     &:before {
       content: '';
-      width: 1px;
-      height: 100%;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      background-color: #000;
+      bottom: -19px;
+      right: 0;
+      @media (min-width: 841px) {
+        content: '';
+        height: 100%;
+        width: 1px;
+        bottom: 0;
+        right: -19px;
+      }
+    }
+  }
+  &:nth-child(2n + 2) {
+    &:before {
+      content: '';
+      height: 1px;
+      width: 100%;
       background-color: #000;
       position: absolute;
-      right: -19px;
-      top: 0;
+      bottom: -19px;
+      right: 0;
+      @media (min-width: 841px) {
+        display: none;
+      }
     }
   }
   &:first-child {
     &:after {
-      content: '';
-      width: 854px;
-      height: 1px;
-      background-color: #000;
-      position: absolute;
-      left: 0;
-      bottom: -19px;
+      @media (min-width: 841px) {
+        content: '';
+        width: 841px;
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        left: 0;
+        bottom: -19px;
+      }
     }
   }
   .image {
+    img {
+      width: 184px;
+      height: 56px;
+      @media (min-width: 841px) {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
   .title {
-    width: fit-content;
-    margin: 25px auto 8.24px;
+    margin: 8px auto 5px;
+    @media (min-width: 841px) {
+      margin: 25px auto 8.24px;
+    }
+    img {
+      width: 142px;
+      @media (min-width: 841px) {
+        width: fit-content;
+      }
+    }
   }
   .introduction {
-    width: 400px;
+    width: 296px;
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 163.7%;
-    /* max-height: 157px; */
     text-align: left;
+    @media (min-width: 841px) {
+      width: 400px;
+      font-size: 16px;
+    }
   }
 `;
 
