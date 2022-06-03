@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import CatalogHeader from '../components/catalog-header';
 const CARD_CONTENT = [
   {
     id: 0,
@@ -12,7 +11,7 @@ const CARD_CONTENT = [
   {
     id: 1,
     imageSrc: 'fake-image-preview.png',
-    titleSrc: 'comic-title-silly.svg',
+    titleSrc: 'comic-title-holic.svg',
     text: '2022年的一個早晨，綽號貓哥的林群在貢寮海灘拯救了一頭巨獸。這是一頭革龜，外型從恐龍時期迄今幾乎未曾改變。然而牠的餘命只有短短數小時，隔天凌晨，革龜死亡。台灣並非革龜的棲息或覓食地，牠為何來此？貓哥為此經常惡夢，為了難以清償的愧疚。',
   },
   {
@@ -29,7 +28,7 @@ const CARD_CONTENT = [
   },
 ];
 const CatalogWrapper = styled.div`
-  background: #f8f3e8;
+  /* background: #f8f3e8; */
   min-height: 100vh;
   padding: 0 0 1px;
 `;
@@ -62,19 +61,6 @@ const ComicCardWrapper = styled.div`
 `;
 const ComicCard = styled.div`
   margin: 0 0 20px;
-  /* &:before {
-    content: '';
-    height: 1px;
-    width: 100%;
-    background-color: #000;
-    position: absolute;
-    bottom: -19px;
-    left: 0;
-    @media (min-width: 841px) {
-      display: none;
-    }
-  } */
-
   &:not(:first-child) {
     margin: 16px 0 20px;
   }
@@ -180,7 +166,6 @@ const comicCardJsx = CARD_CONTENT.map((item) => (
 export default function Catalog() {
   return (
     <React.Fragment>
-      <CatalogHeader />
       <CatalogWrapper>
         <CatalogTitle>
           <img src="title.svg" />
