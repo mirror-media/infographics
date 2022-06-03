@@ -7,8 +7,12 @@ Comic.propTypes = {
 const ComicWrapper = styled.div`
   border: 1px solid black;
   min-height: 100vh;
-  width: 476px;
-  padding: 0 21px 0 35px;
+  width: 231px;
+  padding: 0;
+  @media (min-width: 576px) {
+    width: 476px;
+    padding: 0 21px 0 35px;
+  }
   margin: 20px auto;
   display: flex;
   flex-direction: column;
@@ -18,7 +22,10 @@ const ComicWrapper = styled.div`
     padding: 22px 0;
     text-align: left;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
+    @media (min-width: 576px) {
+      font-size: 18px;
+    }
     line-height: 163.7%;
   }
   .comic-image {
