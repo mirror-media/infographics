@@ -1,34 +1,39 @@
 import { useState } from 'react';
 
+import { ReactComponent as ShareButtonSvg } from '../assets/image/share.svg';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
-const ShareButton = styled.div`
-  display: block;
-  position: relative;
-  background: url('mobile-share-320.svg') no-repeat;
+const ShareButton = styled(ShareButtonSvg)`
   width: 15px;
   height: 14px;
-  margin: 24px 0 0 10px;
-  cursor: pointer;
+  path {
+    fill: ${(props) => props.color};
+  }
+  margin: ${(props) => props.margin || '24px 0 0 10px'};
   @media (min-width: 375px) {
-    background: url('mobile-share.svg') no-repeat;
     width: 21px;
     height: 20px;
-    margin: 20px 0 0 10px;
+    margin: ${(props) => props.margin || '20px 0 0 10px'};
   }
   @media (min-width: 861px) {
-    background: url('share.svg') no-repeat;
-    width: 58px;
-    height: 56px;
-    padding: 24px 60px 0 0;
+    width: 34px;
+    height: 32px;
+    margin: ${(props) => props.margin || '24px 24px 0 0'};
   }
+`;
+const ShareWrapper = styled.div`
+  display: block;
+  position: relative;
+  cursor: pointer;
 `;
 const ShareIcon = styled.button`
   display: block;
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
+  top: 20px;
+  left: 10px;
   padding: 0;
   border-radius: 100%;
   border: none;
@@ -39,35 +44,46 @@ const ShareIcon = styled.button`
   }
   width: 20px;
   height: 20px;
-  transform: translate3d(7.5px, 0px, 0);
+  transform: ${({ expandShareIcon }) =>
+    expandShareIcon ? 'translate3d(0, 0, 0)' : 'translate3d(7.5px, 0px, 0)'};
 
-  ${({ show }) =>
+  ${({ show, expandShareIcon }) =>
     show
       ? `
     transition-duration: 190ms;
     &:first-of-type {
-      transform: translate3d(22.5px, 0px, 0);  
+      transform: translate3d(${
+        expandShareIcon ? '0px, -50px, 0' : '22.5px, 0 , 0'
+      });  
     }
     &:last-of-type {
-      transform: translate3d(45px, 0px, 0);  
+      transform: translate3d(
+        ${expandShareIcon ? '0px, -75px, 0' : '45px, 0, 0'}
+      );  
     }
   `
       : `
     visibility: hidden;
   `}
+
   @media (min-width: 375px) {
     width: 25px;
     height: 25px;
-    transform: translate3d(10px, 0px, 0);
-    ${({ show }) =>
+    transform: ${({ expandShareIcon }) =>
+      expandShareIcon ? 'translate3d(0, 0, 0)' : 'translate3d(10px, 0px, 0)'};
+    ${({ show, expandShareIcon }) =>
       show
         ? `
     transition-duration: 190ms;
     &:first-of-type {
-      transform: translate3d(30px, 0px, 0);  
+      transform: translate3d(${
+        expandShareIcon ? '0px, -50px, 0' : '30px, 0px, 0'
+      });  
     }
     &:last-of-type {
-      transform: translate3d(60px, 0px, 0);  
+      transform: translate3d(
+        ${expandShareIcon ? '0px, -80px, 0' : '60px, 0, 0'}
+      );    
     }
   `
         : `
@@ -77,6 +93,7 @@ const ShareIcon = styled.button`
   @media (min-width: 861px) {
     width: 38px;
     height: 38px;
+    left: 0;
     transform: translate3d(0, 30px, 0);
     ${({ show }) =>
       show
@@ -125,19 +142,25 @@ const onShareLine = (e) => {
   );
 };
 
-export default function Share() {
+Share.propTypes = {
+  buttonMargin: PropTypes.string,
+  buttonColor: PropTypes.string,
+};
+
+export default function Share({ buttonColor = 'black', buttonMargin }) {
   const [showShares, setShowShares] = useState(false);
   const toggleShareList = () => {
     setShowShares((showShares) => !showShares);
   };
   return (
-    <ShareButton onClick={toggleShareList}>
-      <ShareIcon show={showShares} onClick={onShareFB}>
+    <ShareWrapper onClick={toggleShareList}>
+      <ShareButton color={buttonColor} margin={buttonMargin}></ShareButton>
+      <ShareIcon show={showShares} expandShareIcon={true} onClick={onShareFB}>
         <img src="fb.png" alt="share to fb" />
       </ShareIcon>
-      <ShareIcon show={showShares} onClick={onShareLine}>
+      <ShareIcon show={showShares} expandShareIcon={true} onClick={onShareLine}>
         <img src="line.png" alt="share to line" />
       </ShareIcon>
-    </ShareButton>
+    </ShareWrapper>
   );
 }
