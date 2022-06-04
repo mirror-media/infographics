@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import ThreeLineMenu from './three-line-menu';
 //TODOs: combine additional part into  catalog-header.js
 const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
-  z-index: 0;
+  z-index: 10;
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;
-  background: #f8f3e8;
+  background: transparent;
+
   justify-content: flex-start;
   width: 100%;
-  @media (min-width: 576px) {
+  @media (min-width: 861px) {
     justify-content: space-between;
   }
   .mirrormedia-logo {
     width: 62px;
     height: 26px;
     margin: 16px 0 0 24px;
-    @media (min-width: 576px) {
+    @media (min-width: 861px) {
       width: 90px;
       height: 38px;
     }
@@ -28,16 +29,22 @@ const HeaderWrapper = styled.div`
 `;
 
 //additional css
-const AnchorWrapper = styled.ul`
+const ComicTitleWrapper = styled.ul`
+  display: none;
   margin: 0 22.28px;
   padding: 0;
   width: 100%;
-  display: flex;
   justify-content: flex-start;
-
+  @media (min-width: 861px) {
+    display: flex;
+  }
   .title {
     cursor: pointer;
     margin: 11px auto 0 0;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
   .comic-title {
     list-style-type: none;
@@ -71,11 +78,11 @@ const ShareButton = styled.div`
     height: 20px;
     margin: 20px 0 0 10px;
   }
-  @media (min-width: 576px) {
+  @media (min-width: 861px) {
     background: url('share.svg') no-repeat;
     width: 58px;
     height: 56px;
-    padding: 24px 24px 0 0;
+    padding: 24px 60px 0 0;
   }
 `;
 const ShareIcon = styled.button`
@@ -129,7 +136,7 @@ const ShareIcon = styled.button`
     visibility: hidden;
   `}
   }
-  @media (min-width: 576px) {
+  @media (min-width: 861px) {
     width: 38px;
     height: 38px;
     transform: translate3d(0, 30px, 0);
@@ -180,12 +187,14 @@ const onShareLine = (e) => {
   );
 };
 
+ComicHeader.propTypes = {
+  shouldShowComicHeader: PropTypes.bool,
+};
 //TODOs: should use picture& src set to set corresponding type of icon in different viewport
-export default function CatalogHeader() {
+export default function ComicHeader(props) {
   const [showShares, setShowShares] = useState(false);
-  const [atComicPage] = useState(true);
+  // const [atComicPage] = useState(true);
   const toggleShareList = () => {
-    console.log('toggleShareList');
     setShowShares((showShares) => !showShares);
   };
   return (
@@ -197,13 +206,12 @@ export default function CatalogHeader() {
       >
         <img className="mirrormedia-logo" src="mirrormedia-icon.svg"></img>
       </a>
-      {/* additional */}
-      {atComicPage && (
-        <AnchorWrapper>
+
+      {props.shouldShowComicHeader && (
+        <ComicTitleWrapper>
           <li className="title">
             <img src="title-mini.svg"></img>
           </li>
-
           <li className="comic-title">
             <span>&#11044;</span> <img src="comic-title-nightmare.svg"></img>
           </li>
@@ -216,10 +224,8 @@ export default function CatalogHeader() {
           <li className="comic-title">
             <span>&#11044;</span> <img src="comic-title-eudemons.svg"></img>
           </li>
-        </AnchorWrapper>
+        </ComicTitleWrapper>
       )}
-      {/* // */}
-
       <ShareButton onClick={toggleShareList}>
         <ShareIcon show={showShares} onClick={onShareFB}>
           <img src="fb.png" alt="share to fb" />
@@ -228,6 +234,7 @@ export default function CatalogHeader() {
           <img src="line.png" alt="share to line" />
         </ShareIcon>
       </ShareButton>
+      <ThreeLineMenu></ThreeLineMenu>
     </HeaderWrapper>
   );
 }

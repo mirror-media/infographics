@@ -50,7 +50,7 @@ const ComicCardWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
 
-  @media (min-width: 841px) {
+  @media (min-width: 861px) {
     width: 841px;
     display: flex;
     flex-wrap: wrap;
@@ -64,7 +64,7 @@ const ComicCard = styled.div`
   &:not(:first-child) {
     margin: 16px 0 20px;
   }
-  @media (min-width: 841px) {
+  @media (min-width: 861px) {
     margin: 35px 0 20px;
     &:not(:first-child) {
       margin: 35px 0 20px;
@@ -80,7 +80,7 @@ const ComicCard = styled.div`
       background-color: #000;
       bottom: -19px;
       right: 0;
-      @media (min-width: 841px) {
+      @media (min-width: 861px) {
         content: '';
         height: 100%;
         width: 1px;
@@ -98,14 +98,14 @@ const ComicCard = styled.div`
       position: absolute;
       bottom: -19px;
       right: 0;
-      @media (min-width: 841px) {
+      @media (min-width: 861px) {
         display: none;
       }
     }
   }
   &:first-child {
     &:after {
-      @media (min-width: 841px) {
+      @media (min-width: 861px) {
         content: '';
         width: 841px;
         height: 1px;
@@ -120,7 +120,7 @@ const ComicCard = styled.div`
     img {
       width: 184px;
       height: 56px;
-      @media (min-width: 841px) {
+      @media (min-width: 861px) {
         width: 100%;
         height: 100%;
       }
@@ -128,12 +128,12 @@ const ComicCard = styled.div`
   }
   .title {
     margin: 8px auto 5px;
-    @media (min-width: 841px) {
+    @media (min-width: 861px) {
       margin: 25px auto 8.24px;
     }
     img {
       width: 142px;
-      @media (min-width: 841px) {
+      @media (min-width: 861px) {
         width: fit-content;
       }
     }
@@ -144,7 +144,7 @@ const ComicCard = styled.div`
     font-size: 12px;
     line-height: 163.7%;
     text-align: left;
-    @media (min-width: 841px) {
+    @media (min-width: 861px) {
       width: 400px;
       font-size: 16px;
     }

@@ -4,7 +4,7 @@ import './App.css';
 import Intro from './views/intro';
 import Catalog from './views/catalog';
 import Comic from './views/comic';
-import CatalogHeader from './components/catalog-header';
+// import CatalogHeader from './components/catalog-header';
 import { useInView } from 'react-intersection-observer';
 import ComicHeader from './components/comic-header';
 const BackgroundWrapper = styled.div`
@@ -74,7 +74,7 @@ function App() {
 
       {shouldShowCatalog && (
         <BackgroundWrapper>
-          {inView ? <ComicHeader /> : <CatalogHeader />}
+          <ComicHeader shouldShowComicHeader={inView} />
           <Catalog />
           <div ref={ref}>{comicJsx}</div>
         </BackgroundWrapper>
