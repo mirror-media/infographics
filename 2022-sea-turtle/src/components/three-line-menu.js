@@ -17,7 +17,7 @@ const MenuWrapper = styled.button`
     height: 1.5px;
     color: black;
     margin: 4px 0;
-    background-color: red;
+    background-color: black;
   }
 `;
 
