@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import SideMenu from './side-menu';
-const MenuWrapper = styled.button`
+const MenuIcon = styled.button`
   width: 18px;
   border: none;
   background-color: transparent;
@@ -26,7 +26,7 @@ export default function ThreeLineMenu() {
 
   return (
     <React.Fragment>
-      <MenuWrapper
+      <MenuIcon
         onClick={() => {
           setShowSideMenu((showSideMenu) => !showSideMenu);
         }}
@@ -35,8 +35,13 @@ export default function ThreeLineMenu() {
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
-      </MenuWrapper>
-      <SideMenu show={showSideMenu} />
+      </MenuIcon>
+      <SideMenu
+        show={showSideMenu}
+        onClick={() => {
+          setShowSideMenu((showSideMenu) => !showSideMenu);
+        }}
+      />
     </React.Fragment>
   );
 }

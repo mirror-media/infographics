@@ -13,7 +13,7 @@ const BackgroundWrapper = styled.div`
 
 const COMIC_CONTENT = [
   {
-    id: 0,
+    id: 'nightmare',
     name: '貓哥的惡夢',
     content: [
       {
@@ -31,7 +31,7 @@ const COMIC_CONTENT = [
     ],
   },
   {
-    id: 1,
+    id: 'holic',
     name: '貓哥的惡夢',
     content: [
       {
@@ -66,7 +66,7 @@ function App() {
     }
   };
   const comicJsx = COMIC_CONTENT.map((item) => (
-    <Comic key={item.id} content={item} />
+    <Comic key={item.id} content={item} id={item.id} />
   ));
   return (
     <div className="App">

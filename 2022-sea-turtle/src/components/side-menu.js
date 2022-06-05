@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import MirrorMediaIcon from './mirror-media-icon';
 import Share from './share';
+import scrollIntoComic from '../utils/scroll-into-comic';
 SideMenu.propTypes = {
   show: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 const SideMenuWrapper = styled.ul`
@@ -61,24 +63,29 @@ const SideMenuWrapper = styled.ul`
     justify-content: flex-start;
   }
 `;
+
 export default function SideMenu(props) {
+  const selectComic = (id) => {
+    scrollIntoComic(id);
+    props.onClick();
+  };
   return (
     <SideMenuWrapper show={props.show}>
       <h2 className="title">漫畫</h2>
       <ul>
-        <li>
+        <li onClick={() => selectComic('nightmare')}>
           <img src="comic-title-nightmare-white.svg" />
         </li>
-        <li>
+        <li onClick={() => selectComic('holic')}>
           <img src="comic-title-holic-white.svg" />
         </li>
-        <li>
+        <li onClick={() => selectComic('spectre')}>
           <img src="comic-title-spectre-white.svg" />
         </li>
       </ul>
       <h2 className="title">文章</h2>
       <ul>
-        <li>
+        <li onClick={() => selectComic('eudemons')}>
           <img src="comic-title-eudemons-white.svg" />
         </li>
       </ul>

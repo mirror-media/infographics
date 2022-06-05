@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ThreeLineMenu from './three-line-menu';
 import Share from './share';
+import scrollIntoComic from '../utils/scroll-into-comic';
 //TODOs: combine additional part into  catalog-header.js
 const HeaderWrapper = styled.div`
   position: fixed;
@@ -85,16 +86,25 @@ export default function ComicHeader(props) {
           <li className="title">
             <img src="title-mini.svg"></img>
           </li>
-          <li className="comic-title">
+          <li
+            className="comic-title"
+            onClick={() => scrollIntoComic('nightmare')}
+          >
             <span>&#11044;</span> <img src="comic-title-nightmare.svg"></img>
           </li>
-          <li className="comic-title">
+          <li className="comic-title" onClick={() => scrollIntoComic('holic')}>
             <span>&#11044;</span> <img src="comic-title-holic.svg"></img>
           </li>
-          <li className="comic-title">
+          <li
+            className="comic-title"
+            onClick={() => scrollIntoComic('spectre')}
+          >
             <span>&#11044;</span> <img src="comic-title-spectre.svg"></img>
           </li>
-          <li className="comic-title">
+          <li
+            className="comic-title"
+            onClick={() => scrollIntoComic('eudemons')}
+          >
             <span>&#11044;</span> <img src="comic-title-eudemons.svg"></img>
           </li>
         </ComicTitleWrapper>
