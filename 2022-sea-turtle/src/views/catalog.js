@@ -1,15 +1,16 @@
 import React from 'react';
+import scrollIntoComic from '../utils/scroll-into-comic';
 
 import styled from 'styled-components';
 const CARD_CONTENT = [
   {
-    id: 0,
+    id: 'nightmare',
     imageSrc: 'fake-image-preview.png',
     titleSrc: 'comic-title-nightmare.svg',
     text: '現年三十五歲的蘇淮現居小琉球，從事海洋調查、水下攝影、推廣海洋生態教育，但在大二之前，他只見過祖父魚塭裡的生物，對海一無所知。然而潛入大海，他愛上海龜，幾乎成痴，二〇一九年更前往印尼班達海上的卡伊島尋找革龜。革龜是穿越時間的幻獸，追尋革龜，是蘇淮對自我的探索與定位，亦是他對萬物相生的理解。',
   },
   {
-    id: 1,
+    id: 'holic',
     imageSrc: 'fake-image-preview.png',
     titleSrc: 'comic-title-holic.svg',
     text: '2022年的一個早晨，綽號貓哥的林群在貢寮海灘拯救了一頭巨獸。這是一頭革龜，外型從恐龍時期迄今幾乎未曾改變。然而牠的餘命只有短短數小時，隔天凌晨，革龜死亡。台灣並非革龜的棲息或覓食地，牠為何來此？貓哥為此經常惡夢，為了難以清償的愧疚。',
@@ -49,7 +50,7 @@ const ComicCardWrapper = styled.div`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-start;
-
+  cursor: pointer;
   @media (min-width: 861px) {
     width: 841px;
     display: flex;
@@ -152,7 +153,7 @@ const ComicCard = styled.div`
 `;
 
 const comicCardJsx = CARD_CONTENT.map((item) => (
-  <ComicCard key={item.id}>
+  <ComicCard onClick={() => scrollIntoComic(item.id)} key={item.id}>
     <div className="image">
       <img src={item.imageSrc}></img>
     </div>

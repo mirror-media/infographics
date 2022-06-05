@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 Comic.propTypes = {
   content: PropTypes.object,
+  id: PropTypes.string,
 };
 const ComicWrapper = styled.div`
-  border: 1px solid black;
   min-height: 100vh;
   width: 231px;
-  padding: 0;
+  margin: 0 auto;
+  padding: 60px 0 0 0;
   @media (min-width: 576px) {
     width: 476px;
-    padding: 0 21px 0 35px;
+    padding: 60px 21px 0 35px;
   }
-  margin: 20px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,5 +45,5 @@ export default function Comic(props) {
     return <img key={index} className="comic-image" src={item.imageSrc}></img>;
   });
 
-  return <ComicWrapper>{comicContentJsx}</ComicWrapper>;
+  return <ComicWrapper id={props.id}>{comicContentJsx}</ComicWrapper>;
 }

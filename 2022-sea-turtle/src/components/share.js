@@ -44,21 +44,23 @@ const ShareIcon = styled.button`
   }
   width: 20px;
   height: 20px;
-  transform: ${({ expandShareIcon }) =>
-    expandShareIcon ? 'translate3d(0, 0, 0)' : 'translate3d(7.5px, 0px, 0)'};
+  transform: ${({ expandDirection }) =>
+    expandDirection === 'downToTop'
+      ? 'translate3d(0, 0, 0)'
+      : 'translate3d(7.5px, 0px, 0)'};
 
-  ${({ show, expandShareIcon }) =>
+  ${({ show, expandDirection }) =>
     show
       ? `
     transition-duration: 190ms;
     &:first-of-type {
       transform: translate3d(${
-        expandShareIcon ? '0px, -50px, 0' : '22.5px, 0 , 0'
+        expandDirection === 'downToTop' ? '0px, -50px, 0' : '22.5px, 0 , 0'
       });  
     }
     &:last-of-type {
       transform: translate3d(
-        ${expandShareIcon ? '0px, -75px, 0' : '45px, 0, 0'}
+        ${expandDirection === 'downToTop' ? '0px, -75px, 0' : '45px, 0, 0'}
       );  
     }
   `
@@ -69,20 +71,22 @@ const ShareIcon = styled.button`
   @media (min-width: 375px) {
     width: 25px;
     height: 25px;
-    transform: ${({ expandShareIcon }) =>
-      expandShareIcon ? 'translate3d(0, 0, 0)' : 'translate3d(10px, 0px, 0)'};
-    ${({ show, expandShareIcon }) =>
+    transform: ${({ expandDirection }) =>
+      expandDirection === 'downToTop'
+        ? 'translate3d(0, 0, 0)'
+        : 'translate3d(10px, 0px, 0)'};
+    ${({ show, expandDirection }) =>
       show
         ? `
     transition-duration: 190ms;
     &:first-of-type {
       transform: translate3d(${
-        expandShareIcon ? '0px, -50px, 0' : '30px, 0px, 0'
+        expandDirection === 'downToTop' ? '0px, -50px, 0' : '30px, 0px, 0'
       });  
     }
     &:last-of-type {
       transform: translate3d(
-        ${expandShareIcon ? '0px, -80px, 0' : '60px, 0, 0'}
+        ${expandDirection === 'downToTop' ? '0px, -80px, 0' : '60px, 0, 0'}
       );    
     }
   `
@@ -145,9 +149,14 @@ const onShareLine = (e) => {
 Share.propTypes = {
   buttonMargin: PropTypes.string,
   buttonColor: PropTypes.string,
+  expandShareDirection: PropTypes.string,
 };
 
-export default function Share({ buttonColor = 'black', buttonMargin }) {
+export default function Share({
+  buttonColor = 'black',
+  buttonMargin,
+  expandShareDirection,
+}) {
   const [showShares, setShowShares] = useState(false);
   const toggleShareList = () => {
     setShowShares((showShares) => !showShares);
@@ -155,10 +164,18 @@ export default function Share({ buttonColor = 'black', buttonMargin }) {
   return (
     <ShareWrapper onClick={toggleShareList}>
       <ShareButton color={buttonColor} margin={buttonMargin}></ShareButton>
-      <ShareIcon show={showShares} expandShareIcon={true} onClick={onShareFB}>
+      <ShareIcon
+        show={showShares}
+        expandDirection={expandShareDirection}
+        onClick={onShareFB}
+      >
         <img src="fb.png" alt="share to fb" />
       </ShareIcon>
-      <ShareIcon show={showShares} expandShareIcon={true} onClick={onShareLine}>
+      <ShareIcon
+        show={showShares}
+        expandDirection={expandShareDirection}
+        onClick={onShareLine}
+      >
         <img src="line.png" alt="share to line" />
       </ShareIcon>
     </ShareWrapper>
