@@ -10,9 +10,13 @@ const ComicWrapper = styled.div`
   width: 231px;
   margin: 0 auto;
   padding: 60px 0 0 0;
+
   @media (min-width: 576px) {
     width: 476px;
     padding: 60px 21px 0 35px;
+    &:first-of-type {
+      padding: 0 21px 0 35px;
+    }
   }
   display: flex;
   flex-direction: column;
