@@ -4,11 +4,16 @@ import './App.css';
 import Intro from './views/intro';
 import Catalog from './views/catalog';
 import Comic from './views/comic';
+import Article from './views/article';
 // import CatalogHeader from './components/catalog-header';
 import { useInView } from 'react-intersection-observer';
 import ComicHeader from './components/comic-header';
 const BackgroundWrapper = styled.div`
   background: #f8f3e8;
+  margin-top: 45px;
+  @media (min-width: 861px) {
+    margin-top: 37px;
+  }
 `;
 
 const COMIC_CONTENT = [
@@ -81,11 +86,14 @@ function App() {
       {!shouldShowCatalog && <Intro changeView={changeView} />}
 
       {shouldShowCatalog && (
-        <BackgroundWrapper>
+        <React.Fragment>
           <ComicHeader shouldShowComicHeader={inView} />
-          <Catalog />
-          <div ref={ref}>{comicJsx}</div>
-        </BackgroundWrapper>
+          <BackgroundWrapper>
+            <Catalog />
+            <div ref={ref}>{comicJsx}</div>
+            <Article />
+          </BackgroundWrapper>
+        </React.Fragment>
       )}
     </div>
   );

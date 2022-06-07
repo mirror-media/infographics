@@ -8,6 +8,7 @@ import introImage1 from '../assets/image/intro-1.png';
 import introImage2 from '../assets/image/intro-2.png';
 import introImage3 from '../assets/image/intro-3.png';
 import introDialog from '../assets/image/intro-dialog.png';
+
 const INTRO_TEXT = [
   {
     id: 0,
@@ -32,6 +33,13 @@ const INTRO_TEXT = [
     text: ['海是一面鏡。', '龜途，即是人類的未來。'],
   },
 ];
+const BackgroundWrapper = styled.div`
+  position: fixed;
+  z-index: -2;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+`;
 const IntroWrapperStyle = css`
   position: fixed;
   top: 0;
@@ -49,17 +57,21 @@ const IntroWrapperStyle = css`
 `;
 const IntroWrapper1 = styled.div`
   ${IntroWrapperStyle}
-  visibility: ${(props) => (props.shouldShow ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.shouldShow ? 1 : 0)};
+  transition: opacity 1500ms;
   background-image: url(${introImage1});
 `;
 const IntroWrapper2 = styled.div`
   ${IntroWrapperStyle}
-  visibility: ${(props) => (props.shouldShow ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.shouldShow ? 1 : 0)};
+  transition: opacity 1500ms;
   background-image: url(${introImage2});
 `;
 const IntroWrapper3 = styled.div`
   ${IntroWrapperStyle}
-  visibility: ${(props) => (props.shouldShow ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.shouldShow ? 1 : 0)};
+  transition: opacity 1500ms;
+
   background-image: url(${introImage3});
 `;
 const IntroductionWrapper = styled.div`
@@ -134,6 +146,7 @@ export default function Intro(props) {
   ));
   return (
     <React.Fragment>
+      <BackgroundWrapper></BackgroundWrapper>
       <IntroWrapper1 shouldShow={count === '0' ? true : false} />
       <IntroWrapper2 shouldShow={count === '1' ? true : false} />
       <IntroWrapper3 shouldShow={count === '2' ? true : false} />

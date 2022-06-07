@@ -29,12 +29,10 @@ const CARD_CONTENT = [
   },
 ];
 const CatalogWrapper = styled.div`
-  /* background: #f8f3e8; */
   min-height: 100vh;
   padding: 0 0 1px;
 `;
 const CatalogTitle = styled.div`
-  padding-top: 39px;
   img {
     width: 40%;
     max-width: 582px;
@@ -42,7 +40,7 @@ const CatalogTitle = styled.div`
   }
 `;
 const ComicCardWrapper = styled.div`
-  margin: 0 auto;
+  margin: 0 auto 5vh;
   height: 100%;
   width: fit-content;
   display: flex;

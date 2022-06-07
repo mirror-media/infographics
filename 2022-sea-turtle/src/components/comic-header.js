@@ -8,15 +8,16 @@ import scrollIntoComic from '../utils/scroll-into-comic';
 const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 1;
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;
-  background: transparent;
-
+  background: #f8f3e8;
+  height: 45px;
   justify-content: flex-start;
   width: 100%;
   @media (min-width: 861px) {
+    height: ${(props) => (props.enlargeHeader ? '65px' : '37px')};
     justify-content: space-between;
   }
   .mirrormedia-logo {
@@ -72,7 +73,7 @@ ComicHeader.propTypes = {
 //TODOs: should use picture& src set to set corresponding type of icon in different viewport
 export default function ComicHeader(props) {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper enlargeHeader={props.shouldShowComicHeader}>
       <a
         href="https://www.mirrormedia.mg/"
         target="_blank"
