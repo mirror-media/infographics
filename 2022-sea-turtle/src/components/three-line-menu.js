@@ -38,7 +38,7 @@ export default function ThreeLineMenu() {
       </MenuIcon>
       <SideMenu
         show={showSideMenu}
-        onClick={() => {
+        toggleSideMenu={() => {
           setShowSideMenu((showSideMenu) => !showSideMenu);
         }}
       />

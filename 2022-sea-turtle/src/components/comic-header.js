@@ -8,7 +8,7 @@ import scrollIntoComic from '../utils/scroll-into-comic';
 const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;

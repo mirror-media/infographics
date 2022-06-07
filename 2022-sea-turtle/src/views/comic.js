@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import ScrollTopButton from '../components/scroll-top-button';
 import PropTypes from 'prop-types';
 Comic.propTypes = {
   content: PropTypes.object,
   id: PropTypes.string,
 };
 const ComicWrapper = styled.div`
+  position: relative;
   min-height: 100vh;
   width: 231px;
   margin: 0 auto;
@@ -14,9 +16,6 @@ const ComicWrapper = styled.div`
   @media (min-width: 576px) {
     width: 476px;
     padding: 60px 21px 0 35px;
-    &:first-of-type {
-      padding: 0 21px 0 35px;
-    }
   }
   display: flex;
   flex-direction: column;
@@ -34,6 +33,12 @@ const ComicWrapper = styled.div`
   }
   .comic-image {
     width: 100%;
+  }
+  .scroll-top-button {
+    position: absolute;
+    right: -50px;
+    top: 150px;
+    width: 43px;
   }
 `;
 
@@ -66,6 +71,7 @@ export default function Comic(props) {
       ref={props.id === 'nightmare' ? nightmareRef : holicRef}
     >
       {comicContentJsx}
+      <ScrollTopButton className="scroll-top-button" id={props.id} />
     </ComicWrapper>
   );
 }
