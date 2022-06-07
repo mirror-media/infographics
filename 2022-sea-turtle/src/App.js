@@ -19,7 +19,7 @@ const COMIC_CONTENT = [
       {
         type: 'text',
         textContent:
-          '二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
+          '貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
       },
       { type: 'image', imageSrc: 'fake-comic.svg' },
       { type: 'image', imageSrc: 'fake-comic.svg' },
@@ -37,7 +37,7 @@ const COMIC_CONTENT = [
       {
         type: 'text',
         textContent:
-          '二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
+          '海龜癡漢海龜癡漢海龜癡漢海龜癡漢海龜癡漢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
       },
       { type: 'image', imageSrc: 'fake-comic.svg' },
       { type: 'image', imageSrc: 'fake-comic.svg' },
@@ -51,11 +51,18 @@ const COMIC_CONTENT = [
 ];
 
 function App() {
+  const hash = location.hash;
   const [shouldShowCatalog, setShouldShowCatalog] = useState(false);
   const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0,
   });
+  useEffect(() => {
+    if (hash === '#nightmare' || hash === '#holic') {
+      setShouldShowCatalog(true);
+    }
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [shouldShowCatalog]);
@@ -65,6 +72,7 @@ function App() {
       setTimeout(() => setShouldShowCatalog(value), 500);
     }
   };
+
   const comicJsx = COMIC_CONTENT.map((item) => (
     <Comic key={item.id} content={item} id={item.id} />
   ));

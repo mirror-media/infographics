@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 Comic.propTypes = {
@@ -34,6 +34,18 @@ const ComicWrapper = styled.div`
 `;
 
 export default function Comic(props) {
+  const nightmareRef = useRef(null);
+  const holicRef = useRef(null);
+  useEffect(() => {
+    const hash = location.hash;
+    const id = hash?.replace('#', '');
+    if (id === 'nightmare' && nightmareRef.current) {
+      nightmareRef.current.scrollIntoView();
+    } else if (id === 'holic' && holicRef.current) {
+      holicRef.current.scrollIntoView();
+    }
+  }, []);
+
   const { content } = props.content;
   const comicContentJsx = content.map((item, index) => {
     if (item.type === 'text')
@@ -44,6 +56,12 @@ export default function Comic(props) {
       );
     return <img key={index} className="comic-image" src={item.imageSrc}></img>;
   });
-
-  return <ComicWrapper id={props.id}>{comicContentJsx}</ComicWrapper>;
+  return (
+    <ComicWrapper
+      className={props.id}
+      ref={props.id === 'nightmare' ? nightmareRef : holicRef}
+    >
+      {comicContentJsx}
+    </ComicWrapper>
+  );
 }
