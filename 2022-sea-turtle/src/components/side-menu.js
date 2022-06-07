@@ -5,7 +5,7 @@ import Share from './share';
 import scrollIntoComic from '../utils/scroll-into-comic';
 SideMenu.propTypes = {
   show: PropTypes.bool,
-  onClick: PropTypes.func,
+  toggleSideMenu: PropTypes.func,
 };
 
 const SideMenuWrapper = styled.ul`
@@ -45,6 +45,7 @@ const SideMenuWrapper = styled.ul`
   ul {
     height: 33%;
     li {
+      cursor: pointer;
       padding: 17px 0 0 0;
       img {
         height: 33px;
@@ -67,7 +68,7 @@ const SideMenuWrapper = styled.ul`
 export default function SideMenu(props) {
   const selectComic = (id) => {
     scrollIntoComic(id);
-    props.onClick();
+    props.toggleSideMenu();
   };
   return (
     <SideMenuWrapper show={props.show}>
@@ -79,12 +80,12 @@ export default function SideMenu(props) {
         <li onClick={() => selectComic('holic')}>
           <img src="comic-title-holic-white.svg" />
         </li>
-        <li onClick={() => selectComic('spectre')}>
-          <img src="comic-title-spectre-white.svg" />
-        </li>
       </ul>
       <h2 className="title">文章</h2>
       <ul>
+        <li onClick={() => selectComic('spectre')}>
+          <img src="comic-title-spectre-white.svg" />
+        </li>
         <li onClick={() => selectComic('eudemons')}>
           <img src="comic-title-eudemons-white.svg" />
         </li>
