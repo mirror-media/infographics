@@ -125,6 +125,10 @@ const ComicCard = styled.div`
     img {
       width: 184px;
       height: 56px;
+      @media (min-width: 861px) {
+        width: 100%;
+        height: 100%;
+      }
     }
     &--mask {
       position: absolute;
