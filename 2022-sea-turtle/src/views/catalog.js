@@ -70,6 +70,7 @@ const ComicCard = styled.div`
     }
   }
   position: relative;
+
   :nth-child(2n + 1) {
     &:before {
       content: '';
@@ -102,6 +103,7 @@ const ComicCard = styled.div`
       }
     }
   }
+
   &:first-child {
     &:after {
       @media (min-width: 861px) {
@@ -115,7 +117,11 @@ const ComicCard = styled.div`
       }
     }
   }
+  &:hover .image--mask {
+    background-color: #7592cb;
+  }
   .image {
+    position: relative;
     img {
       width: 184px;
       height: 56px;
@@ -123,6 +129,16 @@ const ComicCard = styled.div`
         width: 100%;
         height: 100%;
       }
+    }
+    &--mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+
+      background-color: transparent;
     }
   }
   .title {
@@ -153,6 +169,7 @@ const ComicCard = styled.div`
 const comicCardJsx = CARD_CONTENT.map((item) => (
   <ComicCard onClick={() => scrollIntoComic(item.id)} key={item.id}>
     <div className="image">
+      <div className="image--mask"></div>
       <img src={item.imageSrc}></img>
     </div>
     <div className="title">
