@@ -125,20 +125,21 @@ const ComicCard = styled.div`
     img {
       width: 184px;
       height: 56px;
-      @media (min-width: 861px) {
-        width: 100%;
-        height: 100%;
-      }
     }
     &--mask {
       position: absolute;
-      left: 0;
+      left: 56px;
       top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 999;
-
+      width: 184px;
+      height: 56px;
+      margin: 0 auto;
+      z-index: 9;
       background-color: transparent;
+      @media (min-width: 861px) {
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   .title {
