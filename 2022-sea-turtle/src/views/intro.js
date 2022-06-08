@@ -4,11 +4,6 @@ import PropTypes from 'prop-types';
 
 import styled, { css } from 'styled-components';
 
-import introImage1 from '../assets/image/intro-1-compress.png';
-import introImage2 from '../assets/image/intro-2-compress.png';
-import introImage3 from '../assets/image/intro-3-compress.png';
-import introDialog from '../assets/image/intro-dialog.png';
-
 const INTRO_TEXT = [
   {
     id: 0,
@@ -59,20 +54,20 @@ const IntroWrapper1 = styled.div`
   ${IntroWrapperStyle}
   opacity: ${(props) => (props.shouldShow ? 1 : 0)};
   transition: opacity 1500ms;
-  background-image: url(${introImage1});
+  background-image: url('intro-image/intro-1.jpg');
 `;
 const IntroWrapper2 = styled.div`
   ${IntroWrapperStyle}
   opacity: ${(props) => (props.shouldShow ? 1 : 0)};
   transition: opacity 1500ms;
-  background-image: url(${introImage2});
+  background-image: url('intro-image/intro-2.jpg');
 `;
 const IntroWrapper3 = styled.div`
   ${IntroWrapperStyle}
   opacity: ${(props) => (props.shouldShow ? 1 : 0)};
   transition: opacity 1500ms;
 
-  background-image: url(${introImage3});
+  background-image: url('intro-image/intro-3.jpg');
 `;
 const IntroductionWrapper = styled.div`
   * {
@@ -98,7 +93,7 @@ const IntroductionWrapper = styled.div`
     height: 275px;
     background-position: center;
     background-size: contain;
-    background-image: url(${introDialog});
+    background-image: url('intro-image/dialog.png');
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -147,9 +142,9 @@ export default function Intro(props) {
   return (
     <React.Fragment>
       <BackgroundWrapper></BackgroundWrapper>
-      <IntroWrapper1 shouldShow={count === '0' ? true : false} />
-      <IntroWrapper2 shouldShow={count === '1' ? true : false} />
-      <IntroWrapper3 shouldShow={count === '2' ? true : false} />
+      <IntroWrapper1 shouldShow={count === '0' ? true : false}></IntroWrapper1>
+      <IntroWrapper2 shouldShow={count === '1' ? true : false}></IntroWrapper2>
+      <IntroWrapper3 shouldShow={count === '2' ? true : false}></IntroWrapper3>
 
       <IntroductionWrapper>
         {introTextJsx}
