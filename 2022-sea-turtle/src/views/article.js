@@ -4,12 +4,12 @@ const ARTICLE_CONTENT = [
   {
     id: 'spectre',
     imageSrc: 'fake-image-preview-square.svg',
-    titleSrc: 'comic-title-spectre.svg',
+    titleSrc: '/title/comic-title-spectre.png',
   },
   {
     id: 'eudemons',
     imageSrc: 'fake-image-preview-square.svg',
-    titleSrc: 'comic-title-eudemons.svg',
+    titleSrc: '/title/comic-title-eudemons.png',
   },
 ];
 const ArticleWrapper = styled.div`
@@ -30,6 +30,7 @@ const ArticleLink = styled.a`
 
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
   .image {
     margin: 0 auto;
@@ -39,10 +40,10 @@ const ArticleLink = styled.a`
     }
   }
   .title {
-    width: 76%;
+    height: 45px;
     margin: 30px auto 0;
     @media (min-width: 841px) {
-      width: fit-content;
+      height: 58.76px;
       margin: 0;
     }
   }
