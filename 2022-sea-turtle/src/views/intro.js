@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import styled, { css } from 'styled-components';
 
-import introImage1 from '../assets/image/intro-1.png';
-import introImage2 from '../assets/image/intro-2.png';
-import introImage3 from '../assets/image/intro-3.png';
+import introImage1 from '../assets/image/intro-1-compress.png';
+import introImage2 from '../assets/image/intro-2-compress.png';
+import introImage3 from '../assets/image/intro-3-compress.png';
 import introDialog from '../assets/image/intro-dialog.png';
 
 const INTRO_TEXT = [
