@@ -51,11 +51,6 @@ const SideMenuWrapper = styled.ul`
         height: 33px;
       }
     }
-    &:last-of-type {
-      img {
-        height: 40px;
-      }
-    }
   }
   .MMIconAndShare {
     display: flex;
@@ -75,19 +70,19 @@ export default function SideMenu(props) {
       <h2 className="title">漫畫</h2>
       <ul>
         <li onClick={() => selectComic('nightmare')}>
-          <img src="comic-title-nightmare-white.svg" />
+          <img src="/title/comic-title-nightmare-white.png" />
         </li>
         <li onClick={() => selectComic('holic')}>
-          <img src="comic-title-holic-white.svg" />
+          <img src="/title/comic-title-holic-white.png" />
         </li>
       </ul>
       <h2 className="title">文章</h2>
       <ul>
         <li onClick={() => selectComic('spectre')}>
-          <img src="comic-title-spectre-white.svg" />
+          <img src="/title/comic-title-spectre-white.png" />
         </li>
         <li onClick={() => selectComic('eudemons')}>
-          <img src="comic-title-eudemons-white.svg" />
+          <img src="/title/comic-title-eudemons-white.png" />
         </li>
       </ul>
       <div className="MMIconAndShare">

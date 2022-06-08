@@ -17,7 +17,7 @@ const HeaderWrapper = styled.div`
   justify-content: flex-start;
   width: 100%;
   @media (min-width: 861px) {
-    height: ${(props) => (props.enlargeHeader ? '65px' : '37px')};
+    height: 65px;
     justify-content: space-between;
   }
   .mirrormedia-logo {
@@ -38,6 +38,7 @@ const ComicTitleWrapper = styled.ul`
   padding: 0;
   width: 100%;
   justify-content: flex-start;
+
   @media (min-width: 861px) {
     display: flex;
   }
@@ -53,16 +54,16 @@ const ComicTitleWrapper = styled.ul`
     list-style-type: none;
     display: flex;
     cursor: pointer;
+    margin: 18px 16px 0 0;
     align-items: center;
+    height: 43px;
     span {
-      font-size: 0.8333333333vw;
+      font-size: 6px;
       margin-right: 6px;
     }
     img {
-      max-width: 148px;
-      max-height: 43px;
-      width: 75%;
-      height: 75%;
+      width: 100%;
+      height: 100%;
     }
   }
 `;
@@ -73,7 +74,7 @@ ComicHeader.propTypes = {
 //TODOs: should use picture& src set to set corresponding type of icon in different viewport
 export default function ComicHeader(props) {
   return (
-    <HeaderWrapper enlargeHeader={props.shouldShowComicHeader}>
+    <HeaderWrapper>
       <a
         href="https://www.mirrormedia.mg/"
         target="_blank"
@@ -85,28 +86,32 @@ export default function ComicHeader(props) {
       {props.shouldShowComicHeader && (
         <ComicTitleWrapper>
           <li className="title">
-            <img src="title-mini.svg"></img>
+            <img src="/title/title.png"></img>
           </li>
           <li
             className="comic-title"
             onClick={() => scrollIntoComic('nightmare')}
           >
-            <span>&#11044;</span> <img src="comic-title-nightmare.svg"></img>
+            <span>&#11044;</span>
+            <img src="/title/comic-title-nightmare.png"></img>
           </li>
           <li className="comic-title" onClick={() => scrollIntoComic('holic')}>
-            <span>&#11044;</span> <img src="comic-title-holic.svg"></img>
+            <span>&#11044;</span>
+            <img src="/title/comic-title-holic.png"></img>
           </li>
           <li
             className="comic-title"
             onClick={() => scrollIntoComic('spectre')}
           >
-            <span>&#11044;</span> <img src="comic-title-spectre.svg"></img>
+            <span>&#11044;</span>
+            <img src="/title/comic-title-spectre.png"></img>
           </li>
           <li
             className="comic-title"
             onClick={() => scrollIntoComic('eudemons')}
           >
-            <span>&#11044;</span> <img src="comic-title-eudemons.svg"></img>
+            <span>&#11044;</span>
+            <img src="/title/comic-title-eudemons.png"></img>
           </li>
         </ComicTitleWrapper>
       )}
