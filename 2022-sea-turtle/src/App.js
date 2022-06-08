@@ -7,7 +7,7 @@ import Comic from './views/comic';
 import Article from './views/article';
 // import CatalogHeader from './components/catalog-header';
 import { useInView } from 'react-intersection-observer';
-import ComicHeader from './components/comic-header';
+import Header from './components/header';
 const BackgroundWrapper = styled.div`
   background: #f8f3e8;
   margin-top: 45px;
@@ -87,7 +87,7 @@ function App() {
 
       {shouldShowCatalog && (
         <React.Fragment>
-          <ComicHeader shouldShowComicHeader={inView} />
+          <Header shouldShowComicHeader={inView} />
           <BackgroundWrapper>
             <Catalog />
             <div ref={ref}>{comicJsx}</div>
