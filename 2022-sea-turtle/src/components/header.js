@@ -3,8 +3,29 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ThreeLineMenu from './three-line-menu';
 import Share from './share';
-import scrollIntoComic from '../utils/scroll-into-comic';
-//TODOs: combine additional part into  catalog-header.js
+import ComicTitleHeader from './comic-title-header';
+const COMIC_TITLE = [
+  {
+    id: 'nightmare',
+    normalTitle: '/title/comic-title-nightmare.png',
+    hoverTitle: '/title/comic-title-nightmare-hover.png',
+  },
+  {
+    id: 'holic',
+    normalTitle: '/title/comic-title-holic.png',
+    hoverTitle: '/title/comic-title-holic-hover.png',
+  },
+  {
+    id: 'spectre',
+    normalTitle: '/title/comic-title-spectre.png',
+    hoverTitle: '/title/comic-title-spectre-hover.png',
+  },
+  {
+    id: 'eudemons',
+    normalTitle: '/title/comic-title-eudemons.png',
+    hoverTitle: '/title/comic-title-eudemons-hover.png',
+  },
+];
 const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -31,7 +52,6 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-//additional css
 const ComicTitleWrapper = styled.ul`
   display: none;
   margin: 0 22.28px;
@@ -68,10 +88,18 @@ const ComicTitleWrapper = styled.ul`
   }
 `;
 
+const comicTitleJsx = COMIC_TITLE.map((item) => (
+  <ComicTitleHeader
+    key={item.id}
+    comicId={item.id}
+    imageSrc={item.normalTitle}
+    hoverSrc={item.hoverTitle}
+  />
+));
+
 ComicHeader.propTypes = {
   shouldShowComicHeader: PropTypes.bool,
 };
-//TODOs: should use picture& src set to set corresponding type of icon in different viewport
 export default function ComicHeader(props) {
   return (
     <HeaderWrapper>
@@ -88,31 +116,7 @@ export default function ComicHeader(props) {
           <li className="title">
             <img src="/title/title.png"></img>
           </li>
-          <li
-            className="comic-title"
-            onClick={() => scrollIntoComic('nightmare')}
-          >
-            <span>&#11044;</span>
-            <img src="/title/comic-title-nightmare.png"></img>
-          </li>
-          <li className="comic-title" onClick={() => scrollIntoComic('holic')}>
-            <span>&#11044;</span>
-            <img src="/title/comic-title-holic.png"></img>
-          </li>
-          <li
-            className="comic-title"
-            onClick={() => scrollIntoComic('spectre')}
-          >
-            <span>&#11044;</span>
-            <img src="/title/comic-title-spectre.png"></img>
-          </li>
-          <li
-            className="comic-title"
-            onClick={() => scrollIntoComic('eudemons')}
-          >
-            <span>&#11044;</span>
-            <img src="/title/comic-title-eudemons.png"></img>
-          </li>
+          {comicTitleJsx}
         </ComicTitleWrapper>
       )}
       <Share />
