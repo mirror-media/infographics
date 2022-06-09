@@ -39,6 +39,9 @@ const CatalogTitle = styled.div`
     max-width: 582px;
     min-width: 286.6px;
   }
+  @media (min-width: 861px) {
+    margin: 65px 0 0 0;
+  }
 `;
 const ComicCardWrapper = styled.div`
   margin: 0 auto 5vh;
