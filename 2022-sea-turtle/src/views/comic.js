@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ScrollTopButton from '../components/scroll-top-button';
+import ComicAnchor from '../components/comic-anchor';
 import PropTypes from 'prop-types';
 Comic.propTypes = {
   content: PropTypes.object,
   id: PropTypes.string,
 };
 const ComicWrapper = styled.div`
-  position: relative;
   min-height: 100vh;
   width: 231px;
   margin: 0 auto;
@@ -40,6 +40,9 @@ const ComicWrapper = styled.div`
     top: 150px;
     width: 43px;
   }
+  .comic-content {
+    position: relative;
+  }
 `;
 
 export default function Comic(props) {
@@ -66,12 +69,17 @@ export default function Comic(props) {
     return <img key={index} className="comic-image" src={item.imageSrc}></img>;
   });
   return (
-    <ComicWrapper
-      className={props.id}
-      ref={props.id === 'nightmare' ? nightmareRef : holicRef}
-    >
-      {comicContentJsx}
-      <ScrollTopButton className="scroll-top-button" id={props.id} />
-    </ComicWrapper>
+    <React.Fragment>
+      <ComicAnchor comicId={props.id}></ComicAnchor>
+      <ComicWrapper
+        className={props.id}
+        ref={props.id === 'nightmare' ? nightmareRef : holicRef}
+      >
+        <div className="comic-content">
+          {comicContentJsx}
+          <ScrollTopButton className="scroll-top-button" id={props.id} />
+        </div>
+      </ComicWrapper>
+    </React.Fragment>
   );
 }
