@@ -80,7 +80,6 @@ const IntroductionWrapper = styled.div`
   background-color: transparent;
   margin: 0 auto;
   .introduction--container {
-    width: 432px;
     overflow: auto;
     height: 100vh;
     display: flex;
@@ -89,7 +88,7 @@ const IntroductionWrapper = styled.div`
     align-items: center;
   }
   .introduction--dialog {
-    width: 432px;
+    width: 298px;
     height: 275px;
     background-position: center;
     background-size: contain;
@@ -99,11 +98,18 @@ const IntroductionWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (min-width: 576px) {
+      width: 432px;
+    }
     p {
+      width: 320px;
       margin: 0;
       color: #f8f3e8;
       line-height: 163.7%;
       font-size: 18px;
+      @media (min-width: 576px) {
+        width: 432px;
+      }
     }
   }
 `;
