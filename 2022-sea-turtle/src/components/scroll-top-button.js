@@ -10,13 +10,10 @@ const ScrollTopButtonContainer = styled.div`
 `;
 const ScrollTopButtonStyle = styled.button`
   position: absolute;
-  right: -50px;
   width: fit-content;
   height: fit-content;
   padding: 0;
   border-radius: 50px;
-  border: none;
-  top: 22px;
   border: none;
   position: -webkit-sticky;
   position: sticky;
