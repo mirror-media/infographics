@@ -8,19 +8,20 @@ Comic.propTypes = {
   id: PropTypes.string,
 };
 const ComicWrapper = styled.div`
+  position: relative;
   min-height: 100vh;
   width: 231px;
   margin: 0 auto;
   padding: 60px 0 0 0;
-
-  @media (min-width: 576px) {
-    width: 476px;
-    padding: 60px 21px 0 35px;
-  }
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (min-width: 576px) {
+    width: 476px;
+    padding: 60px 21px 0 35px;
+  }
+
   .comic-text {
     padding: 22px 0;
     text-align: left;
@@ -39,9 +40,9 @@ const ComicWrapper = styled.div`
     right: -50px;
     top: 150px;
     width: 43px;
-  }
-  .comic-content {
-    position: relative;
+    @media (min-width: 576px) {
+      right: -30px;
+    }
   }
 `;
 
@@ -75,10 +76,8 @@ export default function Comic(props) {
         className={props.id}
         ref={props.id === 'nightmare' ? nightmareRef : holicRef}
       >
-        <div className="comic-content">
-          {comicContentJsx}
-          <ScrollTopButton className="scroll-top-button" id={props.id} />
-        </div>
+        {comicContentJsx}
+        <ScrollTopButton className="scroll-top-button" id={props.id} />
       </ComicWrapper>
     </React.Fragment>
   );

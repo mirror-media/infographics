@@ -64,7 +64,7 @@ const ComicTitleWrapper = styled.ul`
   }
   .title {
     cursor: pointer;
-    margin: 11px auto 0 0;
+    margin: 0 auto 0 0;
     img {
       width: 100%;
       height: 100%;

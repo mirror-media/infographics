@@ -26,13 +26,14 @@ const COMIC_CONTENT = [
         textContent:
           '貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
       },
-      { type: 'image', imageSrc: 'fake-comic.svg' },
-      { type: 'image', imageSrc: 'fake-comic.svg' },
-      {
-        type: 'text',
-        textContent:
-          '二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
-      },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p1.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p2.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p3.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p4.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p5.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p6.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p7.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p8.jpg' },
     ],
   },
   {
@@ -44,13 +45,14 @@ const COMIC_CONTENT = [
         textContent:
           '海龜癡漢海龜癡漢海龜癡漢海龜癡漢海龜癡漢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
       },
-      { type: 'image', imageSrc: 'fake-comic.svg' },
-      { type: 'image', imageSrc: 'fake-comic.svg' },
-      {
-        type: 'text',
-        textContent:
-          '二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
-      },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p1.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p2.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p3.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p4.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p5.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p6.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p7.jpg' },
+      { type: 'image', imageSrc: '/comic/nightmare/貓哥p8.jpg' },
     ],
   },
 ];
