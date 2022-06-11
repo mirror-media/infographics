@@ -36,8 +36,8 @@ const CatalogTitle = styled.div`
   margin: 45px 0 0 0;
   img {
     width: 40%;
+    min-width: 270px;
     max-width: 582px;
-    min-width: 286.6px;
   }
   @media (min-width: 861px) {
     margin: 65px 0 0 0;
@@ -191,13 +191,11 @@ const comicCardJsx = CARD_CONTENT.map((item) => (
 
 export default function Catalog() {
   return (
-    <React.Fragment>
-      <CatalogWrapper>
-        <CatalogTitle>
-          <img src="/title/title.png" />
-        </CatalogTitle>
-        <ComicCardWrapper>{comicCardJsx}</ComicCardWrapper>
-      </CatalogWrapper>
-    </React.Fragment>
+    <CatalogWrapper>
+      <CatalogTitle>
+        <img src="/title/title.png" />
+      </CatalogTitle>
+      <ComicCardWrapper>{comicCardJsx}</ComicCardWrapper>
+    </CatalogWrapper>
   );
 }
