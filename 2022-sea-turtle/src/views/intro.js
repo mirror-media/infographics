@@ -31,18 +31,18 @@ const INTRO_TEXT = [
 const BackgroundWrapper = styled.div`
   position: fixed;
   z-index: -2;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: black;
 `;
 const IntroWrapperStyle = css`
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: -1;
   overflow-x: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-position: center;
   background-size: cover;
   scrollbar-width: none;
@@ -61,6 +61,10 @@ const IntroWrapper2 = styled.div`
   opacity: ${(props) => (props.shouldShow ? 1 : 0)};
   transition: opacity 1500ms;
   background-image: url('intro-image/intro-2.jpg');
+  background-position: 75% 50%;
+  @media (min-width: 600px) {
+    background-position: center;
+  }
 `;
 const IntroWrapper3 = styled.div`
   ${IntroWrapperStyle}
