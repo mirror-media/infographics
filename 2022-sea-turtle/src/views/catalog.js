@@ -1,5 +1,6 @@
 import React from 'react';
 import scrollIntoComic from '../utils/scroll-into-comic';
+import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 const CARD_CONTENT = [
@@ -176,20 +177,29 @@ const ComicCard = styled.div`
   }
 `;
 
-const comicCardJsx = CARD_CONTENT.map((item) => (
-  <ComicCard onClick={() => scrollIntoComic(item.id)} key={item.id}>
-    <div className="image">
-      <div className="image--mask"></div>
-      <img src={item.imageSrc}></img>
-    </div>
-    <div className="title">
-      <img src={item.titleSrc}></img>
-    </div>
-    <p className="introduction">{item.text}</p>
-  </ComicCard>
-));
+Catalog.propTypes = {
+  onScrollComic: PropTypes.func,
+};
 
-export default function Catalog() {
+export default function Catalog(props) {
+  const handleOnClick = (id) => {
+    props.onScrollComic(false);
+    scrollIntoComic(id);
+  };
+
+  const comicCardJsx = CARD_CONTENT.map((item) => (
+    <ComicCard onClick={() => handleOnClick(item.id)} key={item.id}>
+      <div className="image">
+        <div className="image--mask"></div>
+        <img src={item.imageSrc}></img>
+      </div>
+      <div className="title">
+        <img src={item.titleSrc}></img>
+      </div>
+      <p className="introduction">{item.text}</p>
+    </ComicCard>
+  ));
+
   return (
     <CatalogWrapper>
       <CatalogTitle>

@@ -33,13 +33,18 @@ ComicTitle.propTypes = {
   imageSrc: PropTypes.string,
   hoverSrc: PropTypes.string,
   comicId: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default function ComicTitle(props) {
+  const handleOnClick = (id) => {
+    props.onClick(false);
+    scrollIntoComic(id);
+  };
   return (
     <ComicTitleStyle
       className="comic-title"
-      onClick={() => scrollIntoComic(props.comicId)}
+      onClick={() => handleOnClick(props.comicId)}
     >
       <span>&#11044;</span>
       <img className="title" src={props.imageSrc}></img>

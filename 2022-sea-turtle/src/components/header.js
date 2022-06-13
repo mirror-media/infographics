@@ -87,20 +87,20 @@ const ComicTitleWrapper = styled.ul`
     }
   }
 `;
-
-const comicTitleJsx = COMIC_TITLE.map((item) => (
-  <ComicTitleHeader
-    key={item.id}
-    comicId={item.id}
-    imageSrc={item.normalTitle}
-    hoverSrc={item.hoverTitle}
-  />
-));
-
 ComicHeader.propTypes = {
   shouldShowComicHeader: PropTypes.bool,
+  onScrollComic: PropTypes.func,
 };
-export default function ComicHeader(props) {
+const ComicHeader = (props) => {
+  const comicTitleJsx = COMIC_TITLE.map((item) => (
+    <ComicTitleHeader
+      key={item.id}
+      comicId={item.id}
+      imageSrc={item.normalTitle}
+      hoverSrc={item.hoverTitle}
+      onClick={props.onScrollComic}
+    />
+  ));
   return (
     <HeaderWrapper>
       <a
@@ -123,4 +123,6 @@ export default function ComicHeader(props) {
       <ThreeLineMenu></ThreeLineMenu>
     </HeaderWrapper>
   );
-}
+};
+
+export default ComicHeader;
