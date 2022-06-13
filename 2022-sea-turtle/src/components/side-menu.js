@@ -63,17 +63,17 @@ const SideMenuWrapper = styled.ul`
 export default function SideMenu(props) {
   const selectComic = (id) => {
     scrollIntoComic(id);
-    props.toggleSideMenu();
+    props.toggleSideMenu(id);
   };
   return (
     <SideMenuWrapper show={props.show}>
       <h2 className="title">漫畫</h2>
       <ul>
-        <li onClick={() => selectComic('nightmare')}>
-          <img src="/title/comic-title-nightmare-white.png" />
-        </li>
         <li onClick={() => selectComic('holic')}>
           <img src="/title/comic-title-holic-white.png" />
+        </li>
+        <li onClick={() => selectComic('nightmare')}>
+          <img src="/title/comic-title-nightmare-white.png" />
         </li>
       </ul>
       <h2 className="title">文章</h2>

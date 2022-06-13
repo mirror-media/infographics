@@ -6,14 +6,14 @@ import Share from './share';
 import ComicTitleHeader from './comic-title-header';
 const COMIC_TITLE = [
   {
-    id: 'nightmare',
-    normalTitle: '/title/comic-title-nightmare.png',
-    hoverTitle: '/title/comic-title-nightmare-hover.png',
-  },
-  {
     id: 'holic',
     normalTitle: '/title/comic-title-holic.png',
     hoverTitle: '/title/comic-title-holic-hover.png',
+  },
+  {
+    id: 'nightmare',
+    normalTitle: '/title/comic-title-nightmare.png',
+    hoverTitle: '/title/comic-title-nightmare-hover.png',
   },
   {
     id: 'spectre',
@@ -117,12 +117,16 @@ const ComicHeader = (props) => {
         </ComicTitleWrapper>
       )}
       <Share />
-      <ThreeLineMenu></ThreeLineMenu>
+      <ThreeLineMenu
+        onScrollComic={props.onScrollComic}
+        onScrollCatalog={props.onScrollCatalog}
+      ></ThreeLineMenu>
     </HeaderWrapper>
   );
 };
 ComicHeader.propTypes = {
   shouldShowComicHeader: PropTypes.bool,
+  onScrollCatalog: PropTypes.func,
   onScrollComic: PropTypes.func,
 };
 export default ComicHeader;
