@@ -25,16 +25,20 @@ const ComicWrapper = styled.div`
   .comic-text {
     width: 100%;
     max-width: 420px;
-    padding: 22px 30px;
+    padding: 23px 30px;
     text-align: left;
     font-weight: 400;
     font-size: 14px;
+    line-height: 163.7%;
+
     @media (min-width: 576px) {
       width: 420px;
-      padding: 22px 0;
+      padding: 29px 0;
       font-size: 18px;
     }
-    line-height: 163.7%;
+    & + .comic-text {
+      padding-top: 0px;
+    }
   }
   .comic-image {
     width: 100%;

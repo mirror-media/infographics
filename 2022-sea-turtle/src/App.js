@@ -40,7 +40,12 @@ const COMIC_CONTENT = [
       {
         type: 'text',
         textContent:
-          '海龜癡漢海龜癡漢海龜癡漢海龜癡漢海龜癡漢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
+          '一九八七年出生台南的蘇淮現居小琉球，從事海洋調查、水下攝影，並與伴侶陳芃諭共同經營書店「小島停琉」、推廣海洋生態教育，但在大二之前，他只見過祖父魚塭裡的生物，對海一無所知。',
+      },
+      {
+        type: 'text',
+        textContent:
+          '二〇一九年，蘇淮前往印尼班達海上的卡伊島尋找革龜。旅行主辦人是一位生態攝影師，專闢冷門生態攝影路線，其中革龜幾乎無人參與，追尋革龜，是蘇淮對自我的探索與定位，亦是他對萬物相生的理解。',
       },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p1.jpg' },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p2.jpg' },
@@ -59,7 +64,7 @@ const COMIC_CONTENT = [
       {
         type: 'text',
         textContent:
-          '貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
+          '二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
       },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p1.jpg' },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p2.jpg' },
@@ -69,6 +74,11 @@ const COMIC_CONTENT = [
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p6.jpg' },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p7.jpg' },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p8.jpg' },
+      {
+        type: 'text',
+        textContent:
+          '海龜流淚其實是排除體內多餘鹽分的自然行為。但這擬人化的想像，也非偏離真實。這頭海龜眼裡佈滿二〇二一年底日本小笠原群島海底火山爆發後所製造的浮石；流刺網深陷其四肢；尾與右後蹼幾乎被削斷；牠的頭部表皮也被漁網刮落剝離，露出粉色肌肉、鮮血直流。後來量秤，被清除的網具重量超過一百公斤。',
+      },
     ],
   },
 ];
