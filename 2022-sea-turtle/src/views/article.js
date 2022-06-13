@@ -3,13 +3,13 @@ import styled from 'styled-components';
 const ARTICLE_CONTENT = [
   {
     id: 'spectre',
-    imageSrc: '/title/spectre.png',
-    titleSrc: '/title/comic-title-spectre.png',
+    imageSrc: 'title/spectre.png',
+    titleSrc: 'title/comic-title-spectre.png',
   },
   {
     id: 'eudemons',
-    imageSrc: '/title/eudemons.png',
-    titleSrc: '/title/comic-title-eudemons.png',
+    imageSrc: 'title/eudemons.png',
+    titleSrc: 'title/comic-title-eudemons.png',
   },
 ];
 const ArticleWrapper = styled.div`

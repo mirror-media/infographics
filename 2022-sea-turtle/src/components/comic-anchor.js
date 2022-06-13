@@ -27,7 +27,7 @@ export default function ComicAnchor(props) {
       <img className={`anchor-${props.comicId}`} src="I.svg" />
       <img
         className="comic-title"
-        src={`/title/comic-title-${props.comicId}.png`}
+        src={`title/comic-title-${props.comicId}.png`}
       />
     </Container>
   );
