@@ -87,10 +87,7 @@ const ComicTitleWrapper = styled.ul`
     }
   }
 `;
-ComicHeader.propTypes = {
-  shouldShowComicHeader: PropTypes.bool,
-  onScrollComic: PropTypes.func,
-};
+
 const ComicHeader = (props) => {
   const comicTitleJsx = COMIC_TITLE.map((item) => (
     <ComicTitleHeader
@@ -124,5 +121,8 @@ const ComicHeader = (props) => {
     </HeaderWrapper>
   );
 };
-
+ComicHeader.propTypes = {
+  shouldShowComicHeader: PropTypes.bool,
+  onScrollComic: PropTypes.func,
+};
 export default ComicHeader;
