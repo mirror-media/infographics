@@ -6,11 +6,11 @@ ComicAnchor.propTypes = {
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   img {
     margin: 0 auto;
