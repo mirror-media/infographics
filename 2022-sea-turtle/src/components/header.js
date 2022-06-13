@@ -7,23 +7,23 @@ import ComicTitleHeader from './comic-title-header';
 const COMIC_TITLE = [
   {
     id: 'holic',
-    normalTitle: '/title/comic-title-holic.png',
-    hoverTitle: '/title/comic-title-holic-hover.png',
+    normalTitle: 'title/comic-title-holic.png',
+    hoverTitle: 'title/comic-title-holic-hover.png',
   },
   {
     id: 'nightmare',
-    normalTitle: '/title/comic-title-nightmare.png',
-    hoverTitle: '/title/comic-title-nightmare-hover.png',
+    normalTitle: 'title/comic-title-nightmare.png',
+    hoverTitle: 'title/comic-title-nightmare-hover.png',
   },
   {
     id: 'spectre',
-    normalTitle: '/title/comic-title-spectre.png',
-    hoverTitle: '/title/comic-title-spectre-hover.png',
+    normalTitle: 'title/comic-title-spectre.png',
+    hoverTitle: 'title/comic-title-spectre-hover.png',
   },
   {
     id: 'eudemons',
-    normalTitle: '/title/comic-title-eudemons.png',
-    hoverTitle: '/title/comic-title-eudemons-hover.png',
+    normalTitle: 'title/comic-title-eudemons.png',
+    hoverTitle: 'title/comic-title-eudemons-hover.png',
   },
 ];
 const HeaderWrapper = styled.div`
@@ -111,7 +111,7 @@ const ComicHeader = (props) => {
       {props.shouldShowComicHeader && (
         <ComicTitleWrapper>
           <li className="title">
-            <img src="/title/title.png"></img>
+            <img src="title/title.png"></img>
           </li>
           {comicTitleJsx}
         </ComicTitleWrapper>
