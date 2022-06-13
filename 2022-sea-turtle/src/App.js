@@ -16,9 +16,9 @@ const BackgroundWrapper = styled.div`
     margin-top: 37px;
   }
   .breakpoint {
-    width: 10px;
-    height: 10px;
-    background-color: red;
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
     margin: 50vh auto 0;
   }
   /* .test {
@@ -34,13 +34,13 @@ const BackgroundWrapper = styled.div`
 
 const COMIC_CONTENT = [
   {
-    id: 'nightmare',
-    name: '貓哥的惡夢',
+    id: 'holic',
+    name: '海龜癡漢',
     content: [
       {
         type: 'text',
         textContent:
-          '貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
+          '海龜癡漢海龜癡漢海龜癡漢海龜癡漢海龜癡漢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
       },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p1.jpg' },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p2.jpg' },
@@ -53,13 +53,13 @@ const COMIC_CONTENT = [
     ],
   },
   {
-    id: 'holic',
+    id: 'nightmare',
     name: '貓哥的惡夢',
     content: [
       {
         type: 'text',
         textContent:
-          '海龜癡漢海龜癡漢海龜癡漢海龜癡漢海龜癡漢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
+          '貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢貓哥的惡夢二〇二二年二月一日，春節之始。島上遊子皆歸鄉，是團聚、飽食、走春放鬆的時刻，在貢寮經營書店、綽號貓哥，時常淨灘的林群，卻在早晨一封訊息後，疾步衝往冷風冽冽的海岸',
       },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p1.jpg' },
       { type: 'image', imageSrc: '/comic/nightmare/貓哥p2.jpg' },
@@ -107,13 +107,13 @@ function App() {
     if (!inView || !shouldAutoScrollCatalog) {
       return;
     }
-    scrollIntoComic('nightmare');
+    scrollIntoComic('holic');
   };
   const onBreakpointComic = (inView) => {
     if (!inView || !shouldAutoScrollComic) {
       return;
     }
-    scrollIntoComic('holic');
+    scrollIntoComic('nightmare');
   };
   const comicJsx = COMIC_CONTENT.map((item) => (
     <Comic key={item.id} content={item} id={item.id} />
@@ -126,9 +126,10 @@ function App() {
           <Header
             shouldShowComicHeader={inView}
             onScrollComic={setShouldAutoScrollComic}
+            onScrollCatalog={setShouldAutoScrollCatalog}
           />
           <BackgroundWrapper>
-            <Catalog onScrollComic={setShouldAutoScrollCatalog} />
+            <Catalog onScrollCatalog={setShouldAutoScrollCatalog} />
 
             <InView
               className="breakpoint"

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import SideMenu from './side-menu';
 const MenuIcon = styled.button`
   width: 18px;
@@ -20,10 +22,20 @@ const MenuIcon = styled.button`
     background-color: black;
   }
 `;
-
-export default function ThreeLineMenu() {
+ThreeLineMenu.propTypes = {
+  onScrollCatalog: PropTypes.func,
+  onScrollComic: PropTypes.func,
+};
+export default function ThreeLineMenu({ onScrollCatalog, onScrollComic }) {
   const [showSideMenu, setShowSideMenu] = useState(false);
-
+  const handleOnClickSideMenu = (id) => {
+    if (id === 'holic') {
+      onScrollComic(false);
+    } else if (id === 'nightmare') {
+      onScrollCatalog(false);
+    }
+    setShowSideMenu((showSideMenu) => !showSideMenu);
+  };
   return (
     <React.Fragment>
       <MenuIcon
@@ -36,12 +48,7 @@ export default function ThreeLineMenu() {
         <div className="line"></div>
         <div className="line"></div>
       </MenuIcon>
-      <SideMenu
-        show={showSideMenu}
-        toggleSideMenu={() => {
-          setShowSideMenu((showSideMenu) => !showSideMenu);
-        }}
-      />
+      <SideMenu show={showSideMenu} toggleSideMenu={handleOnClickSideMenu} />
     </React.Fragment>
   );
 }
