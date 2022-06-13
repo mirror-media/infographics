@@ -10,7 +10,7 @@ Comic.propTypes = {
 const ComicWrapper = styled.div`
   position: relative;
   min-height: 100vh;
-  width: 231px;
+  width: 100%;
   margin: 0 auto;
   padding: 60px 0 0 0;
   display: flex;
@@ -23,17 +23,22 @@ const ComicWrapper = styled.div`
   }
 
   .comic-text {
-    padding: 22px 0;
+    width: 100%;
+    max-width: 420px;
+    padding: 22px 30px;
     text-align: left;
     font-weight: 400;
     font-size: 14px;
     @media (min-width: 576px) {
+      width: 420px;
+      padding: 22px 0;
       font-size: 18px;
     }
     line-height: 163.7%;
   }
   .comic-image {
     width: 100%;
+    max-width: 420px;
   }
   .scroll-top-button {
     position: absolute;
