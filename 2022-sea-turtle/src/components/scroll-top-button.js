@@ -6,9 +6,11 @@ ScrollTopButton.propTypes = {
   id: PropTypes.string,
 };
 const ScrollTopButtonContainer = styled.div`
+  display: none;
   height: 80%;
 `;
 const ScrollTopButtonStyle = styled.button`
+  display: none;
   position: absolute;
   width: fit-content;
   height: fit-content;
