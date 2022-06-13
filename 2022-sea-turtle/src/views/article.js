@@ -3,12 +3,12 @@ import styled from 'styled-components';
 const ARTICLE_CONTENT = [
   {
     id: 'spectre',
-    imageSrc: 'fake-image-preview-square.svg',
+    imageSrc: '/title/spectre.png',
     titleSrc: '/title/comic-title-spectre.png',
   },
   {
     id: 'eudemons',
-    imageSrc: 'fake-image-preview-square.svg',
+    imageSrc: '/title/eudemons.png',
     titleSrc: '/title/comic-title-eudemons.png',
   },
 ];
@@ -34,7 +34,9 @@ const ArticleLink = styled.a`
   }
   .image {
     margin: 0 auto;
-    width: fit-content;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     @media (min-width: 841px) {
       margin: 0;
     }

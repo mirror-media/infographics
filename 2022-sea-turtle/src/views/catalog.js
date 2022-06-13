@@ -6,25 +6,25 @@ import styled from 'styled-components';
 const CARD_CONTENT = [
   {
     id: 'holic',
-    imageSrc: 'fake-image-preview.png',
+    imageSrc: '/title/holic.png',
     titleSrc: '/title/comic-title-holic.png',
     text: '現年三十五歲的蘇淮現居小琉球，從事海洋調查、水下攝影、推廣海洋生態教育，但在大二之前，他只見過祖父魚塭裡的生物，對海一無所知。然而潛入大海，他愛上海龜，幾乎成痴，二〇一九年更前往印尼班達海上的卡伊島尋找革龜。革龜是穿越時間的幻獸，追尋革龜，是蘇淮對自我的探索與定位，亦是他對萬物相生的理解。',
   },
   {
     id: 'nightmare',
-    imageSrc: 'fake-image-preview.png',
+    imageSrc: '/title/nightmare.png',
     titleSrc: '/title/comic-title-nightmare.png',
     text: '2022年的一個早晨，綽號貓哥的林群在貢寮海灘拯救了一頭巨獸。這是一頭革龜，外型從恐龍時期迄今幾乎未曾改變。然而牠的餘命只有短短數小時，隔天凌晨，革龜死亡。台灣並非革龜的棲息或覓食地，牠為何來此？貓哥為此經常惡夢，為了難以清償的愧疚。',
   },
   {
     id: 2,
-    imageSrc: 'fake-image-preview.png',
+    imageSrc: '/title/spectre.png',
     titleSrc: '/title/comic-title-spectre.png',
     text: '革龜有「吃水母機器」的稱號，為了繁衍，牠們追隨洋流，卻被藍海裡的幽靈捕捉，步上死亡路途。革龜的死不只是單獨生物的運命，而是人類時間終止的預言。',
   },
   {
     id: 3,
-    imageSrc: 'fake-image-preview.png',
+    imageSrc: '/title/eudemons.png',
     titleSrc: '/title/comic-title-eudemons.png',
     text: '',
   },
@@ -123,31 +123,31 @@ const ComicCard = styled.div`
     }
   }
   &:hover .image--mask {
-    background-color: #7592cb;
+    background-color: rgba(117, 146, 203, 0.6);
   }
   .image {
-    position: relative;
     img {
-      width: 184px;
-      height: 56px;
+      position: relative;
+      margin: 0 auto;
+      display: block;
+      width: 126px;
       @media (min-width: 861px) {
-        width: 100%;
-        height: 100%;
+        width: 350px;
       }
     }
     &--mask {
       position: absolute;
-      left: 56px;
+      left: 50%;
       top: 0;
-      width: 184px;
-      height: 56px;
+      transform: translate(-50%, 0);
+      width: 126px;
+      height: 60px;
       margin: 0 auto;
       z-index: 9;
       background-color: transparent;
       @media (min-width: 861px) {
-        left: 0;
-        width: 100%;
-        height: 100%;
+        width: 350px;
+        height: 168px;
       }
     }
   }
