@@ -38,7 +38,7 @@ const HeaderWrapper = styled.div`
   background: #f8f3e8;
   height: 45px;
   justify-content: flex-start;
-  width: 100%;
+  width: 100vw;
   @media (min-width: 861px) {
     height: 65px;
     justify-content: space-between;
@@ -54,40 +54,31 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-const ComicTitleWrapper = styled.ul`
+const ComicTitleWrapper = styled.div`
   display: none;
-  margin: 0 22.28px;
+  margin: 0 auto 0 0;
   padding: 0;
   width: 100%;
-  justify-content: flex-start;
-
+  position: relative;
   @media (min-width: 861px) {
     display: flex;
+    justify-content: flex-start;
+    width: 100%;
   }
   .title {
     cursor: pointer;
-    margin: 0 auto 0 0;
-    img {
-      width: 100%;
+    height: 100%;
+    &--image {
+      display: block;
       height: 100%;
     }
   }
-  .comic-title {
-    list-style-type: none;
-    display: flex;
-    cursor: pointer;
-    margin: 18px 16px 0 0;
-    align-items: center;
-    height: 43px;
-    span {
-      font-size: 6px;
-      margin-right: 6px;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
+`;
+const ComicTitleList = styled.ul`
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
 const ComicHeader = (props) => {
@@ -112,10 +103,10 @@ const ComicHeader = (props) => {
 
       {props.shouldShowComicTitle && (
         <ComicTitleWrapper>
-          <li className="title">
-            <img src="title/title.png"></img>
-          </li>
-          {comicTitleJsx}
+          <div className="title">
+            <img className="title--image" src="title/title.png"></img>
+          </div>
+          <ComicTitleList>{comicTitleJsx}</ComicTitleList>
         </ComicTitleWrapper>
       )}
       <Share />

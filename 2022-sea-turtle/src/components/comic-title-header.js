@@ -15,8 +15,8 @@ const ComicTitleStyle = styled.li`
     margin-right: 6px;
   }
   .title {
-    width: 100%;
-    height: 100%;
+    width: 10vw;
+    max-width: 143px;
     &--hover {
       display: none;
     }
