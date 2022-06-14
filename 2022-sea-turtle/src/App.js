@@ -35,7 +35,7 @@ const BackgroundWrapper = styled.div`
     background-color: transparent;
     margin: 50vh auto 0;
   }
-  .test {
+  /* .test {
     position: fixed;
     z-index: 9999999;
     right: 0;
@@ -43,7 +43,7 @@ const BackgroundWrapper = styled.div`
     font-size: 30px;
     background-color: white;
     color: black;
-  }
+  } */
 `;
 
 const COMIC_CONTENT = [
@@ -200,10 +200,10 @@ function App() {
             <div ref={nightmareRef}>{comicJsx[1]}</div>
           </div>
           <Article />
-          <div className="test">
-            {/* {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`} */}
+          {/* <div className="test">
+            {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
             {`癡漢 ${holicInView}`} {`惡夢ToB${nightmareInView}`}
-          </div>
+          </div> */}
         </BackgroundWrapper>
       </BackgroundWrapperBlack>
     </div>

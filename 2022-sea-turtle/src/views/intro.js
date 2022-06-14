@@ -154,7 +154,6 @@ export default function Intro(props) {
   ));
   const handleOnChange = (inView) => {
     props.changeView(inView);
-    console.log(inView);
   };
   return (
     <React.Fragment>

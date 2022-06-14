@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import deferExecutor from '../utils/defer-executor';
 
 import SideMenu from './side-menu';
 const MenuIcon = styled.button`
@@ -31,8 +32,10 @@ export default function ThreeLineMenu({ onScrollCatalog, onScrollComic }) {
   const handleOnClickSideMenu = (id) => {
     if (id === 'holic') {
       onScrollComic(false);
+      deferExecutor(() => onScrollComic(true), 1000);
     } else if (id === 'nightmare') {
       onScrollCatalog(false);
+      deferExecutor(() => onScrollCatalog(true), 1000);
     }
     setShowSideMenu((showSideMenu) => !showSideMenu);
   };

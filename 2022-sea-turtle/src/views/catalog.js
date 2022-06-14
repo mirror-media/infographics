@@ -1,7 +1,7 @@
 import React from 'react';
 import scrollIntoComic from '../utils/scroll-into-comic';
 import PropTypes from 'prop-types';
-
+import deferExecutor from '../utils/defer-executor';
 import styled from 'styled-components';
 const CARD_CONTENT = [
   {
@@ -210,6 +210,7 @@ export default function Catalog(props) {
   const handleOnClick = (id) => {
     props.onScrollCatalog(false);
     scrollIntoComic(id);
+    deferExecutor(() => props.onScrollCatalog(true), 1000);
   };
 
   const comicCardJsx = CARD_CONTENT.map((item) => (
