@@ -90,6 +90,9 @@ const IntroductionWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    &-last {
+      color: transparent;
+    }
   }
   .introduction--dialog {
     width: 298px;
@@ -149,6 +152,10 @@ export default function Intro(props) {
       </InView>
     </div>
   ));
+  const handleOnChange = (inView) => {
+    props.changeView(inView);
+    console.log(inView);
+  };
   return (
     <React.Fragment>
       <BackgroundWrapper></BackgroundWrapper>
@@ -158,9 +165,9 @@ export default function Intro(props) {
 
       <IntroductionWrapper>
         {introTextJsx}
-        <div className="introduction--container">
-          <InView as="div" onChange={(inView) => props.changeView(inView)}>
-            <p></p>
+        <div className="introduction--container  introduction--container-last">
+          <InView as="div" onChange={(inView) => handleOnChange(inView)}>
+            <div>.</div>
           </InView>
         </div>
       </IntroductionWrapper>
