@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import scrollIntoComic from '../utils/scroll-into-comic';
 import PropTypes from 'prop-types';
+import deferExecutor from '../utils/defer-executor';
+
 const ComicTitleStyle = styled.li`
   list-style-type: none;
   display: flex;
@@ -48,6 +49,7 @@ export default function ComicTitle(props) {
   const handleOnClick = (id) => {
     props.onClick(false);
     scrollIntoComic(id);
+    deferExecutor(() => props.onClick(true), 1000);
   };
   return (
     <ComicTitleStyle
@@ -64,12 +66,6 @@ export default function ComicTitle(props) {
           <img className="title title--hover" src={props.hoverSrc}></img>
         </>
       )}
-
-      {/* {props.nightmareInView && props.comicId === 'nightmare' ? (
-        <img className="title--active" src={props.hoverSrc}></img>
-      ) : (
-        ''
-      )} */}
     </ComicTitleStyle>
   );
 }
