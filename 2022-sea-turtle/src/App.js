@@ -5,6 +5,7 @@ import Intro from './views/intro';
 import Catalog from './views/catalog';
 import Comic from './views/comic';
 import Article from './views/article';
+import Footer from './views/footer';
 import { useInView, InView } from 'react-intersection-observer';
 import Header from './components/header';
 import scrollIntoAnchor from './utils/scroll-into-anchor';
@@ -207,6 +208,7 @@ function App() {
             <div ref={nightmareRef}>{comicJsx[1]}</div>
           </div>
           <Article />
+          <Footer />
           {/* <div className="test">
             {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
             {`癡漢 ${holicInView}`} {`惡夢ToB${nightmareInView}`}

@@ -19,6 +19,18 @@ const Container = styled.div`
     height: 43px;
     margin: 28px 0 0 0;
   }
+  .credit {
+    margin-top: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 163.7%;
+    text-align: center;
+    &--position {
+      font-weight: 700;
+    }
+  }
 `;
 
 export default function ComicAnchor(props) {
@@ -33,6 +45,17 @@ export default function ComicAnchor(props) {
         className="comic-title"
         src={`title/comic-title-${props.comicId}.png`}
       />
+      <ul className="credit">
+        <li>
+          <span className="credit--position">記者、撰稿</span> &nbsp;胡慕情
+        </li>
+        <li>
+          <span className="credit--position">漫畫</span> 曾耀慶
+        </li>
+        <li>
+          <span className="credit--position">編輯</span> 黃珮珊
+        </li>
+      </ul>
     </Container>
   );
 }
