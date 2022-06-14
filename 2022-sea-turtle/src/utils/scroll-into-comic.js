@@ -4,6 +4,9 @@ const scrollIntoComic = (id) => {
     const comicId = document.querySelector(`.anchor-${id}`);
     comicId.scrollIntoView({ behavior: 'smooth', block: 'center' });
     replaceHash(id);
+  } else if (id === 'top') {
+    const comicId = document.querySelector(`.anchor-${id}`);
+    comicId.scrollIntoView({ behavior: 'smooth' });
   } else {
     window.open('https://www.google.com/');
   }

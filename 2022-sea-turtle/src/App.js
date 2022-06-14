@@ -35,6 +35,13 @@ const BackgroundWrapper = styled.div`
     background-color: transparent;
     margin: 50vh auto 0;
   }
+  .anchor-top {
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+    margin: 0 auto;
+    padding: 0;
+  }
   /* .test {
     position: fixed;
     z-index: 9999999;
@@ -166,6 +173,7 @@ function App() {
         <Intro changeView={changeView} />
       </IntroWrapper>
       <BackgroundWrapperBlack>
+        <div className="anchor-top"></div>
         <Header
           holicInView={holicInView}
           nightmareInView={nightmareInView}
@@ -174,7 +182,6 @@ function App() {
           onScrollComic={setShouldAutoScrollComic}
           onScrollCatalog={setShouldAutoScrollCatalog}
         />
-
         <BackgroundWrapper shouldRender={shouldShowCatalog}>
           <div ref={catalogRef}>
             <Catalog onScrollCatalog={setShouldAutoScrollCatalog} />

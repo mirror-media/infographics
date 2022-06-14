@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import ThreeLineMenu from './three-line-menu';
 import Share from './share';
 import ComicTitleHeader from './comic-title-header';
-
-const HeaderWrapper = styled.div`
+import scrollIntoComic from '../utils/scroll-into-comic';
+import deferExecutor from '../utils/defer-executor';
+const HeaderWrapper = styled.header`
   opacity: ${({ shouldRender }) => (shouldRender ? 1 : 0)};
   transition: opacity 2000ms;
   position: fixed;
@@ -85,7 +86,13 @@ const ComicHeader = (props) => {
       hoverTitle: 'title/comic-title-eudemons-hover.png',
     },
   ];
-
+  const scrollToTop = () => {
+    props.onScrollCatalog(false);
+    props.onScrollComic(false);
+    scrollIntoComic('top');
+    deferExecutor(() => props.onScrollCatalog(true), 1000);
+    deferExecutor(() => props.onScrollComic(true), 1000);
+  };
   const comicTitleJsx = COMIC_TITLE.map((item) => (
     <ComicTitleHeader
       key={item.id}
@@ -108,9 +115,10 @@ const ComicHeader = (props) => {
 
       {props.shouldShowComicTitle && (
         <ComicTitleWrapper>
-          <div className="title">
+          <div className="title" onClick={scrollToTop}>
             <img className="title--image" src="title/title.png"></img>
           </div>
+
           <ComicTitleList>{comicTitleJsx}</ComicTitleList>
         </ComicTitleWrapper>
       )}
