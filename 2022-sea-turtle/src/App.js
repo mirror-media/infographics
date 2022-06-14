@@ -7,7 +7,7 @@ import Comic from './views/comic';
 import Article from './views/article';
 import { useInView, InView } from 'react-intersection-observer';
 import Header from './components/header';
-import scrollIntoComic from './utils/scroll-into-comic';
+import scrollIntoAnchor from './utils/scroll-into-anchor';
 import replaceHash from './utils/replace-hash';
 const IntroWrapper = styled.div`
   display: ${({ shouldRender }) => (!shouldRender ? 'block' : 'none')};
@@ -154,14 +154,14 @@ function App() {
     if (!inView || !shouldAutoScrollCatalog) {
       return;
     }
-    scrollIntoComic(breakpointId);
+    scrollIntoAnchor(breakpointId);
     replaceHash(breakpointId);
   };
   const onBreakpointComic = (inView, breakpointId) => {
     if (!inView || !shouldAutoScrollComic) {
       return;
     }
-    scrollIntoComic(breakpointId);
+    scrollIntoAnchor(breakpointId);
     replaceHash(breakpointId);
   };
   const comicJsx = COMIC_CONTENT.map((item) => (

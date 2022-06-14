@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ThreeLineMenu from './three-line-menu';
 import Share from './share';
 import ComicTitleHeader from './comic-title-header';
-import scrollIntoComic from '../utils/scroll-into-comic';
+import scrollIntoAnchor from '../utils/scroll-into-anchor';
 import deferExecutor from '../utils/defer-executor';
 const HeaderWrapper = styled.header`
   opacity: ${({ shouldRender }) => (shouldRender ? 1 : 0)};
@@ -89,7 +89,7 @@ const ComicHeader = (props) => {
   const scrollToTop = () => {
     props.onScrollCatalog(false);
     props.onScrollComic(false);
-    scrollIntoComic('top');
+    scrollIntoAnchor('top');
     deferExecutor(() => props.onScrollCatalog(true), 1000);
     deferExecutor(() => props.onScrollComic(true), 1000);
   };

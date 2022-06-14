@@ -1,5 +1,5 @@
 import React from 'react';
-import scrollIntoComic from '../utils/scroll-into-comic';
+import scrollIntoAnchor from '../utils/scroll-into-anchor';
 import PropTypes from 'prop-types';
 import deferExecutor from '../utils/defer-executor';
 import styled from 'styled-components';
@@ -209,7 +209,7 @@ Catalog.propTypes = {
 export default function Catalog(props) {
   const handleOnClick = (id) => {
     props.onScrollCatalog(false);
-    scrollIntoComic(id);
+    scrollIntoAnchor(id);
     deferExecutor(() => props.onScrollCatalog(true), 1000);
   };
 

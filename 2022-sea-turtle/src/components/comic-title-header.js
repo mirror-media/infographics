@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import scrollIntoComic from '../utils/scroll-into-comic';
+import scrollIntoAnchor from '../utils/scroll-into-anchor';
 import PropTypes from 'prop-types';
 import deferExecutor from '../utils/defer-executor';
 
@@ -48,7 +48,7 @@ ComicTitle.propTypes = {
 export default function ComicTitle(props) {
   const handleOnClick = (id) => {
     props.onClick(false);
-    scrollIntoComic(id);
+    scrollIntoAnchor(id);
     deferExecutor(() => props.onClick(true), 1000);
   };
   return (

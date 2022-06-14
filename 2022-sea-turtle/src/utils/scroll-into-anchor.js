@@ -1,5 +1,5 @@
 import replaceHash from './replace-hash';
-const scrollIntoComic = (id) => {
+const scrollIntoAnchor = (id) => {
   if (id === 'nightmare' || id === 'holic') {
     const comicId = document.querySelector(`.anchor-${id}`);
     comicId.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -12,4 +12,4 @@ const scrollIntoComic = (id) => {
   }
 };
 
-export default scrollIntoComic;
+export default scrollIntoAnchor;
