@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import ScrollTopButton from '../components/scroll-top-button';
 import ComicAnchor from '../components/comic-anchor';
@@ -58,16 +58,6 @@ const ComicWrapper = styled.div`
 export default function Comic(props) {
   const nightmareRef = useRef(null);
   const holicRef = useRef(null);
-  useEffect(() => {
-    const hash = location.hash;
-    const id = hash?.replace('#', '');
-    if (id === 'nightmare' && nightmareRef.current) {
-      nightmareRef.current.scrollIntoView();
-    } else if (id === 'holic' && holicRef.current) {
-      holicRef.current.scrollIntoView();
-    }
-  }, []);
-
   const { content } = props.content;
   const comicContentJsx = content.map((item, index) => {
     if (item.type === 'text')
