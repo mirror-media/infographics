@@ -1,7 +1,7 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import scrollIntoComic from '../utils/scroll-into-comic';
 import PropTypes from 'prop-types';
-
 const ComicTitleStyle = styled.li`
   list-style-type: none;
   display: flex;
@@ -20,6 +20,11 @@ const ComicTitleStyle = styled.li`
     &--hover {
       display: none;
     }
+    &--active {
+      width: 10vw;
+      max-width: 143px;
+      display: block;
+    }
   }
   &:hover .title {
     display: none;
@@ -34,6 +39,7 @@ ComicTitle.propTypes = {
   hoverSrc: PropTypes.string,
   comicId: PropTypes.string,
   onClick: PropTypes.func,
+  isActive: PropTypes.bool,
 };
 
 export default function ComicTitle(props) {
@@ -47,8 +53,21 @@ export default function ComicTitle(props) {
       onClick={() => handleOnClick(props.comicId)}
     >
       <span>&#11044;</span>
-      <img className="title" src={props.imageSrc}></img>
-      <img className="title title--hover" src={props.hoverSrc}></img>
+
+      {props.isActive ? (
+        <img className="title--active" src={props.hoverSrc}></img>
+      ) : (
+        <>
+          <img className="title" src={props.imageSrc}></img>
+          <img className="title title--hover" src={props.hoverSrc}></img>
+        </>
+      )}
+
+      {/* {props.nightmareInView && props.comicId === 'nightmare' ? (
+        <img className="title--active" src={props.hoverSrc}></img>
+      ) : (
+        ''
+      )} */}
     </ComicTitleStyle>
   );
 }

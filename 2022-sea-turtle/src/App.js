@@ -172,6 +172,8 @@ function App() {
       </IntroWrapper>
       <BackgroundWrapperBlack>
         <Header
+          holicInView={holicInView}
+          nightmareInView={nightmareInView}
           shouldRender={shouldShowCatalog}
           shouldShowComicTitle={comicInView}
           onScrollComic={setShouldAutoScrollComic}
@@ -204,7 +206,8 @@ function App() {
           </div>
           <Article />
           <div className="test">
-            {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
+            {/* {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`} */}
+            {`癡漢 ${holicInView}`} {`惡夢ToB${nightmareInView}`}
           </div>
         </BackgroundWrapper>
       </BackgroundWrapperBlack>
