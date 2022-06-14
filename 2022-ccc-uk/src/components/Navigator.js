@@ -221,7 +221,6 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
   const { width } = useWindowDimensions()
 
   const onPageButtonClicked = (index) => {
-    console.log(index)
     navigateTo(index)
     ReactGA.event({
       category: 'Click',
