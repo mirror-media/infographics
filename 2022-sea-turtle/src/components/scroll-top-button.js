@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import scrollIntoComic from '../utils/scroll-into-comic';
+import scrollIntoAnchor from '../utils/scroll-into-anchor';
 ScrollTopButton.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
@@ -27,7 +27,7 @@ export default function ScrollTopButton({ className, id }) {
   return (
     <div>
       <ScrollTopButtonContainer className={className}>
-        <ScrollTopButtonStyle onClick={() => scrollIntoComic(id)}>
+        <ScrollTopButtonStyle onClick={() => scrollIntoAnchor(id)}>
           <img src="up-arrow.svg" />
         </ScrollTopButtonStyle>
       </ScrollTopButtonContainer>

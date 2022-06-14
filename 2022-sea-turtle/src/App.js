@@ -5,9 +5,10 @@ import Intro from './views/intro';
 import Catalog from './views/catalog';
 import Comic from './views/comic';
 import Article from './views/article';
+import Footer from './views/footer';
 import { useInView, InView } from 'react-intersection-observer';
 import Header from './components/header';
-import scrollIntoComic from './utils/scroll-into-comic';
+import scrollIntoAnchor from './utils/scroll-into-anchor';
 import replaceHash from './utils/replace-hash';
 const IntroWrapper = styled.div`
   display: ${({ shouldRender }) => (!shouldRender ? 'block' : 'none')};
@@ -34,6 +35,13 @@ const BackgroundWrapper = styled.div`
     height: 1px;
     background-color: transparent;
     margin: 50vh auto 0;
+  }
+  .anchor-top {
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+    margin: 0 auto;
+    padding: 0;
   }
   /* .test {
     position: fixed;
@@ -147,14 +155,14 @@ function App() {
     if (!inView || !shouldAutoScrollCatalog) {
       return;
     }
-    scrollIntoComic(breakpointId);
+    scrollIntoAnchor(breakpointId);
     replaceHash(breakpointId);
   };
   const onBreakpointComic = (inView, breakpointId) => {
     if (!inView || !shouldAutoScrollComic) {
       return;
     }
-    scrollIntoComic(breakpointId);
+    scrollIntoAnchor(breakpointId);
     replaceHash(breakpointId);
   };
   const comicJsx = COMIC_CONTENT.map((item) => (
@@ -166,6 +174,7 @@ function App() {
         <Intro changeView={changeView} />
       </IntroWrapper>
       <BackgroundWrapperBlack>
+        <div className="anchor-top"></div>
         <Header
           holicInView={holicInView}
           nightmareInView={nightmareInView}
@@ -174,7 +183,6 @@ function App() {
           onScrollComic={setShouldAutoScrollComic}
           onScrollCatalog={setShouldAutoScrollCatalog}
         />
-
         <BackgroundWrapper shouldRender={shouldShowCatalog}>
           <div ref={catalogRef}>
             <Catalog onScrollCatalog={setShouldAutoScrollCatalog} />
@@ -200,6 +208,7 @@ function App() {
             <div ref={nightmareRef}>{comicJsx[1]}</div>
           </div>
           <Article />
+          <Footer />
           {/* <div className="test">
             {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
             {`癡漢 ${holicInView}`} {`惡夢ToB${nightmareInView}`}

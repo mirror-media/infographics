@@ -1,5 +1,5 @@
 import React from 'react';
-import scrollIntoComic from '../utils/scroll-into-comic';
+import scrollIntoAnchor from '../utils/scroll-into-anchor';
 import PropTypes from 'prop-types';
 import deferExecutor from '../utils/defer-executor';
 import styled from 'styled-components';
@@ -47,10 +47,9 @@ const CatalogWrapper = styled.div`
   padding: 0 0 1px;
 `;
 const CatalogTitle = styled.div`
-  margin: 45px 0 0 0;
+  margin: 45px 0 20px 0;
   img {
-    width: 40%;
-    min-width: 270px;
+    width: 100%;
     max-width: 582px;
   }
   @media (min-width: 861px) {
@@ -209,7 +208,7 @@ Catalog.propTypes = {
 export default function Catalog(props) {
   const handleOnClick = (id) => {
     props.onScrollCatalog(false);
-    scrollIntoComic(id);
+    scrollIntoAnchor(id);
     deferExecutor(() => props.onScrollCatalog(true), 1000);
   };
 
@@ -234,7 +233,7 @@ export default function Catalog(props) {
   return (
     <CatalogWrapper>
       <CatalogTitle>
-        <img src="title/title.png" />
+        <img src="title/title1080.png" />
       </CatalogTitle>
       <ComicCardWrapper>{comicCardJsx}</ComicCardWrapper>
     </CatalogWrapper>

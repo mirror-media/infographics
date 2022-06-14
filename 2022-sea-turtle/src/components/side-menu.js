@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import MirrorMediaIcon from './mirror-media-icon';
 import Share from './share';
-import scrollIntoComic from '../utils/scroll-into-comic';
+import scrollIntoAnchor from '../utils/scroll-into-anchor';
 SideMenu.propTypes = {
   show: PropTypes.bool,
   toggleSideMenu: PropTypes.func,
@@ -62,7 +62,7 @@ const SideMenuWrapper = styled.ul`
 
 export default function SideMenu(props) {
   const selectComic = (id) => {
-    scrollIntoComic(id);
+    scrollIntoAnchor(id);
     props.toggleSideMenu(id);
   };
   return (
