@@ -4,28 +4,7 @@ import styled from 'styled-components';
 import ThreeLineMenu from './three-line-menu';
 import Share from './share';
 import ComicTitleHeader from './comic-title-header';
-const COMIC_TITLE = [
-  {
-    id: 'holic',
-    normalTitle: 'title/comic-title-holic.png',
-    hoverTitle: 'title/comic-title-holic-hover.png',
-  },
-  {
-    id: 'nightmare',
-    normalTitle: 'title/comic-title-nightmare.png',
-    hoverTitle: 'title/comic-title-nightmare-hover.png',
-  },
-  {
-    id: 'spectre',
-    normalTitle: 'title/comic-title-spectre.png',
-    hoverTitle: 'title/comic-title-spectre-hover.png',
-  },
-  {
-    id: 'eudemons',
-    normalTitle: 'title/comic-title-eudemons.png',
-    hoverTitle: 'title/comic-title-eudemons-hover.png',
-  },
-];
+
 const HeaderWrapper = styled.div`
   opacity: ${({ shouldRender }) => (shouldRender ? 1 : 0)};
   transition: opacity 2000ms;
@@ -82,6 +61,31 @@ const ComicTitleList = styled.ul`
 `;
 
 const ComicHeader = (props) => {
+  const COMIC_TITLE = [
+    {
+      id: 'holic',
+      normalTitle: 'title/comic-title-holic.png',
+      hoverTitle: 'title/comic-title-holic-hover.png',
+      isActive: props.holicInView,
+    },
+    {
+      id: 'nightmare',
+      normalTitle: 'title/comic-title-nightmare.png',
+      hoverTitle: 'title/comic-title-nightmare-hover.png',
+      isActive: props.nightmareInView,
+    },
+    {
+      id: 'spectre',
+      normalTitle: 'title/comic-title-spectre.png',
+      hoverTitle: 'title/comic-title-spectre-hover.png',
+    },
+    {
+      id: 'eudemons',
+      normalTitle: 'title/comic-title-eudemons.png',
+      hoverTitle: 'title/comic-title-eudemons-hover.png',
+    },
+  ];
+
   const comicTitleJsx = COMIC_TITLE.map((item) => (
     <ComicTitleHeader
       key={item.id}
@@ -89,6 +93,7 @@ const ComicHeader = (props) => {
       imageSrc={item.normalTitle}
       hoverSrc={item.hoverTitle}
       onClick={props.onScrollComic}
+      isActive={item.isActive}
     />
   ));
   return (
@@ -122,5 +127,7 @@ ComicHeader.propTypes = {
   onScrollCatalog: PropTypes.func,
   onScrollComic: PropTypes.func,
   shouldRender: PropTypes.bool,
+  holicInView: PropTypes.bool,
+  nightmareInView: PropTypes.bool,
 };
 export default ComicHeader;

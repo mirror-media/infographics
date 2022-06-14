@@ -100,24 +100,29 @@ const COMIC_CONTENT = [
 ];
 
 function App() {
+  const [shouldShowCatalog, setShouldShowCatalog] = useState(false);
+  const [shouldAutoScrollCatalog, setShouldAutoScrollCatalog] = useState(true);
+  const [shouldAutoScrollComic, setShouldAutoScrollComic] = useState(true);
+  const [comicRef, comicInView] = useInView({});
+  const [catalogRef, catalogInView] = useInView({});
+  const [holicRef, holicInView] = useInView({});
+  const [nightmareRef, nightmareInView] = useInView({});
+
   useEffect(() => {
     window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
     return () =>
       window.removeEventListener('beforeunload', () => window.scrollTo(0, 0));
   }, []);
-  const [shouldShowCatalog, setShouldShowCatalog] = useState(false);
-  const [shouldAutoScrollCatalog, setShouldAutoScrollCatalog] = useState(true);
-  const [shouldAutoScrollComic, setShouldAutoScrollComic] = useState(true);
-  const [catalogRef, catalogInView] = useInView({});
   useEffect(() => {
     if (catalogInView) {
       history.pushState('', document.title, window.location.pathname);
     }
   }, [catalogInView]);
-  const { ref, inView } = useInView({
-    /* Optional options */
-    threshold: 0,
-  });
+  useEffect(() => {
+    if (holicInView && !nightmareInView) {
+      replaceHash('holic');
+    }
+  }, [holicInView, nightmareInView]);
 
   useEffect(() => {
     const { hash } = window.location;
@@ -167,8 +172,10 @@ function App() {
       </IntroWrapper>
       <BackgroundWrapperBlack>
         <Header
+          holicInView={holicInView}
+          nightmareInView={nightmareInView}
           shouldRender={shouldShowCatalog}
-          shouldShowComicTitle={inView}
+          shouldShowComicTitle={comicInView}
           onScrollComic={setShouldAutoScrollComic}
           onScrollCatalog={setShouldAutoScrollCatalog}
         />
@@ -185,8 +192,8 @@ function App() {
               onBreakpointCatalog(inView, entry.target.dataset.breakpoint)
             }
           ></InView>
-          <div ref={ref}>
-            {comicJsx[0]}
+          <div ref={comicRef}>
+            <div ref={holicRef}> {comicJsx[0]}</div>
             <InView
               className="breakpoint"
               data-breakpoint="nightmare"
@@ -195,11 +202,12 @@ function App() {
                 onBreakpointComic(inView, entry.target.dataset.breakpoint)
               }
             ></InView>
-            {comicJsx[1]}
+            <div ref={nightmareRef}>{comicJsx[1]}</div>
           </div>
           <Article />
           <div className="test">
-            {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
+            {/* {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`} */}
+            {`癡漢 ${holicInView}`} {`惡夢ToB${nightmareInView}`}
           </div>
         </BackgroundWrapper>
       </BackgroundWrapperBlack>
