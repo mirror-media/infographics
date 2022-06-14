@@ -24,7 +24,11 @@ const Container = styled.div`
 export default function ComicAnchor(props) {
   return (
     <Container>
-      <img className={`anchor-${props.comicId}`} src="I.svg" />
+      <img
+        className={`anchor-${props.comicId}`}
+        id={`anchor-${props.comicId}`}
+        src="I.svg"
+      />
       <img
         className="comic-title"
         src={`title/comic-title-${props.comicId}.png`}

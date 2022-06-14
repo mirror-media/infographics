@@ -103,8 +103,20 @@ function App() {
   useEffect(() => {
     if (hash === '#nightmare' || hash === '#holic') {
       setShouldShowCatalog(true);
+      setTimeout(() => {
+        const { hash } = window.location;
+        if (hash) {
+          const id = hash.replace('#', '');
+          const element = document.getElementById(`anchor-${id}`);
+          if (element) {
+            element.scrollIntoView({ block: 'center', behavior: 'auto' });
+          }
+        }
+      }, 0);
     }
   }, []);
+
+  // useEffect(() => {}, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
