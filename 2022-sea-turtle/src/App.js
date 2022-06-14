@@ -8,7 +8,7 @@ import Article from './views/article';
 import { useInView, InView } from 'react-intersection-observer';
 import Header from './components/header';
 import scrollIntoComic from './utils/scroll-into-comic';
-
+import replaceHash from './utils/replace-hash';
 const IntroWrapper = styled.div`
   display: ${({ shouldRender }) => (!shouldRender ? 'block' : 'none')};
 `;
@@ -35,7 +35,7 @@ const BackgroundWrapper = styled.div`
     background-color: transparent;
     margin: 50vh auto 0;
   }
-  /* .test {
+  .test {
     position: fixed;
     z-index: 9999999;
     right: 0;
@@ -43,7 +43,7 @@ const BackgroundWrapper = styled.div`
     font-size: 30px;
     background-color: white;
     color: black;
-  } */
+  }
 `;
 
 const COMIC_CONTENT = [
@@ -108,17 +108,22 @@ function App() {
   const [shouldShowCatalog, setShouldShowCatalog] = useState(false);
   const [shouldAutoScrollCatalog, setShouldAutoScrollCatalog] = useState(true);
   const [shouldAutoScrollComic, setShouldAutoScrollComic] = useState(true);
+  const [catalogRef, catalogInView] = useInView({});
+  useEffect(() => {
+    if (catalogInView) {
+      history.pushState('', document.title, window.location.pathname);
+    }
+  }, [catalogInView]);
   const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0,
   });
 
-  const hash = location.hash;
   useEffect(() => {
+    const { hash } = window.location;
     if (hash === '#nightmare' || hash === '#holic') {
       setShouldShowCatalog(true);
       setTimeout(() => {
-        const { hash } = window.location;
         if (hash) {
           const id = hash.replace('#', '');
           const element = document.getElementById(`anchor-${id}`);
@@ -133,23 +138,24 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [shouldShowCatalog]);
-
   const changeView = (value) => {
     if (value) {
       setTimeout(() => setShouldShowCatalog(value), 500);
     }
   };
-  const onBreakpointCatalog = (inView) => {
+  const onBreakpointCatalog = (inView, breakpointId) => {
     if (!inView || !shouldAutoScrollCatalog) {
       return;
     }
-    scrollIntoComic('holic');
+    scrollIntoComic(breakpointId);
+    replaceHash(breakpointId);
   };
-  const onBreakpointComic = (inView) => {
+  const onBreakpointComic = (inView, breakpointId) => {
     if (!inView || !shouldAutoScrollComic) {
       return;
     }
-    scrollIntoComic('nightmare');
+    scrollIntoComic(breakpointId);
+    replaceHash(breakpointId);
   };
   const comicJsx = COMIC_CONTENT.map((item) => (
     <Comic key={item.id} content={item} id={item.id} />
@@ -159,16 +165,6 @@ function App() {
       <IntroWrapper shouldRender={shouldShowCatalog}>
         <Intro changeView={changeView} />
       </IntroWrapper>
-
-      {/* {
-        <React.Fragment>
-          <Header
-            shouldShowComicHeader={inView}
-            onScrollComic={setShouldAutoScrollComic}
-            onScrollCatalog={setShouldAutoScrollCatalog}
-          />
-        </React.Fragment>
-      } */}
       <BackgroundWrapperBlack>
         <Header
           shouldRender={shouldShowCatalog}
@@ -178,26 +174,33 @@ function App() {
         />
 
         <BackgroundWrapper shouldRender={shouldShowCatalog}>
-          <Catalog onScrollCatalog={setShouldAutoScrollCatalog} />
-
+          <div ref={catalogRef}>
+            <Catalog onScrollCatalog={setShouldAutoScrollCatalog} />
+          </div>
           <InView
             className="breakpoint"
             as="div"
-            onChange={(inView) => onBreakpointCatalog(inView)}
+            data-breakpoint="holic"
+            onChange={(inView, entry) =>
+              onBreakpointCatalog(inView, entry.target.dataset.breakpoint)
+            }
           ></InView>
           <div ref={ref}>
             {comicJsx[0]}
             <InView
               className="breakpoint"
+              data-breakpoint="nightmare"
               as="div"
-              onChange={(inView) => onBreakpointComic(inView)}
+              onChange={(inView, entry) =>
+                onBreakpointComic(inView, entry.target.dataset.breakpoint)
+              }
             ></InView>
             {comicJsx[1]}
           </div>
           <Article />
-          {/* <div className="test">
-              {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
-            </div> */}
+          <div className="test">
+            {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
+          </div>
         </BackgroundWrapper>
       </BackgroundWrapperBlack>
     </div>

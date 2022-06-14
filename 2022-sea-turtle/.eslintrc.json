@@ -21,6 +21,7 @@
     "rules": {
         "prettier/prettier": ["error", { "singleQuote": true }],
         "react/react-in-jsx-scope":"off",
-        "no-var":"error"
+        "no-var":"error",
+        "no-unused-vars":"off"
     }
 }
