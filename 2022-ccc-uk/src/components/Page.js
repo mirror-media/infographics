@@ -64,24 +64,26 @@ const Image = styled.img`
   position: absolute;
   top: 0;
   left: 7.5%;
-  bottom: 30px;
+  bottom: 0;
   margin: auto;
-  height: 50%;
-  max-width: 52%;
 
   @media (max-width: 812px) {
     left: 0;
     top: 0;
     bottom: 0;
-    height: 71%;
-    max-width: 58%;
+    width: 58%;
   }
   @media (max-width: 568px) {
     top: 0;
     left: 0;
     bottom: 0;
-    max-width: 54.9%;
-    height: 55.3%;
+    width: 54.9%;
+  }
+  @media (max-height: 300px) {
+    @media (max-width: 812px) and (min-width: 569px) {
+      height: 100%;
+      width: unset;
+    }
   }
 `
 
