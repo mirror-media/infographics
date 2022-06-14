@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     top: 30%;
     height: unset;
   }
@@ -31,7 +31,7 @@ const Title = styled.div`
   line-height: 1.5;
   white-space: pre-wrap;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     font-size: 20px;
     line-height: 30px;  
   }
@@ -44,7 +44,7 @@ const Description = styled.div`
   font-size: 16px;
   line-height: 24px;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     font-size: 12px;
     line-height: 18px;  
     width: 400px;
@@ -63,7 +63,7 @@ const Credit = styled.div`
     font-weight: 900;
   }
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     font-size: 12px;
     line-height: 18px;
     margin-top: 53px;
@@ -94,7 +94,7 @@ const IG = styled.a`
     height: 100%;
   }
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     display: none;
   }
 `
@@ -107,7 +107,7 @@ const MobileIG = styled.a`
     width: 100%;
     height: 100%;
   }
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     display: block;
     position: absolute;
     top: 16px;
