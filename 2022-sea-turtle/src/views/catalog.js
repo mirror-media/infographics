@@ -9,28 +9,37 @@ const CARD_CONTENT = [
     imageSrc: 'title/holic.png',
     titleSrc: 'title/comic-title-holic.png',
     titleGraySrc: 'title/comic-title-holic-gray.png',
-    text: '現年三十五歲的蘇淮現居小琉球，從事海洋調查、水下攝影、推廣海洋生態教育，但在大二之前，他只見過祖父魚塭裡的生物，對海一無所知。然而潛入大海，他愛上海龜，幾乎成痴，二〇一九年更前往印尼班達海上的卡伊島尋找革龜。革龜是穿越時間的幻獸，追尋革龜，是蘇淮對自我的探索與定位，亦是他對萬物相生的理解。',
+    text: [
+      '現居小琉球的蘇淮，在大二之前，只見過祖父魚塭裡的生物，對海一無所知。多年後，他卻從事海洋調查、水下攝影、推廣海洋生態教育，一切，都因為海龜。',
+    ],
   },
   {
     id: 'nightmare',
     imageSrc: 'title/nightmare.png',
     titleSrc: 'title/comic-title-nightmare.png',
     titleGraySrc: 'title/comic-title-nightmare-gray.png',
-    text: '2022年的一個早晨，綽號貓哥的林群在貢寮海灘拯救了一頭巨獸。這是一頭革龜，外型從恐龍時期迄今幾乎未曾改變。然而牠的餘命只有短短數小時，隔天凌晨，革龜死亡。台灣並非革龜的棲息或覓食地，牠為何來此？貓哥為此經常惡夢，為了難以清償的愧疚。',
+    text: [
+      '2022年的一個早晨，綽號貓哥的林群在貢寮海灘拯救了一頭巨獸。這是一頭革龜，外型從恐龍時期迄今幾乎未曾改變。然而牠的餘命只有短短數小時，隔天凌晨，革龜死亡。台灣並非革龜的棲息或覓食地，牠為何來此？貓哥為此經常惡夢，為了難以清償的愧疚。',
+    ],
   },
   {
     id: 2,
     imageSrc: 'title/spectre.png',
     titleSrc: 'title/comic-title-spectre.png',
     titleGraySrc: 'title/comic-title-spectre-gray.png',
-    text: '革龜有「吃水母機器」的稱號，為了繁衍，牠們追隨洋流，卻被藍海裡的幽靈捕捉，步上死亡路途。革龜的死不只是單獨生物的運命，而是人類時間終止的預言。',
+    text: [
+      '革龜有「吃水母機器」的稱號，為了繁衍，牠們追隨洋流，卻被藍海裡的幽靈捕捉，步上死亡路途。',
+      '這頭死去革龜眼裡佈滿二〇二一年底日本小笠原群島海底火山爆發後所製造的浮石；流刺網深陷其四肢；尾與右後蹼幾乎被削斷；牠的頭部表皮也被漁網刮落剝離，露出粉色肌肉、鮮血直流。根據林群量秤，纏繞在革龜身上的網具重量超過一百公斤。',
+    ],
   },
   {
     id: 3,
     imageSrc: 'title/eudemons.png',
     titleSrc: 'title/comic-title-eudemons.png',
     titleGraySrc: 'title/comic-title-eudemons-gray.png',
-    text: '',
+    text: [
+      '革龜之死不是單獨一種生物的運命，它是預示，亦是人類時間終止的預言。',
+    ],
   },
 ];
 const CatalogWrapper = styled.div`
@@ -113,7 +122,7 @@ const ComicCard = styled.div`
     }
   }
 
-  &:first-child {
+  &:nth-child(2) {
     &:after {
       @media (min-width: 861px) {
         content: '';
@@ -121,7 +130,7 @@ const ComicCard = styled.div`
         height: 1px;
         background-color: #000;
         position: absolute;
-        left: 0;
+        right: 0;
         bottom: -19px;
       }
     }
@@ -213,7 +222,11 @@ export default function Catalog(props) {
         <img className="title--black" src={item.titleSrc}></img>
         <img className="title--gray" src={item.titleGraySrc}></img>
       </div>
-      <p className="introduction">{item.text}</p>
+      <div className="introduction">
+        {item.text.map((text, index) => (
+          <p key={index}>{text}</p>
+        ))}
+      </div>
     </ComicCard>
   ));
 
