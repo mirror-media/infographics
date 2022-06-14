@@ -17,16 +17,18 @@ const ComicTitleStyle = styled.li`
   .title {
     width: 10vw;
     max-width: 143px;
+    &--normal {
+      display: block;
+    }
     &--hover {
       display: none;
     }
     &--active {
       width: 10vw;
       max-width: 143px;
-      display: block;
     }
   }
-  &:hover .title {
+  &:hover .title--normal {
     display: none;
   }
   &:hover .title--hover {
@@ -55,10 +57,10 @@ export default function ComicTitle(props) {
       <span>&#11044;</span>
 
       {props.isActive ? (
-        <img className="title--active" src={props.hoverSrc}></img>
+        <img className="title title--active" src={props.hoverSrc}></img>
       ) : (
         <>
-          <img className="title" src={props.imageSrc}></img>
+          <img className="title title--normal" src={props.imageSrc}></img>
           <img className="title title--hover" src={props.hoverSrc}></img>
         </>
       )}
