@@ -47,10 +47,9 @@ const CatalogWrapper = styled.div`
   padding: 0 0 1px;
 `;
 const CatalogTitle = styled.div`
-  margin: 45px 0 0 0;
+  margin: 45px 0 20px 0;
   img {
-    width: 40%;
-    min-width: 270px;
+    width: 100%;
     max-width: 582px;
   }
   @media (min-width: 861px) {
@@ -234,7 +233,7 @@ export default function Catalog(props) {
   return (
     <CatalogWrapper>
       <CatalogTitle>
-        <img src="title/title.png" />
+        <img src="title/title1080.png" />
       </CatalogTitle>
       <ComicCardWrapper>{comicCardJsx}</ComicCardWrapper>
     </CatalogWrapper>
