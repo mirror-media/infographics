@@ -27,6 +27,8 @@ const COMIC_TITLE = [
   },
 ];
 const HeaderWrapper = styled.div`
+  opacity: ${({ shouldRender }) => (shouldRender ? 1 : 0)};
+  transition: opacity 2000ms;
   position: fixed;
   top: 0;
   z-index: 10;
@@ -99,7 +101,7 @@ const ComicHeader = (props) => {
     />
   ));
   return (
-    <HeaderWrapper>
+    <HeaderWrapper shouldRender={props.shouldRender}>
       <a
         href="https://www.mirrormedia.mg/"
         target="_blank"
@@ -108,7 +110,7 @@ const ComicHeader = (props) => {
         <img className="mirrormedia-logo" src="mirrormedia-icon.svg"></img>
       </a>
 
-      {props.shouldShowComicHeader && (
+      {props.shouldShowComicTitle && (
         <ComicTitleWrapper>
           <li className="title">
             <img src="title/title.png"></img>
@@ -125,8 +127,9 @@ const ComicHeader = (props) => {
   );
 };
 ComicHeader.propTypes = {
-  shouldShowComicHeader: PropTypes.bool,
+  shouldShowComicTitle: PropTypes.bool,
   onScrollCatalog: PropTypes.func,
   onScrollComic: PropTypes.func,
+  shouldRender: PropTypes.bool,
 };
 export default ComicHeader;

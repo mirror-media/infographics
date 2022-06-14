@@ -8,8 +8,22 @@ import Article from './views/article';
 import { useInView, InView } from 'react-intersection-observer';
 import Header from './components/header';
 import scrollIntoComic from './utils/scroll-into-comic';
-const BackgroundWrapper = styled.div`
+
+const IntroWrapper = styled.div`
+  display: ${({ shouldRender }) => (!shouldRender ? 'block' : 'none')};
+`;
+const BackgroundWrapperBlack = styled.div`
+  position: fixed;
+  z-index: -20;
   height: 100%;
+  width: 100%;
+  background: #f8f3e8;
+  overflow: auto;
+`;
+const BackgroundWrapper = styled.div`
+  opacity: ${({ shouldRender }) => (shouldRender ? 1 : 0)};
+  transition: opacity 2000ms;
+  /* height: 100%; */
   background: #f8f3e8;
   margin-top: 45px;
   @media (min-width: 861px) {
@@ -116,8 +130,6 @@ function App() {
     }
   }, []);
 
-  // useEffect(() => {}, []);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [shouldShowCatalog]);
@@ -144,38 +156,50 @@ function App() {
   ));
   return (
     <div className="App">
-      {!shouldShowCatalog && <Intro changeView={changeView} />}
-      {shouldShowCatalog && (
+      <IntroWrapper shouldRender={shouldShowCatalog}>
+        <Intro changeView={changeView} />
+      </IntroWrapper>
+
+      {/* {
         <React.Fragment>
           <Header
             shouldShowComicHeader={inView}
             onScrollComic={setShouldAutoScrollComic}
             onScrollCatalog={setShouldAutoScrollCatalog}
           />
-          <BackgroundWrapper>
-            <Catalog onScrollCatalog={setShouldAutoScrollCatalog} />
+        </React.Fragment>
+      } */}
+      <BackgroundWrapperBlack>
+        <Header
+          shouldRender={shouldShowCatalog}
+          shouldShowComicTitle={inView}
+          onScrollComic={setShouldAutoScrollComic}
+          onScrollCatalog={setShouldAutoScrollCatalog}
+        />
 
+        <BackgroundWrapper shouldRender={shouldShowCatalog}>
+          <Catalog onScrollCatalog={setShouldAutoScrollCatalog} />
+
+          <InView
+            className="breakpoint"
+            as="div"
+            onChange={(inView) => onBreakpointCatalog(inView)}
+          ></InView>
+          <div ref={ref}>
+            {comicJsx[0]}
             <InView
               className="breakpoint"
               as="div"
-              onChange={(inView) => onBreakpointCatalog(inView)}
+              onChange={(inView) => onBreakpointComic(inView)}
             ></InView>
-            <div ref={ref}>
-              {comicJsx[0]}
-              <InView
-                className="breakpoint"
-                as="div"
-                onChange={(inView) => onBreakpointComic(inView)}
-              ></InView>
-              {comicJsx[1]}
-            </div>
-            <Article />
-            {/* <div className="test">
+            {comicJsx[1]}
+          </div>
+          <Article />
+          {/* <div className="test">
               {`ToA ${shouldAutoScrollCatalog}`} {`ToB${shouldAutoScrollComic}`}
             </div> */}
-          </BackgroundWrapper>
-        </React.Fragment>
-      )}
+        </BackgroundWrapper>
+      </BackgroundWrapperBlack>
     </div>
   );
 }
