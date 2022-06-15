@@ -23,20 +23,19 @@ const CARD_CONTENT = [
     ],
   },
   {
-    id: 2,
-    imageSrc: 'title/spectre.png',
-    titleSrc: 'title/comic-title-spectre.png',
-    titleGraySrc: 'title/comic-title-spectre-gray.png',
+    id: 'seaghost',
+    imageSrc: 'title/seaghost.jpg',
+    titleSrc: 'title/comic-title-seaghost.png',
+    titleGraySrc: 'title/comic-title-seaghost-gray.png',
     text: [
       '革龜有「吃水母機器」的稱號，為了繁衍，牠們追隨洋流，卻被藍海裡的幽靈捕捉，步上死亡路途。',
-      '這頭死去革龜眼裡佈滿二〇二一年底日本小笠原群島海底火山爆發後所製造的浮石；流刺網深陷其四肢；尾與右後蹼幾乎被削斷；牠的頭部表皮也被漁網刮落剝離，露出粉色肌肉、鮮血直流。根據林群量秤，纏繞在革龜身上的網具重量超過一百公斤。',
     ],
   },
   {
-    id: 3,
-    imageSrc: 'title/eudemons.png',
-    titleSrc: 'title/comic-title-eudemons.png',
-    titleGraySrc: 'title/comic-title-eudemons-gray.png',
+    id: 'timetraveling',
+    imageSrc: 'title/timetraveling.png',
+    titleSrc: 'title/comic-title-timetraveling.png',
+    titleGraySrc: 'title/comic-title-timetraveling-gray.png',
     text: [
       '革龜之死不是單獨一種生物的運命，它是預示，亦是人類時間終止的預言。',
     ],
@@ -143,8 +142,10 @@ const ComicCard = styled.div`
       margin: 0 auto;
       display: block;
       width: 126px;
+      height: 60px;
       @media (min-width: 861px) {
         width: 350px;
+        height: 168px;
       }
     }
     &--mask {
