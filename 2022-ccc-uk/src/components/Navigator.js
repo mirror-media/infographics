@@ -33,7 +33,7 @@ const NavigateWrapper = styled.div`
   height: 100%;
   background: #000;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     width: 156px;
   }
 
@@ -55,7 +55,7 @@ const Navigate = styled.div`
     display: none;
   }
   
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     border-width: 1px;
     padding: 0 23px 0 12px;
 
@@ -74,7 +74,7 @@ const Progress = styled.div`
   background-color: #fff;
   border-radius: 3px;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     width: 1px;
     right: 0;
   }
@@ -86,7 +86,7 @@ const PageButton = styled.button`
   position: relative;
   width: 100%;
   margin: 20px 0;
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     margin: 9px 0;
   }
 
@@ -147,7 +147,7 @@ const TutorialClickHint = styled.div`
     white-space: pre-wrap;
   }
   
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     top: 21%;
     font-size: 12px;
     line-height: 18px;
@@ -173,7 +173,7 @@ const TutorialNavigateHint = styled.div`
   color: #70EEFF;
   text-align: center;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     top: 41px;
     right: 80px;
     width: 116px;
@@ -201,7 +201,7 @@ const TutorialArrowHint = styled.div`
   color: #70EEFF;
   text-align: center;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     top: calc((100% - 53px)/2);
     right: 34px;
     width: ${({ lang }) => lang === 'en' ? '170px' : '99px'};  
@@ -258,7 +258,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
               if (page.type !== 'M') {
                 const mmBaseUrl = "https://www.mirrormedia.mg/assets/images/"
                 let suffix = ''
-                if (width > 812) {
+                if (width > 930) {
                   suffix = '-desktop.jpg'
                 } else if (width > 568) {
                   suffix = '-tablet.jpg'
@@ -281,7 +281,7 @@ export default function Navigator({ pages, onClose, navigateTo, browsingIndex, s
       {showingTutorial && <TutorialMask onClick={tutorialFinish}>
         <TutorialClickHint>
           <div className="title">{t('2.tutorial.caption.title')}</div>
-          {width <= 812 ? <img className="arrow" src='images/touch.svg' alt="touch to show caption" /> : <img className="arrow" src='images/cursor.svg' alt="click to show caption" />}
+          {width <= 930 ? <img className="arrow" src='images/touch.svg' alt="touch to show caption" /> : <img className="arrow" src='images/cursor.svg' alt="click to show caption" />}
           <div className="hint">{t('2.tutorial.caption.hint')}</div>
         </TutorialClickHint>
         <TutorialNavigateHint lang={language}>

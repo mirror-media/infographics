@@ -18,7 +18,7 @@ const Logo = styled.a`
     width: 100%;
     height: 100%;
   }
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     width: 52px;
     height: 21.7px;
     top: 12px;
@@ -33,7 +33,7 @@ const NavButtons = styled.div`
   display: flex;
   z-index: 10;
   align-items: center;
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     top: 12px;
     right: 16px;
   }
@@ -45,7 +45,7 @@ const NavigateButton = styled.button`
   width: 32px;
   height: 28px;
   margin-right: 32.1px;
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     margin-right: 18px;
     width: 22.8px;
     height: 18px;  
@@ -59,7 +59,7 @@ const ShareButton = styled.div`
   height: 32px;
   margin-left: 30.9px;
   cursor: pointer;
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     background: url('images/share-mobile.svg') no-repeat;
     margin-left: 12px;
     width: 18px;
@@ -93,7 +93,7 @@ const ShareIcon = styled.button`
     visibility: hidden;
   `}
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     width: 32px;
     height: 32px;  
     transform: translate3d(-10px, 25px, 0);  
