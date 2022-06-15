@@ -1,6 +1,6 @@
 {
   "name": "topic-ukraine",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "i18next": "^21.8.4",
