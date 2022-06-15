@@ -78,11 +78,11 @@ export default function SideMenu(props) {
       </ul>
       <h2 className="title">文章</h2>
       <ul>
-        <li onClick={() => selectComic('spectre')}>
-          <img src="title/comic-title-spectre-white.png" />
+        <li onClick={() => selectComic('seaghost')}>
+          <img src="title/comic-title-seaghost-white.png" />
         </li>
-        <li onClick={() => selectComic('eudemons')}>
-          <img src="title/comic-title-eudemons-white.png" />
+        <li onClick={() => selectComic('timetraveling')}>
+          <img src="title/comic-title-timetraveling-white.png" />
         </li>
       </ul>
       <div className="MMIconAndShare">

@@ -76,14 +76,14 @@ const ComicHeader = (props) => {
       isActive: props.nightmareInView,
     },
     {
-      id: 'spectre',
-      normalTitle: 'title/comic-title-spectre.png',
-      hoverTitle: 'title/comic-title-spectre-hover.png',
+      id: 'seaghost',
+      normalTitle: 'title/comic-title-seaghost.png',
+      hoverTitle: 'title/comic-title-seaghost-hover.png',
     },
     {
-      id: 'eudemons',
-      normalTitle: 'title/comic-title-eudemons.png',
-      hoverTitle: 'title/comic-title-eudemons-hover.png',
+      id: 'timetraveling',
+      normalTitle: 'title/comic-title-timetraveling.png',
+      hoverTitle: 'title/comic-title-timetraveling-hover.png',
     },
   ];
   const scrollToTop = () => {

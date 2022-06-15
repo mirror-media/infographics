@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import scrollIntoAnchor from '../utils/scroll-into-anchor';
+
 const ARTICLE_CONTENT = [
   {
-    id: 'spectre',
-    imageSrc: 'title/spectre.png',
-    titleSrc: 'title/comic-title-spectre.png',
+    id: 'seaghost',
+    imageSrc: 'title/seaghost.png',
+    titleSrc: 'title/comic-title-seaghost.png',
   },
   {
-    id: 'eudemons',
-    imageSrc: 'title/eudemons.png',
-    titleSrc: 'title/comic-title-eudemons.png',
+    id: 'timetraveling',
+    imageSrc: 'title/timetraveling.png',
+    titleSrc: 'title/comic-title-timetraveling.png',
   },
 ];
 const ArticleWrapper = styled.div`
@@ -51,12 +53,7 @@ const ArticleLink = styled.a`
   }
 `;
 const articleJsx = ARTICLE_CONTENT.map((item) => (
-  <ArticleLink
-    key={item.id}
-    href="https://www.google.com/"
-    target="_blank"
-    rel="noreferrer noopenner"
-  >
+  <ArticleLink key={item.id} onClick={() => scrollIntoAnchor(item.id)}>
     <img className="image" src={item.imageSrc} />
     <img className="title" src={item.titleSrc} />
   </ArticleLink>
