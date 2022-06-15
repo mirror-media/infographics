@@ -198,8 +198,8 @@ i18n_en[2].tutorial = {
     title: 'Instructions',
     hint: 'To click anywhere on the screen will open the caption.\nClick again to close the caption.',
   },
-  navigate: 'Click the button and choose a thumbnail. It can swiftly change into the chosen photo. ',
-  arrow: 'To click left and right arrow buttons or to swipe the screen can play the next photo.',
+  navigate: 'Click the button and choose a thumbnail. It can skip to the chosen photo swiftly.',
+  arrow: 'To click left and right arrow buttons or to swipe the screen can display the next photo.',
 }
 
 
