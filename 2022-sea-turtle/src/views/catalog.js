@@ -24,7 +24,7 @@ const CARD_CONTENT = [
   },
   {
     id: 'seaghost',
-    imageSrc: 'title/seaghost.png',
+    imageSrc: 'title/seaghost.jpg',
     titleSrc: 'title/comic-title-seaghost.png',
     titleGraySrc: 'title/comic-title-seaghost-gray.png',
     text: [
@@ -142,8 +142,10 @@ const ComicCard = styled.div`
       margin: 0 auto;
       display: block;
       width: 126px;
+      height: 60px;
       @media (min-width: 861px) {
         width: 350px;
+        height: 168px;
       }
     }
     &--mask {
