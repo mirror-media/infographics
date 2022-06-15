@@ -5,11 +5,11 @@ import deferExecutor from '../utils/defer-executor';
 
 import SideMenu from './side-menu';
 const MenuIcon = styled.button`
-  width: 18px;
+  width: 53px;
   border: none;
   background-color: transparent;
-  margin: 20px 17px 0 auto;
-  padding: 0;
+  margin: 0 0 0 auto;
+  padding: 20px 17px;
   transform: ${(props) => (props.show ? `rotate(90deg)` : '')};
   transition: transform 0.15s linear;
   @media (min-width: 861px) {

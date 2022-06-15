@@ -16,7 +16,7 @@ const HeaderWrapper = styled.header`
   transform: translate(-50%, 0);
   display: flex;
   background: #f8f3e8;
-  height: 45px;
+  height: 61px;
   justify-content: flex-start;
   width: 100vw;
   @media (min-width: 861px) {
