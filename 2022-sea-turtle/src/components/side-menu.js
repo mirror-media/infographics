@@ -86,7 +86,7 @@ export default function SideMenu(props) {
         </li>
       </ul>
       <div className="MMIconAndShare">
-        <MirrorMediaIcon height="17.59px" width="42px" color="white" />
+        <MirrorMediaIcon height="26px" width="62px" color="white" />
         <Share
           expandShareDirection="downToTop"
           buttonColor="white"

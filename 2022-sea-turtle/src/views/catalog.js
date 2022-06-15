@@ -46,7 +46,7 @@ const CatalogWrapper = styled.div`
   padding: 0 0 1px;
 `;
 const CatalogTitle = styled.div`
-  margin: 45px 0 20px 0;
+  margin: 61px 0 20px 0;
   img {
     width: 100%;
     max-width: 582px;
