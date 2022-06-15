@@ -42,6 +42,7 @@ const NavButtons = styled.div`
 
 const NavigateButton = styled.button`
   background: url('images/navigate.svg') no-repeat;
+  background-size: contain;
   width: 32px;
   height: 28px;
   margin-right: 32.1px;

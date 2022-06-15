@@ -71,6 +71,7 @@ const Switch = styled.label`
   }
 
   input {
+    visibility: hidden;
     width: 0;
     height: 0;
     margin: 0;

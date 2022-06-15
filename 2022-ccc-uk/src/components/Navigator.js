@@ -110,9 +110,16 @@ const Close = styled.img`
   position: absolute;
   width: 20px;
   height: 20px;
-  top: 393px;
+  margin: auto 0;
+  top: 0;
+  bottom: 0;
   right: 8px;
   cursor: pointer;
+
+  @media (max-width: 930px) {
+    width: 12px;
+    height: 12px;  
+  }
 `
 
 const TutorialMask = styled.div`
