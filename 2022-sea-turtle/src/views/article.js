@@ -5,7 +5,7 @@ import scrollIntoAnchor from '../utils/scroll-into-anchor';
 const ARTICLE_CONTENT = [
   {
     id: 'seaghost',
-    imageSrc: 'title/seaghost.png',
+    imageSrc: 'title/seaghost.jpg',
     titleSrc: 'title/comic-title-seaghost.png',
   },
   {
