@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   height: 32px;
   position: relative;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     width: 60px;
     height: 20px;  
   }
@@ -20,7 +20,7 @@ const Border = styled.div`
   border: 1px solid #fff;
   border-radius: 12px;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     border-radius: 8px;
   }
 `
@@ -71,6 +71,7 @@ const Switch = styled.label`
   }
 
   input {
+    visibility: hidden;
     width: 0;
     height: 0;
     margin: 0;
@@ -87,7 +88,7 @@ const Switch = styled.label`
     left: 0;
   }
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     font-size: 12px;
 
     >label {

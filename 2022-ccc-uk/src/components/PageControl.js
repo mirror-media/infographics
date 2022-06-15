@@ -29,7 +29,7 @@ const Left = styled.button`
       stroke: #fff;
     }
   }
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     padding-left: 8px;
     width: 40px;
   }
@@ -53,7 +53,7 @@ const Right = styled.button`
       stroke: #fff;
     }
   }
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     padding-right: 8px;
     width: 40px;
   }
@@ -76,7 +76,7 @@ const Bottom = styled.button`
       stroke: #fff;
     }
   }
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     height: 53px;
     padding-bottom: unset;
   }
@@ -96,12 +96,12 @@ export default function PageControl({ page, pageInfo: { isFirst, isLast }, goLas
 
   let Arrows
   if (isFirst) {
-    Arrows = <Bottom onClick={onNext}>{width <= 812 ? MobileLeftArrow : LeftArrow}</Bottom>
+    Arrows = <Bottom onClick={onNext}>{width <= 930 ? MobileLeftArrow : LeftArrow}</Bottom>
   } else if (isLast) {
     Arrows = <div></div>
   } else {
-    Arrows = (<><Left onClick={onLast}>{width <= 812 ? MobileLeftArrow : LeftArrow}</Left>
-      <Right onClick={onNext}>{width <= 812 ? MobileLeftArrow : LeftArrow}</Right></>)
+    Arrows = (<><Left onClick={onLast}>{width <= 930 ? MobileLeftArrow : LeftArrow}</Left>
+      <Right onClick={onNext}>{width <= 930 ? MobileLeftArrow : LeftArrow}</Right></>)
   }
 
   return <>{Arrows}</>

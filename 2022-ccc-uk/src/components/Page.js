@@ -43,7 +43,7 @@ const Video = styled.video`
   height: 50%;
   max-width: 52%;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     left: 0;
     top: 0;
     bottom: 0;
@@ -64,24 +64,26 @@ const Image = styled.img`
   position: absolute;
   top: 0;
   left: 7.5%;
-  bottom: 30px;
+  bottom: 0;
   margin: auto;
-  height: 50%;
-  max-width: 52%;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     left: 0;
     top: 0;
     bottom: 0;
-    height: 71%;
-    max-width: 58%;
+    width: 58%;
   }
   @media (max-width: 568px) {
     top: 0;
     left: 0;
     bottom: 0;
-    max-width: 54.9%;
-    height: 55.3%;
+    width: 54.9%;
+  }
+  @media (max-height: 300px) {
+    @media (max-width: 930px) and (min-width: 569px) {
+      height: 100%;
+      width: unset;
+    }
   }
 `
 
@@ -105,7 +107,7 @@ export default function Page({ fakeLandscape, page, pageInfo, browsingIndex, nav
   if (type !== 'M') {
     const mmBaseUrl = "https://www.mirrormedia.mg/assets/images/"
     let suffix = ''
-    if (width > 812) {
+    if (width > 930) {
       suffix = '-desktop.jpg'
     } else if (width > 568) {
       suffix = '-tablet.jpg'
@@ -120,7 +122,7 @@ export default function Page({ fakeLandscape, page, pageInfo, browsingIndex, nav
     case 'M':
       window.id = id;
       const src = id === 1 ? 'images/map1.m4v' : 'images/map2.m4v'
-      Media = width > 812 ? (
+      Media = width > 930 ? (
         < Video ref={videoRef} className='video' src={src} muted />
       ) : (
         <Image src={photo} />

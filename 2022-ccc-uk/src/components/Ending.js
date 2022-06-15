@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     font-weight: 900;
   }
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     font-size: 12px;
     line-height: 21.6px;
   }
@@ -23,7 +23,7 @@ const ArticleWrapper = styled.div`
   margin: 0 auto;
   width: 640px;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     padding: 60px 166px 250px 166px;
     width: 100%;
   }
@@ -41,7 +41,7 @@ const Credit = styled.div`
   text-align: center;
   white-space: pre-wrap;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     width: unset;
     left: 166px;
     right: 166px;
@@ -58,7 +58,7 @@ const ProfileImageWrapper = styled.div`
   margin: 36px auto;  
   width: 400px;
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     margin: 40px auto;
   }
 `
@@ -117,7 +117,7 @@ const Header = styled.div`
     line-height: 180%;
     margin-bottom: 19.2px;
 
-    @media (max-width: 812px) {
+    @media (max-width: 930px) {
       font-size: 20px;
       line-height: 36px;
     }

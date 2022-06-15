@@ -17,7 +17,7 @@ const Wrapper = styled.div`
       padding: 40px 16px 56px 32px;
       background: rgba(61,61,61,0.7);
 
-      @media (max-width: 812px) {
+      @media (max-width: 930px) {
         top: 10.6%;
         right: 3.9%;
         bottom: 10.6%;
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
         border: 1px solid;
         transform: scale(0.5);
       }    
-      @media (max-width: 812px) {
+      @media (max-width: 930px) {
         right: 0;
         bottom: 0;
         width: 216px;
@@ -95,7 +95,7 @@ const ScrollWrapper = styled.div`
     margin-right: 6px;
   }
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     padding-right: ${({ enlarge }) => (enlarge ? '14px' : '10px')};
   }
 `
@@ -114,7 +114,7 @@ const Text = styled.p`
     text-align center;
   `)}
 
-  @media (max-width: 812px) {
+  @media (max-width: 930px) {
     font-size: 12px;
     line-height: 18px;
   }
