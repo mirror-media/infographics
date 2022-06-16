@@ -76,7 +76,7 @@ const COMIC_CONTENT = [
       { type: 'image', imageSrc: 'comic/holic/05_V2.jpg' },
       { type: 'image', imageSrc: 'comic/holic/06.jpg' },
       { type: 'image', imageSrc: 'comic/holic/07_V2.jpg' },
-      { type: 'image', imageSrc: 'comic/holic/08_V2.jpg' },
+      { type: 'image', imageSrc: 'comic/holic/08_V3.jpg' },
       { type: 'image', imageSrc: 'comic/holic/09_V2.jpg' },
       { type: 'image', imageSrc: 'comic/holic/10_V2.jpg' },
     ],
