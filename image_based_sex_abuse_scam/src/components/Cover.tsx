@@ -52,8 +52,6 @@ function Cover() {
     let x = e.clientX
     let y = e.clientY
 
-    console.log(x, y)
-
     if (x && y) {
       setCursorX(`${x}px`)
       setCursorY(`${y}px`)
