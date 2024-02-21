@@ -545,6 +545,9 @@ function Article() {
           <p>
             這一次，我相信她會遇到更多值得信任的大人。
           </p>
+          <p>
+            發布時間 2022.07.29 05:58 臺北時間
+          </p>
         </div>
       </div>
     </StyledArticle>
