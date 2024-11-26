@@ -33,7 +33,7 @@
     "postcss": "^7.0.27",
     "postcss-load-config": "^2.1.0",
     "stylus": "^0.54.7",
-    "svelte": "^3.20.1",
+    "svelte": "^3.49.0",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^3.6.0",
     "url-loader": "^4.0.0",
